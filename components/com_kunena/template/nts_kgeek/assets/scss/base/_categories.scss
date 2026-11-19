@@ -1,0 +1,342 @@
+.ksection {
+  background: var(--kbase-1);
+  margin-bottom: 1.5rem;
+
+  .ksection-header {
+    background: var(--ksec-header-bg);
+    gap: .5rem;
+    align-items: flex-start;
+    color: var(--ksec-header-text);
+    margin-bottom: 0;
+    padding: .875rem 1rem;
+    position: relative;
+
+    h2 {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      font-size: var(--kfont-size-lg);
+      font-weight: 600;
+      margin: 0;
+      position: relative;
+    }
+
+    .ksection-count {
+      background: rgba(0,0,0,0.1);
+      border-radius: 0.25rem;
+      display: inline-block;
+      padding: 0.25rem .5rem;
+      font-size: 12px;      
+      font-weight: 400;
+    }
+
+    a {
+      color: var(--ksec-header-text);
+    }
+
+    .ksec-desc {
+      font-size: var(--kfont-size-sm);
+      opacity: .85;
+    }
+
+    .ksection-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      right: 1rem;
+      top: 0;
+      bottom: 0;
+      width: 46px;
+
+      .kbtn, button {
+        background: rgba(0,0,0,0.1);
+        box-shadow: none;
+        border: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        height: 36px;
+        width: 36px;
+
+        svg {
+          fill: #fff;
+        }
+
+        i {
+          color: #fff;
+        }
+      }
+    }
+  }
+
+  .ksection-body {
+    border: 1px solid var(--kborder-color);
+    border-right: 0;
+    border-top: 0;
+    border-bottom: 0;
+
+    .kcat-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+
+      .category {
+        border-bottom: 1px solid var(--kborder-color);
+        border-right: 1px solid var(--kborder-color);
+        padding-top: 11rem;
+        position: relative;
+
+        &::after {
+          background: linear-gradient(to top, rgba(0,0,0,0.05) 0%, rgba(255, 255, 255, 1) 100%);
+          content: "";
+          position: absolute;
+          left: 0;
+          top: 0;
+          right: 0;
+          bottom: 0;
+        }
+
+        .kcol-icon,
+        .kcol-stats,
+        .kcol-latest-post {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+// Category list
+// -------------
+.krow {
+  .kcol {
+  }
+
+  div.kcat-thumb {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 32px 0 0;
+    overflow: hidden;
+    z-index: 20;
+
+    img {
+      max-width: 60%;
+    }
+  }
+
+  &.category-stickymsg {
+    background: #fffbeb;
+
+    .kcol-icon {
+      a {
+        background: #fb923c;
+        color: #fff;
+
+        svg {
+          fill: #fff;
+        }
+      }
+    }
+  }
+
+  // Icon column
+  .kcol-icon {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+
+    @media (min-width: $screen-md) {
+      display: flex;
+    }
+
+    a,
+    .kicon-wrap {
+      background: var(--kicon-bg);
+      border-radius: 4px;
+      color: var(--kicon-color);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      // padding: .5rem;
+      transition: var(--ktrans-base);
+      height: 42px;
+      width: 42px;
+
+      &:hover, &:focus, &:active {
+        color: var(--kicon-hover-color);
+      }
+
+      svg {
+        fill: var(--icon-color);
+        width: 28px;
+        height: 28px;
+      }
+
+      i,
+      .icon,
+      .icon-big {
+        margin: 0;
+        font-size: 20px;
+      }
+    }
+
+    .kicon-folder {
+      background: url(../../../../../media/kunena/core/images/icons/folder_nonew.png) no-repeat center center;
+
+      &.knewchar {
+        background: url(../../../../../media/kunena/core/images/icons/folder.png) no-repeat center center;
+      }
+    }
+  }
+
+  // Title column
+  .kcol-title {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    z-index: 40;
+
+    @media (min-width: $screen-md) {
+    }
+
+    h3 {
+      font-size: var(--kfont-size-lg);
+      font-weight: 600;
+      margin: 0 0 .25rem;
+      
+      a {
+        color: var(--ktext);
+        transition: var(--ktrans-base);
+
+        &:hover, &:focus, &:active {
+          color: var(--klink-hover);
+        }
+      }
+    }
+
+    .kcat-desc {
+      color: var(--ktext-light);
+    }
+
+    .ksub-cat-list {
+      margin-top: .875rem;
+
+      ul {        
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        list-style: none;
+        margin: 0;
+        padding: 0; 
+
+        li {
+          border-radius: 0.25rem;
+          display: flex;
+          align-items: center;
+          padding: 0;
+          gap: .25rem;
+
+          a:first-child {
+            display: none;
+          }
+
+          a {
+            display: flex;
+            align-items: center;
+          }
+          
+          small {
+            display: none !important;
+          }
+
+          i {
+            font-size: 12px;
+          }
+        }
+      }
+
+      .kicon-folder-sm {
+        background: url(../../../../../media/kunena/core/images/icons/folder_nonew_sm.png) no-repeat center center;
+      }
+    }
+  }
+
+  // Stastic column
+  .kcol-stats {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+
+    @media (min-width: $screen-lg) {
+      display: flex;
+    }
+
+    .kstats-value {
+      font-size: 1.125rem;
+      font-weight: 600;
+    }
+
+    .kstats-label {
+      color: var(--ktext-light);
+      font-size: var(--kfont-size-sm);
+    }
+  }
+
+  // Latest post
+  .kcol-latest-post {
+    display: none;
+    gap: .875rem;
+    align-items: center;
+    width: 360px;
+
+    @media (min-width: $screen-lg) {
+      display: flex;
+    }
+
+    .kcat-avatar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .kwho-user {
+        border-radius: 4px;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      svg {
+        height: 36px;
+        width: 36px;
+      }
+    }
+
+    .klast-post-meta {
+      color: var(--ktext-light);
+      font-size: var(--kfont-size-sm);
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+    }
+
+    .kcat-last {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      flex: 1;
+    }
+  }
+}

@@ -1,0 +1,29 @@
+#kunena.layout {
+  --kprimary:   #0284c7;
+  --kprimary-rgb: 120, 113, 108;
+  --ksecondary: #d1d5db;
+  --ksecondary-rgb: 209, 213, 219;
+  --kaccent:    #BE9AC7;
+  --kaccent-rgb: 190, 154, 199;
+
+  /* Links */
+  --klink: var(--kprimary);
+  --klink-hover: var(--kprimary);
+  --klink-active: var(--kprimary);
+
+  /* Menu */
+  --kmenu-bg: #737373;
+  --kmenu-color: #ffffff;
+  --kmenu-hover-bg: #656565;
+  --kmenu-hover-color: #fff;
+  --kmenu-active-bg: #0284c7;
+  --kmenu-active-color: #fff;
+
+  --kborder-color: #BFC3C6;
+
+  /* Section heading */
+  --ksec-header-bg: #0284c7;
+  --ksec-header-text: #fff;
+
+  --kicon-hover-color: #0284c7;
+}

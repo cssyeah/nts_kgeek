@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.4" type="template" client="site" method="upgrade">
+    <name>bee_dawn</name>
+    <creationDate>Jul 17rd, 2026</creationDate>
+    <author>Bee Theme Pro</author>
+    <authorEmail>beethemepro@gmail.com</authorEmail>
+    <authorUrl>www.beethemepro.com</authorUrl>
+    <copyright>Copyright (C) 2009 - 2026 Bee Framework. All rights reserved.</copyright>
+    <license></license>
+    <version>1.0.0</version>
+    <bee>1</bee>
+    <inheritable>1</inheritable>
+    <description>
+        <![CDATA[
+               <div id="wrap1">
+               <h1>Bee Cons</h1>
+               <p>Bee Cons is not just a template; it's the blank canvas upon which you paint your digital masterpiece. Crafted to be versatile and user-friendly, it's your starting point for web projects limited only by your imagination. With its clean design and robust features, Bee Blank offers you the freedom to create unique websites that leave a lasting impression. Get ready to bring your vision to life, effortlessly and brilliantly, with Bee Blank.</p>
+               
+               <p class="actions-wrap"><a class="btn btn-success" href="#" target="_blank">Try the live demo</a><a class="btn btn-secondary" href="#" target="_blank">Documentation</a></p>
+               <p><small class="bt-version-check" style="display:none;">Checking new version...</small></p>
+               
+               </div>
+               
+               <span class='tooltip-content'>Joomla! template</span>
+
+               <style type="text/css" media="all">
+               <!--
+               #wrap1 {padding:0px 0px 4px 0px; font-weight: 400; text-align: justify; color: #4d4d4d; line-height: 24px; max-width: 680px; }
+               #wrap1 p { padding: 0; }
+               #wrap1 h1 {clear:both; font-size: 32px;margin: 0 0 8px; padding: 0;color:#333;font-weight: 600;}
+               #wrap1 h4 { border: none;  font-weight: 300; margin: 0 20px 40px; font-size: 20px; line-height: 32px;color: #333; text-align: left }
+               #wrap1 sup { font-style: italic; font-size: }
+               #wrap1 .btn { margin-bottom:50px}
+               
+               .actions-wrap {display: flex; align-items: center; gap: 8px; margin-top: 24px; }
+
+               .actions-wrap a { display: flex; gap: 8px;}
+               span.tooltip-content { display: none; }
+               .tip-text span.readonly { display: none; }
+               .tip-text span.tooltip-content { display: block; }
+               .tip-text #wrap1 { display: none; }
+               -->
+
+               .control-group.field-spacer .control-label { color: var(--template-link-color); padding: 0; width: 100%; }
+               .control-group.field-spacer .control-label .spacer { display: flex; align-items: center; gap: 6px; font-size: 10px; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; }
+               .control-group.field-spacer .control-label .before { background: #f1f5f9; width: 234px; height: 6px;}
+               .control-group.field-spacer .control-label .after { background: #f1f5f9; flex: 1; height: 6px; }
+               .control-group.field-spacer .controls { display: none; }
+</style>
+          ]]>
+    </description>
+    <media destination="templates/site/bt_cons" folder="media">
+        <file>images/template_preview.png</file>
+        <file>images/template_thumbnail.png</file>
+    </media>
+    <files>
+        <folder>html</folder>
+        <folder>layouts</folder>
+        <folder>media</folder>
+        <folder>form</folder>
+        <folder>language</folder>
+        <filename>component.php</filename>
+        <filename>error.php</filename>
+        <filename>favicon.ico</filename>
+        <filename>index.html</filename>
+        <filename>index.php</filename>
+        <filename>offline.php</filename>
+        <filename>templateDetails.xml</filename>
+    </files>
+    <positions>
+        <!-- Template specific Module Positions -->
+        <position>breadcrumb</position>
+        <position>copyright</position>
+        <position>footer_nav_1</position>
+        <position>footer_nav_2</position>
+        <position>footer_nav_3</position>
+        <position>footer_nav_4</position>
+        <position>footer_nav_5</position>
+        <position>footer_nav_6</position>
+        <position>header</position>
+        <position>mainbody</position>
+        <position>mainbody_top</position>
+        <position>mainbody_bottom</position>
+        <position>mainmenu</position>
+        <position>megamenu</position>
+        <position>offcanvas</position>
+        <position>topbar</position>
+        <position>search</position>
+        <position>sidebar-l</position>
+        <position>sidebar-r</position>
+        <position>masthead</position>
+    </positions>
+    <config>
+        <fields name="params">
+            <fieldset name="basic-settings" label="TPL_BEE_GENERAL">
+                <field type="spacer" name="myspacer" class="bt-spacer" label="TPL_BEE_LOGO_SETTINGS" />
+                <field type="list" name="logo_type" label="TPL_BEE_LOGO_TYPE" description="TPL_BEE_LOGO_TYPE_DESC">
+                    <option value="text">Text</option>
+                    <option value="image">Image</option>
+                    <option value="none">None</option>
+                </field>
+                <field name="logo_image" type="media" default="" label="TPL_BEE_LOGO_IMAGE" description="TPL_BEE_LOGO_IMAGE_DESC" showon="logo_type:image" />
+                <field name="logo_text" type="text" default="" label="TPL_BEE_LOGO_TEXT" description="TPL_BEE_LOGO_TEXT_DESC" showon="logo_type:text" />
+                <field name="logo_slogan" type="text" default="" label="TPL_BEE_LOGO_SLOGAN" description="TPL_BEE_LOGO_SLOGAN_DESC" showon="logo_type:text" />
+                <field name="favicon_image" type="media" default="" label="TPL_BEE_FAVICON_IMAGE" description="" />
+                <field name="touch_image" type="media" default="" label="TPL_BEE_TOUCH_IMAGE" description="" />
+
+                <field type="spacer" name="other-settings" class="bt-spacer" label="Other settings" />
+                <field name="show_back_to_top" type="radio" default="1" label="TPL_BEE_SHOW_BACK_TO_TOP" description="" layout="joomla.form.field.radio.switcher">
+                    <option value="0">Disable</option>
+                    <option value="1">Enable</option>
+                </field>
+                <field name="menu_fixed" type="radio" default="0" label="TPL_BEE_HEADER_STICKY" description="TPL_BEE_HEADER_STICKY_DESC" layout="joomla.form.field.radio.switcher">
+                    <option value="0">JOFF</option>
+                    <option value="1">JON</option>
+                </field>
+            </fieldset>
+            <fieldset name="template_color" label="TPL_BEE_COLORS" addfieldprefix="Joomla\Plugin\System\Bee\Field">
+                <field name="color_preset" type="BeeColorPreset" default_preset="light">
+                    <!-- Default page / element colors (role => palette token), see BeeColorPresetHelper::ROLE_GROUPS -->
+                    <role name="--bee-body-bg">--bee-base-100</role>
+                    <role name="--bee-body-color">--bee-base-content</role>
+                    <role name="--bee-heading-color">--bee-color-3</role>
+                    <role name="--bee-muted-color">--bee-color-4</role>
+                    <role name="--bee-border-color">--bee-base-300</role>
+                    <role name="--bee-btn-bg">--bee-primary</role>
+                    <role name="--bee-btn-text">--bee-on-primary</role>
+                    <role name="--bee-link-color">--bee-color-1</role>
+                    <role name="--bee-link-hover-color">--bee-color-2</role>
+                    <role name="--bee-link-active-color">--bee-color-2</role>
+                    <!-- Template variables derived from the palette (the footer is styled with them) -->
+                    <alias name="--bee-footer-bg">--bee-neutral</alias>
+                    <alias name="--bee-footer-color">--bee-on-neutral</alias>
+                    <alias name="--bee-footer-link-color">--bee-color-5</alias>
+                    <alias name="--bee-footer-link-hover-color">--bee-color-6</alias>
+                    <!-- Standard Bee color tokens, see BeeColorPresetHelper::TOKENS -->
+                    <preset name="light">
+                        <variable name="--bee-primary">#d05d5d</variable>
+                        <variable name="--bee-on-primary">#ffffff</variable>
+                        <variable name="--bee-secondary">#4f84b8</variable>
+                        <variable name="--bee-on-secondary">#ffffff</variable>
+                        <variable name="--bee-accent">#f9a813</variable>
+                        <variable name="--bee-on-accent">#212529</variable>
+                        <variable name="--bee-neutral">#1d1d1d</variable>
+                        <variable name="--bee-on-neutral">#ffffff</variable>
+                        <variable name="--bee-base-100">#ffffff</variable>
+                        <variable name="--bee-base-200">#f1f5f9</variable>
+                        <variable name="--bee-base-300">#dee2e6</variable>
+                        <variable name="--bee-base-content">#212529</variable>
+                        <variable name="--bee-info">#0dcaf0</variable>
+                        <variable name="--bee-on-info">#000000</variable>
+                        <variable name="--bee-success">#198754</variable>
+                        <variable name="--bee-on-success">#ffffff</variable>
+                        <variable name="--bee-warning">#ffc107</variable>
+                        <variable name="--bee-on-warning">#000000</variable>
+                        <variable name="--bee-danger">#dc3545</variable>
+                        <variable name="--bee-on-danger">#ffffff</variable>
+                        <!-- Custom: link, link hover, heading, muted, footer link, footer link hover -->
+                        <variable name="--bee-color-1">#456496</variable>
+                        <variable name="--bee-color-2">#3b5580</variable>
+                        <variable name="--bee-color-3">#212529</variable>
+                        <variable name="--bee-color-4">#6c757d</variable>
+                        <variable name="--bee-color-5">#ffffff</variable>
+                        <variable name="--bee-color-6">#ffd206</variable>
+                    </preset>
+                    <preset name="dark">
+                        <variable name="--bee-primary">#f9a813</variable>
+                        <variable name="--bee-on-primary">#111111</variable>
+                        <variable name="--bee-secondary">#4f84b8</variable>
+                        <variable name="--bee-on-secondary">#ffffff</variable>
+                        <variable name="--bee-accent">#d05d5d</variable>
+                        <variable name="--bee-on-accent">#ffffff</variable>
+                        <variable name="--bee-neutral">#000000</variable>
+                        <variable name="--bee-on-neutral">#a5a5a5</variable>
+                        <variable name="--bee-base-100">#fff</variable>
+                        <variable name="--bee-base-200">#F8F8F8</variable>
+                        <variable name="--bee-base-300">#eee</variable>
+                        <variable name="--bee-base-content">#a5a5a5</variable>
+                        <variable name="--bee-info">#0dcaf0</variable>
+                        <variable name="--bee-on-info">#000000</variable>
+                        <variable name="--bee-success">#198754</variable>
+                        <variable name="--bee-on-success">#ffffff</variable>
+                        <variable name="--bee-warning">#ffc107</variable>
+                        <variable name="--bee-on-warning">#000000</variable>
+                        <variable name="--bee-danger">#dc3545</variable>
+                        <variable name="--bee-on-danger">#ffffff</variable>
+                        <variable name="--bee-color-1">#fff</variable>
+                        <variable name="--bee-color-2">#fff</variable>
+                        <variable name="--bee-color-3">#fff</variable>
+                        <variable name="--bee-color-4">#fff</variable>
+                        <variable name="--bee-color-5">#fff</variable>
+                        <variable name="--bee-color-6">#fff</variable>
+                    </preset>
+                </field>
+            </fieldset>
+            <fieldset name="typography" label="TPL_BEE_TYPOGRAPHY" addfieldprefix="Joomla\Plugin\System\Bee\Field">
+                <field name="typography" type="BeeTypography" />
+            </fieldset>
+            <fieldset name="layout" label="TPL_BEE_LAYOUT" addfieldprefix="Joomla\Plugin\System\Bee\Field">
+                <!-- Each group is wrapped in a div (BeeWrapper fields), so it can be styled on its own -->
+                <field name="layout_spacing_start" type="BeeWrapper" class="layout-spacing" />
+                <field type="spacer" name="spacing_settings" class="bt-spacer" label="TPL_BEE_SPACING" />
+                <!-- See BeeStyleHelper::SETTINGS, `selector` sets the elements a setting applies to -->
+                <field name="container_width" type="text" default="" hint="1320px" label="TPL_BEE_LAYOUT_CONTAINER_WIDTH" description="TPL_BEE_LAYOUT_CONTAINER_WIDTH_DESC" />
+                <field name="section_spacing" type="text" default="" hint="6rem" label="TPL_BEE_SECTION_SPACING" description="TPL_BEE_SECTION_SPACING_DESC" selector=".section" />
+                <field name="gutter_spacing" type="text" default="" hint="3rem" label="TPL_BEE_GUTTER_SPACING" description="TPL_BEE_GUTTER_SPACING_DESC" />
+                <field name="layout_spacing_end" type="BeeWrapper" end="true" />
+
+                <field name="layout_preview_start" type="BeeWrapper" class="layout-preview" />
+                <field type="spacer" name="layout_structure" class="bt-spacer" label="TPL_BEE_LAYOUT_STRUCTURE" />
+                <field name="template_layout" type="BeeLayout" default="" label="TPL_BEE_TEMPLATE_LAYOUT" description="" />
+                <field name="layout_sections" type="BeeSections" layout_field="template_layout" />
+                <field name="layout_preview_end" type="BeeWrapper" end="true" />
+
+                <field name="sub_layout_start" type="BeeWrapper" class="sub-layout" />
+                <field name="sublayout" type="BeeSublayout" default="" label="TPL_BEE_SUBLAYOUT_CONFIG" />
+                <field name="sub_layout_end" type="BeeWrapper" end="true" />
+            </fieldset>
+            <fieldset name="menu" label="TPL_BEE_NAVIGATION" addfieldprefix="Joomla\Plugin\System\Bee\Field">
+                <field name="offcanvas" type="radio" default="0" label="TPL_BEE_OFFCANVAS" description=""
+                    layout="joomla.form.field.radio.switcher">
+                    <option value="0">Disable</option>
+                    <option value="1">Enable</option>
+                </field>
+                <field name="menu_trigger" type="radio" default="hover" label="TPL_BEE_MENU_TRIGGER" description="TPL_BEE_MENU_TRIGGER_DESC"
+                    layout="joomla.form.field.radio.buttons">
+                    <option value="hover">TPL_BEE_MENU_TRIGGER_HOVER</option>
+                    <option value="click">TPL_BEE_MENU_TRIGGER_CLICK</option>
+                </field>
+                <field name="mobile_menu_breakpoint" label="TPL_BEE_MOBILE_MENU_BREAKPOINT" type="number" class="breakpoint-width" default="768" />
+                <field name="megamenu" type="BeeMegamenu" label="TPL_BEE_MEGAMENU" />
+                <field name="beeadminassets" type="BeeAdminassets" label="Bee Admin Assets" />
+            </fieldset>
+            <fieldset name="elements" label="TPL_BEE_ELEMENTS">
+                <!-- See BeeStyleHelper::SETTINGS -->
+                <field name="btn_radius" type="text" default="" hint="4px" label="TPL_BEE_BUTTON_RADIUS" description="TPL_BEE_BUTTON_RADIUS_DESC" />
+                <field name="btn_padding" type="text" default="" hint="16px 24px" label="TPL_BEE_BUTTON_PADDING" description="TPL_BEE_BUTTON_PADDING_DESC" />
+                <field name="global_radius" type="text" default="" hint="6px" label="TPL_BEE_GLOBAL_RADIUS" description="TPL_BEE_GLOBAL_RADIUS_DESC" />
+            </fieldset>
+            <fieldset name="global" label="TPL_BEE_ADVANCED_SETTINGS">
+                <field type="spacer" name="css_js_optimize" class="bt-spacer" label="TPL_BEE_CSS_JS_OPTIMIZE" />
+                <field name="optimize_js" type="radio" default="0" label="TPL_BEE_OPTIMIZE_JS" description="" layout="joomla.form.field.radio.switcher">
+                    <option value="0">Disable</option>
+                    <option value="1">Enable</option>
+                </field>
+                <field name="js_excluded" type="textarea" default="tinymce" rows="3" cols="30" label="TPL_BEE_EXCLUDED_JS_FILE" description="" showon="minify_js:1" />
+                <field name="optimize_css" type="radio" default="0" label="TPL_BEE_OPTIMIZE_CSS" description="" layout="joomla.form.field.radio.switcher">
+                    <option value="0">Disable</option>
+                    <option value="1">Enable</option>
+                </field>
+                <field name="css_excluded" type="textarea" default="tinymce" rows="3" cols="30" label="TPL_BEE_EXCLUDED_CSS_FILE" description="" showon="minify_css:1" />
+
+                <field type="spacer" name="custom_codee" class="bt-spacer" label="Custom code" />
+                <field name="custom_code_after_head" type="textarea" filter="raw" label="TPL_BEE_AFTER_HEAD" />
+                <field name="custom_code_before_head" type="textarea" filter="raw" label="TPL_BEE_BEFORE_HEAD" />
+                <field name="custom_code_after_body" type="textarea" filter="raw" label="TPL_BEE_AFTER_BODY" />
+                <field name="custom_code_before_body" type="textarea" filter="raw" label="TPL_BEE_BEFORE_BODY" />
+            </fieldset>
+            <fieldset name="custom_style" label="TPL_BEE_CUSTOM_STYLE" description="TPL_BEE_CUSTOM_STYLE_DESC">
+                <!-- Saved to media/css/custom.css, see BeeConfig::store() -->
+                <field name="custom_css" type="editor" editor="codemirror|none" syntax="css" buttons="false" height="500px" filter="raw" label="TPL_BEE_CUSTOM_CSS" parentclass="stack" />
+            </fieldset>
+        </fields>
+    </config>
+
+
+</extension>

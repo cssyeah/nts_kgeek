@@ -1,0 +1,1268 @@
+// Document tags (documentgrid override + mod_dms_documents override)
+// -------------------------
+.bee-item-tags {
+  display: flex;
+  gap: .25rem;
+  font-size: 10px;
+  font-weight: 500;
+
+  span {
+    border: 1px solid var(--bee-base-content);
+    border-radius: 3px;
+    padding: 0 4px;
+    text-transform: uppercase;
+
+    &.m,
+    &.module {
+      background: #7740FF;
+      border-color: #7740FF;
+      color: var(--bee-on-primary);
+      font-weight: 400;
+    }
+
+    &.p,
+    &.plugin {
+      background: var(--bee-info);
+      border-color: var(--bee-info);
+      color: var(--bee-on-info);
+      font-weight: 400;
+    }
+
+    &.j5 {
+      border-color: #0d6efd;
+      color: #0d6efd;
+    }
+
+    &.j6 {
+      border-color: #7AC143;
+      color: #7AC143;
+    }
+
+    &.free,
+    &.paid {
+      background-color: var(--bee-success);
+      border: 1px solid var(--bee-success);
+      color: var(--bee-on-success);
+      margin-left: auto;
+    }
+
+    &.paid {
+      background-color: var(--bee-warning);
+      border: 1px solid var(--bee-warning);
+      color: var(--bee-on-warning);
+    }
+  }
+}
+
+// Document listing
+// -------------------------
+.bee-docs-listing {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  @include media-breakpoint-up(md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include media-breakpoint-up(lg) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  // li = default layout, .bee-doc-item = owl-slider layout
+  li,
+  .bee-doc-item {
+    background: var(--bee-base-100);
+    border-radius: .75rem;
+    overflow: hidden;
+    padding: .5rem;
+    transition: all 0.25s ease-in-out;
+
+    &:hover {
+      box-shadow: 0 8px 8px rgba(0, 0, 0, .1);
+    }
+
+    img {
+      border-radius: .5rem;
+    }
+
+    .bee-doc-media {
+      background: rgba(var(--bee-base-200-rgb), 0.6);
+      border-radius: .75rem;
+      display: block;
+    }
+
+    // Tags stacked above the title, same as the documentgrid card
+    .bee-doc-title {
+      display: flex;
+      flex-direction: column;
+      gap: .75rem;
+      margin-bottom: .75rem;
+      padding: 1.25rem 1rem 0;
+    }
+
+    h4 {
+      font-size: 1.25rem;
+      margin: 0;
+      display: flex;
+      align-items: start;
+      gap: .25rem;
+      letter-spacing: -.5px;
+
+      @include media-breakpoint-up(xxl) {
+        font-size: 1.375rem;
+      }
+    }
+
+    sup {
+      border: 1px solid var(--bee-base-content);
+      border-radius: 3px;
+      display: inline-flex;
+      font-size: 9px;
+      line-height: 1;
+      text-transform: uppercase;
+      margin-top: 6px;
+      padding: 3px 4px 2px;
+    }
+
+    .bee-doc-desc {
+      color: rgba(var(--bee-base-content-rgb), .8);
+      margin: 0;
+      padding: 0 1rem 1rem;
+    }
+  }
+}
+
+// Document slider (mod_dms_documents owl-slider layout)
+// -------------------------
+.bee-above-footer {
+  background: var(--bee-base-200);
+}
+
+.bee-docs-listing.bee-docs-slider {
+  // Owl builds its own stage, the grid of .bee-docs-listing must not apply here
+  display: block;
+  padding: 4rem 0;
+
+  .owl-carousel {
+    &:hover {
+      .owl-nav {
+        display: flex;
+      }
+    }
+  }
+
+  .owl-stage-outer {
+    position: relative;
+  }
+
+  .owl-stage-outer {
+    // Room for the card hover shadow, which overflow: hidden would clip
+    margin: -.5rem 0 -1.5rem;
+    padding: .5rem 0 1.5rem;
+  }
+
+  // Equal height cards
+  .owl-stage {
+    display: flex;
+  }
+
+  .owl-item {
+    display: flex;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .bee-doc-item {
+    width: 100%;
+
+    .bee-doc-title {
+      margin: 0;
+      padding: 1rem 0 .5rem;
+
+      h4 {
+        font-size: 1.25rem;
+        justify-content: center;
+      }
+    }
+  }
+
+  .owl-nav {
+    justify-content: space-between;
+    gap: .75rem;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 1.5rem;
+    right: 1.5rem;
+    display: none;
+
+    &.disabled {
+      display: none;
+    }
+
+    button.owl-prev,
+    button.owl-next {
+      align-items: center;
+      background: var(--bee-base-100);
+      border: 1px solid var(--bee-border-color);
+      border-radius: 50%;
+      color: var(--bee-base-content);
+      display: inline-flex;
+      font-size: 1rem;
+      height: 3rem;
+      justify-content: center;
+      width: 3rem;
+      transition: background-color .3s ease, border-color .3s ease, color .3s ease, opacity .3s ease;
+
+      &:hover:not(.disabled),
+      &:focus-visible {
+        background: var(--bee-base-content);
+        border-color: var(--bee-base-content);
+        color: var(--bee-base-100);
+      }
+
+      &.disabled {
+        cursor: default;
+        opacity: .35;
+      }
+    }
+  }
+}
+
+.bee-view-all {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+
+  a {
+    color: var(--bee-base-content);
+    font-weight: 500;
+    font-size: 20px;
+    position: relative;
+    padding-bottom: .25rem;
+
+    &:hover, &:focus, &:active {
+      text-decoration: none;
+
+      &::after {
+        background-color: var(--bee-base-content);
+        opacity: 1;
+        right: 0;
+      }
+    }
+
+    &::before,
+    &::after {
+      background: var(--bee-base-300);
+      content: "";
+      display: block;
+      height: 2px;
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+
+    &::after {
+      opacity: 0;
+      transition: all 0.25s ease-in-out;
+      right: 80%;
+    }
+  }
+}
+
+// CATEGORIES
+// --------------------------------------
+#dms-categories {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+
+  .dms-box-heading {
+    background: transparent;
+    border-radius: 0;
+    border: 0;
+    padding: 0;
+  }
+
+  .dms-category-title {
+    border: 1px solid var(--bee-border-color);
+    border-radius: 25rem;
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    font-size: 1.125rem;
+    margin: 0 !important;
+    padding: .625rem 1.125rem !important;
+
+    a {
+      &:hover, &:focus, &:active {
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+// DOCUMENT LISTING
+// --------------------------------------
+.dms-documents-grid-items {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 2rem;
+  margin: 0 !important;
+
+  @include media-breakpoint-up(md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include media-breakpoint-up(lg) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  > div {
+    margin: 0;
+  }
+
+  .dms-document-item {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 1rem;
+    padding: .5rem;
+    transition: all 0.25s ease-in-out;
+    height: 100%;
+
+    &:hover {
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .dms-document-thumb-link {
+      background: rgba(var(--bee-base-200-rgb), 0.6);
+      display: block;
+      border-radius: .75rem;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .bee-item-content {
+      padding: .5rem 1rem;
+    }
+
+    .bee-item-title-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: .75rem;
+      margin-top: 1rem;
+      margin-bottom: .75rem;
+    }
+
+    .bee-item-title {
+      --bee-link-color: var(--bee-body-color);
+
+      font-size: 1.375rem;
+      font-weight: 700;
+      margin: 0 !important;
+    }
+
+    .bee-item-desc {
+      font-size: 1rem;
+      font-weight: 400;
+      opacity: .75;
+      margin-top: .5rem;
+
+      p {
+        margin: 0;
+      }
+    }
+  }
+}
+
+// DOCUMENT DETAIL
+// --------------------------------------
+.com_dms.view-document {
+  .bt-mainbody {
+    padding-top: 0;
+  }
+}
+
+// Masthead for document detail page
+.com_dms.view-document .bee-menu-masthead {
+  border: 0;
+  padding-bottom: 0;
+
+  .container {
+    align-items: center;
+    text-align: center;
+  }
+}
+
+#dms-document-page {
+  // Doc heading
+  .dms-box-heading {
+    background: transparent;
+    border: 0;
+    padding: 0;
+  }
+
+  .bee-doc-heading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .5rem;
+    margin-bottom: 2rem;
+
+    h1 {
+      font-size: 56px;
+      font-weight: 700;
+      margin: 0 !important;
+      letter-spacing: -2px;
+    }
+
+    p {
+      font-size: 22px;
+      margin: 0;
+    }
+  }
+
+  // Inline demo
+  .bee-inline-demo {
+    background: rgba(var(--bee-base-200-rgb), 0.5);
+    padding-top: 2rem;
+
+    @include media-breakpoint-up(md) {
+      padding-top: 4rem;
+    }
+
+    .bee-demo-browser {
+      background: #fff;
+      border: 1px solid var(--bee-base-content);
+      border-radius: 1rem 1rem 0 0;
+      border-bottom: 0;
+      overflow: hidden;
+      width: 100%;
+
+      .bee-browser-header {
+        background: var(--bee-base-content);
+        border-bottom: 1px solid rgba(0,0,0,0.2);
+        display: flex;
+        align-items: center;
+        height: 40px;
+        padding-left: 1rem;
+
+        .bee-browser-dot {
+          background: #f56565;
+          border-radius: 50%;
+          display: inline-flex;
+          height: 10px;
+          width: 10px;
+          position: relative;
+
+          &::before,
+          &::after {
+            background: #ecc94b;
+            content: "";
+            display: block;
+            height: 10px;
+            width: 10px;
+            border-radius: 50%;
+            position: absolute;
+            top: 0;
+            left: 16px;
+          }
+
+          &::after {
+            background: #48bb78;
+            left: 32px
+          }
+        }
+
+        .bee-browser-add {
+          background: rgba(255, 255, 255, 0.1);
+          border-radius: 12px;
+          display: inline-flex;
+          justify-content: center;
+          font-size: 12px;
+          color: #fff;
+          margin: 0 auto;
+          line-height: 1;
+          padding: .5rem 1rem;
+          min-width: 50%;
+        }
+      }
+
+      iframe {
+        min-height: 640px;
+        width: 100%;
+      }
+    }
+  }
+
+  // Document details
+  #dms-document-details {
+    border: 0;
+    padding: 0;
+  }
+
+  .dms-desc {
+    background: rgba(var(--bee-base-200-rgb), 0.5);
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  .bee-doc-info-wrapper {
+    display: flex;    
+    border-top: 1px solid var(--bee-border-color);
+    border-bottom: 1px solid var(--bee-border-color);
+    padding: 1rem 0;
+    margin: 0;
+
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem 3rem;
+
+      @include media-breakpoint-up(lg) {
+        gap: 1rem 3rem;
+      }
+    }
+
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      &.bee-doc-info {
+        border-bottom: 1px solid var(--bee-border-color);
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        padding-bottom: 1rem;
+        width: 100%;
+
+        @include media-breakpoint-up(xs) {
+          border-bottom: 0 !important;
+          display: flex;
+          justify-content: start;
+          gap: 3rem;
+          padding-bottom: 0;
+          width: auto;
+        }
+
+        li {
+          gap: .75rem;
+        }
+      }
+
+      &.bee-doc-actions {
+        gap: .5rem;
+
+        @include media-breakpoint-up(lg) {
+          gap: 1rem;
+        }
+
+        .btn {
+          font-weight: 500;
+
+          @include media-breakpoint-down(md) {
+            font-size: .875rem;
+            padding: .5rem 1rem;
+
+            i {
+              display: none;
+            }
+          }
+        }
+
+        .btn-outline {
+          box-shadow: 0 0 0 1px var(--bee-border-color) inset;
+          transition: all 0.25s ease-in-out;
+
+          &:hover, &:focus, &:active {
+            background: var(--bee-secondary);
+            box-shadow: none;
+            color: var(--bee-on-secondary);
+          }
+        }
+      }
+
+      li {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+
+        .field-label {
+          display: inline-flex;
+          align-items: center;
+          gap: .25rem;
+          line-height: 1;
+          font-size: 13px;
+          font-weight: 500;
+          opacity: .6;
+        }
+      }
+
+      .bee-doc-compatible {
+        .field-value {
+          display: flex;
+          align-items: center;
+          gap: .375rem;
+
+          span {
+            // background: var(--bee-primary);
+            border: 1px solid var(--bee-border-color);
+            // color: var(--bee-on-primary);
+            border-radius: .25rem;
+            font-weight: 500;
+            display: inline-flex;
+            font-size: 10px;
+            padding: 2px .5rem;
+            text-transform: uppercase;
+
+            &.module {
+              background: var(--bee-primary);
+              border: 0;
+              color: var(--bee-on-primary);
+            }
+
+            &.j5,
+            &.joomla-5 {
+              border-color: #0d6efd;
+              color: #0d6efd;
+            }
+
+            &.j6,
+            &.joomla-6 {
+              border-color: var(--bee-success);
+              color: var(--bee-success);
+            }
+          }
+        }
+      }
+
+      .bee-doc-rating {
+        --dmsreviews-star: #f5a623;
+        --dmsreviews-star-empty: #d9d9d9;
+
+        .field-value {
+          display: flex;
+          align-items: center;
+          gap: .375rem;
+          font-weight: 600;
+        }
+
+        .dmsreviews-stars {
+          font-size: .875em;
+        }
+
+        .bee-doc-rating-count {
+          font-weight: 400;
+          opacity: .6;
+        }
+      }
+
+      .bee-doc-price {
+        .field-value {
+          color: var(--bee-success);
+          font-size: 20px;
+          font-weight: 700;
+        }
+      }
+    }
+  }
+
+  .bee-doc-info {
+
+  }
+
+  .bee-doc-tabs {
+    padding: 4rem 0;
+
+    // Pill tabs: a dark indicator slides behind the active tab (see document/default.php)
+    .joomla-tabs {
+      background: var(--bee-base-200, #f4f4f5);
+      border: 0;
+      border-radius: 50rem;
+      display: flex;
+      flex-wrap: nowrap;
+      gap: .25rem;
+      margin: 0 auto;
+      max-width: 100%;
+      overflow-x: auto;
+      padding: .25rem;
+      position: relative;
+      scrollbar-width: none;
+      width: fit-content;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      .bee-tabs-indicator {
+        background: #1c1c1e;
+        border-radius: 50rem;
+        left: 0;
+        pointer-events: none;
+        position: absolute;
+        top: 0;
+        transition: transform .35s cubic-bezier(.4, 0, .2, 1), width .35s cubic-bezier(.4, 0, .2, 1), height .35s cubic-bezier(.4, 0, .2, 1);
+        z-index: 0;
+      }
+
+      .nav-item {
+        flex-shrink: 0;
+        margin: 0;
+        padding: 0;
+
+        .nav-link {
+          background: transparent;
+          border: 0;
+          border-radius: 50rem;
+          color: var(--bee-base-content);
+          font-size: var(--bee-font-size);
+          font-weight: 500;
+          margin: 0;
+          padding: .5rem 1.25rem;
+          position: relative;
+          transition: color .35s ease, background-color .35s ease;
+          white-space: nowrap;
+          z-index: 1;
+
+          &:hover, &:focus, &:active {
+            color: var(--bee-link-hover-color);
+            text-decoration: none;
+          }
+
+          &.active {
+            background: #1c1c1e;
+            color: #fff;
+          }
+        }
+      }
+
+      // Once the indicator is in place it paints the active background instead
+      &.has-indicator .nav-item .nav-link.active {
+        background: transparent;
+      }
+    }
+
+    // Tab content
+    .tab-content {
+      padding-top: 4rem;
+    }
+  }
+
+  // Review tabs
+  #tab-reviews {
+    padding-right: 33.33%;
+    position: relative;
+
+    .dmsreviews__summary {
+      border: 1px solid var(--bee-border-color);
+      border-radius: .75rem;
+      display: flex;
+      margin-bottom: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+      padding: 1.5rem;
+      width: calc(33.33% - 2rem);
+
+      .dmsreviews__bars {
+        flex: 1;
+      }
+    }
+
+    .dmsreviews-item__header {
+      flex-direction: row-reverse;
+      justify-content: start;
+    }
+
+    .dmsreviews__notice {
+      background: rgba(var(--bee-base-200-rgb), .5);
+      border-radius: .5rem;
+      padding: .5rem 1rem;
+      font-size: 14px;
+    }
+  }
+
+  // Features
+  // ----------------
+  .bee-feature-list {
+    --fa-primary-color: #F5A623;
+    --fa-secondary-color: #FDEFD8;
+    --fa-secondary-opacity: 1;
+
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1rem;
+
+    @include media-breakpoint-up(xs) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    @include media-breakpoint-up(lg) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .bee-feature-item {
+      --fa-primary-color: var(--bee-success);
+      --fa-secondary-color: var(--bee-success);
+      --fa-secondary-opacity: .1;
+
+      border: 1px solid var(--bee-border-color);
+      border-radius: 1rem;
+      display: flex;
+      gap: 1rem;
+      padding: 1rem;
+      transition: all 0.25s ease-in-out;
+
+      &:hover {
+      }
+
+      i {
+        font-size: 1.5rem;
+
+        @include media-breakpoint-up(md) {
+          font-size: 36px;
+        }
+      }
+
+      h4 {
+        font-weight: 600;
+        font-size: 1.15rem;
+        margin: 0;
+
+        @include media-breakpoint-up(md) {
+          font-size: 1.25rem;
+        }
+      }
+
+      p {
+        font-size: 14px;
+        opacity: .7;
+        margin: .5rem 0 0;
+      }
+    }
+  }
+
+  // Helps and FAQs
+  // ----------------
+  .bee-support {
+    --fa-primary-color: #F5A623;
+    --fa-secondary-color: #FDEFD8;
+    --fa-secondary-opacity: 1;
+
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+
+    h3 {
+      font-size: 2rem;
+      margin: 0 0 1rem;
+    }
+  }
+
+  .bee-support-intro {
+    margin: 0 auto;
+    max-width: 640px;
+    text-align: center;
+
+    p {
+      font-size: var(--bee-fs-lg);
+      margin: 0;
+      opacity: .85;
+    }
+  }
+
+  // Support channels, same card look as .bee-feature-item
+  .bee-support-list {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(1, 1fr);
+
+    @include media-breakpoint-up(md) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .bee-support-item {
+      border: 1px solid var(--bee-border-color);
+      border-radius: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      padding: 1.5rem;
+      transition: border-color .35s ease, box-shadow .35s ease;
+
+      &:hover {
+        box-shadow: 0 .75rem 2rem rgba(0, 0, 0, .08);
+      }
+
+      i {
+        font-size: 36px;
+      }
+
+      h4 {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin: 0;
+      }
+
+      p {
+        flex: 1;
+        font-size: 1rem;
+        margin: 0;
+        opacity: .85;
+      }
+    }
+
+    .bee-si-link {
+      align-items: center;
+      color: var(--bee-body-color);
+      display: inline-flex;
+      font-weight: 600;
+      gap: .5rem;
+      text-decoration: none;
+
+      // Joomla's email cloaking wraps mailto addresses in its own link
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      i {
+        font-size: .875rem;
+        transition: transform .35s ease;
+      }
+
+      &:hover i {
+        transform: translateX(.25rem);
+      }
+    }
+  }
+
+  // FAQ accordion built on <details>, so it works without JS
+  .bee-faq {
+    background: rgba(var(--bee-base-200-rgb), .5);
+    border-radius: 1rem;
+    margin: 0 auto;
+    // max-width: 800px;
+    padding: 4rem 20%;
+    width: 100%;
+
+    h3 {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .bee-faq-item {
+      border-bottom: 1px solid var(--bee-border-color);
+
+      summary {
+        align-items: center;
+        cursor: pointer;
+        display: flex;
+        font-size: 1.125rem;
+        font-weight: 600;
+        gap: 1rem;
+        justify-content: space-between;
+        list-style: none;
+        padding: 1.25rem 0;
+
+        &::-webkit-details-marker {
+          display: none;
+        }
+
+        // Plus icon drawn with two bars; the vertical bar shrinks away to leave a minus
+        &::after {
+          background:
+            linear-gradient(currentColor, currentColor) center / 12px 2px no-repeat,
+            linear-gradient(currentColor, currentColor) center / 2px 12px no-repeat;
+          background-color: var(--bee-base-200);
+          border-radius: 50%;
+          content: "";
+          flex-shrink: 0;
+          height: 2rem;
+          transition: background-color .35s ease, background-size .35s cubic-bezier(.4, 0, .2, 1), color .35s ease, transform .35s cubic-bezier(.4, 0, .2, 1);
+          width: 2rem;
+        }
+      }
+
+      .bee-faq-body {
+        padding-right: 3rem;
+
+        // A margin rather than padding, so the body can collapse to zero height
+        > :last-child {
+          margin-bottom: 1.25rem;
+        }
+
+        p {
+          opacity: .85;
+
+          &:first-child {
+            margin-top: 0;
+          }
+        }
+      }
+    }
+
+    // Open state: [open] without JS, .is-open once the script runs (it keeps [open] until the close animation ends)
+    &:not(.is-ready) .bee-faq-item[open],
+    &.is-ready .bee-faq-item.is-open {
+      summary::after {
+        background-color: #1c1c1e;
+        background-size: 12px 2px, 2px 0;
+        color: #fff;
+        transform: rotate(180deg);
+      }
+    }
+  }
+}
+
+.bsi-ready .bsi-dots {
+  margin-top: 1rem;
+}
+
+// Checkout page
+.com_dms.view-checkout {
+  #bt-masthead-section {
+    display: none;
+  }
+
+  #bt-mainbody-wrap {
+    background: rgba(var(--bee-base-200-rgb), .5);
+  }
+}
+
+#dms-order-page {
+  background: var(--bee-base-100);
+  border: 1px solid var(--bee-border-color);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  max-width: 720px;
+
+  #os_form {
+    border-top: 1px solid var(--bee-border-color);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 1rem;
+
+    .form-row {
+      margin: 0;
+
+      > div {
+        padding: 0;
+        width: 100%;
+
+        input {
+          padding-top: .5rem;
+          padding-bottom: .5rem;
+        }
+      }
+
+      &#field_email,
+      &#field_first_name,
+      &#field_last_name {
+        width: calc(50% - .5rem);
+      }
+
+      &#field_email + div {
+        width: calc(50% - .5rem);
+      }
+
+      &#field_address,
+      &#field_organization,
+      &#payment_method_container {
+        width: 100%;
+      }
+
+      &#payment_method_container {
+        background-color: rgba(var(--bee-base-200-rgb), .5);
+        display: flex;
+        font-weight: 600;
+        justify-content: space-between;
+        gap: .5rem;
+        margin-top: 1rem;
+        padding: 1rem;
+        border-radius: .5rem;
+
+        > div {
+          width: auto;
+        }
+      }
+    }
+
+    > div {
+      background: #fff;
+      display: flex;
+      gap: .25rem;
+      padding-top: 1rem;
+      margin-top: 0;
+
+      > div {
+        margin-top: 0;
+      }
+    }
+
+    > .form-actions {
+      background: transparent;
+      border: 0;
+      padding-bottom: 0;
+    }
+  }
+
+  img.dms-payment-method-icon {
+    margin-bottom: 0;
+    max-height: 20px;
+  }
+}
+
+// VIEW DOWNLOAD IDS
+// --------------------------------------
+.com_dms.view-downloadids {
+  #bt-page-content {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+
+    @include media-breakpoint-up(md) {
+      padding-top: 4rem;
+      padding-bottom: 4rem;
+    }
+
+    .text-info {
+      background: rgba(var(--bee-info-rgb), .1);
+      border-radius: .5rem;
+      margin: 0;
+      padding: .5rem 1rem;
+    }
+  }
+}
+
+.com_dms.view-mydocs {
+  #bt-page-content {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+
+    @include media-breakpoint-up(md) {
+      padding-top: 4rem;
+      padding-bottom: 4rem;
+    }
+  }
+
+  .bee-order-list {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1rem;
+
+    @include media-breakpoint-up(md) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    @include media-breakpoint-up(lg) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .bee-order-item {
+      background: rgba(var(--bee-base-200-rgb), .5);
+      border: 1px solid var(--bee-border-color);
+      border-radius: .75rem;
+      padding: 4px;
+
+      .bee-order-content {
+        background: var(--bee-base-100);
+        box-shadow: 0 3px 7px rgba(0,0,0,0.05);
+        border-radius: .5rem;
+        padding: 1.5rem 1rem;
+      }
+
+      h4 {
+        font-size: 1.25rem;
+        margin: 0 0 1rem;
+
+        .bee-order-version {
+          border: 1px solid var(--bee-base-content);
+          border-radius: 4px;
+          padding: 1px 4px;
+          font-size: .625rem;
+        }
+      }
+
+      .bee-order-meta {
+        display: flex;
+        justify-content: space-between;
+
+        > div {
+          display: flex;
+          flex-direction: column;
+          gap: .25rem;
+        }
+
+        .field-label {
+          font-size: .625rem;
+          font-weight: 600;
+          text-transform: uppercase;
+          opacity: .8;
+        }
+
+        .field-unit {
+          font-size: .875rem;
+        }
+
+        .bee-order-date {
+          font-size: .875rem;
+          font-weight: 500;
+        }
+      }
+
+      .bee-order-actions {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: .75rem 1rem .5rem;
+
+        a {
+          background: var(--bee-success);
+          border-radius: 16px;
+          color: var(--bee-on-success);
+          font-size: .875rem;
+          font-weight: 400;
+          padding: .375rem .875rem;
+          transition: all 0.25s ease-in-out;
+
+          &:hover, &:focus, &:active {
+            background: rgba(var(--bee-success-rgb), .8);
+            text-decoration: none;
+          }
+
+          &.btn-invoice {
+            background: transparent;
+            border: 1px solid var(--bee-border-color);
+            color: var(--bee-base-content);
+
+            &:hover, &:focus, &:active {
+              background: #fff;
+            }
+          }
+
+          &.btn-download {
+            margin-left: auto;
+          }
+        }
+      }
+    }
+  }
+}

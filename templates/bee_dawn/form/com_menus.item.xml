@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+    <fields name="params">
+        <fieldset name="page-options">
+            <field
+                name="masthead_desc"
+                type="textarea"
+                label="Masthead Description"
+                rows="4"
+                filter="safehtml"
+            />
+            <field
+                name="masthead_bg_color"
+                type="color"
+                label="Masthead Background Color"
+                format="hex"
+            />
+            <field
+                name="masthead_bg"
+                type="media"
+                label="Masthead Background Image"
+                types="images"
+            />
+        </fieldset>
+    </fields>
+</form>

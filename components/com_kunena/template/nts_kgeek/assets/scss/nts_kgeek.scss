@@ -1,0 +1,42 @@
+/**
+* Kunena Component
+* $package Kunena.Template.KInfinite
+*
+* $copyright     Copyright (C) 2008 - 2023 Kunena Team. All rights reserved.
+* $license https://www.gnu.org/copyleft/gpl.html GNU/GPL
+* $link https://www.kunena.org
+**/
+
+/*
+ * All url()'s should be relative paths from media folder inside the template or 'JROOT/media/kunena'.
+ * Scss parser will automatically search for all the files from the lookup paths and use the first match.
+ */
+@import "variables";
+
+#kunena.layout {
+  // @import "quirks";
+  @import "general";
+  @import "base/menu";
+  @import "base/editor";
+  @import "base/icons";
+  @import "user";
+  @import "base/profile";
+  @import "base/categories";
+  @import "base/topic_list";
+  @import "base/message";
+  @import "base/post_new";
+  @import "base/search";
+  @import "mediaqueries";
+  @import "twitter";
+  @import "style";
+  @import "custom";
+  /*	@import 'debug'; */
+}
+
+.com_kunena {
+  &.modal-open {
+    .modal-backdrop {
+      z-index: 9;
+    }
+  }
+}

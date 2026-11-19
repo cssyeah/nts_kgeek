@@ -1,0 +1,286 @@
+// MAIN NAVIGATION
+// ----------------------------------
+.bt-menu-wrapper {
+  ul.bt-nav {
+    display: flex;
+    gap: 2.5rem;
+
+    > .bt-menu-item {
+      padding-top: .875rem;
+      padding-bottom: .875rem;
+
+      > a {
+        color: var(--bee-menu-color, var(--bee-link-color));
+        display: flex;
+        align-items: center;
+        font-weight: 600;
+        gap: .5rem;
+        padding-left: 0;
+        padding-right: 0;
+
+        .bt-menu-caret {
+          border-radius: 50%;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          border: 0;
+          height: 1.5rem;
+          width: 1.5rem;
+          transition: all 0.25s ease-in-out;
+          opacity: 1;
+
+          &::before {
+            color: var(--bee-menu-color);
+            font-family: var(--fa-family-duotone);
+            content: "\f078";
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 400;
+            opacity: 1;
+          }
+        }
+
+        &:hover,
+        &:focus {
+          color: var(--bee-menu-hover-color, var(--bee-link-hover-color));
+        }
+      }
+
+      &.active {
+        > a {
+          color: var(--bee-menu-active-color, var(--bee-link-color));
+        }
+      }
+
+      &:hover {
+        > a {
+          .bt-menu-caret {
+            background: var(--bee-base-200);
+            transform: rotate(180deg);
+          }
+        }
+      }
+
+      // Offset the 2nd-level dropdown -1.5rem from the item's left edge.
+      // JS sets an inline `left: 0`, so shift with margin instead.
+      > .bt-menu-sub:not(.bt-menu-mega-wrapper) {
+        margin-left: -1.5rem;
+      }
+
+      .bt-menu-sub {
+        background: var(--bee-submenu-bg, rgba(255, 255, 255, 0.6));
+        border: 1px solid var(--bee-border-color);
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        border-radius: 1rem;
+        padding: .25rem;
+        backdrop-filter: blur(8px);
+        min-width: calc(var(--bee-gutter-x) * 7);
+        
+        .bt-menu-item {
+          padding: 2px 0;
+
+          &:first-child {
+            padding-top: 0;
+          }
+
+          &:last-child { padding-bottom: 0; }
+
+          a {
+            border-radius: .75rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 17px;
+            font-weight: var(--bee-fw-semibold);
+            padding: .5rem 1rem .5rem 3.5rem;
+            position: relative;
+            transition: all 0.25s ease-in-out;
+            width: 100%;
+
+            &:hover, &:focus, &:active {
+              background: rgba(var(--bee-base-200-rgb), .8);
+            }
+
+            &::before,
+            &::after {
+              color: var(--bee-primary);
+              font-size: 18px;
+              position: absolute;
+              left: 1rem;
+              display: inline-flex;
+              align-items: center;
+              justify-content: center;
+              font-family: var(--fa-family-duotone);
+              font-weight: 100;
+              min-width: 24px;
+            }
+
+            &::after {
+              content: var(--fa)/"";
+              font-feature-settings: "ss01";
+              color: rgba(var(--bee-primary-rgb),.2);
+            }
+
+            .item-text {
+              display: flex;
+              flex-direction: column;
+
+              &::after {
+                content: "Module and Plugin";
+                display: flex;
+                font-size: 13px;
+                font-weight: 400;
+                opacity: .8;
+                margin-top: -2px;
+              }
+            }
+          }
+
+          &[data-id="152"] a {
+            &::before {
+              content: "\e55f";
+              font-weight: 100;
+            }
+
+            &::after {
+              content: "\e55f";
+              font-weight: 100;
+            }
+
+            .item-text {
+              &::after {
+                content: "Module, Plugin, Component for Joomla!";
+              }
+            }
+          }
+
+          &[data-id="153"] a {
+            &::before,
+            &::after {
+              content: "\e443";
+              font-weight: 100;
+            }
+
+            .item-text {
+              &::after {
+                content: "Add-ons for EventsBooking component";
+              }
+            }
+          }
+
+          &[data-id="154"] a {
+            &::before,
+            &::after {
+              content: "\f290";
+            }
+
+            .item-text {
+              &::after {
+                content: "Add-ons for Eshop component";
+              }
+            }
+          }
+
+          &[data-id="155"] a {
+            &::before,
+            &::after {
+              content: "\f07a";
+              font-weight: 100;
+            }
+
+            .item-text {
+              &::after {
+                content: "Add-ons for JoomShopping component";
+              }
+            }
+          }
+
+          &[data-id="156"] a {
+            &::before,
+            &::after {
+              content: "\f133";
+              font-weight: 100;
+            }
+
+            .item-text {
+              &::after {
+                content: "Add-ons for JEvents component";
+              }
+            }
+          }
+
+          &[data-id="137"] a {
+            &::before,
+            &::after {
+              content: "\f02d";
+              font-weight: 100;
+            }
+
+            .item-text {
+              &::after {
+                content: "Learn everything";
+              }
+            }
+          }
+
+          &[data-id="138"] a {
+            &::before,
+            &::after {
+              content: "\e7bd";
+              font-weight: 100;
+            }
+
+            .item-text {
+              &::after {
+                content: "Get help quickly";
+              }
+            }
+          }
+
+          &[data-id="191"] a {
+            &::before,
+            &::after {
+              content: "\e1e7";
+              font-weight: 100;
+            }
+
+            .item-text {
+              &::after {
+                content: "Get help quickly";
+              }
+            }
+          }
+
+          &[data-id="160"] a {
+            &::before,
+            &::after {
+              content: "\f145";
+              font-weight: 100;
+            }
+
+            .item-text {
+              &::after {
+                content: "Manage your tickets";
+              }
+            }
+          }
+
+          &[data-id="162"] a {
+            &::before,
+            &::after {
+              content: "\f019";
+              font-weight: 100;
+            }
+
+            .item-text {
+              &::after {
+                content: "All purchased products";
+              }
+            }
+          }
+
+        }
+      }
+    }
+  }
+}
