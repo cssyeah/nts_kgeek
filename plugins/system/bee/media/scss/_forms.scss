@@ -1,0 +1,286 @@
+/**
+ * @package     Bee Framework
+ *
+ * @copyright   (C) 2023 Bee Framework. <https://beetemplate.com>
+ * @license     GNU General Public License version 2 or later;
+ */
+
+@import "system/searchtools";
+
+// Buttons
+// ------------------
+.btn-primary {
+  --bee-btn-color: #fff;
+  --bee-btn-bg: var(--bee-primary);
+  --bee-btn-border-color: color-mix(in srgb,var(--bee-btn-bg),#000 10%);
+  --bee-btn-hover-color: #fff;
+  --bee-btn-hover-bg: color-mix(in srgb,var(--bee-btn-bg),#000 15%);
+  --bee-btn-hover-border-color: color-mix(in srgb,var(--bee-btn-bg),#000 20%);
+  --bee-btn-focus-shadow-rgb: 49, 132, 253;
+  --bee-btn-active-color: #fff;
+  --bee-btn-active-bg: color-mix(in srgb,var(--bee-btn-bg),#000 15%);
+  --bee-btn-active-border-color: color-mix(in srgb,var(--bee-btn-bg),#000 20%);
+  --bee-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bee-btn-disabled-color: #fff;
+  --bee-btn-disabled-bg: var(--bee-primary);
+  --bee-btn-disabled-border-color: var(--bee-primary);
+}
+
+.btn-success {
+  --bee-btn-color: #fff;
+  --bee-btn-bg: var(--bee-success);
+  --bee-btn-border-color: color-mix(in srgb,var(--bee-btn-bg),#000 10%);
+  --bee-btn-hover-color: #fff;
+  --bee-btn-hover-bg: color-mix(in srgb,var(--bee-btn-bg),#000 15%);
+  --bee-btn-hover-border-color: color-mix(in srgb,var(--bee-btn-bg),#000 20%);
+  --bee-btn-focus-shadow-rgb: 49, 132, 253;
+  --bee-btn-active-color: #fff;
+  --bee-btn-active-bg: color-mix(in srgb,var(--bee-btn-bg),#000 15%);
+  --bee-btn-active-border-color: color-mix(in srgb,var(--bee-btn-bg),#000 20%);
+  --bee-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bee-btn-disabled-color: #fff;
+  --bee-btn-disabled-bg: var(--bee-success);
+  --bee-btn-disabled-border-color: var(--bee-success);
+}
+
+.btn-danger {
+  --bee-btn-color: #fff;
+  --bee-btn-bg: var(--bee-danger);
+  --bee-btn-border-color: color-mix(in srgb,var(--bee-btn-bg),#000 10%);
+  --bee-btn-hover-color: #fff;
+  --bee-btn-hover-bg: color-mix(in srgb,var(--bee-btn-bg),#000 15%);
+  --bee-btn-hover-border-color: color-mix(in srgb,var(--bee-btn-bg),#000 20%);
+  --bee-btn-focus-shadow-rgb: 49, 132, 253;
+  --bee-btn-active-color: #fff;
+  --bee-btn-active-bg: color-mix(in srgb,var(--bee-btn-bg),#000 15%);
+  --bee-btn-active-border-color: color-mix(in srgb,var(--bee-btn-bg),#000 20%);
+  --bee-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bee-btn-disabled-color: #fff;
+  --bee-btn-disabled-bg: var(--bee-danger);
+  --bee-btn-disabled-border-color: var(--bee-danger);
+}
+
+.btn-secondary {
+  --bee-btn-color: #fff;
+  --bee-btn-bg: var(--bee-secondary);
+  --bee-btn-border-color: color-mix(in srgb,var(--bee-btn-bg),#000 10%);
+  --bee-btn-hover-color: #fff;
+  --bee-btn-hover-bg: color-mix(in srgb,var(--bee-btn-bg),#000 15%);
+  --bee-btn-hover-border-color: color-mix(in srgb,var(--bee-btn-bg),#000 20%);
+  --bee-btn-focus-shadow-rgb: 49, 132, 253;
+  --bee-btn-active-color: #fff;
+  --bee-btn-active-bg: color-mix(in srgb,var(--bee-btn-bg),#000 15%);
+  --bee-btn-active-border-color: color-mix(in srgb,var(--bee-btn-bg),#000 20%);
+  --bee-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bee-btn-disabled-color: #fff;
+  --bee-btn-disabled-bg: var(--bee-secondary);
+  --bee-btn-disabled-border-color: var(--bee-secondary);
+}
+
+.btn-warning {
+  --bee-btn-color: #fff;
+  --bee-btn-bg: var(--bee-warning);
+  --bee-btn-border-color: color-mix(in srgb,var(--bee-btn-bg),#000 10%);
+  --bee-btn-hover-color: #fff;
+  --bee-btn-hover-bg: color-mix(in srgb,var(--bee-btn-bg),#000 15%);
+  --bee-btn-hover-border-color: color-mix(in srgb,var(--bee-btn-bg),#000 20%);
+  --bee-btn-focus-shadow-rgb: 49, 132, 253;
+  --bee-btn-active-color: #fff;
+  --bee-btn-active-bg: color-mix(in srgb,var(--bee-btn-bg),#000 15%);
+  --bee-btn-active-border-color: color-mix(in srgb,var(--bee-btn-bg),#000 20%);
+  --bee-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bee-btn-disabled-color: #fff;
+  --bee-btn-disabled-bg: var(--bee-warning);
+  --bee-btn-disabled-border-color: var(--bee-warning);
+}
+
+.btn-info {
+  --bee-btn-color: #fff;
+  --bee-btn-bg: var(--bee-info);
+  --bee-btn-border-color: color-mix(in srgb,var(--bee-btn-bg),#000 10%);
+  --bee-btn-hover-color: #fff;
+  --bee-btn-hover-bg: color-mix(in srgb,var(--bee-btn-bg),#000 15%);
+  --bee-btn-hover-border-color: color-mix(in srgb,var(--bee-btn-bg),#000 20%);
+  --bee-btn-focus-shadow-rgb: 49, 132, 253;
+  --bee-btn-active-color: #fff;
+  --bee-btn-active-bg: color-mix(in srgb,var(--bee-btn-bg),#000 15%);
+  --bee-btn-active-border-color: color-mix(in srgb,var(--bee-btn-bg),#000 20%);
+  --bee-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bee-btn-disabled-color: #fff;
+  --bee-btn-disabled-bg: var(--bee-info);
+  --bee-btn-disabled-border-color: var(--bee-info);
+}
+
+.btn-light {
+  --bee-btn-color: var(--bee-gray-800);
+  --bee-btn-bg: var(--bee-light);
+  --bee-btn-border-color: color-mix(in srgb,var(--bee-btn-bg),#000 10%);
+  --bee-btn-hover-color: var(--bee-gray-800);
+  --bee-btn-hover-bg: color-mix(in srgb,var(--bee-btn-bg),#000 15%);
+  --bee-btn-hover-border-color: color-mix(in srgb,var(--bee-btn-bg),#000 20%);
+  --bee-btn-focus-shadow-rgb: 49, 132, 253;
+  --bee-btn-active-color: var(--bee-gray-800);
+  --bee-btn-active-bg: color-mix(in srgb,var(--bee-btn-bg),#000 15%);
+  --bee-btn-active-border-color: color-mix(in srgb,var(--bee-btn-bg),#000 20%);
+  --bee-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bee-btn-disabled-color: #fff;
+  --bee-btn-disabled-bg: var(--bee-light);
+  --bee-btn-disabled-border-color: var(--bee-light);
+}
+
+.btn-dark {
+  --bee-btn-color: #fff;
+  --bee-btn-bg: var(--bee-dark);
+  --bee-btn-border-color: color-mix(in srgb,var(--bee-btn-bg),#000 10%);
+  --bee-btn-hover-color: #fff;
+  --bee-btn-hover-bg: color-mix(in srgb,var(--bee-btn-bg),#000 15%);
+  --bee-btn-hover-border-color: color-mix(in srgb,var(--bee-btn-bg),#000 20%);
+  --bee-btn-focus-shadow-rgb: 49, 132, 253;
+  --bee-btn-active-color: #fff;
+  --bee-btn-active-bg: color-mix(in srgb,var(--bee-btn-bg),#000 15%);
+  --bee-btn-active-border-color: color-mix(in srgb,var(--bee-btn-bg),#000 20%);
+  --bee-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bee-btn-disabled-color: #fff;
+  --bee-btn-disabled-bg: var(--bee-dark);
+  --bee-btn-disabled-border-color: var(--bee-dark);
+}
+
+
+// Button Group
+// -------------------
+.btn-group {
+  margin-bottom: 1rem;
+
+  .inputbox {
+    border-radius: var(--bee-border-radius) 0 0 var(--bee-border-radius);
+  }
+
+  &.float-end {
+    @include media-breakpoint-down(sm) {
+      float: none !important;
+    }
+  }
+}
+
+// Form Horizontal
+// -------------------
+.form-horizontal {
+  .control-group {
+    margin-bottom: 1rem;
+  }
+
+  .control-label {
+    margin-bottom: 0.5rem;
+  }
+}
+
+// Form Vertical
+// -------------------
+.form-vertical {
+  .control-group {
+    margin-bottom: 1rem;
+  }
+
+  .control-label {
+    margin-bottom: $spacer;
+  }
+}
+
+.inputbox {
+  @extend .form-control;
+}
+
+// Legend
+legend {
+  font-size: 1.5rem;
+}
+
+// Validation
+.invalid {
+  color: $danger;
+  border-color: $danger;
+}
+
+.valid {
+  border-color: $success;
+}
+
+.form-control-feedback {
+}
+
+// set up hidden tooltip
+[role="tooltip"]:not(.show) {
+  right: 1rem;
+  top: auto;
+  z-index: $zindex-tooltip;
+  display: none;
+  max-width: 100%;
+  padding: .5em;
+  margin: .5em;
+  color: $black;
+  text-align: start;
+  background: var(--bee-white);
+  border: 1px solid $gray-600;
+  border-radius: var(--bee-border-radius);
+  box-shadow: 0 0 .5rem rgba(0, 0, 0, .8);
+
+  &[id^=editarticle-] {
+    right: auto;
+    margin-inline-start: -10em;
+  }
+
+  &[id^=editcontact-] {
+    right: auto;
+    margin-inline-start: -10em;
+  }
+
+  &[id^=id-skip-] {
+    right: auto;
+  }
+
+  &[id^=cbunpublish] {
+    right: auto;
+  }
+}
+
+// reveal associated tooltip on focus
+:focus + [role="tooltip"],
+:hover + [role="tooltip"] {
+  position: absolute;
+  display: block;
+}
+
+// Com Media
+// --------------
+#com-media {
+  --hue: 214;
+  --template-bg-light: #f0f4fb;
+  --template-text-dark: #495057;
+  --template-text-light: #ffffff;
+  --template-link-color: #2a69b8;
+  --template-special-color: #001B4C;
+  --template-bg-dark: hsl(var(--hue),40%,20%);
+  --template-bg-dark-3: hsl(var(--hue),40%,97%);
+  --template-bg-dark-5: hsl(var(--hue),40%,95%);
+  --template-bg-dark-7: hsl(var(--hue),40%,93%);
+  --template-bg-dark-10: hsl(var(--hue),40%,90%);
+  --template-bg-dark-15: hsl(var(--hue),40%,85%);
+  --template-bg-dark-20: hsl(var(--hue),40%,80%);
+  --template-bg-dark-30: hsl(var(--hue),40%,70%);
+  --template-bg-dark-40: hsl(var(--hue),40%,60%);
+  --template-bg-dark-50: hsl(var(--hue),40%,50%);
+  --template-bg-dark-60: hsl(var(--hue),40%,40%);
+  --template-bg-dark-65: hsl(var(--hue),40%,35%);
+  --template-bg-dark-70: hsl(var(--hue),40%,30%);
+  --template-bg-dark-75: hsl(var(--hue),40%,25%);
+  --template-bg-dark-80: hsl(var(--hue),40%,20%);
+  --template-bg-dark-90: hsl(var(--hue),40%,10%);
+
+  .media-container {
+    .media-main + input {
+      width: 100%;
+      margin-left: 20px;
+      margin-right: 20px;
+    }
+  }
+}
