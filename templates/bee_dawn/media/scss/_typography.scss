@@ -1,0 +1,643 @@
+// FORM ELEMENTS
+// -----------------------------
+.btn {
+  border: 0;
+  border-radius: 32px;
+  display: inline-flex;
+  gap: .5rem;
+  align-items: center;
+  padding: 1rem 1.5rem;
+
+  &:hover, &:active, &:focus {
+    opacity: .85;
+    background: var(--bee-btn-bg);
+    color: var(--bee-btn-color);
+  }
+}
+
+.btn-sm {
+  padding: var(--bee-btn-sm-padding-y) var(--bee-btn-sm-padding-x);
+  font-size: var(--bee-fs-xs);
+}
+
+.btn-lg {
+
+}
+
+.btn-xl {
+
+}
+
+
+// TYPOGRAPHY
+// -----------------------------
+// Heading
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-weight: 600;
+}
+
+// CHANGELOG
+// -----------------------------
+// Release timeline used in the document "Changelog" tab:
+// .bee-changelog > .bee-cl-release > (.bee-cl-head + ul.bee-cl-list > li > .bee-cl-tag)
+.bee-changelog {
+  font-family: var(--bee-font-monospace);
+  margin: 0 auto;
+  max-width: 800px;
+
+  .bee-cl-release {
+    padding: 0 0 2.5rem 2.25rem;
+    position: relative;
+
+    // Timeline line down to the next release
+    &::before {
+      background: var(--bee-border-color);
+      bottom: -.5rem;
+      content: "";
+      left: 5px;
+      position: absolute;
+      top: .5rem;
+      width: 2px;
+    }
+
+    // Release dot, filled for the latest release
+    &::after {
+      background: var(--bee-body-bg);
+      border: 2px solid var(--bee-border-color);
+      border-radius: 50%;
+      content: "";
+      height: 12px;
+      left: 0;
+      position: absolute;
+      top: .55rem;
+      width: 12px;
+    }
+
+    &:first-child::after {
+      background: var(--bee-success);
+      border-color: var(--bee-success);
+      box-shadow: 0 0 0 4px var(--bee-base-200);
+    }
+
+    &:last-child {
+      padding-bottom: 0;
+
+      &::before {
+        display: none;
+      }
+    }
+  }
+
+  .bee-cl-head {
+    align-items: baseline;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 0;
+    padding-top: .25rem;
+    margin-bottom: 1rem;
+  }
+
+  .bee-cl-version {
+    font-size: 1rem;
+    font-family: var(--bee-body-font-family);
+    margin: 0;
+  }
+
+  .bee-cl-date {
+    border-bottom: 1px solid var(--bee-border-color);
+    font-family: var(--bee-body-font-family);
+    font-size: var(--bee-fs-xs);
+    opacity: .65;
+  }
+
+  .bee-cl-list {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      align-items: flex-start;
+      display: flex;
+      gap: .75rem;
+    }
+  }
+
+  // Change type badge
+  .bee-cl-tag {
+    border-radius: 3px;
+    flex-shrink: 0;
+    font-size: var(--bee-fs-xs);
+    font-weight: 600;
+    line-height: 1.5;
+    margin-top: .125rem;
+    padding: 2px .375rem;
+    text-align: center;
+
+    &.bee-cl-new {
+      background: #e3f5e9;
+      color: #1a7f3c;
+    }
+
+    &.bee-cl-improved {
+      background: #e6eefd;
+      color: #1d4ed8;
+    }
+
+    &.bee-cl-fixed {
+      background: #fdefd8;
+      color: #b45309;
+    }
+
+    &.bee-cl-removed {
+      background: #fde7e7;
+      color: #b91c1c;
+    }
+  }
+}
+
+
+// DOCUMENT TYPOGRAPHY
+// -----------------------------
+// Content elements for documentation articles (see the "Typography" menu item).
+// Colors come from the framework color preset variables, so they follow light/dark presets.
+.bee-doc-wrapper {
+  --bee-doc-radius: 1rem;
+
+  color: var(--bee-body-color);
+  font-size: var(--bee-fs-md);
+  line-height: 1.75;
+
+  // Headings
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--bee-heading-color);
+    font-weight: 600;
+    line-height: 1.3;
+    margin: 2rem 0 .75rem;
+  }
+
+  h1 { font-size: 2.5rem; }
+  h2 { font-size: 2rem; }
+  h3 { font-size: 1.5rem; }
+  h4 { font-size: 1.25rem; }
+  h5 { font-size: 1.125rem; }
+  h6 { font-size: 1rem; }
+
+  p {
+    margin: 0 0 1rem;
+  }
+
+  .lead {
+    color: var(--bee-muted-color);
+    font-size: 1.25rem;
+    font-weight: 400;
+    line-height: 1.6;
+  }
+
+  a:not(.btn) {
+    color: var(--bee-link-color);
+    text-decoration: underline;
+    text-decoration-color: rgba(var(--bee-color-1-rgb), .35);
+    text-underline-offset: .2em;
+    transition: text-decoration-color .25s ease;
+
+    &:hover, &:focus {
+      color: var(--bee-link-hover-color);
+      text-decoration-color: currentColor;
+    }
+  }
+
+  abbr[title] {
+    cursor: help;
+    text-decoration: underline dotted;
+  }
+
+  hr {
+    border: 0;
+    border-top: 1px solid var(--bee-border-color);
+    margin: 2rem 0;
+    opacity: 1;
+  }
+
+  // Sections
+  .bee-doc-section {
+    padding-top: 3rem;
+    scroll-margin-top: 6rem;
+  }
+
+  .bee-doc-title {
+    border-bottom: 1px solid var(--bee-border-color);
+    font-size: 1.75rem;
+    margin: 0 0 1.5rem;
+    padding-bottom: .75rem;
+  }
+
+  // Bordered preview box, same card look as .bee-feature-item
+  .bee-doc-demo {
+    border: 1px solid var(--bee-border-color);
+    border-radius: var(--bee-doc-radius);
+    margin-bottom: 1.5rem;
+    padding: 1.5rem;
+
+    > :first-child {
+      margin-top: 0;
+    }
+
+    > :last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .bee-doc-grid {
+    display: grid;
+    gap: 0 2rem;
+    grid-template-columns: repeat(1, 1fr);
+
+    @include media-breakpoint-up(md) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    h4 {
+      margin-top: 1rem;
+    }
+  }
+
+  // Inline code & keyboard keys
+  // No ligatures, so "--var" and "->" show exactly as typed
+  code, kbd, pre {
+    font-variant-ligatures: none;
+  }
+
+  code {
+    background: var(--bee-base-200);
+    border-radius: var(--bee-br-sm);
+    color: var(--bee-heading-color);
+    font-size: .875em;
+    padding: .125rem .375rem;
+  }
+
+  kbd {
+    background: var(--bee-base-100);
+    border: 1px solid var(--bee-base-300);
+    border-bottom-width: 2px;
+    border-radius: var(--bee-br-sm);
+    color: var(--bee-heading-color);
+    font-family: var(--bee-font-monospace);
+    font-size: .8125em;
+    padding: .125rem .4375rem;
+  }
+
+  // Text highlights
+  mark {
+    background: rgba(var(--bee-primary-rgb), .25);
+    border-radius: var(--bee-br-xs);
+    color: inherit;
+    padding: .0625em .1875em;
+
+    @each $name in primary, success, info, warning, danger {
+      &.bee-hl-#{$name} {
+        background: rgba(var(--bee-#{$name}-rgb), .18);
+      }
+    }
+  }
+
+  // Lists
+  ul, ol {
+    margin: 0 0 1.5rem;
+    padding-left: 1.5rem;
+
+    li {
+      margin-bottom: .5rem;
+      padding-left: .25rem;
+    }
+
+    ul, ol {
+      margin: .5rem 0 0;
+    }
+  }
+
+  ul > li::marker {
+    color: var(--bee-primary);
+  }
+
+  ol > li::marker {
+    color: var(--bee-heading-color);
+    font-weight: 600;
+  }
+
+  .bee-list-check {
+    list-style: none;
+    padding-left: 0;
+
+    li {
+      padding-left: 2rem;
+      position: relative;
+
+      &::before {
+        align-items: center;
+        background: rgba(var(--bee-success-rgb), .12);
+        border-radius: 50%;
+        color: var(--bee-success);
+        content: "\f00c";
+        display: inline-flex;
+        font-family: var(--fa-family-classic, "Font Awesome 6 Pro");
+        font-size: .625rem;
+        font-weight: 900;
+        height: 1.25rem;
+        justify-content: center;
+        left: 0;
+        position: absolute;
+        top: .25rem;
+        width: 1.25rem;
+      }
+    }
+  }
+
+  .bee-list-steps {
+    counter-reset: bee-step;
+    list-style: none;
+    padding-left: 0;
+
+    li {
+      counter-increment: bee-step;
+      padding-left: 2.5rem;
+      position: relative;
+
+      &::before {
+        align-items: center;
+        background: var(--bee-secondary);
+        border-radius: 50%;
+        color: var(--bee-on-secondary);
+        content: counter(bee-step);
+        display: inline-flex;
+        font-size: var(--bee-fs-xs);
+        font-weight: 600;
+        height: 1.75rem;
+        justify-content: center;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 1.75rem;
+      }
+    }
+  }
+
+  .bee-dl {
+    border-top: 1px solid var(--bee-border-color);
+    display: grid;
+    grid-template-columns: 1fr;
+    margin: 0 0 1.5rem;
+
+    @include media-breakpoint-up(md) {
+      grid-template-columns: 200px 1fr;
+    }
+
+    dt, dd {
+      margin: 0;
+      padding: .75rem 0;
+
+      @include media-breakpoint-up(md) {
+        border-bottom: 1px solid var(--bee-border-color);
+      }
+    }
+
+    dt {
+      color: var(--bee-heading-color);
+      font-weight: 600;
+      padding-bottom: 0;
+
+      @include media-breakpoint-up(md) {
+        padding-bottom: .75rem;
+      }
+    }
+
+    dd {
+      border-bottom: 1px solid var(--bee-border-color);
+      color: var(--bee-muted-color);
+    }
+  }
+
+  // Code blocks
+  pre {
+    background: var(--bee-secondary);
+    border-radius: var(--bee-doc-radius);
+    color: var(--bee-on-secondary);
+    font-family: var(--bee-font-monospace);
+    font-size: var(--bee-fs-sm);
+    line-height: 1.7;
+    margin: 0 0 1.5rem;
+    overflow-x: auto;
+    padding: 1.25rem 1.5rem;
+
+    code {
+      background: transparent;
+      color: inherit;
+      font-size: inherit;
+      padding: 0;
+    }
+  }
+
+  .bee-code {
+    background: var(--bee-secondary);
+    border-radius: var(--bee-doc-radius);
+    margin: 0 0 1.5rem;
+    overflow: hidden;
+
+    pre {
+      border-radius: 0;
+      margin: 0;
+    }
+  }
+
+  .bee-code-head {
+    align-items: center;
+    border-bottom: 1px solid rgba(var(--bee-on-secondary-rgb), .1);
+    color: rgba(var(--bee-on-secondary-rgb), .7);
+    display: flex;
+    font-size: var(--bee-fs-sm);
+    gap: 1rem;
+    justify-content: space-between;
+    padding: .75rem 1.5rem;
+
+    i {
+      --fa-primary-color: var(--bee-primary);
+      --fa-secondary-color: var(--bee-primary);
+      --fa-secondary-opacity: .4;
+
+      margin-right: .375rem;
+    }
+  }
+
+  .bee-code-lang {
+    background: rgba(var(--bee-on-secondary-rgb), .1);
+    border-radius: 50rem;
+    font-size: var(--bee-fs-xs);
+    font-weight: 600;
+    padding: .125rem .625rem;
+  }
+
+  // Messages (callouts)
+  .bee-alert {
+    --bee-alert-rgb: var(--bee-secondary-rgb);
+    --bee-alert-color: var(--bee-secondary);
+
+    background: rgba(var(--bee-alert-rgb), .08);
+    border: 1px solid rgba(var(--bee-alert-rgb), .2);
+    border-radius: var(--bee-doc-radius);
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    padding: 1.25rem 1.5rem;
+
+    @each $name in info, success, warning, danger {
+      &.bee-alert-#{$name} {
+        --bee-alert-rgb: var(--bee-#{$name}-rgb);
+        --bee-alert-color: var(--bee-#{$name});
+      }
+    }
+
+    &.bee-alert-note {
+      background: var(--bee-base-200);
+      border-color: var(--bee-base-300);
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .bee-alert-icon {
+    --fa-primary-color: var(--bee-alert-color);
+    --fa-secondary-color: var(--bee-alert-color);
+    --fa-secondary-opacity: .35;
+
+    color: var(--bee-alert-color);
+    flex-shrink: 0;
+    font-size: 1.5rem;
+    line-height: 1.75rem;
+  }
+
+  .bee-alert-title {
+    font-size: 1rem;
+    margin: 0 0 .25rem;
+  }
+
+  // Blockquote
+  .bee-quote {
+    background: var(--bee-base-200);
+    border-left: 4px solid var(--bee-primary);
+    border-radius: 0 var(--bee-doc-radius) var(--bee-doc-radius) 0;
+    margin: 0 0 1.5rem;
+    padding: 1.5rem 2rem;
+
+    p {
+      color: var(--bee-heading-color);
+      font-size: 1.25rem;
+      font-weight: 500;
+      line-height: 1.6;
+      margin-bottom: .75rem;
+    }
+
+    cite {
+      color: var(--bee-muted-color);
+      font-size: var(--bee-fs-sm);
+      font-style: normal;
+
+      &::before {
+        content: "— ";
+      }
+    }
+  }
+
+  // Buttons
+  .bee-doc-buttons {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .btn {
+    font-weight: 500;
+    text-decoration: none;
+  }
+
+  // Outline button, same as the document actions (.bee-doc-actions .btn-outline)
+  .btn-outline {
+    box-shadow: 0 0 0 1px var(--bee-border-color) inset;
+    color: var(--bee-heading-color);
+    transition: all .25s ease-in-out;
+
+    &:hover, &:focus, &:active {
+      background: var(--bee-secondary);
+      box-shadow: none;
+      color: var(--bee-on-secondary);
+    }
+  }
+
+  // --bee-light is almost white, so use the same gray as the header pill
+  .btn-light {
+    --bee-btn-bg: var(--bee-base-200);
+  }
+
+  .btn-link {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  // Badges
+  .bee-badge {
+    --bee-badge-color: var(--bee-heading-color);
+
+    background: var(--bee-base-200);
+    border-radius: 50rem;
+    color: var(--bee-badge-color);
+    display: inline-block;
+    font-size: var(--bee-fs-xs);
+    font-weight: 600;
+    line-height: 1.5;
+    padding: .125rem .625rem;
+
+    @each $name in primary, success, info, warning, danger {
+      &.bee-badge-#{$name} {
+        background: rgba(var(--bee-#{$name}-rgb), .14);
+        // Darken the preset color so light hues (warning, info) stay readable as text
+        color: color-mix(in srgb, var(--bee-#{$name}), #000 30%);
+      }
+    }
+  }
+
+  // Table
+  .table-responsive {
+    border: 1px solid var(--bee-border-color);
+    border-radius: var(--bee-doc-radius);
+    margin-bottom: 1.5rem;
+  }
+
+  .table {
+    font-size: var(--bee-fs-sm);
+    margin: 0;
+
+    > :not(caption) > * > * {
+      padding: .875rem 1.25rem;
+    }
+
+    th {
+      background: var(--bee-base-200);
+      color: var(--bee-heading-color);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    tbody tr:last-child > * {
+      border-bottom: 0;
+    }
+  }
+}
