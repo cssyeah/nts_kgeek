@@ -1,0 +1,50 @@
+// MAIN NAVIGATION
+// --------------------------
+#ktopnav {
+  .navbar-nav {
+    > li {
+      > a {
+        &:hover, &:focus, &:active {
+        }
+      }
+
+      &.active {
+       > a {
+        font-weight: 500;
+       } 
+      }
+    }
+  }
+}
+
+
+// Actions wrap
+// -----------------------------
+.kactions-wrap {
+  display: flex;
+  gap: .5rem;
+  justify-content: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+
+  &.align-left {
+    justify-content: flex-start;
+  }
+}
+
+// KFooter time
+// -----------------------------
+.kfooter-time {
+  color: var(--ktext-light);
+  display: flex;
+  justify-content: center;
+  font-size: var(--kfont-size-xs);
+}
+
+& + div {
+  font-size: var(--kfont-size-xs);
+
+  a {
+    color: var(--ktext-light);
+  }
+}

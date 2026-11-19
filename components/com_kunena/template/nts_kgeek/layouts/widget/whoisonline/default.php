@@ -1,0 +1,112 @@
+<?php
+
+/**
+ * Kunena Component
+ *
+ * @package         Kunena.Template.KBee
+ * @subpackage      Layout.Statistics
+ *
+ * @copyright       Copyright (C) 2008 - 2023 Kunena Team. All rights reserved.
+ * @license         https://www.gnu.org/copyleft/gpl.html GNU/GPL
+ * @link            https://www.kunena.org
+ **/
+
+defined('_JEXEC') or die();
+
+use Joomla\CMS\Language\Text;
+use Kunena\Forum\Libraries\Icons\KunenaIcons;
+use Kunena\Forum\Libraries\Template\KunenaTemplate;
+use Kunena\Forum\Libraries\Route\KunenaRoute;
+?>
+
+<div id="kwho" class="ksection">
+  <div class="ksection-header">
+    <h2>
+      <?php if ($this->usersUrl) :
+      ?>
+        <a href="<?php echo $this->usersUrl; ?>">
+          <?php echo Text::_('COM_KUNENA_MEMBERS'); ?>
+        </a>
+      <?php else :
+      ?>
+        <?php echo Text::_('COM_KUNENA_MEMBERS'); ?>
+      <?php endif; ?>
+    </h2>
+
+    <div class="ksection-toggle" data-bs-toggle="collapse" data-bs-target="#kwho-body"><?php echo KunenaIcons::collapse(); ?></div>
+  </div>
+
+  <div id="kwho-body" class="ksection-body">
+    <div class="krow">
+
+      <div class="kcol kcol-icon">
+        <span class="kicon-wrap">
+          <?php echo KunenaIcons::members(); ?>
+        </span>
+      </div>
+
+      <div class="kcol kcol-auto">
+        <ul>
+          <li>
+            <?php echo Text::sprintf('COM_KUNENA_VIEW_COMMON_WHO_TOTAL', $this->membersOnline); ?>
+          </li>
+          <?php
+          $template  = KunenaTemplate::getInstance();
+          $direction = $template->params->get('whoisonlineName');
+
+          if ($direction == 'both') :
+          ?>
+            <li><?php echo $this->setLayout('both'); ?></li>
+          <?php
+          elseif ($direction == 'avatar') :
+          ?>
+            <li><?php echo $this->setLayout('avatar'); ?></li>
+          <?php else :
+          ?>
+            <li><?php echo $this->setLayout('name'); ?></li>
+          <?php
+          endif;
+          ?>
+
+          <?php if (!empty($this->onlineList)) :
+          ?>
+            <li>
+              <span><?php echo Text::_('COM_KUNENA_LEGEND'); ?>:</span>
+              <span class="kwho-admin">
+                <?php echo KunenaIcons::user(); ?><?php echo Text::_('COM_KUNENA_COLOR_ADMINISTRATOR'); ?>
+              </span>
+              <span class="kwho-globalmoderator">
+                  <?php if ($this->linkUserlistAllowedToShow) : ?>
+                      <a href="<?php echo KunenaRoute::_('index.php?option=com_kunena&view=user&layout=list&usertype=globalmod'); ?>" class="kwho-globalmoderator"><?php echo KunenaIcons::user(); ?><?php echo Text::_('COM_KUNENA_COLOR_GLOBAL_MODERATOR'); ?></a>
+                <?php else : ?>
+                    <?php echo Text::_('COM_KUNENA_COLOR_GLOBAL_MODERATOR'); ?>
+                <?php endif; ?>
+              </span>
+              <span class="kwho-moderator">
+                  <?php echo KunenaIcons::user(); ?><?php echo Text::_('COM_KUNENA_COLOR_MODERATOR'); ?>
+              </span>
+              <span class="kwho-banned">
+                  <?php if ($this->linkUserlistAllowedToShow) : ?>
+                      <a href="<?php echo KunenaRoute::_('index.php?option=com_kunena&view=user&layout=list&usertype=banned'); ?>" class="kwho-banned"><?php echo KunenaIcons::user(); ?><?php echo Text::_('COM_KUNENA_COLOR_BANNED'); ?></a>
+                <?php else : ?>
+                    <?php echo Text::_('COM_KUNENA_COLOR_BANNED'); ?>
+                <?php endif; ?>
+              </span>
+              <span class="kwho-user">
+                  <?php if ($this->linkUserlistAllowedToShow) : ?>
+                      <a href="<?php echo KunenaRoute::_('index.php?option=com_kunena&view=user&layout=list&usertype=user'); ?>" class="kwho-user"><?php echo KunenaIcons::user(); ?><?php echo Text::_('COM_KUNENA_COLOR_USER'); ?></a>
+                <?php else : ?>
+                    <?php echo Text::_('COM_KUNENA_COLOR_USER'); ?>
+                <?php endif; ?>
+              </span>
+              <span class="kwho-guest">
+                <?php echo KunenaIcons::user(); ?><?php echo Text::_('COM_KUNENA_COLOR_GUEST'); ?>
+              </span>
+            </li>
+          <?php endif; ?>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</div>

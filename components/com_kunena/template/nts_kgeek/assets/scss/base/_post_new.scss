@@ -1,0 +1,262 @@
+#postform {
+  background: var(--kbase-1);
+  border: 1px solid var(--kborder-color);
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+
+  #iconset_topicList {
+    display: flex;
+    gap: .5rem;
+    align-items: center;
+
+    label {
+      float: none;
+    }
+
+    input[type="radio"] + label {
+      background-color: transparent;
+      border: 1px solid transparent;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: .25rem;
+      height: 2rem;
+      width: 2rem;
+
+      i, .icon {
+        color: var(--ktext-lighter);
+        font-size: 1.125rem;
+        transition: var(--trans-base);
+      }
+
+      &:hover {
+        i, .icon {
+          color: var(--klink-hover);
+        }
+      }
+    }
+    
+    input[type="radio"]:checked + label {
+      border: 1px solid var(--kprimary);
+      border-radius: 4px;
+
+      svg {
+        fill: var(--kprimary);
+      }
+
+      i, .icon {
+        color: var(--kprimary);
+      }
+    }
+    
+    input[type="radio"] {
+      display: none;
+    }
+  }
+
+  // Edit reason
+  #modified-reason {
+    background: var(--kbase-2);
+    border-radius: .25rem;
+    margin-bottom: 1rem;
+    padding: 1rem;
+
+    h4 {
+      font-size: var(--kfont-size-lg);
+      margin: 0 0 .5rem;
+    }
+  }
+
+  // Attachment
+  .kpost-attachments-wrap {
+    background-color: var(--kbase-2);
+    border-radius: .25rem;
+    margin-bottom: 1rem;
+    padding: 1rem;
+
+    h3 {
+      font-size: var(--kfont-size-lg);
+    }
+
+    .kattach-msg {
+      margin-bottom: 1rem;
+
+      .badge {
+        padding: .5rem;
+        font-weight: 400;
+
+        & + .badge {
+          margin-top: 0.5rem;
+
+          @media (min-width: $screen-lg) {
+            margin-top: 0;
+          }
+        }
+      }
+    }
+
+    .kattach-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem;
+
+      .kbtn {
+        &:hover, &:focus, &:active {
+          cursor: pointer;
+        }
+      }
+
+      .fileinput-button input {
+        font-size: 1rem !important;
+        left: 0;
+        bottom: 0;
+        padding: 0;
+        width: 100%;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  .progress {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .files {
+    display: flex;
+
+    > div {
+      background: #fff;
+      border: 1px solid var(--kborder-color);
+      border-radius: .25rem;
+      padding: .875rem;
+
+      > p {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0 0 .5rem;
+
+        a {
+          display: block;
+          font-size: var(--kfont-size-sm);
+          margin-top: .5rem;
+
+          .alert {
+            margin: .5rem 0;
+          }
+        }
+      }
+
+      .btn {
+        padding: 0.25rem 0.375rem;
+      }
+    }
+
+    .alert {
+      border: 0;
+      padding: .5rem;
+    }
+  }
+
+  .kpost-subscribe-wrap {
+    h3 {
+      font-size: var(--kfont-size-lg);
+    }
+
+    #subscribeMe {
+      border-radius: 1rem;
+      border: 0;
+    }
+  }
+}
+
+// KREPLY
+// ------------------------------------
+.kreply-default {
+  &.modal {
+    background: transparent;
+
+    .modal-dialog {
+      max-width: 100%;
+
+      .modal-content {
+        background: var(--kbase-2);
+      }
+
+      .modal-footer {
+        padding-top: 0;
+        padding-bottom: 0;
+      }
+    }
+
+    #postform {
+      background: transparent;
+    }
+  }
+}
+
+.kgoto-editor {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: .5rem;
+
+  .kbtn-link {
+    border-bottom: 1px dotted var(--ktext);
+
+    &:hover, &:focus, &:active {
+      border-color: var(--klink-hover);
+    }
+  }
+}
+
+.kreply {
+  width: 100%;
+
+  .modal-body {
+    .form-group {
+      margin-bottom: 1rem;
+
+      .controls {
+        display: flex;
+        align-items: center;
+      }
+
+      label {
+        margin-bottom: .25rem;
+      }
+
+      textarea {
+        border-radius: .25rem;
+        border: 1px solid var(--kborder-color);
+        padding: 1rem;
+        width: 100%;
+      }
+    }
+
+    .kgoto-editor {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: .5rem;
+
+      .kbtn-link {
+        border-bottom: 1px dotted var(--ktext);
+
+        &:hover, &:focus, &:active {
+          border-color: var(--klink-hover);
+        }
+      }
+    }
+  }
+
+  .modal-footer {
+    .kactions-wrap {
+      width: 100%;
+    }
+  }
+}
