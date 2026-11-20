@@ -61,8 +61,10 @@ class JConfig {
 	public $unicodeslugs = false;
 	public $feed_limit = 10;
 	public $feed_email = 'none';
-	public $log_path = 'D:\\Localhost\\htdocs\\nicetheme\\nts_kgeek\\administrator/logs';
-	public $tmp_path = 'D:\\Localhost\\htdocs\\nicetheme\\nts_kgeek/tmp';
+	// public $log_path = 'D:\\Localhost\\htdocs\\nicetheme\\nts_kgeek\\administrator/logs';
+	// public $tmp_path = 'D:\\Localhost\\htdocs\\nicetheme\\nts_kgeek/tmp';
+	public $log_path = 'D:\\Localhost\\htdocs\\nice_works\\nts_kgeek\\administrator/logs';
+	public $tmp_path = 'D:\\Localhost\\htdocs\\nice_works\\nts_kgeek/tmp';
 	public $lifetime = 1000;
 	public $session_handler = 'database';
 	public $shared_session = false;

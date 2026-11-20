@@ -70,3 +70,38 @@
 2026-11-19	23:29:16	INFO	Successfully finished task#06 in 0.01 (net 0.01) seconds.
 2026-11-19	23:34:16	INFO	Running task#06 'Kunena - Send the mail notifications queued'.
 2026-11-19	23:34:16	INFO	Successfully finished task#06 in 0.01 (net 0.01) seconds.
+2026-11-20	09:15:01	INFO	Running task#06 'Kunena - Send the mail notifications queued'.
+2026-11-20	09:15:01	INFO	Successfully finished task#06 in 0.02 (net 0.02) seconds.
+2026-11-20	09:16:46	INFO	Running task#04 'Kunena - Remove Expired Bans'.
+2026-11-20	09:16:46	INFO	Task> Process removeExpiredBans end. 0 Bans removed.
+2026-11-20	09:16:46	INFO	Successfully finished task#04 in 0.00 (net 0.00) seconds.
+2026-11-20	09:17:22	INFO	Running task#05 'Kunena - Trash purge'.
+2026-11-20	09:17:22	INFO	Successfully finished task#05 in 0.01 (net 0.01) seconds.
+2026-11-20	09:17:34	INFO	Running task#07 'Kunena - Clean pending attachments'.
+2026-11-20	09:17:34	INFO	Task> Process cleanPendingAttachments end. 0 pending attachments removed.
+2026-11-20	09:17:34	INFO	Successfully finished task#07 in 0.00 (net 0.01) seconds.
+2026-11-20	09:20:03	INFO	Running task#06 'Kunena - Send the mail notifications queued'.
+2026-11-20	09:20:03	INFO	Successfully finished task#06 in 0.02 (net 0.02) seconds.
+2026-11-20	09:25:39	INFO	Running task#06 'Kunena - Send the mail notifications queued'.
+2026-11-20	09:25:39	INFO	Successfully finished task#06 in 0.02 (net 0.02) seconds.
+2026-11-20	09:31:01	INFO	Running task#06 'Kunena - Send the mail notifications queued'.
+2026-11-20	09:31:01	INFO	Successfully finished task#06 in 0.02 (net 0.02) seconds.
+2026-11-20	09:36:01	INFO	Running task#06 'Kunena - Send the mail notifications queued'.
+2026-11-20	09:36:01	INFO	Successfully finished task#06 in 0.02 (net 0.02) seconds.
+2026-11-20	09:50:52	INFO	Running task#06 'Kunena - Send the mail notifications queued'.
+2026-11-20	09:50:52	INFO	Successfully finished task#06 in 0.02 (net 0.02) seconds.
+2026-11-20	09:59:33	INFO	Running task#06 'Kunena - Send the mail notifications queued'.
+2026-11-20	09:59:33	INFO	Successfully finished task#06 in 0.02 (net 0.02) seconds.
+2026-11-20	10:16:47	INFO	Running task#06 'Kunena - Send the mail notifications queued'.
+2026-11-20	10:16:47	INFO	Successfully finished task#06 in 0.03 (net 0.03) seconds.
+2026-11-20	10:17:12	INFO	Running task#04 'Kunena - Remove Expired Bans'.
+2026-11-20	10:17:12	INFO	Task> Process removeExpiredBans end. 0 Bans removed.
+2026-11-20	10:17:12	INFO	Successfully finished task#04 in 0.00 (net 0.00) seconds.
+2026-11-20	10:19:17	INFO	Running task#05 'Kunena - Trash purge'.
+2026-11-20	10:19:17	INFO	Successfully finished task#05 in 0.01 (net 0.01) seconds.
+2026-11-20	10:27:46	INFO	Running task#06 'Kunena - Send the mail notifications queued'.
+2026-11-20	10:27:46	INFO	Successfully finished task#06 in 0.02 (net 0.02) seconds.
+2026-11-20	10:32:55	INFO	Running task#06 'Kunena - Send the mail notifications queued'.
+2026-11-20	10:32:55	INFO	Successfully finished task#06 in 0.02 (net 0.02) seconds.
+2026-11-20	10:37:55	INFO	Running task#06 'Kunena - Send the mail notifications queued'.
+2026-11-20	10:37:55	INFO	Successfully finished task#06 in 0.02 (net 0.02) seconds.

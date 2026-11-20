@@ -97,15 +97,44 @@ foreach ($this->sections as $section) :
             }
             ?>
 
-            <?php if ($thumb) : ?>              
-            <div class="kcat-thumb">
-              <img class="kcat-thumb" loading="lazy" src="<?php echo htmlspecialchars($thumb, ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars((string) $category->name, ENT_QUOTES, 'UTF-8'); ?>" />
+            
+            <div class="kcat-head">
+              <?php if ($thumb) : ?>              
+              <div class="kcat-thumb">
+                <img class="kcat-thumb" loading="lazy" src="<?php echo htmlspecialchars($thumb, ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars((string) $category->name, ENT_QUOTES, 'UTF-8'); ?>" />
+              </div>
+              <?php else : ?>
+              <div class="kcol kcol-icon">
+                <?php echo $this->getCategoryLink($category, $this->getCategoryIcon($category), '', null, true, false); ?>
+              </div>
+              <?php endif; ?>
+
+              <div class="kcat-stats">
+                <div class="kcat-topics">
+                  <span class="kstats-value"><?php echo $this->formatLargeNumber($category->getTopics()) ?></span>
+                  <span class="kstats-label">
+                    <?php if($this->formatLargeNumber($category->getTopics()) > 1) {
+                      echo Text::_('COM_KUNENA_TOPICS');
+                    } else {
+                      echo Text::_('COM_KUNENA_TOPICS');
+                    } ?>
+                  </span>
+                </div> <!-- End: Post -->
+
+                <div class="kcat-replies">
+                  <span class="kstats-value"><?php echo $this->formatLargeNumber($category->getReplies()) ?></span>
+                  <span class="kstats-label">
+                    <?php if($this->formatLargeNumber($category->getReplies()) > 1) { 
+                      echo Text::_('COM_KUNENA_GEN_REPLIES');
+                    } else {
+                      echo Text::_('COM_KUNENA_GEN_REPLIES');
+                    } ?>					
+                  </span>
+                </div> <!-- End: Replies -->
+              </div>
             </div>
-            <?php else : ?>
-            <div class="kcol kcol-icon">
-              <?php echo $this->getCategoryLink($category, $this->getCategoryIcon($category), '', null, true, false); ?>
-            </div>
-            <?php endif; ?>
+
+
             
             <div class="kcol kcol-title kcol-auto">
               <h3>
@@ -194,27 +223,6 @@ foreach ($this->sections as $section) :
               <?php endif; ?>
             </div> <!-- End: Title -->
 
-            <div class="kcol kcol-stats">
-              <span class="kstats-value"><?php echo $this->formatLargeNumber($category->getTopics()) ?></span>
-              <span class="kstats-label">
-                <?php if($this->formatLargeNumber($category->getTopics()) > 1) {
-                  echo Text::_('COM_KUNENA_TOPICS');
-                } else {
-                  echo Text::_('COM_KUNENA_TOPICS');
-                } ?>
-              </span>
-            </div> <!-- End: Post -->
-
-            <div class="kcol kcol-stats">
-              <span class="kstats-value"><?php echo $this->formatLargeNumber($category->getReplies()) ?></span>
-              <span class="kstats-label">
-                <?php if($this->formatLargeNumber($category->getReplies()) > 1) { 
-                  echo Text::_('COM_KUNENA_GEN_REPLIES');
-                } else {
-                  echo Text::_('COM_KUNENA_GEN_REPLIES');
-                } ?>					
-              </span>
-            </div> <!-- End: Replies -->
 
             <?php $last = $category->getLastTopic(); ?>
 
