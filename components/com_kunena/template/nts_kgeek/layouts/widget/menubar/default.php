@@ -20,8 +20,7 @@ use Joomla\CMS\Language\Text;
   <div id="ktopmenu">
     <?php echo $this->subRequest('Widget/Menu'); ?>
   </div>
+  <div class="kuser-area">
+    <?php echo $this->subRequest('Widget/Login'); ?>
+  </div>
 </nav>
-
-<div class="kuser-area">
-  <?php echo $this->subRequest('Widget/Login'); ?>
-</div>

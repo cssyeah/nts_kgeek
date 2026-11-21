@@ -1,11 +1,13 @@
 // MAIN NAVIGATION
 // ---------------
 #ktopnav {
-  margin: 0;
-  padding: 0;
+  background: #EBECE7;
+  border-radius: .5rem;
+  align-items: stretch;
+  margin: 0 0 3rem;
+  padding: 0.25rem;
 
   @media (min-width: $screen-md) {
-    border-bottom: 3px solid var(--kprimary);
   }
 
   .navbar-nav {
@@ -21,19 +23,23 @@
 
     > li {
       > a {
-        background: var(--kmenu-bg);
-        color: var(--kmenu-color);
-        border-radius: .25rem;
+        // background: var(--kmenu-bg);
+        background: #fff;
+        // color: var(--kmenu-color);
+        color: var(--ktext);
+        border-radius: .375rem;
+        font-size: 15px;
+        font-weight: 500;
         padding: .5rem 1rem;
         position: relative;
 
         @media (min-width: $screen-md) {
-          border-radius: .25rem .25rem 0 0;
         }
 
         &:hover, &:focus, &:active {
           background: var(--kmenu-hover-bg);
-          color: var(--kmenu-hover-color);
+          // color: var(--kmenu-hover-color);
+          color: var(--ktext);
         }
       }
 
@@ -51,14 +57,76 @@
 // MEMBER AREA
 // -----------
 .kuser-area {
-  background: var(--kbase-2);
-  border: 1px solid var(--kborder-color);
-  padding: 1rem;
   position: relative;
-  margin-bottom: -1px;
 
-  @media (min-width: $screen-md) {
-    border-top: 0;
+  button {
+    border-radius: 6px;  
+    font-size: .875rem;
+    padding: 0 .75rem;
+    height: 100%;
+    font-weight: 600;
+    text-transform: uppercase;
+
+    &::after {
+      border: 0;
+      content: "\f078";
+      font-family: 'Font Awesome 6 Free';
+      font-size: .75rem;
+    }
+  }
+
+  .dropdown-menu {
+    border: 1px solid rgba(0,0,0,.1);
+    box-shadow: 0 3px 5px rgba(0,0,0,0.07);
+    border-radius: .5rem;
+    min-width: 300px;
+    margin-top: .5rem;
+    margin-right: -5px;
+    padding-top: 0;
+    padding-bottom: 0;
+
+    .klogin-form {
+      padding: 1.25rem;
+    }
+
+    #kdesktop-loginform {
+      padding: 0;
+
+      .kform-input-wrap {
+        flex-direction: column;
+        align-items: start;
+        margin-bottom: .5rem;
+      }
+
+      #kform-desktop-login-username,
+      #kform-desktop-login-password {
+        width: 100%;
+      }
+
+      #kdesktop-username,
+      #klogin-desktop-passwd {
+        border-radius: .375rem;
+        height: 40px;
+        margin: 0;
+      }
+
+      #kform-login-desktop-submit {
+        .kbtn {
+          border: 0;
+          height: 40px;
+          padding-left: 1rem;
+          padding-right: 1rem;
+
+          &::after {
+            display: none;
+          }
+        }
+      }
+
+      .kform-links {
+        gap: 0.25rem;
+      }
+    }
   }
 
   .kform-input-wrap {
@@ -229,6 +297,7 @@
   margin-bottom: 1rem;
   padding: .5rem 1rem;
   position: relative;
+  display: none;
 
   ol {
     margin: 0;

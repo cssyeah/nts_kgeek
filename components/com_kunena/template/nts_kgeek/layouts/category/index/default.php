@@ -71,7 +71,7 @@ foreach ($this->sections as $section) :
 
     <div class="ksection-body <?php if (!empty($section->class)) : ?>ksection<?php echo $this->escape($section->class_sfx); ?><?php endif; ?> collapse show" id="section<?php echo $section->id; ?>">
 
-      <div class="kcat-list">
+      <div class="kcat-list <?php echo $this->escape($section->class_sfx); ?>">
         <?php if ($section->isSection() && empty($this->categories[$section->id]) && empty($this->more[$section->id])) : ?>
           <div class="krow">
             <div class="kcol kcol-full">
@@ -138,7 +138,8 @@ foreach ($this->sections as $section) :
             
             <div class="kcol kcol-title kcol-auto">
               <h3>
-                <?php echo $this->getCategoryLink($category, $category->name, null, $this->ktemplate->tooltips(), true, false); ?>
+                <?php $catName = $this->escape($category->name); ?>
+                <?php echo $this->getCategoryLink($category, '<span class="kroll" data-text="' . $catName . '">' . $catName . '</span>', null, $this->ktemplate->tooltips(), true, false); ?>
                 <small class="nowrap">
                   <span>
                     <?php if (($new = $category->getNewCount()) > 0) : ?>

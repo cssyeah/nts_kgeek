@@ -57,21 +57,25 @@
   margin-bottom: 1.5rem;
 
   .ksection-header {
-    background: var(--ksec-header-bg);
+    // background: var(--ksec-header-bg);
     gap: .5rem;
+    display: flex;
+    flex-direction: row;
     align-items: flex-start;
-    color: var(--ksec-header-text);
-    margin-bottom: 0;
-    padding: .875rem 1rem;
+    margin-bottom: .25rem;
+    padding: 0;
     position: relative;
 
     h2 {
+      background: var(--ksec-header-bg);
+      border-radius: .5rem;
       display: flex;
       align-items: center;
       gap: .5rem;
       font-size: var(--kfont-size-lg);
       font-weight: 600;
       margin: 0;
+      padding: .5rem .75rem;
       position: relative;
     }
 
@@ -129,12 +133,74 @@
     border-bottom: 0;
 
     .kcat-list {
+      // 12-track grid: 12 is divisible by 2, 3, 4 and 6, so every layout
+      // (2/3/4 columns, wide items, paired wide items) is just a span.
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(12, 1fr);
       gap: .25rem;
 
+      // Mobile: 2 columns
+      > .krow {
+        grid-column: span 6;
+      }
+
+      > .krow.grid-2w {
+        grid-column: span 12;
+
+        &.ct-r {
+          flex-direction: row;
+
+          .kcat-head {
+            min-width: calc(50% - 6px);
+          }
+
+          .kcol-title {
+            text-align: left;
+            justify-content: start;
+          }
+
+          .ksub-cat-list ul {
+            justify-content: start;
+          }
+        }
+      }
+
+      // Non-category rows (e.g. "empty" message) always take the full row
+      > .krow:not(.category) {
+        grid-column: 1 / -1;
+      }
+
       @media (min-width: $screen-lg) {
-        grid-template-columns: repeat(3, 1fr);
+        // Default & .grid-3cols: 3 columns
+        > .krow {
+          grid-column: span 4;
+        }
+
+        > .krow.grid-2w {
+          grid-column: span 8;
+        }
+
+        // Two adjacent wide items: each takes half the row
+        > .krow.grid-2w:has(+ .krow.grid-2w),
+        > .krow.grid-2w + .krow.grid-2w {
+          grid-column: span 6;
+        }
+
+        &.grid-4cols {
+          > .krow {
+            grid-column: span 3;
+          }
+
+          > .krow.grid-2w,
+          > .krow.grid-2w:has(+ .krow.grid-2w),
+          > .krow.grid-2w + .krow.grid-2w {
+            grid-column: span 6;
+          }
+        }
+
+        > .krow:not(.category) {
+          grid-column: 1 / -1;
+        }
       }
 
       .category {
@@ -230,7 +296,7 @@
     display: none;
     align-items: center;
     justify-content: center;
-    width: 100px;
+    width: 78px;
 
     @media (min-width: $screen-md) {
       display: flex;
@@ -238,7 +304,7 @@
 
     a,
     .kicon-wrap {
-      background: var(--kicon-bg);
+      // background: var(--kicon-bg);
       border-radius: 4px;
       color: var(--kicon-color);
       display: inline-flex;
@@ -246,8 +312,8 @@
       justify-content: center;
       // padding: .5rem;
       transition: var(--ktrans-base);
-      height: 42px;
-      width: 42px;
+      height: 46px;
+      width: 46px;
 
       &:hover, &:focus, &:active {
         color: var(--kicon-hover-color);
@@ -280,7 +346,7 @@
   .kcol-title {
     flex: 1;
     display: flex;
-    justify-content: center;
+    justify-content: start;
     flex-direction: column;
     text-align: center;
     z-index: 40;
@@ -293,20 +359,72 @@
       font-weight: 600;
       margin: 0 0 .25rem;
       
+      // Hover: 3D roll. The link text (.kroll) is the front face of a box;
+      // ::after (content from data-text) is the bottom face in the hover
+      // color. On hover the box rotates 90deg around its centre so the
+      // bottom face rolls up to the front. Single line only (nowrap).
       a {
-        @extend %kcat-link-line;
+        --kroll-h: 1.3em;
         color: var(--ktext);
         display: inline-block;
-        transition: var(--ktrans-base);
+        line-height: var(--kroll-h);
+        max-width: 100%;
+        perspective: 600px;
+        vertical-align: bottom;
+        white-space: nowrap;
 
-        &:hover, &:focus, &:active {
-          color: var(--klink-hover);
+        &:hover, &:focus-visible, &:active {
+          color: var(--ktext);
+        }
+
+        .kroll {
+          display: inline-block;
+          position: relative;
+          transform-origin: 50% 50% calc(var(--kroll-h) / -2);
+          transform-style: preserve-3d;
+          transition:
+            transform .45s cubic-bezier(.4, 0, .2, 1),
+            color .45s cubic-bezier(.4, 0, .2, 1);
+
+          // The face that is edge-on (bottom at rest, front on hover) still
+          // projects as a thin sliver under perspective, so fade it out.
+          &::after {
+            content: attr(data-text);
+            color: var(--klink-hover);
+            left: 0;
+            opacity: 0;
+            position: absolute;
+            top: 100%;
+            transform: rotateX(-90deg);
+            transform-origin: 50% 0;
+            transition: opacity .45s cubic-bezier(.4, 0, .2, 1);
+          }
+        }
+
+        &:hover .kroll,
+        &:focus-visible .kroll {
+          color: transparent;
+          transform: rotateX(90deg);
+
+          &::after {
+            opacity: 1;
+          }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          .kroll,
+          .kroll::after {
+            transition: none;
+          }
         }
       }
     }
 
     .kcat-desc {
       color: var(--ktext-light);
+      font-size: 14px;
+      margin-top: .5rem;
+      opacity: .9;
     }
 
     .ksub-cat-list {

@@ -13,6 +13,8 @@
 
 defined('_JEXEC') or die();
 
+require_once dirname(__DIR__, 3) . '/helpers/avatar.php';
+
 use Joomla\CMS\Language\Text;
 use Kunena\Forum\Libraries\Config\KunenaConfig;
 use Kunena\Forum\Libraries\Factory\KunenaFactory;
@@ -25,7 +27,7 @@ $config          = KunenaConfig::getInstance();
 $topicPages      = $topic->getPagination(null, $config->messagesPerPage, 3);
 $author          = $topic->getLastPostAuthor();
 $this->ktemplate = KunenaFactory::getTemplate();
-$avatar          = $author->getAvatarImage($this->ktemplate->params->get('avatarType'), 'thumb');
+$avatar          = \beeKunenaAvatarImage($author, $this->ktemplate->params->get('avatarType'), 'thumb');
 $category        = $this->topic->getCategory();
 $txt             = '';
 
@@ -51,19 +53,32 @@ if (!empty($this->spacing)) : ?>
   </div>
 <?php endif; ?>
 
-<div class="krow category<?php echo $this->escape($category->class_sfx) . $txt; ?>">
-  <div class="kcol kcol-stats">
-    <span class="kstats-value"><?php echo $this->formatLargeNumber($topic->getReplies()); ?></span>
-    <span class="kstats-label"><?php echo Text::_('COM_KUNENA_GEN_REPLIES'); ?></span>
-  </div>
+<?php
+// Avatar of the user who started the topic (or the first letter of the username),
+// with the topic icon (Kunena topic icon set of the category) in a <span> inside it.
+$firstAuthor     = $topic->getFirstPostAuthor();
+$firstAuthorName = $firstAuthor->username ?: $firstAuthor->getName($topic->first_post_guest_name, false);
+// Font Awesome icon name without "fa-" (heart, check, lock, ...) as a class, e.g. "ktopic-icon heart",
+// read before getIcon() because Kunena overwrites $topic->icon_id there.
+$topicIconName   = \beeKunenaTopicIconName($topic);
+$topicIconClass  = 'ktopic-icon' . ($topicIconName !== '' ? ' ' . $topicIconName : '');
+$topicIcon       = \beeKunenaAvatarOrInitial($firstAuthor, (string) $firstAuthorName)
+  . '<span class="' . $topicIconClass . '">' . $topic->getIcon($category->iconset) . '</span>';
 
+// Everyone who posted in the topic (author first, then repliers).
+$participantsMax   = 5;
+$participantsData  = \beeKunenaTopicParticipants($topic, $participantsMax);
+$participants      = $participantsData['users'];
+$participantsMore  = $participantsData['total'] - \count($participants);
+?>
+<div class="krow category<?php echo $this->escape($category->class_sfx) . $txt; ?>">
   <?php if ($topic->unread) : ?>
     <div class="kcol kcol-icon topic-item-unread">
-      <?php echo $this->getTopicLink($topic, 'unread', KunenaTemplate::getInstance()->getTopicIcon($topic), '', null, $category, true, true); ?>
+      <?php echo $this->getTopicLink($topic, 'unread', $topicIcon, '', null, $category, true, true); ?>
     </div>
   <?php else : ?>
     <div class="kcol kcol-icon">
-      <?php echo $this->getTopicLink($topic, null, KunenaTemplate::getInstance()->getTopicIcon($topic), '', null, $category, true, false); ?>
+      <?php echo $this->getTopicLink($topic, null, $topicIcon, '', null, $category, true, false); ?>
     </div>
   <?php endif; ?>
 
@@ -99,22 +114,7 @@ if (!empty($this->spacing)) : ?>
         <?php if ($this->topic->poll_id && $category->allowPolls) : ?>
           <span class="badge-poll" <?php echo KunenaTemplate::getInstance()->tooltips(true); ?> data-bs-toggle="tooltip" title="<?php echo Text::_('COM_KUNENA_ADMIN_POLLS'); ?>"><?php echo KunenaIcons::poll(); ?></span>
         <?php endif; ?>
-      </div>
-    </div>
 
-    <div class="ktopic-meta">
-      <span class="ktopic-category"> <?php echo Text::sprintf('COM_KUNENA_CATEGORY_X', $this->getCategoryLink($this->topic->getCategory(), null, $this->topic->getCategory()->description, KunenaTemplate::getInstance()->tooltips())) ?></span>
-      <?php echo Text::_('COM_KUNENA_TOPIC_STARTED_ON') ?>
-      <?php if ($config->postDateFormat != 'none') : ?>
-        <?php echo $topic->getFirstPostTime()->toKunena('config_postDateFormat'); ?>,
-      <?php endif; ?>
-      <?php echo Text::_('COM_KUNENA_BY') ?>
-      <?php echo $topic->getAuthor()->getLink(null, Text::sprintf('COM_KUNENA_VIEW_USER_LINK_TITLE', $this->topic->getFirstPostAuthor()->getName()), '', '', KunenaTemplate::getInstance()->tooltips(), $category->id); ?>
-      <div class="float-end">
-        <?php /** TODO: New Feature - LABELS
-         * <span class="badge bg-info">
-         * <?php echo Text::_('COM_KUNENA_TOPIC_ROW_TABLE_LABEL_QUESTION'); ?>
-         * </span>    */ ?>
         <?php if ($topic->locked != 0) : ?>
           <span class="badge bg-warning">
             <span data-bs-toggle="tooltip" title="<?php echo Text::_('COM_KUNENA_LOCKED'); ?>"><?php echo KunenaIcons::lock(); ?></span>
@@ -123,27 +123,57 @@ if (!empty($this->spacing)) : ?>
       </div>
     </div>
 
+    <div class="kpost-info">
+      <span class="last-post-link">
+        <i class="fa-solid fa-reply"></i>
+        <strong><?php echo $this->topic->getLastPostAuthor()->getLink(null, Text::sprintf('COM_KUNENA_VIEW_USER_LINK_TITLE', $this->topic->getLastPostAuthor()->getName()), '', '', KunenaTemplate::getInstance()->tooltips(), $category->id); ?> - </strong>
+      </span>
+      <span class="date-post">
+        Replied
+        <?php echo $topic->getLastPostTime()->toKunena('config_postDateFormat'); ?>
+      </span>
+    </div>
+
     <div class="kpagination-wrap-sm">
       <?php echo $this->subLayout('Widget/Pagination/List')->set('pagination', $topicPages)->setLayout('simple'); ?>
     </div>
   </div>
 
-  <div class="kcol kcol-stats">
-    <span class="kstats-value"><?php echo $this->formatLargeNumber($topic->hits); ?></span>
-    <span class="kstats-label"><?php echo Text::_('COM_KUNENA_GEN_HITS'); ?></span>
+  <div class="kcol kcol-users">
+    <?php if ($participants) : ?>
+      <ul class="ktopic-users">
+        <?php foreach ($participants as $participant) : ?>
+          <?php $participantName = (string) ($participant->username ?: $participant->getName('', false)); ?>
+          <li class="ktopic-user<?php echo (int) $participant->userid === (int) $topic->first_post_userid ? ' is-author' : ''; ?>">
+            <a href="<?php echo $participant->getURL(); ?>" title="<?php echo $this->escape($participantName); ?>" data-bs-toggle="tooltip">
+              <?php echo \beeKunenaAvatarOrInitial($participant, $participantName); ?>
+            </a>
+          </li>
+        <?php endforeach; ?>
+
+        <?php if ($participantsMore > 0) : ?>
+          <li class="ktopic-user ktopic-user-more">
+            <span class="kuser-avatar-icon kuser-avatar-initial">+<?php echo (int) $participantsMore; ?></span>
+          </li>
+        <?php endif; ?>
+      </ul>
+    <?php endif; ?>
   </div>
 
-  <div class="kcol kcol-latest-post">
-    <?php if ($config->avatarOnCategory) : ?>
-      <div class="kuser-avatar">
-        <?php echo $author->getLink($avatar, Text::sprintf('COM_KUNENA_VIEW_USER_LINK_TITLE', $this->topic->getLastPostAuthor()->getName()), '', '', KunenaTemplate::getInstance()->tooltips(), $category->id, $config->avatarEdit); ?>
-      </div>
-    <?php endif; ?>
-    <div class="kpost-info">
-      <span class="last-post-link"><?php echo $this->getTopicLink($this->topic, 'last', Text::_('COM_KUNENA_GEN_LAST_POST'), null, KunenaTemplate::getInstance()->tooltips(), $category, false, true); ?>
-        <?php echo ' ' . Text::_('COM_KUNENA_BY') . ' ' . $this->topic->getLastPostAuthor()->getLink(null, Text::sprintf('COM_KUNENA_VIEW_USER_LINK_TITLE', $this->topic->getLastPostAuthor()->getName()), '', '', KunenaTemplate::getInstance()->tooltips(), $category->id); ?>
-      </span>
-      <span class="date-post"><?php echo $topic->getLastPostTime()->toKunena('config_postDateFormat'); ?></span>
+  <div class="kcol kcol-topic-info">
+    <div class="ktopic-category">
+      <i class="fa-solid fa-folder" aria-hidden="true"></i>
+      <?php echo $this->getCategoryLink($this->topic->getCategory(), null, $this->topic->getCategory()->description, KunenaTemplate::getInstance()->tooltips()) ?>
+    </div>
+
+    <div class="ktopic-stats">
+      <span class="kstats-label"><i class="fa-solid fa-comments"></i></span>
+      <span class="kstats-value"><?php echo $this->formatLargeNumber($topic->getReplies()); ?></span>      
+    </div>
+
+    <div class="ktopic-stats">
+      <span class="kstats-label"><i class="fa-solid fa-eye"></i></span>
+      <span class="kstats-value"><?php echo $this->formatLargeNumber($topic->hits); ?></span>
     </div>
   </div>
 

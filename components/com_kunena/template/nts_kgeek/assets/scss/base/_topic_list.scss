@@ -61,14 +61,13 @@
   }
 
   .ktopic-list-header {
-    background: var(--kprimary);
-    color: var(--kbase-1);
+    border-bottom: 2px solid var(--kprimary);
 
     .kcol {
       border-color: rgba(0,0,0,0.1);
       font-weight: 500;
       align-items: center;
-      padding: 0.825rem 1rem;
+      padding: 0 1rem 0.75rem;
     }
 
     .kcol-icon a {
@@ -81,14 +80,12 @@
       width: auto;
 
       svg {
-        fill: #fff;
         height: 1.25rem;
         width: 1.25rem;
       }
 
       i {
-        color: #fff;
-        font-size: 16px;
+        font-size: 12px;
       }
     }
 
@@ -108,13 +105,83 @@
   }
 
   .ktopic-list {
-    border-left: 1px solid var(--kborder-color);
-    border-right: 1px solid var(--kborder-color);
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+
+    .krow {
+      border-bottom: 1px solid var(--kborder-color);
+    }
+
+    .kcol-icon {
+      // Author avatar + topic icon badge (bottom-right corner)
+      a {
+        overflow: visible;
+        position: relative;
+      }
+
+      .kuser-avatar-icon {
+        background: var(--kicon-bg);
+        align-items: center;
+        border-radius: 50%;
+        display: flex;
+        font-weight: 600;
+        height: 100%;
+        justify-content: center;
+        overflow: hidden;
+        width: 100%;
+
+        img {
+          height: 100%;
+          object-fit: cover;
+          width: 100%;
+        }
+      }
+
+      .ktopic-icon {
+        background: var(--kbase-1, #fff);
+        align-items: center;
+        border: 2px solid #fff;
+        border-radius: 50%;
+        bottom: -4px;
+        color: var(--kprimary);
+        display: flex;
+        height: 22px;
+        justify-content: center;
+        position: absolute;
+        right: -4px;
+        width: 22px;
+
+        i, .fa, [class*="fa-"] {
+          color: #fff !important;
+          font-size: 10px;
+          line-height: 1;
+        }
+
+        svg, img {
+          height: 12px;
+          width: 12px;
+        }
+
+        &.heart {
+          background: #E62845;
+        }
+
+        &.check {
+          background: #00b15a;
+        }
+
+        &.lock {
+          background: #FFC900;
+        }
+      }
+    }
 
     .kcol-subject {
       .ktopic-title-wrap {
         h3 {
-          font-size: var(--kfont-size-lg);
+          // font-size: var(--kfont-size-lg);
+          font-size: 1rem;
           font-weight: 600;
           margin: 0;
 
@@ -132,11 +199,47 @@
           }
         }
       }
+
+      .kpost-info {
+        font-size: .875rem;
+
+        .date-post {
+          opacity: .8;
+        }
+
+        i {
+          font-size: .75rem;
+          opacity: .4;
+        }
+      }
     }
 
-    .ktopic-meta {
-      color: var(--ktext-light);
-      font-size: var(--kfont-size-sm);
+    .kcol-topic-info {
+      display: flex;
+      justify-content: end;
+      align-items: center;
+      gap: .25rem;
+      min-width: 240px;
+
+      > div {
+        border: 1px solid var(--kborder-color);
+        border-radius: .25rem;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        font-size: 12px;
+        padding: 2px 6px;
+        text-transform: uppercase;
+
+        i {
+          font-size: 12px;
+          opacity: .4;
+        }
+
+        span {
+          font-weight: 600;
+        }
+      }
     }
 
     .kcol-latest-post {
@@ -172,12 +275,19 @@
         }
       }
     }
+
+    .kcol-checkbox {
+      display: flex;
+      align-items: center;
+    }
   }
 
 
   .ktopic-list-footer {
-    border: 1px solid var(--kborder-color);
-
+    .kcol {
+      padding-bottom: 0;
+    }
+    
     .kcol-icon a {
       background-color: transparent;
       border: 0;
@@ -193,11 +303,13 @@
       }
 
       i {
-        font-size: 16px;
+        font-size: 12px;
       }
     }
 
     .kcol-icon {
+      padding-bottom: 0;
+
       #forumbottom {
         width: 0;
       }
@@ -238,5 +350,79 @@
 
   .pagination {
     margin: 0;
+  }
+}
+
+// Users who posted in the topic (author + repliers): overlapping avatars.
+.ktopic-list .kcol-users {
+  --kuser-size: 2.125rem;
+  align-items: center;
+  display: flex;
+
+  .ktopic-users {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0 0 0 calc(var(--kuser-size) * .3);
+    transition: transform .2s ease;
+
+    &:hover {
+      .ktopic-user { margin-left: 4px; }
+    }
+  }
+
+  .ktopic-user {
+    margin-left: calc(var(--kuser-size) * -.3);
+    position: relative;
+    transition: all .2s ease;
+
+    &:nth-child(1) { z-index: 1; }
+    &:nth-child(2) { z-index: 2; }
+    &:nth-child(3) { z-index: 3; }
+    &:nth-child(4) { z-index: 4; }
+    &:nth-child(5) { z-index: 5; }
+    &:nth-child(6) { z-index: 6; }
+
+    &:hover {
+      z-index: 10;
+    }
+
+    a {
+      display: block;
+    }
+  }
+
+  .kuser-avatar-icon {
+    align-items: center;
+    background: var(--kbase-3, #e9ecef);
+    border: 2px solid var(--kbase-1, #fff);
+    border-radius: 50%;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    color: var(--ktext);
+    display: flex;
+    font-size: calc(var(--kuser-size) * .42);
+    font-weight: 600;
+    height: var(--kuser-size);
+    justify-content: center;
+    line-height: 1;
+    overflow: hidden;
+    width: var(--kuser-size);
+    overflow: hidden;
+
+    img {
+      height: 100%;
+      object-fit: cover;
+      width: 100%;
+    }
+  }
+
+  .is-author .kuser-avatar-icon {
+    border-color: var(--kprimary);
+  }
+
+  .ktopic-user-more .kuser-avatar-icon {
+    background: var(--kprimary);
+    color: var(--kbase-1, #fff);
+    font-size: calc(var(--kuser-size) * .34);
   }
 }

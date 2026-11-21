@@ -632,8 +632,6 @@ div.navbar > div > div.visible-sm.hidden-md > ul {
 }
 
 .topic-item-unread {
-  border-left: 3px solid #008000;
-  border-radius: 2px 0;
 }
 
 .vid {
@@ -1557,7 +1555,7 @@ a .rounded,
   }
 
   .kcol {
-    padding: .875rem 1rem;
+    padding: .75rem 1rem;
   }
 
   .kcol-full,
@@ -1655,6 +1653,8 @@ a .rounded,
 // --------------------
 .kpagination-wrap {
   .pagination {
+    display: flex;
+    gap: .25rem;
     margin: 0;
 
     .page-item {
@@ -1664,7 +1664,7 @@ a .rounded,
         color: var(--ktext);
         display: flex;
         align-items: center;
-        height: 40px;
+        height: 36px;
         font-size: var(--kfont-size-sm);
         padding: 0 0.625rem;
         position: relative;
@@ -1672,13 +1672,11 @@ a .rounded,
 
       &:first-child {
         .page-link {
-          border-radius: 0;
         }
       }
 
       &:last-child {
         .page-link {
-          border-radius: 0;
         }
       }
 
