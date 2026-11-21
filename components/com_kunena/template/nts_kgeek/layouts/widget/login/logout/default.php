@@ -50,62 +50,65 @@ $tmpParams      = KunenaFactory::getTemplate()->params;
 <div class="dropdown-menu dropdown-menu-end" id="nav-menu userdropdownlogout" role="menu">
   <div class="klogout-wrap">
     <div class="kuser-wrap">
-      <div class="kuser-avatar">
-        <a href="<?php echo $this->me->getURL(); ?>">
-          <?php echo $this->me->getAvatarImage(KunenaFactory::getTemplate()->params->get('avatarType'), 'post'); ?>
-        </a>
-      </div>
 
-      <div class="kuser-info">
-        <div class="kuser-status">
-          <span class="kuser-name"><?php echo $this->me->getLink(null, null, '', '', KunenaTemplate::getInstance()->tooltips()); ?></span>
-          <?php echo $this->subLayout('User/Item/Status')->set('user', $this->me); ?>
-          <div class="kuser-last-visit">
-            <?php echo KunenaIcons::clock(); ?>
-            <?php echo $this->me->getLastVisitDate()->toKunena('config_postDateFormat'); ?>
-          </div>
+      <div class="kuser-info-wrapper">
+        <div class="kuser-avatar">
+          <a href="<?php echo $this->me->getURL(); ?>">
+            <?php echo $this->me->getAvatarImage(KunenaFactory::getTemplate()->params->get('avatarType'), 'post'); ?>
+          </a>
         </div>
 
-        <?php if ($status) : ?>
-          <div id="status-online">
-            <a href="<?php echo KunenaRoute::_('index.php?option=com_kunena&view=user&task=status&status=0&' . Session::getFormToken() . '=1'); ?>" class="kbadge kbadge-success">
-              <?php echo KunenaIcons::online(); ?>
-              <?php echo Text::_('COM_KUNENA_ONLINE') ?>
-            </a>
-
-            <a href="<?php echo KunenaRoute::_('index.php?option=com_kunena&view=user&task=status&status=1&' . Session::getFormToken() . '=1'); ?>" class="kbadge kbadge-warning">
-              <?php echo KunenaIcons::away(); ?>
-              <?php echo Text::_('COM_KUNENA_AWAY') ?>
-            </a>
-            <a href="<?php echo KunenaRoute::_('index.php?option=com_kunena&view=user&task=status&status=2&' . Session::getFormToken() . '=1'); ?>" class="kbadge kbadge-danger">
-              <?php echo KunenaIcons::busy(); ?>
-              <?php echo Text::_('COM_KUNENA_BUSY') ?>
-            </a>
-            <a href="<?php echo KunenaRoute::_('index.php?option=com_kunena&view=user&task=status&status=3&' . Session::getFormToken() . '=1'); ?>" class="kbadge kbadge-secondary">
-              <?php echo KunenaIcons::invisible(); ?>
-              <?php echo Text::_('COM_KUNENA_INVISIBLE') ?>
-            </a>
+        <div class="kuser-info">
+          <div class="kuser-status">
+            <span class="kuser-name"><?php echo $this->me->getLink(null, null, '', '', KunenaTemplate::getInstance()->tooltips()); ?></span>
+            <?php echo $this->subLayout('User/Item/Status')->set('user', $this->me); ?>
+            <div class="kuser-last-visit">
+              <?php echo KunenaIcons::clock(); ?>
+              <?php echo $this->me->getLastVisitDate()->toKunena('config_postDateFormat'); ?>
+            </div>
           </div>
-        <?php endif; ?>
 
-        <div class="klogout-action">
-          <?php if ($this->plglogin) : ?>
-            <?php echo $this->subLayout('Widget/Module')->set('position', 'kunena_logout'); ?>
-            <form action="<?php echo KunenaRoute::_('index.php?option=com_kunena'); ?>" method="post" id="logout-form" class="form-inline">
-              <div>
-                <button class="kbtn kbtn-primary" name="submit" type="submit">
-                  <?php echo KunenaIcons::out(); ?>
-                  <?php echo Text::_('COM_KUNENA_PROFILEBOX_LOGOUT'); ?>
-                </button>
-              </div>
-              <input type="hidden" name="view" value="user" />
-              <input type="hidden" name="task" value="logout" />
-              <?php echo HTMLHelper::_('form.token'); ?>
-            </form>
-          <?php endif ?>
-          <?php echo $this->subLayout('Widget/Module')->set('position', 'kunena_logout_bottom'); ?>
+          <?php if ($status) : ?>
+            <div id="status-online">
+              <a href="<?php echo KunenaRoute::_('index.php?option=com_kunena&view=user&task=status&status=0&' . Session::getFormToken() . '=1'); ?>" class="kbadge kbadge-success">
+                <?php echo KunenaIcons::online(); ?>
+                <?php echo Text::_('COM_KUNENA_ONLINE') ?>
+              </a>
+
+              <a href="<?php echo KunenaRoute::_('index.php?option=com_kunena&view=user&task=status&status=1&' . Session::getFormToken() . '=1'); ?>" class="kbadge kbadge-warning">
+                <?php echo KunenaIcons::away(); ?>
+                <?php echo Text::_('COM_KUNENA_AWAY') ?>
+              </a>
+              <a href="<?php echo KunenaRoute::_('index.php?option=com_kunena&view=user&task=status&status=2&' . Session::getFormToken() . '=1'); ?>" class="kbadge kbadge-danger">
+                <?php echo KunenaIcons::busy(); ?>
+                <?php echo Text::_('COM_KUNENA_BUSY') ?>
+              </a>
+              <a href="<?php echo KunenaRoute::_('index.php?option=com_kunena&view=user&task=status&status=3&' . Session::getFormToken() . '=1'); ?>" class="kbadge kbadge-secondary">
+                <?php echo KunenaIcons::invisible(); ?>
+                <?php echo Text::_('COM_KUNENA_INVISIBLE') ?>
+              </a>
+            </div>
+          <?php endif; ?>
+
+          <div class="klogout-action">
+            <?php if ($this->plglogin) : ?>
+              <?php echo $this->subLayout('Widget/Module')->set('position', 'kunena_logout'); ?>
+              <form action="<?php echo KunenaRoute::_('index.php?option=com_kunena'); ?>" method="post" id="logout-form" class="form-inline">
+                <div>
+                  <button class="kbtn kbtn-primary" name="submit" type="submit">
+                    <?php echo KunenaIcons::out(); ?>
+                    <?php echo Text::_('COM_KUNENA_PROFILEBOX_LOGOUT'); ?>
+                  </button>
+                </div>
+                <input type="hidden" name="view" value="user" />
+                <input type="hidden" name="task" value="logout" />
+                <?php echo HTMLHelper::_('form.token'); ?>
+              </form>
+            <?php endif ?>
+            <?php echo $this->subLayout('Widget/Module')->set('position', 'kunena_logout_bottom'); ?>
+          </div>
+
         </div>
-
       </div>
 
       <div class="klogout-links">
