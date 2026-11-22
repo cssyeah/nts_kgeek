@@ -135,6 +135,8 @@ class KunenaTemplateNts_kgeek extends KunenaTemplate
     $this->addScript('assets/js/draft.js');
     $this->addScript('assets/js/main.js');
     $this->addScript('assets/js/tooltips.js');
+    // Sliding background for the top menu (kept in its own file, outside the core scripts)
+    $this->addScript('assets/js/menu-slider.js');
 
     // Recompile here SCSS and create cache dir only if doesnt exist
     if (!file_exists(JPATH_SITE . 'media/kunena/cache/')) {
@@ -188,6 +190,7 @@ class KunenaTemplateNts_kgeek extends KunenaTemplate
 		$kNavHover			 	  = $this->params->get('kNavHover');
 		$kNavActiveBg			 	= $this->params->get('kNavActiveBg');
 		$kNavActive			 	  = $this->params->get('kNavActive');
+		$kNavSliderBg			 	= $this->params->get('kNavSliderBg', $kNavActiveBg);
 
 		$kHeaderBg 				  = $this->params->get('kHeaderBg');
 		$kHeaderText		    = $this->params->get('kheaderText');
@@ -225,6 +228,7 @@ class KunenaTemplateNts_kgeek extends KunenaTemplate
 			--kmenu-hover-color: 			{$kNavHover};
 			--kmenu-active-bg: 				{$kNavActiveBg};
 			--kmenu-active-color: 		{$kNavActive};
+			--kmenu-slider-bg: 				{$kNavSliderBg};
 
 			--ksec-header-bg: 				{$kHeaderBg};
 			--ksec-header-text: 			{$kHeaderText};

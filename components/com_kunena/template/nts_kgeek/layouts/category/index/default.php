@@ -49,9 +49,6 @@ foreach ($this->sections as $section) :
     <div class="ksection-header">
       <h2>
         <?php echo $this->getCategoryLink($section, $this->escape($section->name), null, $this->ktemplate->tooltips(), true, false); ?>
-        <span class="ksection-count" id="ksection-count-<?php echo $section->id; ?>">
-          <?php echo KunenaCategory::getInstance()->totalCount($section->getTopics()); ?>
-        </span>
       </h2>
 
       <?php if (!empty($section->description)) : ?>
@@ -64,7 +61,10 @@ foreach ($this->sections as $section) :
           <a class="kbtn kbtn-primary btn-sm" href="<?php echo Route::_('index.php?option=com_kunena&view=category&catid=' . (int) $section->id . '&layout=manage&Itemid=' . $Itemid); ?>"><?php echo KunenaIcons::pencil(); ?></a>
         <?php endif; ?>
 
-        <button class="" type="button" aria-expanded="false" aria-controls="section<?php echo $section->id; ?>" data-bs-toggle="collapse" data-bs-target="#section<?php echo $section->id; ?>"><?php echo KunenaIcons::collapse(); ?></button>
+        <button class="" type="button" aria-expanded="false" aria-controls="section<?php echo $section->id; ?>" data-bs-toggle="collapse" data-bs-target="#section<?php echo $section->id; ?>">
+          <i class="fa-solid fa-plus"></i>
+          <i class="fa-solid fa-minus"></i>
+        </button>
       <?php endif; ?>
       </div>
     </div>
@@ -75,7 +75,7 @@ foreach ($this->sections as $section) :
         <?php if ($section->isSection() && empty($this->categories[$section->id]) && empty($this->more[$section->id])) : ?>
           <div class="krow">
             <div class="kcol kcol-full">
-              <?php echo Text::_('COM_KUNENA_GEN_NOFORUMS'); ?>
+              <div class="kmsg-noforum"><?php echo Text::_('COM_KUNENA_GEN_NOFORUMS'); ?></div>
             </div>
           </div>
         <?php else : ?>

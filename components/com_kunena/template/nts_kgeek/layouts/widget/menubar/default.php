@@ -18,8 +18,15 @@ use Joomla\CMS\Language\Text;
 
 <nav id="ktopnav" class="navbar">
   <div id="ktopmenu">
-    <?php echo $this->subRequest('Widget/Menu'); ?>
+    <button class="btn btn-light dropdown-toggle d-lg-none" id="kmainnav" type="button" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
+      <span class="kmenu-bars"></span>
+    </button>
+    <div id="kmainnav-dropdown" class="dropdown-menu dropdown-menu-start">
+      <?php echo $this->subRequest('Widget/Menu'); ?>
+    </div>
+    <?php //echo $this->subRequest('Widget/Menu'); ?>
   </div>
+
   <div class="kuser-area">
     <?php echo $this->subRequest('Widget/Login'); ?>
   </div>

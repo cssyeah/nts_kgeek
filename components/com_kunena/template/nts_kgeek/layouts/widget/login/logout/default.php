@@ -35,15 +35,15 @@ $tmpParams      = KunenaFactory::getTemplate()->params;
   $showOnlineStatus = $this->me->showOnline == 1;
 
   if ($this->me->getStatus() == 0 && $status && $showOnlineStatus) :
-      echo $this->me->getAvatarImage(KunenaFactory::getTemplate()->params->get('avatarType') . ' green', 20, 20, 'green');
+      echo $this->me->getAvatarImage(KunenaFactory::getTemplate()->params->get('avatarType') . ' green', 32, 32, 'green');
   elseif ($this->me->getStatus() == 1 && $status && $showOnlineStatus) :
-      echo $this->me->getAvatarImage(KunenaFactory::getTemplate()->params->get('avatarType') . ' yellow', 20, 20, 'yellow');
+      echo $this->me->getAvatarImage(KunenaFactory::getTemplate()->params->get('avatarType') . ' yellow', 32, 32, 'yellow');
   elseif ($this->me->getStatus() == 2 && $status && $showOnlineStatus) :
-      echo $this->me->getAvatarImage(KunenaFactory::getTemplate()->params->get('avatarType') . ' red', 20, 20, 'red');
+      echo $this->me->getAvatarImage(KunenaFactory::getTemplate()->params->get('avatarType') . ' red', 32, 32, 'red');
   elseif ($this->me->getStatus() == 3 && $status || !$showOnlineStatus) :
-      echo $this->me->getAvatarImage(KunenaFactory::getTemplate()->params->get('avatarType') . ' grey', 20, 20, 'grey');
+      echo $this->me->getAvatarImage(KunenaFactory::getTemplate()->params->get('avatarType') . ' grey', 32, 32, 'grey');
   else :
-      echo $this->me->getAvatarImage(KunenaFactory::getTemplate()->params->get('avatarType') . ' none', 20, 20, 'none');
+      echo $this->me->getAvatarImage(KunenaFactory::getTemplate()->params->get('avatarType') . ' none', 32, 32, 'none');
   endif; ?>
 </button>
 

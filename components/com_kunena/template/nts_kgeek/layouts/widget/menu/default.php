@@ -23,7 +23,6 @@ use Joomla\CMS\HTML\HTMLHelper;
 
 <ul class="navbar-nav mr-auto">
     <?php
-
     $columninx  = 0;
     $lastlevel  = 4;
     $extrastyle = '';

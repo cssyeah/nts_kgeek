@@ -152,6 +152,8 @@
 
     <field name="kNavActive" type="color" default="#fff" label="COM_KUNENA_TEMPLATE_NAV_ACTIVE_COLOR" description="COM_KUNENA_TEMPLATE_NAV_ACTIVE_COLOR_DESC" />
 
+    <field name="kNavSliderBg" type="color" default="#5388B4" label="COM_KUNENA_TEMPLATE_NAV_SLIDER_BG_COLOR" description="COM_KUNENA_TEMPLATE_NAV_SLIDER_BG_COLOR_DESC" />
+
     <field name="kHeaderBg" type="color" default="#5388B4" label="COM_KUNENA_TEMPLATE_SEC_HEADER_BG_COLOR" description="COM_KUNENA_TEMPLATE_SEC_HEADER_BG_COLOR_DESC" />
 
     <field name="kheaderText" type="color" default="#ffffff" label="COM_KUNENA_TEMPLATE_SEC_HEADER_TEXT_COLOR" description="COM_KUNENA_TEMPLATE_SEC_HEADER_TEXT_COLOR_DESC" />
