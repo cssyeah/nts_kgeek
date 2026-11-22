@@ -17,7 +17,8 @@
 (function () {
 	'use strict';
 
-	var SELECTOR = '#ktopmenu > .navbar-nav';
+	// The menu <ul> may sit directly in #ktopmenu or inside the #kmainnav-dropdown wrapper.
+	var SELECTOR = '#ktopmenu > .navbar-nav, #kmainnav-dropdown > .navbar-nav';
 	var MEDIA = '(min-width: 992px)';
 
 	function initMenu(nav, mq) {
