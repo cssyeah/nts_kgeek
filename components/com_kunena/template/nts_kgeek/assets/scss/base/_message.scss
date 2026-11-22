@@ -54,7 +54,6 @@
 
   .kmessage {
     background: var(--kbase-1);
-    border: 1px solid var(--kborder-color);
     display: flex;
     flex-wrap: wrap;
     margin-bottom: 1.5rem;
@@ -245,11 +244,9 @@
 
   .kmessage-profile {
     background-color: var(--kbase-2);
-    border-bottom: 1px solid var(--kborder-color);
     flex-basis: 100%;
     
     @media (min-width: $screen-md) {
-      border-right: 1px solid var(--kborder-color);
       border-bottom: 0;
       flex-basis: 180px;
       min-width: 180px;
