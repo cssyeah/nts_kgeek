@@ -29,9 +29,10 @@ CREATE TABLE IF NOT EXISTS `kgeek_action_logs` (
   KEY `idx_user_id_logdate` (`user_id`,`log_date`),
   KEY `idx_user_id_extension` (`user_id`,`extension`),
   KEY `idx_extension_item_id` (`extension`,`item_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=126 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=132 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table nts_kgeek.kgeek_action_logs: ~6 rows (approximately)
+-- Dumping data for table nts_kgeek.kgeek_action_logs: ~125 rows (approximately)
+DELETE FROM `kgeek_action_logs`;
 INSERT INTO `kgeek_action_logs` (`id`, `message_language_key`, `message`, `log_date`, `extension`, `user_id`, `item_id`, `ip_address`) VALUES
 	(1, 'PLG_ACTIONLOG_JOOMLA_USER_LOGGED_IN', '{"action":"login","userid":688,"username":"admin","accountlink":"index.php?option=com_users&task=user.edit&id=688","app":"PLG_ACTIONLOG_JOOMLA_APPLICATION_ADMINISTRATOR"}', '2026-11-19 14:30:15', 'com_users', 688, 0, 'COM_ACTIONLOGS_DISABLED'),
 	(2, 'PLG_ACTIONLOG_JOOMLA_GUIDEDTOURS_TOURSKIPPED', '{"id":12,"title":"Welcome to Joomla!","state":"skipped","step":1,"userid":688,"username":"admin","accountlink":"index.php?option=com_users&task=user.edit&id=688"}', '2026-11-19 14:30:19', 'com_guidedtours.state', 688, 12, 'COM_ACTIONLOGS_DISABLED'),
@@ -157,7 +158,13 @@ INSERT INTO `kgeek_action_logs` (`id`, `message_language_key`, `message`, `log_d
 	(122, 'PLG_ACTIONLOG_JOOMLA_USER_LOGGED_IN', '{"action":"login","userid":689,"username":"cargeek","accountlink":"index.php?option=com_users&task=user.edit&id=689","app":"PLG_ACTIONLOG_JOOMLA_APPLICATION_SITE"}', '2026-11-21 06:49:12', 'com_users', 689, 0, 'COM_ACTIONLOGS_DISABLED'),
 	(123, 'PLG_ACTIONLOG_JOOMLA_USER_LOGGED_OUT', '{"action":"logout","id":689,"userid":689,"username":"cargeek","accountlink":"index.php?option=com_users&task=user.edit&id=689","app":"PLG_ACTIONLOG_JOOMLA_APPLICATION_SITE"}', '2026-11-21 06:49:53', 'com_users', 689, 689, 'COM_ACTIONLOGS_DISABLED'),
 	(124, 'PLG_ACTIONLOG_JOOMLA_USER_LOGIN_FAILED', '{"action":"login","id":688,"userid":688,"username":"admin","accountlink":"index.php?option=com_users&task=user.edit&id=688","app":"PLG_ACTIONLOG_JOOMLA_APPLICATION_SITE"}', '2026-11-21 06:50:04', 'com_users', 688, 688, 'COM_ACTIONLOGS_DISABLED'),
-	(125, 'PLG_ACTIONLOG_JOOMLA_USER_LOGGED_IN', '{"action":"login","userid":688,"username":"admin","accountlink":"index.php?option=com_users&task=user.edit&id=688","app":"PLG_ACTIONLOG_JOOMLA_APPLICATION_SITE"}', '2026-11-21 06:50:28', 'com_users', 688, 0, 'COM_ACTIONLOGS_DISABLED');
+	(125, 'PLG_ACTIONLOG_JOOMLA_USER_LOGGED_IN', '{"action":"login","userid":688,"username":"admin","accountlink":"index.php?option=com_users&task=user.edit&id=688","app":"PLG_ACTIONLOG_JOOMLA_APPLICATION_SITE"}', '2026-11-21 06:50:28', 'com_users', 688, 0, 'COM_ACTIONLOGS_DISABLED'),
+	(126, 'PLG_ACTIONLOG_JOOMLA_USER_LOGGED_IN', '{"action":"login","userid":688,"username":"admin","accountlink":"index.php?option=com_users&task=user.edit&id=688","app":"PLG_ACTIONLOG_JOOMLA_APPLICATION_SITE"}', '2026-11-21 15:34:47', 'com_users', 688, 0, 'COM_ACTIONLOGS_DISABLED'),
+	(127, 'PLG_ACTIONLOG_JOOMLA_USER_LOGGED_OUT', '{"action":"logout","id":688,"userid":688,"username":"admin","accountlink":"index.php?option=com_users&task=user.edit&id=688","app":"PLG_ACTIONLOG_JOOMLA_APPLICATION_SITE"}', '2026-11-21 23:38:36', 'com_users', 688, 688, 'COM_ACTIONLOGS_DISABLED'),
+	(128, 'PLG_ACTIONLOG_JOOMLA_USER_LOGIN_FAILED', '{"action":"login","id":689,"userid":689,"username":"cargeek","accountlink":"index.php?option=com_users&task=user.edit&id=689","app":"PLG_ACTIONLOG_JOOMLA_APPLICATION_SITE"}', '2026-11-21 23:39:16', 'com_users', 689, 689, 'COM_ACTIONLOGS_DISABLED'),
+	(129, 'PLG_ACTIONLOG_JOOMLA_USER_LOGGED_IN', '{"action":"login","userid":689,"username":"cargeek","accountlink":"index.php?option=com_users&task=user.edit&id=689","app":"PLG_ACTIONLOG_JOOMLA_APPLICATION_SITE"}', '2026-11-21 23:42:36', 'com_users', 689, 0, 'COM_ACTIONLOGS_DISABLED'),
+	(130, 'PLG_ACTIONLOG_JOOMLA_USER_LOGIN_FAILED', '{"action":"login","id":688,"userid":688,"username":"admin","accountlink":"index.php?option=com_users&task=user.edit&id=688","app":"PLG_ACTIONLOG_JOOMLA_APPLICATION_ADMINISTRATOR"}', '2026-11-22 14:27:44', 'com_users', 688, 688, 'COM_ACTIONLOGS_DISABLED'),
+	(131, 'PLG_ACTIONLOG_JOOMLA_USER_LOGGED_IN', '{"action":"login","userid":688,"username":"admin","accountlink":"index.php?option=com_users&task=user.edit&id=688","app":"PLG_ACTIONLOG_JOOMLA_APPLICATION_ADMINISTRATOR"}', '2026-11-22 14:27:55', 'com_users', 688, 0, 'COM_ACTIONLOGS_DISABLED');
 
 -- Dumping structure for table nts_kgeek.kgeek_action_logs_extensions
 CREATE TABLE IF NOT EXISTS `kgeek_action_logs_extensions` (
@@ -167,6 +174,7 @@ CREATE TABLE IF NOT EXISTS `kgeek_action_logs_extensions` (
 ) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table nts_kgeek.kgeek_action_logs_extensions: ~21 rows (approximately)
+DELETE FROM `kgeek_action_logs_extensions`;
 INSERT INTO `kgeek_action_logs_extensions` (`id`, `extension`) VALUES
 	(1, 'com_banners'),
 	(2, 'com_cache'),
@@ -200,6 +208,7 @@ CREATE TABLE IF NOT EXISTS `kgeek_action_logs_users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table nts_kgeek.kgeek_action_logs_users: ~0 rows (approximately)
+DELETE FROM `kgeek_action_logs_users`;
 
 -- Dumping structure for table nts_kgeek.kgeek_action_log_config
 CREATE TABLE IF NOT EXISTS `kgeek_action_log_config` (
@@ -214,6 +223,7 @@ CREATE TABLE IF NOT EXISTS `kgeek_action_log_config` (
 ) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table nts_kgeek.kgeek_action_log_config: ~23 rows (approximately)
+DELETE FROM `kgeek_action_log_config`;
 INSERT INTO `kgeek_action_log_config` (`id`, `type_title`, `type_alias`, `id_holder`, `title_holder`, `table_name`, `text_prefix`) VALUES
 	(1, 'article', 'com_content.article', 'id', 'title', '#__content', 'PLG_ACTIONLOG_JOOMLA'),
 	(2, 'article', 'com_content.form', 'id', 'title', '#__content', 'PLG_ACTIONLOG_JOOMLA'),
@@ -256,6 +266,7 @@ CREATE TABLE IF NOT EXISTS `kgeek_assets` (
 ) ENGINE=InnoDB AUTO_INCREMENT=107 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table nts_kgeek.kgeek_assets: ~99 rows (approximately)
+DELETE FROM `kgeek_assets`;
 INSERT INTO `kgeek_assets` (`id`, `parent_id`, `lft`, `rgt`, `level`, `name`, `title`, `rules`) VALUES
 	(1, 0, 0, 197, 0, 'root.1', 'Root Asset', '{"core.login.site":{"6":1,"2":1},"core.login.admin":{"6":1},"core.login.api":{"8":1},"core.login.offline":{"6":1},"core.admin":{"8":1},"core.manage":{"7":1},"core.create":{"6":1,"3":1},"core.delete":{"6":1},"core.edit":{"6":1,"4":1},"core.edit.state":{"6":1,"5":1},"core.edit.own":{"6":1,"3":1}}'),
 	(2, 1, 1, 2, 1, 'com_admin', 'com_admin', '{}'),
@@ -367,6 +378,7 @@ CREATE TABLE IF NOT EXISTS `kgeek_associations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table nts_kgeek.kgeek_associations: ~0 rows (approximately)
+DELETE FROM `kgeek_associations`;
 
 -- Dumping structure for table nts_kgeek.kgeek_banners
 CREATE TABLE IF NOT EXISTS `kgeek_banners` (
@@ -413,6 +425,7 @@ CREATE TABLE IF NOT EXISTS `kgeek_banners` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table nts_kgeek.kgeek_banners: ~0 rows (approximately)
+DELETE FROM `kgeek_banners`;
 
 -- Dumping structure for table nts_kgeek.kgeek_banner_clients
 CREATE TABLE IF NOT EXISTS `kgeek_banner_clients` (
@@ -436,6 +449,7 @@ CREATE TABLE IF NOT EXISTS `kgeek_banner_clients` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table nts_kgeek.kgeek_banner_clients: ~0 rows (approximately)
+DELETE FROM `kgeek_banner_clients`;
 
 -- Dumping structure for table nts_kgeek.kgeek_banner_tracks
 CREATE TABLE IF NOT EXISTS `kgeek_banner_tracks` (
@@ -450,6 +464,7 @@ CREATE TABLE IF NOT EXISTS `kgeek_banner_tracks` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table nts_kgeek.kgeek_banner_tracks: ~0 rows (approximately)
+DELETE FROM `kgeek_banner_tracks`;
 
 -- Dumping structure for table nts_kgeek.kgeek_categories
 CREATE TABLE IF NOT EXISTS `kgeek_categories` (
@@ -491,6 +506,7 @@ CREATE TABLE IF NOT EXISTS `kgeek_categories` (
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table nts_kgeek.kgeek_categories: ~6 rows (approximately)
+DELETE FROM `kgeek_categories`;
 INSERT INTO `kgeek_categories` (`id`, `asset_id`, `parent_id`, `lft`, `rgt`, `level`, `path`, `extension`, `title`, `alias`, `note`, `description`, `published`, `checked_out`, `checked_out_time`, `access`, `params`, `metadesc`, `metakey`, `metadata`, `created_user_id`, `created_time`, `modified_user_id`, `modified_time`, `hits`, `language`, `version`) VALUES
 	(1, 0, 0, 0, 11, 0, '', 'system', 'ROOT', 'root', '', '', 1, NULL, NULL, 1, '{}', '', '', '{}', 688, '2026-11-19 14:29:52', 688, '2026-11-19 14:29:52', 0, '*', 1),
 	(2, 27, 1, 1, 2, 1, 'uncategorised', 'com_content', 'Uncategorised', 'uncategorised', '', '', 1, NULL, NULL, 1, '{"category_layout":"","image":"","workflow_id":"use_default"}', '', '', '{"author":"","robots":""}', 688, '2026-11-19 14:29:52', 688, '2026-11-19 14:29:52', 0, '*', 1),
@@ -554,6 +570,7 @@ CREATE TABLE IF NOT EXISTS `kgeek_contact_details` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table nts_kgeek.kgeek_contact_details: ~0 rows (approximately)
+DELETE FROM `kgeek_contact_details`;
 
 -- Dumping structure for table nts_kgeek.kgeek_content
 CREATE TABLE IF NOT EXISTS `kgeek_content` (
@@ -599,6 +616,7 @@ CREATE TABLE IF NOT EXISTS `kgeek_content` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table nts_kgeek.kgeek_content: ~0 rows (approximately)
+DELETE FROM `kgeek_content`;
 
 -- Dumping structure for table nts_kgeek.kgeek_contentitem_tag_map
 CREATE TABLE IF NOT EXISTS `kgeek_contentitem_tag_map` (
@@ -615,6 +633,7 @@ CREATE TABLE IF NOT EXISTS `kgeek_contentitem_tag_map` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Maps items from content tables to tags';
 
 -- Dumping data for table nts_kgeek.kgeek_contentitem_tag_map: ~0 rows (approximately)
+DELETE FROM `kgeek_contentitem_tag_map`;
 
 -- Dumping structure for table nts_kgeek.kgeek_content_frontpage
 CREATE TABLE IF NOT EXISTS `kgeek_content_frontpage` (
@@ -626,6 +645,7 @@ CREATE TABLE IF NOT EXISTS `kgeek_content_frontpage` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table nts_kgeek.kgeek_content_frontpage: ~0 rows (approximately)
+DELETE FROM `kgeek_content_frontpage`;
 
 -- Dumping structure for table nts_kgeek.kgeek_content_rating
 CREATE TABLE IF NOT EXISTS `kgeek_content_rating` (
@@ -637,6 +657,7 @@ CREATE TABLE IF NOT EXISTS `kgeek_content_rating` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table nts_kgeek.kgeek_content_rating: ~0 rows (approximately)
+DELETE FROM `kgeek_content_rating`;
 
 -- Dumping structure for table nts_kgeek.kgeek_content_types
 CREATE TABLE IF NOT EXISTS `kgeek_content_types` (
@@ -653,6 +674,7 @@ CREATE TABLE IF NOT EXISTS `kgeek_content_types` (
 ) ENGINE=InnoDB AUTO_INCREMENT=10000 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table nts_kgeek.kgeek_content_types: ~14 rows (approximately)
+DELETE FROM `kgeek_content_types`;
 INSERT INTO `kgeek_content_types` (`type_id`, `type_title`, `type_alias`, `table`, `rules`, `field_mappings`, `router`, `content_history_options`) VALUES
 	(1, 'Article', 'com_content.article', '{"special":{"dbtable":"#__content","key":"id","type":"ArticleTable","prefix":"Joomla\\\\Component\\\\Content\\\\Administrator\\\\Table\\\\","config":"array()"},"common":{"dbtable":"#__ucm_content","key":"ucm_id","type":"Corecontent","prefix":"Joomla\\\\CMS\\\\Table\\\\","config":"array()"}}', '', '{"common":{"core_content_item_id":"id","core_title":"title","core_state":"state","core_alias":"alias","core_created_user_id":"created_by","core_created_by_alias":"created_by_alias","core_created_time":"created","core_modified_time":"modified","core_body":"introtext", "core_hits":"hits","core_publish_up":"publish_up","core_publish_down":"publish_down","core_access":"access", "core_params":"attribs", "core_featured":"featured", "core_metadata":"metadata", "core_language":"language", "core_images":"images", "core_urls":"urls", "core_version":"version", "core_ordering":"ordering", "core_metakey":"metakey", "core_metadesc":"metadesc", "core_catid":"catid", "asset_id":"asset_id", "note":"note"}, "special":{"fulltext":"fulltext"}}', 'ContentHelperRoute::getArticleRoute', '{"formFile":"administrator\\/components\\/com_content\\/forms\\/article.xml", "hideFields":["asset_id","checked_out","checked_out_time","version"],"ignoreChanges":["modified_by", "modified", "checked_out", "checked_out_time", "version", "hits", "ordering"],"convertToInt":["publish_up", "publish_down", "featured", "ordering"],"displayLookup":[{"sourceColumn":"catid","targetTable":"#__categories","targetColumn":"id","displayColumn":"title"},{"sourceColumn":"created_by","targetTable":"#__users","targetColumn":"id","displayColumn":"name"},{"sourceColumn":"access","targetTable":"#__viewlevels","targetColumn":"id","displayColumn":"title"},{"sourceColumn":"modified_by","targetTable":"#__users","targetColumn":"id","displayColumn":"name"},{"sourceColumn":"tags","targetTable":"#__tags","targetColumn":"id","displayColumn":"title"} ]}'),
 	(2, 'Contact', 'com_contact.contact', '{"special":{"dbtable":"#__contact_details","key":"id","type":"ContactTable","prefix":"Joomla\\\\Component\\\\Contact\\\\Administrator\\\\Table\\\\","config":"array()"},"common":{"dbtable":"#__ucm_content","key":"ucm_id","type":"Corecontent","prefix":"Joomla\\\\CMS\\\\Table\\\\","config":"array()"}}', '', '{"common":{"core_content_item_id":"id","core_title":"name","core_state":"published","core_alias":"alias","core_created_time":"created","core_modified_time":"modified","core_body":"address", "core_hits":"hits","core_publish_up":"publish_up","core_publish_down":"publish_down","core_access":"access", "core_params":"params", "core_featured":"featured", "core_metadata":"metadata", "core_language":"language", "core_images":"image", "core_urls":"webpage", "core_version":"version", "core_ordering":"ordering", "core_metakey":"metakey", "core_metadesc":"metadesc", "core_catid":"catid", "asset_id":"null"}, "special":{"con_position":"con_position","suburb":"suburb","state":"state","country":"country","postcode":"postcode","telephone":"telephone","fax":"fax","misc":"misc","email_to":"email_to","default_con":"default_con","user_id":"user_id","mobile":"mobile","sortname1":"sortname1","sortname2":"sortname2","sortname3":"sortname3"}}', 'ContactHelperRoute::getContactRoute', '{"formFile":"administrator\\/components\\/com_contact\\/forms\\/contact.xml","hideFields":["default_con","checked_out","checked_out_time","version"],"ignoreChanges":["modified_by", "modified", "checked_out", "checked_out_time", "version", "hits"],"convertToInt":["publish_up", "publish_down", "featured", "ordering"], "displayLookup":[ {"sourceColumn":"created_by","targetTable":"#__users","targetColumn":"id","displayColumn":"name"},{"sourceColumn":"catid","targetTable":"#__categories","targetColumn":"id","displayColumn":"title"},{"sourceColumn":"modified_by","targetTable":"#__users","targetColumn":"id","displayColumn":"name"},{"sourceColumn":"access","targetTable":"#__viewlevels","targetColumn":"id","displayColumn":"title"},{"sourceColumn":"user_id","targetTable":"#__users","targetColumn":"id","displayColumn":"name"},{"sourceColumn":"tags","targetTable":"#__tags","targetColumn":"id","displayColumn":"title"} ] }'),
@@ -698,6 +720,7 @@ CREATE TABLE IF NOT EXISTS `kgeek_extensions` (
 ) ENGINE=InnoDB AUTO_INCREMENT=272 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table nts_kgeek.kgeek_extensions: ~271 rows (approximately)
+DELETE FROM `kgeek_extensions`;
 INSERT INTO `kgeek_extensions` (`extension_id`, `package_id`, `name`, `type`, `element`, `changelogurl`, `folder`, `client_id`, `enabled`, `access`, `protected`, `locked`, `manifest_cache`, `params`, `custom_data`, `checked_out`, `checked_out_time`, `ordering`, `state`, `note`) VALUES
 	(1, 0, 'com_wrapper', 'component', 'com_wrapper', '', '', 1, 1, 1, 0, 1, '{"name":"com_wrapper","type":"component","creationDate":"2006-04","author":"Joomla! Project","copyright":"(C) 2007 Open Source Matters, Inc.\\n\\t","authorEmail":"admin@joomla.org","authorUrl":"www.joomla.org","version":"4.0.0","description":"COM_WRAPPER_XML_DESCRIPTION","group":"","changelogurl":"","namespace":"Joomla\\\\Component\\\\Wrapper","filename":"wrapper"}', '', '', NULL, NULL, 0, 0, NULL),
 	(2, 0, 'com_admin', 'component', 'com_admin', '', '', 1, 1, 1, 1, 1, '{"name":"com_admin","type":"component","creationDate":"2006-04","author":"Joomla! Project","copyright":"(C) 2006 Open Source Matters, Inc.","authorEmail":"admin@joomla.org","authorUrl":"www.joomla.org","version":"4.0.0","description":"COM_ADMIN_XML_DESCRIPTION","group":"","changelogurl":"","namespace":"Joomla\\\\Component\\\\Admin"}', '', '', NULL, NULL, 0, 0, NULL),
@@ -1008,6 +1031,7 @@ CREATE TABLE IF NOT EXISTS `kgeek_fields` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table nts_kgeek.kgeek_fields: ~0 rows (approximately)
+DELETE FROM `kgeek_fields`;
 
 -- Dumping structure for table nts_kgeek.kgeek_fields_categories
 CREATE TABLE IF NOT EXISTS `kgeek_fields_categories` (
@@ -1017,6 +1041,7 @@ CREATE TABLE IF NOT EXISTS `kgeek_fields_categories` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table nts_kgeek.kgeek_fields_categories: ~0 rows (approximately)
+DELETE FROM `kgeek_fields_categories`;
 
 -- Dumping structure for table nts_kgeek.kgeek_fields_groups
 CREATE TABLE IF NOT EXISTS `kgeek_fields_groups` (
@@ -1047,6 +1072,7 @@ CREATE TABLE IF NOT EXISTS `kgeek_fields_groups` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table nts_kgeek.kgeek_fields_groups: ~0 rows (approximately)
+DELETE FROM `kgeek_fields_groups`;
 
 -- Dumping structure for table nts_kgeek.kgeek_fields_values
 CREATE TABLE IF NOT EXISTS `kgeek_fields_values` (
@@ -1058,6 +1084,7 @@ CREATE TABLE IF NOT EXISTS `kgeek_fields_values` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table nts_kgeek.kgeek_fields_values: ~0 rows (approximately)
+DELETE FROM `kgeek_fields_values`;
 
 -- Dumping structure for table nts_kgeek.kgeek_finder_filters
 CREATE TABLE IF NOT EXISTS `kgeek_finder_filters` (
@@ -1079,6 +1106,7 @@ CREATE TABLE IF NOT EXISTS `kgeek_finder_filters` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table nts_kgeek.kgeek_finder_filters: ~0 rows (approximately)
+DELETE FROM `kgeek_finder_filters`;
 
 -- Dumping structure for table nts_kgeek.kgeek_finder_links
 CREATE TABLE IF NOT EXISTS `kgeek_finder_links` (
@@ -1112,6 +1140,7 @@ CREATE TABLE IF NOT EXISTS `kgeek_finder_links` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table nts_kgeek.kgeek_finder_links: ~0 rows (approximately)
+DELETE FROM `kgeek_finder_links`;
 
 -- Dumping structure for table nts_kgeek.kgeek_finder_links_terms
 CREATE TABLE IF NOT EXISTS `kgeek_finder_links_terms` (
@@ -1124,6 +1153,7 @@ CREATE TABLE IF NOT EXISTS `kgeek_finder_links_terms` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table nts_kgeek.kgeek_finder_links_terms: ~0 rows (approximately)
+DELETE FROM `kgeek_finder_links_terms`;
 
 -- Dumping structure for table nts_kgeek.kgeek_finder_logging
 CREATE TABLE IF NOT EXISTS `kgeek_finder_logging` (
@@ -1137,6 +1167,7 @@ CREATE TABLE IF NOT EXISTS `kgeek_finder_logging` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table nts_kgeek.kgeek_finder_logging: ~0 rows (approximately)
+DELETE FROM `kgeek_finder_logging`;
 
 -- Dumping structure for table nts_kgeek.kgeek_finder_taxonomy
 CREATE TABLE IF NOT EXISTS `kgeek_finder_taxonomy` (
@@ -1163,6 +1194,7 @@ CREATE TABLE IF NOT EXISTS `kgeek_finder_taxonomy` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table nts_kgeek.kgeek_finder_taxonomy: ~0 rows (approximately)
+DELETE FROM `kgeek_finder_taxonomy`;
 INSERT INTO `kgeek_finder_taxonomy` (`id`, `parent_id`, `lft`, `rgt`, `level`, `path`, `title`, `alias`, `state`, `access`, `language`) VALUES
 	(1, 0, 0, 1, 0, '', 'ROOT', 'root', 1, 1, '*');
 
@@ -1176,6 +1208,7 @@ CREATE TABLE IF NOT EXISTS `kgeek_finder_taxonomy_map` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table nts_kgeek.kgeek_finder_taxonomy_map: ~0 rows (approximately)
+DELETE FROM `kgeek_finder_taxonomy_map`;
 
 -- Dumping structure for table nts_kgeek.kgeek_finder_terms
 CREATE TABLE IF NOT EXISTS `kgeek_finder_terms` (
@@ -1198,6 +1231,7 @@ CREATE TABLE IF NOT EXISTS `kgeek_finder_terms` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table nts_kgeek.kgeek_finder_terms: ~0 rows (approximately)
+DELETE FROM `kgeek_finder_terms`;
 
 -- Dumping structure for table nts_kgeek.kgeek_finder_terms_common
 CREATE TABLE IF NOT EXISTS `kgeek_finder_terms_common` (
@@ -1209,6 +1243,7 @@ CREATE TABLE IF NOT EXISTS `kgeek_finder_terms_common` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table nts_kgeek.kgeek_finder_terms_common: ~174 rows (approximately)
+DELETE FROM `kgeek_finder_terms_common`;
 INSERT INTO `kgeek_finder_terms_common` (`term`, `language`, `custom`) VALUES
 	('a', 'en', 0),
 	('about', 'en', 0),
@@ -1401,6 +1436,7 @@ CREATE TABLE IF NOT EXISTS `kgeek_finder_tokens` (
 ) ENGINE=MEMORY DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table nts_kgeek.kgeek_finder_tokens: 0 rows
+DELETE FROM `kgeek_finder_tokens`;
 /*!40000 ALTER TABLE `kgeek_finder_tokens` DISABLE KEYS */;
 /*!40000 ALTER TABLE `kgeek_finder_tokens` ENABLE KEYS */;
 
@@ -1421,6 +1457,7 @@ CREATE TABLE IF NOT EXISTS `kgeek_finder_tokens_aggregate` (
 ) ENGINE=MEMORY DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table nts_kgeek.kgeek_finder_tokens_aggregate: 0 rows
+DELETE FROM `kgeek_finder_tokens_aggregate`;
 /*!40000 ALTER TABLE `kgeek_finder_tokens_aggregate` DISABLE KEYS */;
 /*!40000 ALTER TABLE `kgeek_finder_tokens_aggregate` ENABLE KEYS */;
 
@@ -1434,6 +1471,7 @@ CREATE TABLE IF NOT EXISTS `kgeek_finder_types` (
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table nts_kgeek.kgeek_finder_types: ~5 rows (approximately)
+DELETE FROM `kgeek_finder_types`;
 INSERT INTO `kgeek_finder_types` (`id`, `title`, `mime`) VALUES
 	(1, 'Category', ''),
 	(2, 'Contact', ''),
@@ -1469,6 +1507,7 @@ CREATE TABLE IF NOT EXISTS `kgeek_guidedtours` (
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table nts_kgeek.kgeek_guidedtours: ~12 rows (approximately)
+DELETE FROM `kgeek_guidedtours`;
 INSERT INTO `kgeek_guidedtours` (`id`, `title`, `uid`, `description`, `ordering`, `extensions`, `url`, `created`, `created_by`, `modified`, `modified_by`, `checked_out_time`, `checked_out`, `published`, `language`, `note`, `access`, `autostart`) VALUES
 	(1, 'COM_GUIDEDTOURS_TOUR_GUIDEDTOURS_TITLE', 'joomla-guidedtours', 'COM_GUIDEDTOURS_TOUR_GUIDEDTOURS_DESCRIPTION', 1, '["com_guidedtours"]', 'administrator/index.php?option=com_guidedtours&view=tours', '2026-11-19 14:29:52', 688, '2026-11-19 14:29:52', 688, NULL, NULL, 1, '*', '', 1, 0),
 	(2, 'COM_GUIDEDTOURS_TOUR_GUIDEDTOURSTEPS_TITLE', 'joomla-guidedtoursteps', 'COM_GUIDEDTOURS_TOUR_GUIDEDTOURSTEPS_DESCRIPTION', 2, '["com_guidedtours"]', 'administrator/index.php?option=com_guidedtours&view=tours', '2026-11-19 14:29:52', 688, '2026-11-19 14:29:52', 688, NULL, NULL, 1, '*', '', 1, 0),
@@ -1512,6 +1551,7 @@ CREATE TABLE IF NOT EXISTS `kgeek_guidedtour_steps` (
 ) ENGINE=InnoDB AUTO_INCREMENT=118 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table nts_kgeek.kgeek_guidedtour_steps: ~117 rows (approximately)
+DELETE FROM `kgeek_guidedtour_steps`;
 INSERT INTO `kgeek_guidedtour_steps` (`id`, `tour_id`, `title`, `published`, `description`, `ordering`, `position`, `target`, `type`, `interactive_type`, `url`, `created`, `created_by`, `modified`, `modified_by`, `checked_out_time`, `checked_out`, `language`, `note`, `params`) VALUES
 	(1, 1, 'COM_GUIDEDTOURS_TOUR_GUIDEDTOURS_STEP_NEW_TITLE', 1, 'COM_GUIDEDTOURS_TOUR_GUIDEDTOURS_STEP_NEW_DESCRIPTION', 1, 'bottom', '.button-new', 2, 1, 'administrator/index.php?option=com_guidedtours&view=tours', '2026-11-19 14:29:52', 688, '2026-11-19 14:29:52', 688, NULL, NULL, '*', '', NULL),
 	(2, 1, 'COM_GUIDEDTOURS_TOUR_GUIDEDTOURS_STEP_TITLE_TITLE', 1, 'COM_GUIDEDTOURS_TOUR_GUIDEDTOURS_STEP_TITLE_DESCRIPTION', 2, 'bottom', '#jform_title', 2, 2, 'administrator/index.php?option=com_guidedtours&view=tour&layout=edit', '2026-11-19 14:29:52', 688, '2026-11-19 14:29:52', 688, NULL, NULL, '*', '', NULL),
@@ -1650,6 +1690,7 @@ CREATE TABLE IF NOT EXISTS `kgeek_history` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table nts_kgeek.kgeek_history: ~0 rows (approximately)
+DELETE FROM `kgeek_history`;
 
 -- Dumping structure for table nts_kgeek.kgeek_kunena_aliases
 CREATE TABLE IF NOT EXISTS `kgeek_kunena_aliases` (
@@ -1663,7 +1704,8 @@ CREATE TABLE IF NOT EXISTS `kgeek_kunena_aliases` (
   KEY `type` (`type`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table nts_kgeek.kgeek_kunena_aliases: ~63 rows (approximately)
+-- Dumping data for table nts_kgeek.kgeek_kunena_aliases: ~73 rows (approximately)
+DELETE FROM `kgeek_kunena_aliases`;
 INSERT INTO `kgeek_kunena_aliases` (`alias`, `type`, `item`, `state`) VALUES
 	('1937-bugatti-type-57', 'catid', '27', 0),
 	('1957-porsche-356', 'catid', '20', 0),
@@ -1756,6 +1798,7 @@ CREATE TABLE IF NOT EXISTS `kgeek_kunena_announcement` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table nts_kgeek.kgeek_kunena_announcement: ~0 rows (approximately)
+DELETE FROM `kgeek_kunena_announcement`;
 
 -- Dumping structure for table nts_kgeek.kgeek_kunena_attachments
 CREATE TABLE IF NOT EXISTS `kgeek_kunena_attachments` (
@@ -1781,6 +1824,7 @@ CREATE TABLE IF NOT EXISTS `kgeek_kunena_attachments` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table nts_kgeek.kgeek_kunena_attachments: ~0 rows (approximately)
+DELETE FROM `kgeek_kunena_attachments`;
 
 -- Dumping structure for table nts_kgeek.kgeek_kunena_categories
 CREATE TABLE IF NOT EXISTS `kgeek_kunena_categories` (
@@ -1826,7 +1870,8 @@ CREATE TABLE IF NOT EXISTS `kgeek_kunena_categories` (
   KEY `published_pubaccess_id` (`published`,`pubAccess`,`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table nts_kgeek.kgeek_kunena_categories: ~40 rows (approximately)
+-- Dumping data for table nts_kgeek.kgeek_kunena_categories: ~50 rows (approximately)
+DELETE FROM `kgeek_kunena_categories`;
 INSERT INTO `kgeek_kunena_categories` (`id`, `parentid`, `name`, `alias`, `icon`, `icon_id`, `locked`, `accesstype`, `access`, `pubAccess`, `pubRecurse`, `adminAccess`, `adminRecurse`, `ordering`, `published`, `channels`, `checked_out`, `checked_out_time`, `review`, `allowAnonymous`, `postAnonymous`, `hits`, `description`, `headerdesc`, `topictemplate`, `class_sfx`, `allowPolls`, `topicOrdering`, `iconset`, `numTopics`, `numPosts`, `last_topic_id`, `last_post_id`, `last_post_time`, `params`, `allowRatings`) VALUES
 	(1, 0, 'Main Forum', 'main-forum', '', 0, 0, 'joomla.group', 1, 1, 1, 8, 1, 1, 1, 'THIS', 0, '0000-00-00 00:00:00', 0, 0, 0, 0, 'This is the main forum section. It serves as a container for categories for your topics.', 'The section header is used to display additional information about the categories of topics that it contains.', '', '', 0, 'lastpost', 'default', 0, 0, 0, 0, 0, '{"display":{"index":{"parent":"3","children":"3"}}}', 0),
 	(2, 0, 'Car Geek', 'car-geek', '', 0, 0, 'joomla.level', 1, 1, 1, 8, 1, 2, 1, 'THIS', 0, '0000-00-00 00:00:00', 0, 0, 0, 0, '', '', '', '', 0, 'lastpost', 'default', 0, 0, 1, 1, 1795098691, '{"display":{"index":{"parent":"3","children":"3"}}}', 0),
@@ -1889,6 +1934,7 @@ CREATE TABLE IF NOT EXISTS `kgeek_kunena_karma` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table nts_kgeek.kgeek_kunena_karma: ~0 rows (approximately)
+DELETE FROM `kgeek_kunena_karma`;
 
 -- Dumping structure for table nts_kgeek.kgeek_kunena_logs
 CREATE TABLE IF NOT EXISTS `kgeek_kunena_logs` (
@@ -1911,6 +1957,7 @@ CREATE TABLE IF NOT EXISTS `kgeek_kunena_logs` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table nts_kgeek.kgeek_kunena_logs: ~0 rows (approximately)
+DELETE FROM `kgeek_kunena_logs`;
 
 -- Dumping structure for table nts_kgeek.kgeek_kunena_messages
 CREATE TABLE IF NOT EXISTS `kgeek_kunena_messages` (
@@ -1945,7 +1992,8 @@ CREATE TABLE IF NOT EXISTS `kgeek_kunena_messages` (
   KEY `hold` (`hold`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table nts_kgeek.kgeek_kunena_messages: ~0 rows (approximately)
+-- Dumping data for table nts_kgeek.kgeek_kunena_messages: ~6 rows (approximately)
+DELETE FROM `kgeek_kunena_messages`;
 INSERT INTO `kgeek_kunena_messages` (`id`, `parent`, `thread`, `catid`, `name`, `userid`, `email`, `subject`, `time`, `ip`, `topic_emoticon`, `locked`, `hold`, `ordering`, `hits`, `moved`, `deleted_time`, `modified_by`, `modified_time`, `modified_reason`) VALUES
 	(1, 0, 1, 2, 'Kunena', 688, NULL, 'Welcome to Kunena!', 1795098691, '127.0.0.1', 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL),
 	(2, 0, 2, 5, 'cargeek', 689, NULL, 'Great style', 1795234191, '127.0.0.1', 0, 0, 0, 0, 0, 0, 0, 688, 1795243872, ''),
@@ -1961,13 +2009,14 @@ CREATE TABLE IF NOT EXISTS `kgeek_kunena_messages_text` (
   PRIMARY KEY (`mesid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table nts_kgeek.kgeek_kunena_messages_text: ~0 rows (approximately)
+-- Dumping data for table nts_kgeek.kgeek_kunena_messages_text: ~6 rows (approximately)
+DELETE FROM `kgeek_kunena_messages_text`;
 INSERT INTO `kgeek_kunena_messages_text` (`mesid`, `message`) VALUES
 	(1, '[size=150][b]Welcome to Kunena![/b][/size] \n\n Thank you for choosing Kunena for your community forum needs in Joomla. \n\n Kunena, translated from Swahili meaning "to speak", is built by a team of open source professionals with the goal of providing a top quality, tightly unified forum solution for Joomla. \n\n\n [size=150][b]Additional Kunena Resources[/b][/size] \n\n [b]Kunena Documentation:[/b] [url=https://www.kunena.org/docs/en]www.kunena.org/docs/en[/url] \n\n [b]Kunena Support Forum[/b]: [url=https://www.kunena.org/forum]www.kunena.org/forum[/url] \n\n [b]Kunena Downloads:[/b] [url=https://www.kunena.org/download]www.kunena.org/download[/url] \n\n [b]Kunena Blog:[/b] [url=https://www.kunena.org/blog]www.kunena.org/blog[/url] \n\n [b]Follow Kunena on X:[/b] [url=https://www.kunena.org/twitter]www.kunena.org/twitter[/url]'),
 	(2, 'Great car. I\'ll buy it'),
 	(3, 'Thanks you cargeek,\r\n\r\nI agree with you!!!'),
 	(4, 'I have just now'),
-	(5, 'I was looking through a Morris 8 parts price list, circa 1937. It is interesting how the price of different parts have changed over the years:\r\n\r\nNew crank in 1937 £2.13 shillings & threepence around £2.68p or in 2026 money £163.\r\n\r\nIgnition coil 15 shillings , 75p or £45 in 2026 money.\r\n\r\nSpark plugs, 5 shillings each so £1 for a set, £61 in 2026 money.\r\n\r\nToday I can\'t purchase a new crank for a Morris 8, but cranks for small moderns are around £450.\r\nI can purchase a new coil for £16 and a set of plugs will set me back about £10'),
+	(5, 'I was looking through a Morris 8 parts price list, circa 1937. It is interesting how the price of different parts have changed over the years:\r\n\r\nNew crank in 1937 Â£2.13 shillings & threepence around Â£2.68p or in 2026 money Â£163.\r\n\r\nIgnition coil 15 shillings , 75p or Â£45 in 2026 money.\r\n\r\nSpark plugs, 5 shillings each so Â£1 for a set, Â£61 in 2026 money.\r\n\r\nToday I can\'t purchase a new crank for a Morris 8, but cranks for small moderns are around Â£450.\r\nI can purchase a new coil for Â£16 and a set of plugs will set me back about Â£10'),
 	(6, 'It\'s funny; spark plugs were always 5 shillings each. Even after decimalisation they were 25p for years.');
 
 -- Dumping structure for table nts_kgeek.kgeek_kunena_notifications_mailsqueue
@@ -1984,13 +2033,14 @@ CREATE TABLE IF NOT EXISTS `kgeek_kunena_notifications_mailsqueue` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table nts_kgeek.kgeek_kunena_notifications_mailsqueue: ~0 rows (approximately)
+-- Dumping data for table nts_kgeek.kgeek_kunena_notifications_mailsqueue: ~5 rows (approximately)
+DELETE FROM `kgeek_kunena_notifications_mailsqueue`;
 INSERT INTO `kgeek_kunena_notifications_mailsqueue` (`id`, `subject`, `messageId`, `url`, `emailListJson`, `categoryName`, `once`, `sentusers`, `send`) VALUES
 	(1, 'Great style', 2, 'http://localhost/nice_works/nts_kgeek/index.php/forum/porsche-911/2-great-style/2', '[]', 'Porsche 911', '0', 'null', 1),
-	(2, 'Great style', 3, 'http://localhost/nice_works/nts_kgeek/index.php/forum/porsche-911/2-great-style/3', '[{"id":689,"name":"Car Geek","username":"cargeek","email":"cargeek@gmail.com","subscription":1,"moderator":0,"admin":0}]', 'Porsche 911', '0', '[689]', 0),
-	(3, 'Great style', 4, 'http://localhost/nice_works/nts_kgeek/index.php/forum/porsche-911/2-great-style/4', '[{"id":689,"name":"Car Geek","username":"cargeek","email":"cargeek@gmail.com","subscription":1,"moderator":0,"admin":0}]', 'Porsche 911', '0', '[689]', 0),
+	(2, 'Great style', 3, 'http://localhost/nice_works/nts_kgeek/index.php/forum/porsche-911/2-great-style/3', '[]', 'Porsche 911', '0', '[689]', 1),
+	(3, 'Great style', 4, 'http://localhost/nice_works/nts_kgeek/index.php/forum/porsche-911/2-great-style/4', '[]', 'Porsche 911', '0', '[689]', 1),
 	(4, 'How parts prices have changed over the years', 5, 'http://localhost/nice_works/nts_kgeek/index.php/forum/porsche/3-how-parts-prices-have-changed-over-the-years/5', '[]', 'Porsche', '0', 'null', 1),
-	(5, 'How parts prices have changed over the years', 6, 'http://localhost/nice_works/nts_kgeek/index.php/forum/porsche/3-how-parts-prices-have-changed-over-the-years/6', '[{"id":688,"name":"Super User","username":"admin","email":"no-reply@gmail.com","subscription":1,"moderator":0,"admin":0}]', 'Porsche', '0', '[688]', 0);
+	(5, 'How parts prices have changed over the years', 6, 'http://localhost/nice_works/nts_kgeek/index.php/forum/porsche/3-how-parts-prices-have-changed-over-the-years/6', '[]', 'Porsche', '0', '[688]', 1);
 
 -- Dumping structure for table nts_kgeek.kgeek_kunena_polls
 CREATE TABLE IF NOT EXISTS `kgeek_kunena_polls` (
@@ -2003,6 +2053,7 @@ CREATE TABLE IF NOT EXISTS `kgeek_kunena_polls` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table nts_kgeek.kgeek_kunena_polls: ~0 rows (approximately)
+DELETE FROM `kgeek_kunena_polls`;
 
 -- Dumping structure for table nts_kgeek.kgeek_kunena_polls_options
 CREATE TABLE IF NOT EXISTS `kgeek_kunena_polls_options` (
@@ -2015,6 +2066,7 @@ CREATE TABLE IF NOT EXISTS `kgeek_kunena_polls_options` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table nts_kgeek.kgeek_kunena_polls_options: ~0 rows (approximately)
+DELETE FROM `kgeek_kunena_polls_options`;
 
 -- Dumping structure for table nts_kgeek.kgeek_kunena_polls_users
 CREATE TABLE IF NOT EXISTS `kgeek_kunena_polls_users` (
@@ -2027,6 +2079,7 @@ CREATE TABLE IF NOT EXISTS `kgeek_kunena_polls_users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table nts_kgeek.kgeek_kunena_polls_users: ~0 rows (approximately)
+DELETE FROM `kgeek_kunena_polls_users`;
 
 -- Dumping structure for table nts_kgeek.kgeek_kunena_private
 CREATE TABLE IF NOT EXISTS `kgeek_kunena_private` (
@@ -2045,6 +2098,7 @@ CREATE TABLE IF NOT EXISTS `kgeek_kunena_private` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table nts_kgeek.kgeek_kunena_private: ~0 rows (approximately)
+DELETE FROM `kgeek_kunena_private`;
 
 -- Dumping structure for table nts_kgeek.kgeek_kunena_private_attachment_map
 CREATE TABLE IF NOT EXISTS `kgeek_kunena_private_attachment_map` (
@@ -2055,6 +2109,7 @@ CREATE TABLE IF NOT EXISTS `kgeek_kunena_private_attachment_map` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table nts_kgeek.kgeek_kunena_private_attachment_map: ~0 rows (approximately)
+DELETE FROM `kgeek_kunena_private_attachment_map`;
 
 -- Dumping structure for table nts_kgeek.kgeek_kunena_private_post_map
 CREATE TABLE IF NOT EXISTS `kgeek_kunena_private_post_map` (
@@ -2065,6 +2120,7 @@ CREATE TABLE IF NOT EXISTS `kgeek_kunena_private_post_map` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table nts_kgeek.kgeek_kunena_private_post_map: ~0 rows (approximately)
+DELETE FROM `kgeek_kunena_private_post_map`;
 
 -- Dumping structure for table nts_kgeek.kgeek_kunena_private_user_map
 CREATE TABLE IF NOT EXISTS `kgeek_kunena_private_user_map` (
@@ -2078,6 +2134,7 @@ CREATE TABLE IF NOT EXISTS `kgeek_kunena_private_user_map` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table nts_kgeek.kgeek_kunena_private_user_map: ~0 rows (approximately)
+DELETE FROM `kgeek_kunena_private_user_map`;
 
 -- Dumping structure for table nts_kgeek.kgeek_kunena_ranks
 CREATE TABLE IF NOT EXISTS `kgeek_kunena_ranks` (
@@ -2090,6 +2147,7 @@ CREATE TABLE IF NOT EXISTS `kgeek_kunena_ranks` (
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table nts_kgeek.kgeek_kunena_ranks: ~10 rows (approximately)
+DELETE FROM `kgeek_kunena_ranks`;
 INSERT INTO `kgeek_kunena_ranks` (`rankId`, `rankTitle`, `rankMin`, `rankSpecial`, `rankImage`) VALUES
 	(1, 'COM_KUNENA_SAMPLEDATA_RANK1', 0, 0, 'rank1.gif'),
 	(2, 'COM_KUNENA_SAMPLEDATA_RANK2', 20, 0, 'rank2.gif'),
@@ -2113,6 +2171,7 @@ CREATE TABLE IF NOT EXISTS `kgeek_kunena_rate` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table nts_kgeek.kgeek_kunena_rate: ~0 rows (approximately)
+DELETE FROM `kgeek_kunena_rate`;
 
 -- Dumping structure for table nts_kgeek.kgeek_kunena_sessions
 CREATE TABLE IF NOT EXISTS `kgeek_kunena_sessions` (
@@ -2125,10 +2184,11 @@ CREATE TABLE IF NOT EXISTS `kgeek_kunena_sessions` (
   KEY `currvisit` (`currvisit`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table nts_kgeek.kgeek_kunena_sessions: ~0 rows (approximately)
+-- Dumping data for table nts_kgeek.kgeek_kunena_sessions: ~2 rows (approximately)
+DELETE FROM `kgeek_kunena_sessions`;
 INSERT INTO `kgeek_kunena_sessions` (`userid`, `allowed`, `lasttime`, `readtopics`, `currvisit`) VALUES
-	(688, NULL, 1794033048, '0', 1795249405),
-	(689, NULL, 1795239167, '0', 1795243793);
+	(688, NULL, 1795275538, '0', 1795304316),
+	(689, NULL, 1795391697, '0', 1795393753);
 
 -- Dumping structure for table nts_kgeek.kgeek_kunena_smileys
 CREATE TABLE IF NOT EXISTS `kgeek_kunena_smileys` (
@@ -2140,6 +2200,7 @@ CREATE TABLE IF NOT EXISTS `kgeek_kunena_smileys` (
 ) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table nts_kgeek.kgeek_kunena_smileys: ~34 rows (approximately)
+DELETE FROM `kgeek_kunena_smileys`;
 INSERT INTO `kgeek_kunena_smileys` (`id`, `code`, `location`, `emoticonbar`) VALUES
 	(1, 'B)', '9.png', 1),
 	(2, '8)', '9.png', 0),
@@ -2188,6 +2249,7 @@ CREATE TABLE IF NOT EXISTS `kgeek_kunena_thankyou` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table nts_kgeek.kgeek_kunena_thankyou: ~0 rows (approximately)
+DELETE FROM `kgeek_kunena_thankyou`;
 
 -- Dumping structure for table nts_kgeek.kgeek_kunena_topics
 CREATE TABLE IF NOT EXISTS `kgeek_kunena_topics` (
@@ -2229,11 +2291,12 @@ CREATE TABLE IF NOT EXISTS `kgeek_kunena_topics` (
   KEY `last_post_id` (`last_post_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table nts_kgeek.kgeek_kunena_topics: ~0 rows (approximately)
+-- Dumping data for table nts_kgeek.kgeek_kunena_topics: ~3 rows (approximately)
+DELETE FROM `kgeek_kunena_topics`;
 INSERT INTO `kgeek_kunena_topics` (`id`, `category_id`, `subject`, `icon_id`, `label_id`, `locked`, `hold`, `ordering`, `posts`, `hits`, `attachments`, `poll_id`, `moved_id`, `first_post_id`, `first_post_time`, `first_post_userid`, `first_post_message`, `first_post_guest_name`, `last_post_id`, `last_post_time`, `last_post_userid`, `last_post_message`, `last_post_guest_name`, `rating`, `params`) VALUES
 	(1, 2, 'Welcome to Kunena!', 0, 0, 1, 0, 0, 1, 1, 0, 0, 0, 1, 1795098691, 688, '[size=150][b]Welcome to Kunena![/b][/size] \n\n Thank you for choosing Kunena for your community forum needs in Joomla. \n\n Kunena, translated from Swahili meaning "to speak", is built by a team of open source professionals with the goal of providing a top quality, tightly unified forum solution for Joomla. \n\n\n [size=150][b]Additional Kunena Resources[/b][/size] \n\n [b]Kunena Documentation:[/b] [url=https://www.kunena.org/docs/en]www.kunena.org/docs/en[/url] \n\n [b]Kunena Support Forum[/b]: [url=https://www.kunena.org/forum]www.kunena.org/forum[/url] \n\n [b]Kunena Downloads:[/b] [url=https://www.kunena.org/download]www.kunena.org/download[/url] \n\n [b]Kunena Blog:[/b] [url=https://www.kunena.org/blog]www.kunena.org/blog[/url] \n\n [b]Follow Kunena on X:[/b] [url=https://www.kunena.org/twitter]www.kunena.org/twitter[/url]', 'Kunena', 1, 1795098691, 688, '[size=150][b]Welcome to Kunena![/b][/size] \n\n Thank you for choosing Kunena for your community forum needs in Joomla. \n\n Kunena, translated from Swahili meaning "to speak", is built by a team of open source professionals with the goal of providing a top quality, tightly unified forum solution for Joomla. \n\n\n [size=150][b]Additional Kunena Resources[/b][/size] \n\n [b]Kunena Documentation:[/b] [url=https://www.kunena.org/docs/en]www.kunena.org/docs/en[/url] \n\n [b]Kunena Support Forum[/b]: [url=https://www.kunena.org/forum]www.kunena.org/forum[/url] \n\n [b]Kunena Downloads:[/b] [url=https://www.kunena.org/download]www.kunena.org/download[/url] \n\n [b]Kunena Blog:[/b] [url=https://www.kunena.org/blog]www.kunena.org/blog[/url] \n\n [b]Follow Kunena on X:[/b] [url=https://www.kunena.org/twitter]www.kunena.org/twitter[/url]', 'Kunena', 1, ''),
-	(2, 5, 'Great style', 8, 0, 0, 0, 0, 3, 4, 0, 0, 0, 2, 1795234191, 689, 'Great car. I\'ll buy it', 'cargeek', 4, 1795243431, 688, 'I have just now', 'admin', 0, ''),
-	(3, 3, 'How parts prices have changed over the years', 4, 0, 0, 0, 0, 2, 2, 0, 0, 0, 5, 1795243660, 688, 'I was looking through a Morris 8 parts price list, circa 1937. It is interesting how the price of different parts have changed over the years:\r\n\r\nNew crank in 1937 £2.13 shillings & threepence around £2.68p or in 2026 money £163.\r\n\r\nIgnition coil 15 shillings , 75p or £45 in 2026 money.\r\n\r\nSpark plugs, 5 shillings each so £1 for a set, £61 in 2026 money.\r\n\r\nToday I can\'t purchase a new crank for a Morris 8, but cranks for small moderns are around £450.\r\nI can purchase a new coil for £16 and a set of plugs will set me back about £10', 'admin', 6, 1795243776, 689, 'It\'s funny; spark plugs were always 5 shillings each. Even after decimalisation they were 25p for years.', 'cargeek', 0, '');
+	(2, 5, 'Great style', 8, 0, 0, 0, 0, 3, 5, 0, 0, 0, 2, 1795234191, 689, 'Great car. I\'ll buy it', 'cargeek', 4, 1795243431, 688, 'I have just now', 'admin', 0, ''),
+	(3, 3, 'How parts prices have changed over the years', 4, 0, 0, 0, 0, 2, 3, 0, 0, 0, 5, 1795243660, 688, 'I was looking through a Morris 8 parts price list, circa 1937. It is interesting how the price of different parts have changed over the years:\r\n\r\nNew crank in 1937 Â£2.13 shillings & threepence around Â£2.68p or in 2026 money Â£163.\r\n\r\nIgnition coil 15 shillings , 75p or Â£45 in 2026 money.\r\n\r\nSpark plugs, 5 shillings each so Â£1 for a set, Â£61 in 2026 money.\r\n\r\nToday I can\'t purchase a new crank for a Morris 8, but cranks for small moderns are around Â£450.\r\nI can purchase a new coil for Â£16 and a set of plugs will set me back about Â£10', 'admin', 6, 1795243776, 689, 'It\'s funny; spark plugs were always 5 shillings each. Even after decimalisation they were 25p for years.', 'cargeek', 0, '');
 
 -- Dumping structure for table nts_kgeek.kgeek_kunena_users
 CREATE TABLE IF NOT EXISTS `kgeek_kunena_users` (
@@ -2274,7 +2337,8 @@ CREATE TABLE IF NOT EXISTS `kgeek_kunena_users` (
   KEY `moderator` (`moderator`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table nts_kgeek.kgeek_kunena_users: ~0 rows (approximately)
+-- Dumping data for table nts_kgeek.kgeek_kunena_users: ~2 rows (approximately)
+DELETE FROM `kgeek_kunena_users`;
 INSERT INTO `kgeek_kunena_users` (`userid`, `status`, `status_text`, `view`, `signature`, `moderator`, `banned`, `ordering`, `posts`, `avatar`, `timestamp`, `karma`, `group_id`, `uhits`, `personalText`, `gender`, `birthdate`, `location`, `websitename`, `websiteurl`, `rank`, `hideEmail`, `showOnline`, `canSubscribe`, `userListtime`, `thankyou`, `ip`, `language`, `socials`) VALUES
 	(688, 0, '', '', NULL, 0, '1000-01-01 00:00:00', 0, 4, NULL, 0, 0, 1, 0, NULL, 0, '1000-01-01', NULL, NULL, NULL, 0, 1, 1, -1, -2, 0, '127.0.0.1', 'en-GB', '{\n    "x_social": {\n        "value": "",\n        "url": "https://x.com/##VALUE##",\n        "title": "COM_KUNENA_MYPROFILE_X_SOCIAL",\n        "nourl": 0,\n        "fa": "fa-brands fa-x-twitter"\n    },\n    "facebook": {\n        "value": "",\n        "url": "https://www.facebook.com/##VALUE##",\n        "title": "COM_KUNENA_MYPROFILE_FACEBOOK",\n        "nourl": 0,\n        "fa": "fa-brands fa-facebook"\n    },\n    "myspace": {\n        "value": "",\n        "url": "https://www.myspace.com/##VALUE##",\n        "title": "COM_KUNENA_MYPROFILE_MYSPACE",\n        "nourl": 0,\n        "fa": "fa-solid fa-square-share-nodes"\n    },\n    "linkedin": {\n        "value": "",\n        "url": "https://www.linkedin.com/in/##VALUE##",\n        "title": "COM_KUNENA_MYPROFILE_LINKEDIN",\n        "nourl": 0,\n        "fa": "fa-brands fa-linkedin"\n    },\n    "linkedin_company": {\n        "value": "",\n        "url": "https://www.linkedin.com/company/##VALUE##",\n        "title": "COM_KUNENA_MYPROFILE_LINKEDIN",\n        "nourl": 0,\n        "fa": "fa-brands fa-linkedin"\n    },\n    "digg": {\n        "value": "",\n        "url": "https://www.digg.com/users/##VALUE##",\n        "title": "COM_KUNENA_MYPROFILE_DIGG",\n        "nourl": 0,\n        "fa": "fa-brands fa-digg"\n    },\n    "skype": {\n        "value": "",\n        "url": "skype:##VALUE##",\n        "title": "COM_KUNENA_MYPROFILE_SKYPE",\n        "nourl": 0,\n        "fa": "fa-brands fa-skype"\n    },\n    "yim": {\n        "value": "",\n        "url": "##VALUE##",\n        "title": "COM_KUNENA_MYPROFILE_YIM",\n        "nourl": 1,\n        "fa": "fa-brands fa-yahoo"\n    },\n    "google": {\n        "value": "",\n        "url": "##VALUE##",\n        "title": "COM_KUNENA_MYPROFILE_GOOGLE",\n        "nourl": 1,\n        "fa": "fa-brands fa-google"\n    },\n    "github": {\n        "value": "",\n        "url": "https://www.github.com/##VALUE##",\n        "title": "COM_KUNENA_MYPROFILE_GITHUB",\n        "nourl": 0,\n        "fa": "fa-brands fa-github"\n    },\n    "microsoft": {\n        "value": "",\n        "url": "##VALUE##",\n        "title": "COM_KUNENA_MYPROFILE_MICROSOFT",\n        "nourl": 1,\n        "fa": "fa-brands fa-microsoft"\n    },\n    "blogspot": {\n        "value": "",\n        "url": "https://##VALUE##.blogspot.com/",\n        "title": "COM_KUNENA_MYPROFILE_BLOGSPOT",\n        "nourl": 0,\n        "fa": "fa-solid fa-square-share-nodes"\n    },\n    "flickr": {\n        "value": "",\n        "url": "https://www.flickr.com/##VALUE##",\n        "title": "COM_KUNENA_MYPROFILE_FLICKR",\n        "nourl": 0,\n        "fa": "fa-brands fa-flickr"\n    },\n    "instagram": {\n        "value": "",\n        "url": "https://www.instagram.com/##VALUE##/",\n        "title": "COM_KUNENA_MYPROFILE_INSTAGRAM",\n        "nourl": 0,\n        "fa": "fa-brands fa-instagram"\n    },\n    "qqsocial": {\n        "value": "",\n        "url": "##VALUE##",\n        "title": "COM_KUNENA_MYPROFILE_QQSOCIAL",\n        "nourl": 1,\n        "fa": "fa-solid fa-square-share-nodes"\n    },\n    "qzone": {\n        "value": "",\n        "url": "##VALUE##",\n        "title": "COM_KUNENA_MYPROFILE_QZONE",\n        "nourl": 1,\n        "fa": "fa-solid fa-square-share-nodes"\n    },\n    "weibo": {\n        "value": "",\n        "url": "##VALUE##",\n        "title": "COM_KUNENA_MYPROFILE_WEIBO",\n        "nourl": 1,\n        "fa": "fa-brands fa-weibo"\n    },\n    "wechat": {\n        "value": "",\n        "url": "##VALUE##",\n        "title": "COM_KUNENA_MYPROFILE_WECHAT",\n        "nourl": 1,\n        "fa": "fa-solid fa-square-share-nodes"\n    },\n    "vk": {\n        "value": "",\n        "url": "https://vk.com/##VALUE##",\n        "title": "COM_KUNENA_MYPROFILE_VK",\n        "nourl": 0,\n        "fa": "fa-brands fa-vk"\n    },\n    "telegram": {\n        "value": "",\n        "url": "https://t.me/##VALUE##",\n        "title": "COM_KUNENA_MYPROFILE_TELEGRAM",\n        "nourl": 0,\n        "fa": "fa-brands fa-telegram"\n    },\n    "apple": {\n        "value": "",\n        "url": "##VALUE##",\n        "title": "COM_KUNENA_MYPROFILE_APPLE",\n        "nourl": 1,\n        "fa": "fa-brands fa-apple"\n    },\n    "vimeo": {\n        "value": "",\n        "url": "https://vimeo.com/##VALUE##",\n        "title": "COM_KUNENA_MYPROFILE_VIMEO",\n        "nourl": 0,\n        "fa": "fa-brands fa-vimeo"\n    },\n    "whatsapp": {\n        "value": "",\n        "url": "https://wa.me/##VALUE##",\n        "title": "COM_KUNENA_MYPROFILE_WHATSAPP",\n        "nourl": 0,\n        "fa": "fa-brands fa-whatsapp"\n    },\n    "youtube": {\n        "value": "",\n        "url": "https://www.youtube.com/##VALUE##",\n        "title": "COM_KUNENA_MYPROFILE_YOUTUBE",\n        "nourl": 0,\n        "fa": "fa-brands fa-youtube"\n    },\n    "ok": {\n        "value": "",\n        "url": "https://ok.ru/##VALUE##",\n        "title": "COM_KUNENA_MYPROFILE_OK",\n        "nourl": 0,\n        "fa": "fa-solid fa-square-share-nodes"\n    },\n    "pinterest": {\n        "value": "",\n        "url": "https://pinterest.com/##VALUE##",\n        "title": "COM_KUNENA_MYPROFILE_PINTEREST",\n        "nourl": 0,\n        "fa": "fa-brands fa-pinterest"\n    },\n    "reddit": {\n        "value": "",\n        "url": "https://www.reddit.com/user/##VALUE##",\n        "title": "COM_KUNENA_MYPROFILE_REDDIT",\n        "nourl": 0,\n        "fa": "fa-brands fa-reddit"\n    },\n    "bluesky_app": {\n        "value": "",\n        "url": "https://bsky.app/##VALUE##",\n        "title": "COM_KUNENA_MYPROFILE_BLUESKY_APP",\n        "nourl": 0,\n        "fa": "fa-brands fa-bluesky"\n    },\n    "threads": {\n        "value": "",\n        "url": "https://www.threads.net/@##VALUE##",\n        "title": "COM_KUNENA_MYPROFILE_THREADS_APP",\n        "nourl": 0,\n        "fa": "fa-brands fa-threads"\n    }\n}'),
 	(689, 0, '', '', '', 0, '1000-01-01 00:00:00', 0, 2, 'users/avatar689.jpg', 1795242058, 0, 1, 1, '', 0, '2026-11-21', '', '', '', 0, 1, 1, -1, -2, 0, '127.0.0.1', 'en-GB', '{"x_social":{"value":"","url":"https:\\/\\/x.com\\/##VALUE##","title":"COM_KUNENA_MYPROFILE_X_SOCIAL","nourl":0,"fa":"fa-brands fa-x-twitter"},"facebook":{"value":"","url":"https:\\/\\/www.facebook.com\\/##VALUE##","title":"COM_KUNENA_MYPROFILE_FACEBOOK","nourl":0,"fa":"fa-brands fa-facebook"},"myspace":{"value":"","url":"https:\\/\\/www.myspace.com\\/##VALUE##","title":"COM_KUNENA_MYPROFILE_MYSPACE","nourl":0,"fa":"fa-solid fa-square-share-nodes"},"linkedin":{"value":"","url":"https:\\/\\/www.linkedin.com\\/in\\/##VALUE##","title":"COM_KUNENA_MYPROFILE_LINKEDIN","nourl":0,"fa":"fa-brands fa-linkedin"},"linkedin_company":{"value":"","url":"https:\\/\\/www.linkedin.com\\/company\\/##VALUE##","title":"COM_KUNENA_MYPROFILE_LINKEDIN","nourl":0,"fa":"fa-brands fa-linkedin"},"digg":{"value":"","url":"https:\\/\\/www.digg.com\\/users\\/##VALUE##","title":"COM_KUNENA_MYPROFILE_DIGG","nourl":0,"fa":"fa-brands fa-digg"},"skype":{"value":"","url":"skype:##VALUE##","title":"COM_KUNENA_MYPROFILE_SKYPE","nourl":0,"fa":"fa-brands fa-skype"},"yim":{"value":"","url":"##VALUE##","title":"COM_KUNENA_MYPROFILE_YIM","nourl":1,"fa":"fa-brands fa-yahoo"},"google":{"value":"","url":"##VALUE##","title":"COM_KUNENA_MYPROFILE_GOOGLE","nourl":1,"fa":"fa-brands fa-google"},"github":{"value":"","url":"https:\\/\\/www.github.com\\/##VALUE##","title":"COM_KUNENA_MYPROFILE_GITHUB","nourl":0,"fa":"fa-brands fa-github"},"microsoft":{"value":"","url":"##VALUE##","title":"COM_KUNENA_MYPROFILE_MICROSOFT","nourl":1,"fa":"fa-brands fa-microsoft"},"blogspot":{"value":"","url":"https:\\/\\/##VALUE##.blogspot.com\\/","title":"COM_KUNENA_MYPROFILE_BLOGSPOT","nourl":0,"fa":"fa-solid fa-square-share-nodes"},"flickr":{"value":"","url":"https:\\/\\/www.flickr.com\\/##VALUE##","title":"COM_KUNENA_MYPROFILE_FLICKR","nourl":0,"fa":"fa-brands fa-flickr"},"instagram":{"value":"","url":"https:\\/\\/www.instagram.com\\/##VALUE##\\/","title":"COM_KUNENA_MYPROFILE_INSTAGRAM","nourl":0,"fa":"fa-brands fa-instagram"},"qqsocial":{"value":"","url":"##VALUE##","title":"COM_KUNENA_MYPROFILE_QQSOCIAL","nourl":1,"fa":"fa-solid fa-square-share-nodes"},"qzone":{"value":"","url":"##VALUE##","title":"COM_KUNENA_MYPROFILE_QZONE","nourl":1,"fa":"fa-solid fa-square-share-nodes"},"weibo":{"value":"","url":"##VALUE##","title":"COM_KUNENA_MYPROFILE_WEIBO","nourl":1,"fa":"fa-brands fa-weibo"},"wechat":{"value":"","url":"##VALUE##","title":"COM_KUNENA_MYPROFILE_WECHAT","nourl":1,"fa":"fa-solid fa-square-share-nodes"},"vk":{"value":"","url":"https:\\/\\/vk.com\\/##VALUE##","title":"COM_KUNENA_MYPROFILE_VK","nourl":0,"fa":"fa-brands fa-vk"},"telegram":{"value":"","url":"https:\\/\\/t.me\\/##VALUE##","title":"COM_KUNENA_MYPROFILE_TELEGRAM","nourl":0,"fa":"fa-brands fa-telegram"},"apple":{"value":"","url":"##VALUE##","title":"COM_KUNENA_MYPROFILE_APPLE","nourl":1,"fa":"fa-brands fa-apple"},"vimeo":{"value":"","url":"https:\\/\\/vimeo.com\\/##VALUE##","title":"COM_KUNENA_MYPROFILE_VIMEO","nourl":0,"fa":"fa-brands fa-vimeo"},"whatsapp":{"value":"","url":"https:\\/\\/wa.me\\/##VALUE##","title":"COM_KUNENA_MYPROFILE_WHATSAPP","nourl":0,"fa":"fa-brands fa-whatsapp"},"youtube":{"value":"","url":"https:\\/\\/www.youtube.com\\/##VALUE##","title":"COM_KUNENA_MYPROFILE_YOUTUBE","nourl":0,"fa":"fa-brands fa-youtube"},"ok":{"value":"","url":"https:\\/\\/ok.ru\\/##VALUE##","title":"COM_KUNENA_MYPROFILE_OK","nourl":0,"fa":"fa-solid fa-square-share-nodes"},"pinterest":{"value":"","url":"https:\\/\\/pinterest.com\\/##VALUE##","title":"COM_KUNENA_MYPROFILE_PINTEREST","nourl":0,"fa":"fa-brands fa-pinterest"},"reddit":{"value":"","url":"https:\\/\\/www.reddit.com\\/user\\/##VALUE##","title":"COM_KUNENA_MYPROFILE_REDDIT","nourl":0,"fa":"fa-brands fa-reddit"},"bluesky_app":{"value":"","url":"https:\\/\\/bsky.app\\/##VALUE##","title":"COM_KUNENA_MYPROFILE_BLUESKY_APP","nourl":0,"fa":"fa-brands fa-bluesky"},"threads":{"value":"","url":"https:\\/\\/www.threads.net\\/@##VALUE##","title":"COM_KUNENA_MYPROFILE_THREADS_APP","nourl":0,"fa":"fa-brands fa-threads"},"userid":689}');
@@ -2302,6 +2366,7 @@ CREATE TABLE IF NOT EXISTS `kgeek_kunena_users_banned` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table nts_kgeek.kgeek_kunena_users_banned: ~0 rows (approximately)
+DELETE FROM `kgeek_kunena_users_banned`;
 
 -- Dumping structure for table nts_kgeek.kgeek_kunena_user_categories
 CREATE TABLE IF NOT EXISTS `kgeek_kunena_user_categories` (
@@ -2316,7 +2381,8 @@ CREATE TABLE IF NOT EXISTS `kgeek_kunena_user_categories` (
   KEY `role` (`role`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table nts_kgeek.kgeek_kunena_user_categories: ~0 rows (approximately)
+-- Dumping data for table nts_kgeek.kgeek_kunena_user_categories: ~2 rows (approximately)
+DELETE FROM `kgeek_kunena_user_categories`;
 INSERT INTO `kgeek_kunena_user_categories` (`user_id`, `category_id`, `role`, `allreadtime`, `subscribed`, `params`) VALUES
 	(688, 0, 0, 1794033048, 0, ''),
 	(689, 0, 0, 1794024555, 0, '');
@@ -2333,13 +2399,14 @@ CREATE TABLE IF NOT EXISTS `kgeek_kunena_user_read` (
   KEY `time` (`time`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table nts_kgeek.kgeek_kunena_user_read: ~0 rows (approximately)
+-- Dumping data for table nts_kgeek.kgeek_kunena_user_read: ~5 rows (approximately)
+DELETE FROM `kgeek_kunena_user_read`;
 INSERT INTO `kgeek_kunena_user_read` (`user_id`, `topic_id`, `category_id`, `message_id`, `time`) VALUES
 	(688, 1, 2, 1, 1795243842),
 	(688, 2, 5, 4, 1795243872),
 	(688, 3, 3, 5, 1795243661),
-	(689, 2, 5, 4, 1795243752),
-	(689, 3, 3, 6, 1795243777);
+	(689, 2, 5, 4, 1795393671),
+	(689, 3, 3, 6, 1795393753);
 
 -- Dumping structure for table nts_kgeek.kgeek_kunena_user_topics
 CREATE TABLE IF NOT EXISTS `kgeek_kunena_user_topics` (
@@ -2360,7 +2427,8 @@ CREATE TABLE IF NOT EXISTS `kgeek_kunena_user_topics` (
   KEY `subscribed` (`subscribed`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table nts_kgeek.kgeek_kunena_user_topics: ~0 rows (approximately)
+-- Dumping data for table nts_kgeek.kgeek_kunena_user_topics: ~4 rows (approximately)
+DELETE FROM `kgeek_kunena_user_topics`;
 INSERT INTO `kgeek_kunena_user_topics` (`user_id`, `topic_id`, `category_id`, `posts`, `last_post_id`, `owner`, `favorite`, `subscribed`, `params`) VALUES
 	(688, 2, 5, 2, 4, 0, 0, 1, NULL),
 	(688, 3, 3, 1, 5, 1, 0, 1, NULL),
@@ -2381,6 +2449,7 @@ CREATE TABLE IF NOT EXISTS `kgeek_kunena_version` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table nts_kgeek.kgeek_kunena_version: ~0 rows (approximately)
+DELETE FROM `kgeek_kunena_version`;
 INSERT INTO `kgeek_kunena_version` (`id`, `version`, `versiondate`, `installdate`, `build`, `versionname`, `sampleData`, `state`) VALUES
 	(1, '7.1.1', '2026-11-10', '2026-11-19', '7.1.1', 'Cupramontana', 1, '');
 
@@ -2408,6 +2477,7 @@ CREATE TABLE IF NOT EXISTS `kgeek_languages` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table nts_kgeek.kgeek_languages: ~0 rows (approximately)
+DELETE FROM `kgeek_languages`;
 INSERT INTO `kgeek_languages` (`lang_id`, `asset_id`, `lang_code`, `title`, `title_native`, `sef`, `image`, `description`, `metakey`, `metadesc`, `sitename`, `published`, `access`, `ordering`) VALUES
 	(1, 0, 'en-GB', 'English (en-GB)', 'English (United Kingdom)', 'en', 'en_gb', '', '', '', '', 1, 1, 1);
 
@@ -2425,6 +2495,7 @@ CREATE TABLE IF NOT EXISTS `kgeek_mail_templates` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table nts_kgeek.kgeek_mail_templates: ~33 rows (approximately)
+DELETE FROM `kgeek_mail_templates`;
 INSERT INTO `kgeek_mail_templates` (`template_id`, `extension`, `language`, `subject`, `body`, `htmlbody`, `attachments`, `params`) VALUES
 	('com_actionlogs.notification', 'com_actionlogs', '', 'COM_ACTIONLOGS_EMAIL_SUBJECT', 'COM_ACTIONLOGS_EMAIL_BODY', 'COM_ACTIONLOGS_EMAIL_HTMLBODY', '', '{"tags":["messages","message","date","extension","username","ip_address"]}'),
 	('com_config.test_mail', 'com_config', '', 'COM_CONFIG_SENDMAIL_SUBJECT', 'COM_CONFIG_SENDMAIL_BODY', '', '', '{"tags":["sitename","method"]}'),
@@ -2499,6 +2570,7 @@ CREATE TABLE IF NOT EXISTS `kgeek_menu` (
 ) ENGINE=InnoDB AUTO_INCREMENT=128 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table nts_kgeek.kgeek_menu: ~48 rows (approximately)
+DELETE FROM `kgeek_menu`;
 INSERT INTO `kgeek_menu` (`id`, `menutype`, `title`, `alias`, `note`, `path`, `link`, `type`, `published`, `parent_id`, `level`, `component_id`, `checked_out`, `checked_out_time`, `browserNav`, `access`, `img`, `template_style_id`, `params`, `lft`, `rgt`, `home`, `language`, `client_id`, `publish_up`, `publish_down`) VALUES
 	(1, '', 'Menu_Item_Root', 'root', '', '', '', '', 1, 0, 0, 0, NULL, NULL, 0, 0, '', 0, '', 0, 95, 0, '*', 0, NULL, NULL),
 	(2, 'main', 'com_banners', 'Banners', '', 'Banners', 'index.php?option=com_banners', 'component', 1, 1, 1, 3, NULL, NULL, 0, 0, 'class:bookmark', 0, '', 1, 10, 0, '*', 1, NULL, NULL),
@@ -2563,6 +2635,7 @@ CREATE TABLE IF NOT EXISTS `kgeek_menu_types` (
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table nts_kgeek.kgeek_menu_types: ~2 rows (approximately)
+DELETE FROM `kgeek_menu_types`;
 INSERT INTO `kgeek_menu_types` (`id`, `asset_id`, `menutype`, `title`, `description`, `client_id`, `ordering`) VALUES
 	(1, 0, 'mainmenu', 'Main Menu', 'The main menu for the site', 0, 1),
 	(2, 106, 'kunenamenu', 'Kunena Menu', 'This is the default Kunena menu. It is used as the top navigation for Kunena. It can be publish in any module position. Simply unpublish items that are not required.', 0, 0);
@@ -2583,6 +2656,7 @@ CREATE TABLE IF NOT EXISTS `kgeek_messages` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table nts_kgeek.kgeek_messages: ~0 rows (approximately)
+DELETE FROM `kgeek_messages`;
 
 -- Dumping structure for table nts_kgeek.kgeek_messages_cfg
 CREATE TABLE IF NOT EXISTS `kgeek_messages_cfg` (
@@ -2593,6 +2667,7 @@ CREATE TABLE IF NOT EXISTS `kgeek_messages_cfg` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table nts_kgeek.kgeek_messages_cfg: ~0 rows (approximately)
+DELETE FROM `kgeek_messages_cfg`;
 
 -- Dumping structure for table nts_kgeek.kgeek_modules
 CREATE TABLE IF NOT EXISTS `kgeek_modules` (
@@ -2621,6 +2696,7 @@ CREATE TABLE IF NOT EXISTS `kgeek_modules` (
 ) ENGINE=InnoDB AUTO_INCREMENT=110 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table nts_kgeek.kgeek_modules: ~36 rows (approximately)
+DELETE FROM `kgeek_modules`;
 INSERT INTO `kgeek_modules` (`id`, `asset_id`, `title`, `note`, `content`, `ordering`, `position`, `checked_out`, `checked_out_time`, `publish_up`, `publish_down`, `published`, `module`, `access`, `showtitle`, `params`, `client_id`, `language`) VALUES
 	(1, 39, 'Main Menu', '', '', 1, 'sidebar-right', NULL, NULL, NULL, NULL, 0, 'mod_menu', 1, 1, '{"menutype":"mainmenu","startLevel":"0","endLevel":"0","showAllChildren":"1","tag_id":"","class_sfx":"","window_open":"","layout":"_:default","moduleclass_sfx":"","cache":"1","cache_time":"900","cachemode":"itemid"}', 0, '*'),
 	(2, 40, 'Login', '', '', 1, 'login', NULL, NULL, NULL, NULL, 1, 'mod_login', 1, 1, '', 1, '*'),
@@ -2667,6 +2743,7 @@ CREATE TABLE IF NOT EXISTS `kgeek_modules_menu` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table nts_kgeek.kgeek_modules_menu: ~39 rows (approximately)
+DELETE FROM `kgeek_modules_menu`;
 INSERT INTO `kgeek_modules_menu` (`moduleid`, `menuid`) VALUES
 	(1, 0),
 	(2, 0),
@@ -2749,6 +2826,7 @@ CREATE TABLE IF NOT EXISTS `kgeek_newsfeeds` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table nts_kgeek.kgeek_newsfeeds: ~0 rows (approximately)
+DELETE FROM `kgeek_newsfeeds`;
 
 -- Dumping structure for table nts_kgeek.kgeek_overrider
 CREATE TABLE IF NOT EXISTS `kgeek_overrider` (
@@ -2760,6 +2838,7 @@ CREATE TABLE IF NOT EXISTS `kgeek_overrider` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table nts_kgeek.kgeek_overrider: ~0 rows (approximately)
+DELETE FROM `kgeek_overrider`;
 
 -- Dumping structure for table nts_kgeek.kgeek_postinstall_messages
 CREATE TABLE IF NOT EXISTS `kgeek_postinstall_messages` (
@@ -2781,6 +2860,7 @@ CREATE TABLE IF NOT EXISTS `kgeek_postinstall_messages` (
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table nts_kgeek.kgeek_postinstall_messages: ~5 rows (approximately)
+DELETE FROM `kgeek_postinstall_messages`;
 INSERT INTO `kgeek_postinstall_messages` (`postinstall_message_id`, `extension_id`, `title_key`, `description_key`, `action_key`, `language_extension`, `language_client_id`, `type`, `action_file`, `action`, `condition_file`, `condition_method`, `version_introduced`, `enabled`) VALUES
 	(1, 247, 'COM_CPANEL_WELCOME_BEGINNERS_TITLE', 'COM_CPANEL_WELCOME_BEGINNERS_MESSAGE', '', 'com_cpanel', 1, 'message', '', '', '', '', '3.2.0', 1),
 	(2, 247, 'COM_CPANEL_MSG_STATS_COLLECTION_TITLE', 'COM_CPANEL_MSG_STATS_COLLECTION_BODY', '', 'com_cpanel', 1, 'message', '', '', 'admin://components/com_admin/postinstall/statscollection.php', 'admin_postinstall_statscollection_condition', '3.5.0', 1),
@@ -2803,6 +2883,7 @@ CREATE TABLE IF NOT EXISTS `kgeek_privacy_consents` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table nts_kgeek.kgeek_privacy_consents: ~0 rows (approximately)
+DELETE FROM `kgeek_privacy_consents`;
 
 -- Dumping structure for table nts_kgeek.kgeek_privacy_requests
 CREATE TABLE IF NOT EXISTS `kgeek_privacy_requests` (
@@ -2817,6 +2898,7 @@ CREATE TABLE IF NOT EXISTS `kgeek_privacy_requests` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table nts_kgeek.kgeek_privacy_requests: ~0 rows (approximately)
+DELETE FROM `kgeek_privacy_requests`;
 
 -- Dumping structure for table nts_kgeek.kgeek_redirect_links
 CREATE TABLE IF NOT EXISTS `kgeek_redirect_links` (
@@ -2836,6 +2918,7 @@ CREATE TABLE IF NOT EXISTS `kgeek_redirect_links` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table nts_kgeek.kgeek_redirect_links: ~0 rows (approximately)
+DELETE FROM `kgeek_redirect_links`;
 
 -- Dumping structure for table nts_kgeek.kgeek_scheduler_logs
 CREATE TABLE IF NOT EXISTS `kgeek_scheduler_logs` (
@@ -2853,9 +2936,10 @@ CREATE TABLE IF NOT EXISTS `kgeek_scheduler_logs` (
   KEY `idx_tasktype` (`tasktype`),
   KEY `idx_lastdate` (`lastdate`),
   KEY `idx_nextdate` (`nextdate`)
-) ENGINE=InnoDB AUTO_INCREMENT=140 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=225 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table nts_kgeek.kgeek_scheduler_logs: ~88 rows (approximately)
+-- Dumping data for table nts_kgeek.kgeek_scheduler_logs: ~217 rows (approximately)
+DELETE FROM `kgeek_scheduler_logs`;
 INSERT INTO `kgeek_scheduler_logs` (`id`, `taskname`, `tasktype`, `duration`, `jobid`, `taskid`, `exitcode`, `lastdate`, `nextdate`) VALUES
 	(1, 'Kunena - Send the mail notifications queued', 'Send the mail notifications queued', 0.018, 6, 1, 0, '2026-11-19 14:48:40', '2026-11-19 14:53:40'),
 	(2, 'Kunena - Send the mail notifications queued', 'Send the mail notifications queued', 0.011, 6, 2, 0, '2026-11-19 14:55:53', '2026-11-19 15:00:53'),
@@ -2995,7 +3079,92 @@ INSERT INTO `kgeek_scheduler_logs` (`id`, `taskname`, `tasktype`, `duration`, `j
 	(136, 'Kunena - Send the mail notifications queued', 'Send the mail notifications queued', 12.402, 6, 100, 0, '2026-11-21 08:01:32', '2026-11-21 08:06:32'),
 	(137, 'Kunena - Send the mail notifications queued', 'Send the mail notifications queued', 12.350, 6, 101, 0, '2026-11-21 08:06:35', '2026-11-21 08:11:35'),
 	(138, 'Kunena - Send the mail notifications queued', 'Send the mail notifications queued', 12.373, 6, 102, 0, '2026-11-21 08:11:42', '2026-11-21 08:16:42'),
-	(139, 'Kunena - Send the mail notifications queued', 'Send the mail notifications queued', 12.366, 6, 103, 0, '2026-11-21 08:18:48', '2026-11-21 08:23:48');
+	(139, 'Kunena - Send the mail notifications queued', 'Send the mail notifications queued', 12.366, 6, 103, 0, '2026-11-21 08:18:48', '2026-11-21 08:23:48'),
+	(140, 'Kunena - Send the mail notifications queued', 'Send the mail notifications queued', 0.395, 6, 104, 0, '2026-11-21 14:20:55', '2026-11-21 14:25:55'),
+	(141, 'Kunena - Remove Expired Bans', 'Kunena Remove Expired Bans', 0.002, 4, 15, 0, '2026-11-21 14:21:01', '2026-11-21 15:21:01'),
+	(142, 'Kunena - Trash purge', 'Kunena Purge Trashbin.', 0.004, 5, 15, 0, '2026-11-21 14:21:38', '2026-11-21 15:21:38'),
+	(143, 'Kunena - Clean pending attachments', 'Kunena Clean Pending Attachments', 0.003, 7, 6, 0, '2026-11-21 14:25:56', '2026-11-21 20:25:56'),
+	(144, 'Kunena - Send the mail notifications queued', 'Send the mail notifications queued', 0.011, 6, 105, 0, '2026-11-21 14:26:38', '2026-11-21 14:31:38'),
+	(145, 'Kunena - Unsubscribe inactive users from categories', 'Kunena Unsubscribe Inactive Users from Categories', 0.003, 8, 2, 0, '2026-11-21 14:31:39', '2026-11-22 14:31:00'),
+	(146, 'Kunena - Send the mail notifications queued', 'Send the mail notifications queued', 0.011, 6, 106, 0, '2026-11-21 14:35:56', '2026-11-21 14:40:56'),
+	(147, 'Kunena - Send the mail notifications queued', 'Send the mail notifications queued', 0.010, 6, 107, 0, '2026-11-21 14:40:56', '2026-11-21 14:45:56'),
+	(148, 'Kunena - Send the mail notifications queued', 'Send the mail notifications queued', 0.014, 6, 108, 0, '2026-11-21 14:45:56', '2026-11-21 14:50:56'),
+	(149, 'Kunena - Send the mail notifications queued', 'Send the mail notifications queued', 0.010, 6, 109, 0, '2026-11-21 14:50:57', '2026-11-21 14:55:57'),
+	(150, 'Session GC', 'Session Data Purge', 0.001, 2, 2, 0, '2026-11-21 14:54:29', '2026-11-22 14:54:29'),
+	(151, 'Update Notification', 'Joomla! Update Notification', 1.339, 3, 2, 0, '2026-11-21 14:55:16', '2026-11-22 14:55:16'),
+	(152, 'Kunena - Send the mail notifications queued', 'Send the mail notifications queued', 0.010, 6, 110, 0, '2026-11-21 14:55:57', '2026-11-21 15:00:57'),
+	(153, 'Kunena - Send the mail notifications queued', 'Send the mail notifications queued', 0.011, 6, 111, 0, '2026-11-21 15:00:57', '2026-11-21 15:05:57'),
+	(154, 'Kunena - Send the mail notifications queued', 'Send the mail notifications queued', 0.010, 6, 112, 0, '2026-11-21 15:05:57', '2026-11-21 15:10:57'),
+	(155, 'Kunena - Send the mail notifications queued', 'Send the mail notifications queued', 0.010, 6, 113, 0, '2026-11-21 15:10:57', '2026-11-21 15:15:57'),
+	(156, 'Kunena - Send the mail notifications queued', 'Send the mail notifications queued', 0.012, 6, 114, 0, '2026-11-21 15:15:57', '2026-11-21 15:20:57'),
+	(157, 'Kunena - Send the mail notifications queued', 'Send the mail notifications queued', 0.011, 6, 115, 0, '2026-11-21 15:20:57', '2026-11-21 15:25:57'),
+	(158, 'Kunena - Remove Expired Bans', 'Kunena Remove Expired Bans', 0.001, 4, 16, 0, '2026-11-21 15:21:03', '2026-11-21 16:21:03'),
+	(159, 'Kunena - Trash purge', 'Kunena Purge Trashbin.', 0.006, 5, 16, 0, '2026-11-21 15:22:28', '2026-11-21 16:22:28'),
+	(160, 'Kunena - Send the mail notifications queued', 'Send the mail notifications queued', 0.011, 6, 116, 0, '2026-11-21 15:25:58', '2026-11-21 15:30:58'),
+	(161, 'Kunena - Send the mail notifications queued', 'Send the mail notifications queued', 0.011, 6, 117, 0, '2026-11-21 15:30:58', '2026-11-21 15:35:58'),
+	(162, 'Kunena - Send the mail notifications queued', 'Send the mail notifications queued', 0.009, 6, 118, 0, '2026-11-21 15:35:58', '2026-11-21 15:40:58'),
+	(163, 'Kunena - Send the mail notifications queued', 'Send the mail notifications queued', 0.015, 6, 119, 0, '2026-11-21 23:04:43', '2026-11-21 23:09:43'),
+	(164, 'Kunena - Remove Expired Bans', 'Kunena Remove Expired Bans', 0.003, 4, 17, 0, '2026-11-21 23:05:51', '2026-11-22 00:05:51'),
+	(165, 'Kunena - Trash purge', 'Kunena Purge Trashbin.', 0.004, 5, 17, 0, '2026-11-21 23:05:58', '2026-11-22 00:05:58'),
+	(166, 'Kunena - Clean pending attachments', 'Kunena Clean Pending Attachments', 0.004, 7, 7, 0, '2026-11-21 23:06:50', '2026-11-22 05:06:50'),
+	(167, 'Kunena - Send the mail notifications queued', 'Send the mail notifications queued', 0.012, 6, 120, 0, '2026-11-21 23:12:24', '2026-11-21 23:17:24'),
+	(168, 'Kunena - Send the mail notifications queued', 'Send the mail notifications queued', 0.013, 6, 121, 0, '2026-11-21 23:21:46', '2026-11-21 23:26:46'),
+	(169, 'Kunena - Send the mail notifications queued', 'Send the mail notifications queued', 0.012, 6, 122, 0, '2026-11-21 23:27:40', '2026-11-21 23:32:40'),
+	(170, 'Kunena - Send the mail notifications queued', 'Send the mail notifications queued', 0.011, 6, 123, 0, '2026-11-21 23:35:03', '2026-11-21 23:40:03'),
+	(171, 'Kunena - Send the mail notifications queued', 'Send the mail notifications queued', 0.017, 6, 124, 0, '2026-11-21 23:40:25', '2026-11-21 23:45:25'),
+	(172, 'Kunena - Send the mail notifications queued', 'Send the mail notifications queued', 0.021, 6, 125, 0, '2026-11-22 14:18:41', '2026-11-22 14:23:41'),
+	(173, 'Kunena - Remove Expired Bans', 'Kunena Remove Expired Bans', 0.003, 4, 18, 0, '2026-11-22 14:18:46', '2026-11-22 15:18:46'),
+	(174, 'Kunena - Trash purge', 'Kunena Purge Trashbin.', 0.006, 5, 18, 0, '2026-11-22 14:20:57', '2026-11-22 15:20:57'),
+	(175, 'Kunena - Clean pending attachments', 'Kunena Clean Pending Attachments', 0.005, 7, 8, 0, '2026-11-22 14:22:58', '2026-11-22 20:22:58'),
+	(176, 'Kunena - Send the mail notifications queued', 'Send the mail notifications queued', 0.008, 6, 126, 0, '2026-11-22 14:23:42', '2026-11-22 14:28:42'),
+	(177, 'Kunena - Send the mail notifications queued', 'Send the mail notifications queued', 0.012, 6, 127, 0, '2026-11-22 14:30:42', '2026-11-22 14:35:42'),
+	(178, 'Kunena - Unsubscribe inactive users from categories', 'Kunena Unsubscribe Inactive Users from Categories', 0.002, 8, 3, 0, '2026-11-22 14:31:08', '2026-11-23 14:31:00'),
+	(179, 'Kunena - Send the mail notifications queued', 'Send the mail notifications queued', 0.008, 6, 128, 0, '2026-11-22 14:36:08', '2026-11-22 14:41:08'),
+	(180, 'Kunena - Send the mail notifications queued', 'Send the mail notifications queued', 0.011, 6, 129, 0, '2026-11-22 14:41:09', '2026-11-22 14:46:09'),
+	(181, 'Kunena - Send the mail notifications queued', 'Send the mail notifications queued', 0.014, 6, 130, 0, '2026-11-22 14:46:09', '2026-11-22 14:51:09'),
+	(182, 'Kunena - Send the mail notifications queued', 'Send the mail notifications queued', 0.009, 6, 131, 0, '2026-11-22 14:51:09', '2026-11-22 14:56:09'),
+	(183, 'Session GC', 'Session Data Purge', 0.001, 2, 3, 0, '2026-11-22 14:55:54', '2026-11-23 14:55:54'),
+	(184, 'Update Notification', 'Joomla! Update Notification', 1.347, 3, 3, 0, '2026-11-22 14:56:09', '2026-11-23 14:56:09'),
+	(185, 'Kunena - Send the mail notifications queued', 'Send the mail notifications queued', 0.010, 6, 132, 0, '2026-11-22 14:56:23', '2026-11-22 15:01:23'),
+	(186, 'Kunena - Send the mail notifications queued', 'Send the mail notifications queued', 0.010, 6, 133, 0, '2026-11-22 15:02:21', '2026-11-22 15:07:21'),
+	(187, 'Kunena - Send the mail notifications queued', 'Send the mail notifications queued', 0.014, 6, 134, 0, '2026-11-22 15:08:07', '2026-11-22 15:13:07'),
+	(188, 'Kunena - Send the mail notifications queued', 'Send the mail notifications queued', 0.009, 6, 135, 0, '2026-11-22 15:13:07', '2026-11-22 15:18:07'),
+	(189, 'Kunena - Send the mail notifications queued', 'Send the mail notifications queued', 0.014, 6, 136, 0, '2026-11-22 15:18:56', '2026-11-22 15:23:56'),
+	(190, 'Kunena - Remove Expired Bans', 'Kunena Remove Expired Bans', 0.001, 4, 19, 0, '2026-11-22 15:19:23', '2026-11-22 16:19:23'),
+	(191, 'Kunena - Trash purge', 'Kunena Purge Trashbin.', 0.003, 5, 19, 0, '2026-11-22 15:24:23', '2026-11-22 16:24:23'),
+	(192, 'Kunena - Send the mail notifications queued', 'Send the mail notifications queued', 0.011, 6, 137, 0, '2026-11-22 15:29:10', '2026-11-22 15:34:10'),
+	(193, 'Kunena - Send the mail notifications queued', 'Send the mail notifications queued', 0.012, 6, 138, 0, '2026-11-22 15:34:16', '2026-11-22 15:39:16'),
+	(194, 'Kunena - Send the mail notifications queued', 'Send the mail notifications queued', 0.011, 6, 139, 0, '2026-11-22 15:39:35', '2026-11-22 15:44:35'),
+	(195, 'Kunena - Send the mail notifications queued', 'Send the mail notifications queued', 0.015, 6, 140, 0, '2026-11-22 15:45:41', '2026-11-22 15:50:41'),
+	(196, 'Kunena - Send the mail notifications queued', 'Send the mail notifications queued', 0.012, 6, 141, 0, '2026-11-22 15:50:43', '2026-11-22 15:55:43'),
+	(197, 'Kunena - Send the mail notifications queued', 'Send the mail notifications queued', 0.012, 6, 142, 0, '2026-11-22 15:56:09', '2026-11-22 16:01:09'),
+	(198, 'Kunena - Send the mail notifications queued', 'Send the mail notifications queued', 0.011, 6, 143, 0, '2026-11-22 16:03:19', '2026-11-22 16:08:19'),
+	(199, 'Kunena - Send the mail notifications queued', 'Send the mail notifications queued', 0.010, 6, 144, 0, '2026-11-22 16:08:42', '2026-11-22 16:13:42'),
+	(200, 'Kunena - Send the mail notifications queued', 'Send the mail notifications queued', 0.010, 6, 145, 0, '2026-11-22 16:17:45', '2026-11-22 16:22:45'),
+	(201, 'Kunena - Remove Expired Bans', 'Kunena Remove Expired Bans', 0.001, 4, 20, 0, '2026-11-22 16:20:11', '2026-11-22 17:20:11'),
+	(202, 'Kunena - Send the mail notifications queued', 'Send the mail notifications queued', 0.012, 6, 146, 0, '2026-11-22 16:23:23', '2026-11-22 16:28:23'),
+	(203, 'Kunena - Trash purge', 'Kunena Purge Trashbin.', 0.005, 5, 20, 0, '2026-11-22 16:24:36', '2026-11-22 17:24:36'),
+	(204, 'Kunena - Send the mail notifications queued', 'Send the mail notifications queued', 0.010, 6, 147, 0, '2026-11-22 16:28:40', '2026-11-22 16:33:40'),
+	(205, 'Kunena - Send the mail notifications queued', 'Send the mail notifications queued', 0.014, 6, 148, 0, '2026-11-22 16:33:42', '2026-11-22 16:38:42'),
+	(206, 'Kunena - Send the mail notifications queued', 'Send the mail notifications queued', 0.010, 6, 149, 0, '2026-11-22 16:38:45', '2026-11-22 16:43:45'),
+	(207, 'Kunena - Send the mail notifications queued', 'Send the mail notifications queued', 0.014, 6, 150, 0, '2026-11-22 22:44:34', '2026-11-22 22:49:34'),
+	(208, 'Kunena - Remove Expired Bans', 'Kunena Remove Expired Bans', 0.003, 4, 21, 0, '2026-11-22 22:44:48', '2026-11-22 23:44:48'),
+	(209, 'Kunena - Trash purge', 'Kunena Purge Trashbin.', 0.005, 5, 21, 0, '2026-11-22 22:46:25', '2026-11-22 23:46:25'),
+	(210, 'Kunena - Clean pending attachments', 'Kunena Clean Pending Attachments', 0.002, 7, 9, 0, '2026-11-22 22:46:49', '2026-11-23 04:46:50'),
+	(211, 'Kunena - Send the mail notifications queued', 'Send the mail notifications queued', 0.010, 6, 151, 0, '2026-11-22 22:49:44', '2026-11-22 22:54:44'),
+	(212, 'Kunena - Send the mail notifications queued', 'Send the mail notifications queued', 0.010, 6, 152, 0, '2026-11-22 22:54:52', '2026-11-22 22:59:52'),
+	(213, 'Kunena - Send the mail notifications queued', 'Send the mail notifications queued', 0.010, 6, 153, 0, '2026-11-22 22:59:55', '2026-11-22 23:04:55'),
+	(214, 'Kunena - Send the mail notifications queued', 'Send the mail notifications queued', 0.010, 6, 154, 0, '2026-11-22 23:05:05', '2026-11-22 23:10:06'),
+	(215, 'Kunena - Send the mail notifications queued', 'Send the mail notifications queued', 0.010, 6, 155, 0, '2026-11-22 23:10:16', '2026-11-22 23:15:16'),
+	(216, 'Kunena - Send the mail notifications queued', 'Send the mail notifications queued', 0.010, 6, 156, 0, '2026-11-22 23:15:34', '2026-11-22 23:20:34'),
+	(217, 'Kunena - Send the mail notifications queued', 'Send the mail notifications queued', 0.010, 6, 157, 0, '2026-11-22 23:20:39', '2026-11-22 23:25:39'),
+	(218, 'Kunena - Send the mail notifications queued', 'Send the mail notifications queued', 0.010, 6, 158, 0, '2026-11-22 23:54:58', '2026-11-22 23:59:58'),
+	(219, 'Kunena - Remove Expired Bans', 'Kunena Remove Expired Bans', 0.001, 4, 22, 0, '2026-11-22 23:59:58', '2026-11-23 00:59:58'),
+	(220, 'Kunena - Trash purge', 'Kunena Purge Trashbin.', 0.004, 5, 22, 0, '2026-11-23 00:04:58', '2026-11-23 01:04:58'),
+	(221, 'Kunena - Send the mail notifications queued', 'Send the mail notifications queued', 0.009, 6, 159, 0, '2026-11-23 00:09:58', '2026-11-23 00:14:58'),
+	(222, 'Kunena - Send the mail notifications queued', 'Send the mail notifications queued', 0.009, 6, 160, 0, '2026-11-23 00:14:58', '2026-11-23 00:19:58'),
+	(223, 'Kunena - Send the mail notifications queued', 'Send the mail notifications queued', 0.009, 6, 161, 0, '2026-11-23 00:19:58', '2026-11-23 00:24:58'),
+	(224, 'Kunena - Send the mail notifications queued', 'Send the mail notifications queued', 0.009, 6, 162, 0, '2026-11-23 00:24:58', '2026-11-23 00:29:58');
 
 -- Dumping structure for table nts_kgeek.kgeek_scheduler_tasks
 CREATE TABLE IF NOT EXISTS `kgeek_scheduler_tasks` (
@@ -3033,15 +3202,16 @@ CREATE TABLE IF NOT EXISTS `kgeek_scheduler_tasks` (
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table nts_kgeek.kgeek_scheduler_tasks: ~8 rows (approximately)
+DELETE FROM `kgeek_scheduler_tasks`;
 INSERT INTO `kgeek_scheduler_tasks` (`id`, `asset_id`, `title`, `type`, `execution_rules`, `cron_rules`, `state`, `last_exit_code`, `last_execution`, `next_execution`, `times_executed`, `times_failed`, `locked`, `priority`, `ordering`, `cli_exclusive`, `params`, `note`, `created`, `created_by`, `checked_out`, `checked_out_time`) VALUES
 	(1, 97, 'Rotate Logs', 'rotation.logs', '{"rule-type":"interval-days","interval-days":"30","exec-day":"19","exec-time":"14:00"}', '{"type":"interval","exp":"P30D"}', 1, 0, NULL, '2026-12-19 14:00:00', 0, 0, NULL, 0, 0, 0, '{"individual_log":false,"log_file":"","notifications":{"success_mail":"0","failure_mail":"1","fatal_failure_mail":"1","orphan_mail":"1"},"logstokeep":1}', NULL, '2026-11-19 14:29:52', 688, NULL, NULL),
-	(2, 98, 'Session GC', 'session.gc', '{"rule-type":"interval-hours","interval-hours":"24","exec-day":"01","exec-time":"14:00"}', '{"type":"interval","exp":"PT24H"}', 1, 0, '2026-11-20 14:53:55', '2026-11-21 14:53:55', 1, 0, NULL, 0, 0, 0, '{"individual_log":false,"log_file":"","notifications":{"success_mail":"0","failure_mail":"1","fatal_failure_mail":"1","orphan_mail":"1"},"enable_session_gc":1,"enable_session_metadata_gc":1}', NULL, '2026-11-19 14:29:52', 688, NULL, NULL),
-	(3, 99, 'Update Notification', 'update.notification', '{"rule-type":"interval-hours","interval-hours":"24","exec-day":"01","exec-time":"14:00"}', '{"type":"interval","exp":"PT24H"}', 1, 0, '2026-11-20 14:54:39', '2026-11-21 14:54:39', 1, 0, NULL, 0, 0, 0, '{"individual_log":false,"log_file":"","notifications":{"success_mail":"0","failure_mail":"1","fatal_failure_mail":"1","orphan_mail":"1"},"email":"","language_override":""}', NULL, '2026-11-19 14:29:52', 688, NULL, NULL),
-	(4, 101, 'Kunena - Remove Expired Bans', 'remove.expiredbans', '{"rule-type":"interval-hours","interval-hours":1,"exec-time":"14:31","exec-day":"19"}', '{"type":"interval","exp":"PT1H"}', 1, 0, '2026-11-21 07:48:19', '2026-11-21 08:48:19', 14, 0, NULL, 0, 0, 0, '[]', NULL, '2026-11-19 14:31:17', 688, NULL, NULL),
-	(5, 102, 'Kunena - Trash purge', 'purge.trash', '{"rule-type":"interval-hours","interval-hours":1,"exec-time":"14:31","exec-day":"19"}', '{"type":"interval","exp":"PT1H"}', 1, 0, '2026-11-21 07:54:08', '2026-11-21 08:54:08', 14, 0, NULL, 0, 0, 0, '[]', NULL, '2026-11-19 14:31:17', 688, NULL, NULL),
-	(6, 103, 'Kunena - Send the mail notifications queued', 'add.mailsqueue', '{"rule-type":"interval-minutes","interval-minutes":5,"exec-time":"14:31","exec-day":"19"}', '{"type":"interval","exp":"PT5M"}', 1, 0, '2026-11-21 08:18:48', '2026-11-21 08:23:48', 103, 0, NULL, 0, 0, 0, '[]', NULL, '2026-11-19 14:31:17', 688, NULL, NULL),
-	(7, 104, 'Kunena - Clean pending attachments', 'clean.pendingattachments', '{"rule-type":"interval-hours","interval-hours":6,"exec-time":"14:31","exec-day":"19"}', '{"type":"interval","exp":"PT6H"}', 1, 0, '2026-11-21 06:11:33', '2026-11-21 12:11:33', 5, 0, NULL, 0, 0, 0, '[]', NULL, '2026-11-19 14:31:17', 688, NULL, NULL),
-	(8, 105, 'Kunena - Unsubscribe inactive users from categories', 'unsubscribe.inactiveusers', '{"rule-type":"interval-days","interval-days":1,"exec-time":"14:31","exec-day":"19"}', '{"type":"interval","exp":"P1D"}', 1, 0, '2026-11-20 14:59:39', '2026-11-21 14:31:00', 1, 0, NULL, 0, 0, 0, '{"years":1}', NULL, '2026-11-19 14:31:17', 688, NULL, NULL);
+	(2, 98, 'Session GC', 'session.gc', '{"rule-type":"interval-hours","interval-hours":"24","exec-day":"01","exec-time":"14:00"}', '{"type":"interval","exp":"PT24H"}', 1, 0, '2026-11-22 14:55:55', '2026-11-23 14:55:54', 3, 0, NULL, 0, 0, 0, '{"individual_log":false,"log_file":"","notifications":{"success_mail":"0","failure_mail":"1","fatal_failure_mail":"1","orphan_mail":"1"},"enable_session_gc":1,"enable_session_metadata_gc":1}', NULL, '2026-11-19 14:29:52', 688, NULL, NULL),
+	(3, 99, 'Update Notification', 'update.notification', '{"rule-type":"interval-hours","interval-hours":"24","exec-day":"01","exec-time":"14:00"}', '{"type":"interval","exp":"PT24H"}', 1, 0, '2026-11-22 14:56:09', '2026-11-23 14:56:09', 3, 0, NULL, 0, 0, 0, '{"individual_log":false,"log_file":"","notifications":{"success_mail":"0","failure_mail":"1","fatal_failure_mail":"1","orphan_mail":"1"},"email":"","language_override":""}', NULL, '2026-11-19 14:29:52', 688, NULL, NULL),
+	(4, 101, 'Kunena - Remove Expired Bans', 'remove.expiredbans', '{"rule-type":"interval-hours","interval-hours":1,"exec-time":"14:31","exec-day":"19"}', '{"type":"interval","exp":"PT1H"}', 1, 0, '2026-11-22 23:59:58', '2026-11-23 00:59:58', 22, 0, NULL, 0, 0, 0, '[]', NULL, '2026-11-19 14:31:17', 688, NULL, NULL),
+	(5, 102, 'Kunena - Trash purge', 'purge.trash', '{"rule-type":"interval-hours","interval-hours":1,"exec-time":"14:31","exec-day":"19"}', '{"type":"interval","exp":"PT1H"}', 1, 0, '2026-11-23 00:04:58', '2026-11-23 01:04:58', 22, 0, NULL, 0, 0, 0, '[]', NULL, '2026-11-19 14:31:17', 688, NULL, NULL),
+	(6, 103, 'Kunena - Send the mail notifications queued', 'add.mailsqueue', '{"rule-type":"interval-minutes","interval-minutes":5,"exec-time":"14:31","exec-day":"19"}', '{"type":"interval","exp":"PT5M"}', 1, 0, '2026-11-23 00:24:58', '2026-11-23 00:29:58', 162, 0, NULL, 0, 0, 0, '[]', NULL, '2026-11-19 14:31:17', 688, NULL, NULL),
+	(7, 104, 'Kunena - Clean pending attachments', 'clean.pendingattachments', '{"rule-type":"interval-hours","interval-hours":6,"exec-time":"14:31","exec-day":"19"}', '{"type":"interval","exp":"PT6H"}', 1, 0, '2026-11-22 22:46:50', '2026-11-23 04:46:50', 9, 0, NULL, 0, 0, 0, '[]', NULL, '2026-11-19 14:31:17', 688, NULL, NULL),
+	(8, 105, 'Kunena - Unsubscribe inactive users from categories', 'unsubscribe.inactiveusers', '{"rule-type":"interval-days","interval-days":1,"exec-time":"14:31","exec-day":"19"}', '{"type":"interval","exp":"P1D"}', 1, 0, '2026-11-22 14:31:08', '2026-11-23 14:31:00', 3, 0, NULL, 0, 0, 0, '{"years":1}', NULL, '2026-11-19 14:31:17', 688, NULL, NULL);
 
 -- Dumping structure for table nts_kgeek.kgeek_schemaorg
 CREATE TABLE IF NOT EXISTS `kgeek_schemaorg` (
@@ -3054,6 +3224,7 @@ CREATE TABLE IF NOT EXISTS `kgeek_schemaorg` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table nts_kgeek.kgeek_schemaorg: ~0 rows (approximately)
+DELETE FROM `kgeek_schemaorg`;
 
 -- Dumping structure for table nts_kgeek.kgeek_schemas
 CREATE TABLE IF NOT EXISTS `kgeek_schemas` (
@@ -3063,6 +3234,7 @@ CREATE TABLE IF NOT EXISTS `kgeek_schemas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table nts_kgeek.kgeek_schemas: ~0 rows (approximately)
+DELETE FROM `kgeek_schemas`;
 INSERT INTO `kgeek_schemas` (`extension_id`, `version_id`) VALUES
 	(247, '6.2.0-2026-09-15');
 
@@ -3081,15 +3253,12 @@ CREATE TABLE IF NOT EXISTS `kgeek_session` (
   KEY `client_id_guest` (`client_id`,`guest`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table nts_kgeek.kgeek_session: ~5 rows (approximately)
+-- Dumping data for table nts_kgeek.kgeek_session: ~3 rows (approximately)
+DELETE FROM `kgeek_session`;
 INSERT INTO `kgeek_session` (`session_id`, `client_id`, `guest`, `time`, `data`, `userid`, `username`) VALUES
-	(_binary 0x36647265327433666c6334386b73307064723033693071667562, 0, 1, 1795189857, 'joomla|s:1092:"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjM6e3M6Nzoic2Vzc2lvbiI7Tzo4OiJzdGRDbGFzcyI6Mzp7czo3OiJjb3VudGVyIjtpOjM7czo1OiJ0aW1lciI7Tzo4OiJzdGRDbGFzcyI6Mzp7czo1OiJzdGFydCI7aToxNzk1MTg5Njk0O3M6NDoibGFzdCI7aToxNzk1MTg5NzgzO3M6Mzoibm93IjtpOjE3OTUxODk4NTc7fXM6NToidG9rZW4iO3M6MzI6IjZkNWU1Yjc4NGQwMGQ0MTgyNmRiNGQyYTk5NTg1MTE3Ijt9czo4OiJyZWdpc3RyeSI7TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjE6e3M6MTA6ImNvbV9rdW5lbmEiO086ODoic3RkQ2xhc3MiOjE6e3M6MTA6InVzZXIwX3JlYWQiO2E6MjU6e2k6MTM7aToxMztpOjE2O2k6MTY7aToxO2k6MTtpOjk7aTo5O2k6MztpOjM7aTo1O2k6NTtpOjE3O2k6MTc7aToxNDtpOjE0O2k6MTA7aToxMDtpOjI7aToyO2k6NDtpOjQ7aTo2O2k6NjtpOjIwO2k6MjA7aToxODtpOjE4O2k6MTU7aToxNTtpOjExO2k6MTE7aTo3O2k6NztpOjE5O2k6MTk7aToxMjtpOjEyO2k6MjE7aToyMTtpOjg7aTo4O2k6MjI7aToyMjtpOjI0O2k6MjQ7aToyMztpOjIzO2k6MjU7aToyNTt9fX1zOjE0OiIAKgBpbml0aWFsaXplZCI7YjowO3M6MTI6IgAqAHNlcGFyYXRvciI7czoxOiIuIjt9czo0OiJ1c2VyIjtPOjIwOiJKb29tbGFcQ01TXFVzZXJcVXNlciI6MTp7czoyOiJpZCI7aTowO319czoxNDoiACoAaW5pdGlhbGl6ZWQiO2I6MDtzOjEyOiIAKgBzZXBhcmF0b3IiO3M6MToiLiI7fQ==";', 0, ''),
-	(_binary 0x36676837746169666d6c63676c7276396e356b74696f38313275, 1, 0, 1795235034, 'joomla|s:2292:"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjY6e3M6Nzoic2Vzc2lvbiI7Tzo4OiJzdGRDbGFzcyI6Mzp7czo3OiJjb3VudGVyIjtpOjcwO3M6NToidGltZXIiO086ODoic3RkQ2xhc3MiOjM6e3M6NToic3RhcnQiO2k6MTc5NTIzMjczMjtzOjQ6Imxhc3QiO2k6MTc5NTIzNTAzMztzOjM6Im5vdyI7aToxNzk1MjM1MDMzO31zOjU6InRva2VuIjtzOjMyOiIyOWExYTYzMDYzOGQ3NTI2ZDVmYTk4NGU2OGMxZjNlOSI7fXM6ODoicmVnaXN0cnkiO086MjQ6Ikpvb21sYVxSZWdpc3RyeVxSZWdpc3RyeSI6Mzp7czo3OiIAKgBkYXRhIjtPOjg6InN0ZENsYXNzIjoyOntzOjEwOiJjb21fa3VuZW5hIjtPOjg6InN0ZENsYXNzIjoyOntzOjEyOiJ1c2VyNjg4X3JlYWQiO2E6NTA6e2k6MjY7aToyNjtpOjEzO2k6MTM7aTozMDtpOjMwO2k6MTY7aToxNjtpOjQxO2k6NDE7aTo0NztpOjQ3O2k6MTtpOjE7aTo5O2k6OTtpOjM7aTozO2k6NTtpOjU7aTozNTtpOjM1O2k6Mjc7aToyNztpOjMxO2k6MzE7aToxNztpOjE3O2k6MTQ7aToxNDtpOjEwO2k6MTA7aToyO2k6MjtpOjUwO2k6NTA7aTo0O2k6NDtpOjQyO2k6NDI7aTo2O2k6NjtpOjM2O2k6MzY7aToyMDtpOjIwO2k6MzI7aTozMjtpOjE4O2k6MTg7aToyODtpOjI4O2k6MTU7aToxNTtpOjExO2k6MTE7aTozNztpOjM3O2k6NDg7aTo0ODtpOjc7aTo3O2k6MzQ7aTozNDtpOjQzO2k6NDM7aToxOTtpOjE5O2k6MzM7aTozMztpOjEyO2k6MTI7aToyMTtpOjIxO2k6Mjk7aToyOTtpOjQ0O2k6NDQ7aTo4O2k6ODtpOjQ5O2k6NDk7aTo0MDtpOjQwO2k6Mzg7aTozODtpOjIyO2k6MjI7aToyNDtpOjI0O2k6NDU7aTo0NTtpOjM5O2k6Mzk7aToyMztpOjIzO2k6NDY7aTo0NjtpOjI1O2k6MjU7fXM6NToiYWRtaW4iO086ODoic3RkQ2xhc3MiOjE6e3M6MTA6ImNhdGVnb3JpZXMiO086ODoic3RkQ2xhc3MiOjM6e3M6NjoiZmlsdGVyIjthOjk6e3M6Njoic2VhcmNoIjtzOjA6IiI7czo4OiJjYXRlZ29yeSI7czowOiIiO3M6NjoibGV2ZWxzIjtzOjA6IiI7czo5OiJwdWJsaXNoZWQiO3M6MDoiIjtzOjY6ImFjY2VzcyI7czowOiIiO3M6NjoibG9ja2VkIjtzOjA6IiI7czo2OiJyZXZpZXciO3M6MDoiIjtzOjEwOiJhbGxvd1BvbGxzIjtzOjA6IiI7czo5OiJhbm9ueW1vdXMiO3M6MDoiIjt9czo0OiJsaXN0IjthOjI6e3M6MTI6ImZ1bGxvcmRlcmluZyI7czowOiIiO3M6NToibGltaXQiO3M6MjoiMjAiO31zOjEwOiJsaW1pdHN0YXJ0IjtpOjQwO319fXM6OToiY29tX3VzZXJzIjtPOjg6InN0ZENsYXNzIjoxOntzOjQ6ImVkaXQiO086ODoic3RkQ2xhc3MiOjE6e3M6NDoidXNlciI7Tzo4OiJzdGRDbGFzcyI6MTp7czo0OiJkYXRhIjtOO319fX1zOjE0OiIAKgBpbml0aWFsaXplZCI7YjowO3M6MTI6IgAqAHNlcGFyYXRvciI7czoxOiIuIjt9czo0OiJ1c2VyIjtPOjIwOiJKb29tbGFcQ01TXFVzZXJcVXNlciI6MTp7czoyOiJpZCI7aTo2ODg7fXM6OToiY29tX3VzZXJzIjtPOjg6InN0ZENsYXNzIjoyOntzOjExOiJtZmFfY2hlY2tlZCI7aToxO3M6MTc6InJlbWVtYmVyX2RlZmVycmVkIjtpOjA7fXM6MTE6ImFwcGxpY2F0aW9uIjtPOjg6InN0ZENsYXNzIjoxOntzOjU6InF1ZXVlIjthOjA6e319czo1OiJibG9jayI7czo3OiJ1bmJsb2NrIjt9czoxNDoiACoAaW5pdGlhbGl6ZWQiO2I6MDtzOjEyOiIAKgBzZXBhcmF0b3IiO3M6MToiLiI7fQ==";', 688, 'admin'),
-	(_binary 0x646433626574626c336a6a6731736369716e3470716b386f6467, 0, 1, 1795245410, 'joomla|s:1424:"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjM6e3M6Nzoic2Vzc2lvbiI7Tzo4OiJzdGRDbGFzcyI6Mzp7czo3OiJjb3VudGVyIjtpOjIwO3M6NToidGltZXIiO086ODoic3RkQ2xhc3MiOjM6e3M6NToic3RhcnQiO2k6MTc5NTIzNjU3NjtzOjQ6Imxhc3QiO2k6MTc5NTI0NTM2OTtzOjM6Im5vdyI7aToxNzk1MjQ1NDA5O31zOjU6InRva2VuIjtzOjMyOiI2MjI3OTAzOTdlZDA2NzZlYzM2YTNiMWQ5YTBjM2VkMiI7fXM6ODoicmVnaXN0cnkiO086MjQ6Ikpvb21sYVxSZWdpc3RyeVxSZWdpc3RyeSI6Mzp7czo3OiIAKgBkYXRhIjtPOjg6InN0ZENsYXNzIjoxOntzOjEwOiJjb21fa3VuZW5hIjtPOjg6InN0ZENsYXNzIjoxOntzOjEwOiJ1c2VyMF9yZWFkIjthOjUwOntpOjI2O2k6MjY7aToxMztpOjEzO2k6MzA7aTozMDtpOjE2O2k6MTY7aTo0MTtpOjQxO2k6NDc7aTo0NztpOjE7aToxO2k6OTtpOjk7aTozO2k6MztpOjU7aTo1O2k6MzU7aTozNTtpOjI3O2k6Mjc7aTozMTtpOjMxO2k6MTc7aToxNztpOjE0O2k6MTQ7aToxMDtpOjEwO2k6MjtpOjI7aTo1MDtpOjUwO2k6NDtpOjQ7aTo0MjtpOjQyO2k6NjtpOjY7aTozNjtpOjM2O2k6MjA7aToyMDtpOjMyO2k6MzI7aToxODtpOjE4O2k6Mjg7aToyODtpOjE1O2k6MTU7aToxMTtpOjExO2k6Mzc7aTozNztpOjQ4O2k6NDg7aTo3O2k6NztpOjM0O2k6MzQ7aTo0MztpOjQzO2k6MTk7aToxOTtpOjMzO2k6MzM7aToxMjtpOjEyO2k6MjE7aToyMTtpOjI5O2k6Mjk7aTo0NDtpOjQ0O2k6ODtpOjg7aTo0OTtpOjQ5O2k6NDA7aTo0MDtpOjM4O2k6Mzg7aToyMjtpOjIyO2k6MjQ7aToyNDtpOjQ1O2k6NDU7aTozOTtpOjM5O2k6MjM7aToyMztpOjQ2O2k6NDY7aToyNTtpOjI1O319fXM6MTQ6IgAqAGluaXRpYWxpemVkIjtiOjA7czoxMjoiACoAc2VwYXJhdG9yIjtzOjE6Ii4iO31zOjQ6InVzZXIiO086MjA6Ikpvb21sYVxDTVNcVXNlclxVc2VyIjoxOntzOjI6ImlkIjtpOjA7fX1zOjE0OiIAKgBpbml0aWFsaXplZCI7YjowO3M6MTI6IgAqAHNlcGFyYXRvciI7czoxOiIuIjt9";', 0, ''),
-	(_binary 0x65677569323532696a6532766f323961353272717072336d7570, 1, 0, 1795193283, 'joomla|s:9588:"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjY6e3M6Nzoic2Vzc2lvbiI7Tzo4OiJzdGRDbGFzcyI6Mzp7czo1OiJ0aW1lciI7Tzo4OiJzdGRDbGFzcyI6Mzp7czo1OiJzdGFydCI7aToxNzk1MTAwMzEwO3M6NDoibGFzdCI7aToxNzk1MTkzMjgyO3M6Mzoibm93IjtpOjE3OTUxOTMyODI7fXM6NToidG9rZW4iO3M6MzI6Ijc0OGJjZmRjOWNlMWM2NjY0ZDI1MWI3NDNjOWY4OGRjIjtzOjc6ImNvdW50ZXIiO2k6MjQ1O31zOjg6InJlZ2lzdHJ5IjtPOjI0OiJKb29tbGFcUmVnaXN0cnlcUmVnaXN0cnkiOjM6e3M6NzoiACoAZGF0YSI7Tzo4OiJzdGRDbGFzcyI6Njp7czoxMzoiY29tX2luc3RhbGxlciI7Tzo4OiJzdGRDbGFzcyI6Mzp7czo3OiJtZXNzYWdlIjtzOjA6IiI7czoxNzoiZXh0ZW5zaW9uX21lc3NhZ2UiO3M6MDoiIjtzOjEyOiJyZWRpcmVjdF91cmwiO047fXM6MTA6ImNvbV9jb25maWciO086ODoic3RkQ2xhc3MiOjE6e3M6NjoiY29uZmlnIjtPOjg6InN0ZENsYXNzIjoxOntzOjY6Imdsb2JhbCI7Tzo4OiJzdGRDbGFzcyI6MTp7czo0OiJkYXRhIjthOjEwNzp7czo3OiJjYWNoaW5nIjtpOjA7czoxMzoiY2FjaGVfaGFuZGxlciI7czo0OiJmaWxlIjtzOjIwOiJjYWNoZV9wbGF0Zm9ybXByZWZpeCI7YjowO3M6OToiY2FjaGV0aW1lIjtpOjE1O3M6MTA6ImNhY2hlX3BhdGgiO3M6MDoiIjtzOjE3OiJtZW1jYWNoZWRfcGVyc2lzdCI7YjoxO3M6MTg6Im1lbWNhY2hlZF9jb21wcmVzcyI7YjowO3M6MjE6Im1lbWNhY2hlZF9zZXJ2ZXJfaG9zdCI7czo5OiJsb2NhbGhvc3QiO3M6MjE6Im1lbWNhY2hlZF9zZXJ2ZXJfcG9ydCI7aToxMTIxMTtzOjEzOiJyZWRpc19wZXJzaXN0IjtiOjE7czoxNzoicmVkaXNfc2VydmVyX2hvc3QiO3M6OToibG9jYWxob3N0IjtzOjE3OiJyZWRpc19zZXJ2ZXJfcG9ydCI7aTo2Mzc5O3M6MTU6InJlZGlzX3NlcnZlcl9kYiI7aTowO3M6NjoiZGJ0eXBlIjtzOjY6Im15c3FsaSI7czo0OiJob3N0IjtzOjk6ImxvY2FsaG9zdCI7czo0OiJ1c2VyIjtzOjQ6InJvb3QiO3M6ODoicGFzc3dvcmQiO3M6NDoicm9vdCI7czoyOiJkYiI7czo5OiJudHNfa2dlZWsiO3M6ODoiZGJwcmVmaXgiO3M6Njoia2dlZWtfIjtzOjEyOiJkYmVuY3J5cHRpb24iO2k6MDtzOjg6ImRic3Nsa2V5IjtzOjA6IiI7czo5OiJkYnNzbGNlcnQiO3M6MDoiIjtzOjIxOiJkYnNzbHZlcmlmeXNlcnZlcmNlcnQiO2I6MDtzOjc6ImRic3NsY2EiO3M6MDoiIjtzOjExOiJkYnNzbGNpcGhlciI7czowOiIiO3M6NToiZGVidWciO2I6MDtzOjEwOiJkZWJ1Z19sYW5nIjtiOjA7czoxNjoiZGVidWdfbGFuZ19jb25zdCI7YjoxO3M6NDoiY29ycyI7YjowO3M6MTc6ImNvcnNfYWxsb3dfb3JpZ2luIjtzOjE6IioiO3M6MTg6ImNvcnNfYWxsb3dfaGVhZGVycyI7czo0MToiQ29udGVudC1UeXBlLFgtSm9vbWxhLVRva2VuLEF1dGhvcml6YXRpb24iO3M6MTg6ImNvcnNfYWxsb3dfbWV0aG9kcyI7czowOiIiO3M6MTk6ImJlaGluZF9sb2FkYmFsYW5jZXIiO2I6MDtzOjEyOiJwcm94eV9lbmFibGUiO2I6MDtzOjEwOiJwcm94eV9ob3N0IjtzOjA6IiI7czoxMDoicHJveHlfcG9ydCI7czowOiIiO3M6MTA6InByb3h5X3VzZXIiO3M6MDoiIjtzOjY6Im9mZnNldCI7czozOiJVVEMiO3M6MTA6Im1haWxvbmxpbmUiO2I6MTtzOjExOiJtYXNzbWFpbG9mZiI7YjowO3M6ODoibWFpbGZyb20iO3M6MTg6Im5vLXJlcGx5QGdtYWlsLmNvbSI7czo4OiJmcm9tbmFtZSI7czo5OiJOVFMgS0dlZWsiO3M6NzoicmVwbHl0byI7czowOiIiO3M6MTE6InJlcGx5dG9uYW1lIjtzOjA6IiI7czo2OiJtYWlsZXIiO3M6NDoibWFpbCI7czo4OiJzZW5kbWFpbCI7czoxODoiL3Vzci9zYmluL3NlbmRtYWlsIjtzOjg6InNtdHBob3N0IjtzOjk6ImxvY2FsaG9zdCI7czo4OiJzbXRwcG9ydCI7aToyNTtzOjEwOiJzbXRwc2VjdXJlIjtzOjQ6Im5vbmUiO3M6ODoic210cGF1dGgiO3M6MToiMCI7czo4OiJzbXRwdXNlciI7czowOiIiO3M6ODoic210cHBhc3MiO3M6MDoiIjtzOjIxOiJzbXRwX29hdXRoMl9jbGllbnRfaWQiO3M6MDoiIjtzOjE3OiJzbXRwX29hdXRoMl9zY29wZSI7czowOiIiO3M6MjU6InNtdHBfb2F1dGgyX2F1dGhvcml6ZV91cmwiO3M6MDoiIjtzOjIxOiJzbXRwX29hdXRoMl90b2tlbl91cmwiO3M6MDoiIjtzOjI1OiJzbXRwX29hdXRoMl9yZWZyZXNoX3Rva2VuIjtzOjA6IiI7czoyNzoic210cF9vYXV0aDJfdG9rZW5faXNzdWVkX2F0IjtzOjA6IiI7czo4OiJNZXRhRGVzYyI7czowOiIiO3M6Njoicm9ib3RzIjtzOjA6IiI7czoxMDoiTWV0YVJpZ2h0cyI7czowOiIiO3M6MTA6Ik1ldGFBdXRob3IiO2I6MTtzOjExOiJNZXRhVmVyc2lvbiI7YjowO3M6Mzoic2VmIjtiOjE7czoxMToic2VmX3Jld3JpdGUiO2I6MDtzOjEwOiJzZWZfc3VmZml4IjtiOjA7czoxMjoidW5pY29kZXNsdWdzIjtiOjA7czoxOToic2l0ZW5hbWVfcGFnZXRpdGxlcyI7aTowO3M6ODoidG1wX3BhdGgiO3M6NDM6IkQ6XExvY2FsaG9zdFxodGRvY3NcbmljZXRoZW1lXG50c19rZ2Vlay90bXAiO3M6NDoiZ3ppcCI7YjowO3M6MTU6ImVycm9yX3JlcG9ydGluZyI7czo3OiJkZWZhdWx0IjtzOjk6ImZvcmNlX3NzbCI7aTowO3M6MTU6InNlc3Npb25faGFuZGxlciI7czo4OiJkYXRhYmFzZSI7czoyMzoic2Vzc2lvbl9maWxlc3lzdGVtX3BhdGgiO3M6MDoiIjtzOjI5OiJzZXNzaW9uX21lbWNhY2hlZF9zZXJ2ZXJfaG9zdCI7czo5OiJsb2NhbGhvc3QiO3M6Mjk6InNlc3Npb25fbWVtY2FjaGVkX3NlcnZlcl9wb3J0IjtpOjExMjExO3M6MjE6InNlc3Npb25fcmVkaXNfcGVyc2lzdCI7aToxO3M6MjU6InNlc3Npb25fcmVkaXNfc2VydmVyX2hvc3QiO3M6OToibG9jYWxob3N0IjtzOjI1OiJzZXNzaW9uX3JlZGlzX3NlcnZlcl9wb3J0IjtpOjYzNzk7czoyMzoic2Vzc2lvbl9yZWRpc19zZXJ2ZXJfZGIiO2k6MDtzOjg6ImxpZmV0aW1lIjtpOjEwMDA7czoxNDoic2hhcmVkX3Nlc3Npb24iO2I6MDtzOjE2OiJzZXNzaW9uX21ldGFkYXRhIjtiOjE7czoyNjoic2Vzc2lvbl9tZXRhZGF0YV9mb3JfZ3Vlc3QiO2I6MTtzOjg6InNpdGVuYW1lIjtzOjk6Ik5UUyBLR2VlayI7czo3OiJvZmZsaW5lIjtiOjA7czoyMzoiZGlzcGxheV9vZmZsaW5lX21lc3NhZ2UiO2k6MTtzOjE1OiJvZmZsaW5lX21lc3NhZ2UiO3M6Njk6IlRoaXMgc2l0ZSBpcyBkb3duIGZvciBtYWludGVuYW5jZS48YnIgLz5QbGVhc2UgY2hlY2sgYmFjayBhZ2FpbiBzb29uLiI7czoxMzoib2ZmbGluZV9pbWFnZSI7czowOiIiO3M6MTI6ImZyb250ZWRpdGluZyI7aToxO3M6NjoiZWRpdG9yIjtzOjc6InRpbnltY2UiO3M6NzoiY2FwdGNoYSI7czoxOiIwIjtzOjY6ImFjY2VzcyI7aToxO3M6MTA6Imxpc3RfbGltaXQiO2k6MjA7czoxMDoiZmVlZF9saW1pdCI7aToxMDtzOjEwOiJmZWVkX2VtYWlsIjtzOjQ6Im5vbmUiO3M6ODoibG9nX3BhdGgiO3M6NTg6IkQ6XExvY2FsaG9zdFxodGRvY3NcbmljZXRoZW1lXG50c19rZ2Vla1xhZG1pbmlzdHJhdG9yL2xvZ3MiO3M6MTQ6ImxvZ19ldmVyeXRoaW5nIjtpOjA7czoxNDoibG9nX2RlcHJlY2F0ZWQiO2k6MDtzOjE0OiJsb2dfcHJpb3JpdGllcyI7YToxOntpOjA7czozOiJhbGwiO31zOjE0OiJsb2dfY2F0ZWdvcmllcyI7czowOiIiO3M6MTc6ImxvZ19jYXRlZ29yeV9tb2RlIjtpOjA7czoxMzoiY29va2llX2RvbWFpbiI7czowOiIiO3M6MTE6ImNvb2tpZV9wYXRoIjtzOjA6IiI7czo1OiJydWxlcyI7YToxMzp7czoxNToiY29yZS5sb2dpbi5zaXRlIjthOjI6e2k6NjtiOjE7aToyO2I6MTt9czoxNjoiY29yZS5sb2dpbi5hZG1pbiI7YToxOntpOjY7YjoxO31zOjE0OiJjb3JlLmxvZ2luLmFwaSI7YToxOntpOjg7YjoxO31zOjE4OiJjb3JlLmxvZ2luLm9mZmxpbmUiO2E6MTp7aTo2O2I6MTt9czoxMDoiY29yZS5hZG1pbiI7YToxOntpOjg7YjoxO31zOjEyOiJjb3JlLm9wdGlvbnMiO2E6MDp7fXM6MTE6ImNvcmUubWFuYWdlIjthOjE6e2k6NztiOjE7fXM6MTE6ImNvcmUuY3JlYXRlIjthOjI6e2k6NjtiOjE7aTozO2I6MTt9czoxMToiY29yZS5kZWxldGUiO2E6MTp7aTo2O2I6MTt9czo5OiJjb3JlLmVkaXQiO2E6Mjp7aTo2O2I6MTtpOjQ7YjoxO31zOjE1OiJjb3JlLmVkaXQuc3RhdGUiO2E6Mjp7aTo2O2I6MTtpOjU7YjoxO31zOjEzOiJjb3JlLmVkaXQub3duIjthOjI6e2k6NjtiOjE7aTozO2I6MTt9czoxNToiY29yZS5lZGl0LnZhbHVlIjthOjA6e319czo3OiJmaWx0ZXJzIjthOjk6e2k6MTthOjM6e3M6MTE6ImZpbHRlcl90eXBlIjtzOjI6Ik5IIjtzOjExOiJmaWx0ZXJfdGFncyI7czowOiIiO3M6MTc6ImZpbHRlcl9hdHRyaWJ1dGVzIjtzOjA6IiI7fWk6OTthOjM6e3M6MTE6ImZpbHRlcl90eXBlIjtzOjI6Ik5IIjtzOjExOiJmaWx0ZXJfdGFncyI7czowOiIiO3M6MTc6ImZpbHRlcl9hdHRyaWJ1dGVzIjtzOjA6IiI7fWk6NjthOjM6e3M6MTE6ImZpbHRlcl90eXBlIjtzOjI6IkJMIjtzOjExOiJmaWx0ZXJfdGFncyI7czowOiIiO3M6MTc6ImZpbHRlcl9hdHRyaWJ1dGVzIjtzOjA6IiI7fWk6NzthOjM6e3M6MTE6ImZpbHRlcl90eXBlIjtzOjI6IkJMIjtzOjExOiJmaWx0ZXJfdGFncyI7czowOiIiO3M6MTc6ImZpbHRlcl9hdHRyaWJ1dGVzIjtzOjA6IiI7fWk6MjthOjM6e3M6MTE6ImZpbHRlcl90eXBlIjtzOjI6Ik5IIjtzOjExOiJmaWx0ZXJfdGFncyI7czowOiIiO3M6MTc6ImZpbHRlcl9hdHRyaWJ1dGVzIjtzOjA6IiI7fWk6MzthOjM6e3M6MTE6ImZpbHRlcl90eXBlIjtzOjI6IkJMIjtzOjExOiJmaWx0ZXJfdGFncyI7czowOiIiO3M6MTc6ImZpbHRlcl9hdHRyaWJ1dGVzIjtzOjA6IiI7fWk6NDthOjM6e3M6MTE6ImZpbHRlcl90eXBlIjtzOjI6IkJMIjtzOjExOiJmaWx0ZXJfdGFncyI7czowOiIiO3M6MTc6ImZpbHRlcl9hdHRyaWJ1dGVzIjtzOjA6IiI7fWk6NTthOjM6e3M6MTE6ImZpbHRlcl90eXBlIjtzOjI6IkJMIjtzOjExOiJmaWx0ZXJfdGFncyI7czowOiIiO3M6MTc6ImZpbHRlcl9hdHRyaWJ1dGVzIjtzOjA6IiI7fWk6ODthOjM6e3M6MTE6ImZpbHRlcl90eXBlIjtzOjQ6Ik5PTkUiO3M6MTE6ImZpbHRlcl90YWdzIjtzOjA6IiI7czoxNzoiZmlsdGVyX2F0dHJpYnV0ZXMiO3M6MDoiIjt9fXM6ODoiYXNzZXRfaWQiO3M6MToiMSI7fX19fXM6MTE6ImNvbV9wbHVnaW5zIjtPOjg6InN0ZENsYXNzIjoxOntzOjc6InBsdWdpbnMiO086ODoic3RkQ2xhc3MiOjM6e3M6NjoiZmlsdGVyIjthOjU6e3M6Njoic2VhcmNoIjtzOjM6ImJlZSI7czo3OiJlbmFibGVkIjtzOjA6IiI7czo2OiJmb2xkZXIiO3M6MDoiIjtzOjc6ImVsZW1lbnQiO3M6MDoiIjtzOjY6ImFjY2VzcyI7czowOiIiO31zOjQ6Imxpc3QiO2E6NDp7czoxMjoiZnVsbG9yZGVyaW5nIjtzOjEwOiJmb2xkZXIgQVNDIjtzOjU6ImxpbWl0IjtzOjI6IjIwIjtzOjk6InNvcnRUYWJsZSI7czo2OiJmb2xkZXIiO3M6MTQ6ImRpcmVjdGlvblRhYmxlIjtzOjM6IkFTQyI7fXM6MTA6ImxpbWl0c3RhcnQiO2k6MDt9fXM6MTM6ImNvbV90ZW1wbGF0ZXMiO086ODoic3RkQ2xhc3MiOjI6e3M6Njoic3R5bGVzIjtPOjg6InN0ZENsYXNzIjoyOntzOjk6ImNsaWVudF9pZCI7czoxOiIwIjtzOjQ6Imxpc3QiO2E6NDp7czo5OiJkaXJlY3Rpb24iO3M6MzoiYXNjIjtzOjU6ImxpbWl0IjtpOjIwO3M6ODoib3JkZXJpbmciO3M6MTA6ImEudGVtcGxhdGUiO3M6NToic3RhcnQiO2Q6MDt9fXM6NDoiZWRpdCI7Tzo4OiJzdGRDbGFzcyI6MTp7czo1OiJzdHlsZSI7Tzo4OiJzdGRDbGFzcyI6Mjp7czoyOiJpZCI7YTowOnt9czo0OiJkYXRhIjtOO319fXM6MTA6ImNvbV9rdW5lbmEiO086ODoic3RkQ2xhc3MiOjI6e3M6MTI6InVzZXI2ODhfcmVhZCI7YTo0MDp7aToyNjtpOjI2O2k6MTM7aToxMztpOjMwO2k6MzA7aToxNjtpOjE2O2k6MTtpOjE7aTo5O2k6OTtpOjM7aTozO2k6NTtpOjU7aTozNTtpOjM1O2k6Mjc7aToyNztpOjMxO2k6MzE7aToxNztpOjE3O2k6MTQ7aToxNDtpOjEwO2k6MTA7aToyO2k6MjtpOjQ7aTo0O2k6NjtpOjY7aTozNjtpOjM2O2k6MjA7aToyMDtpOjMyO2k6MzI7aToxODtpOjE4O2k6Mjg7aToyODtpOjE1O2k6MTU7aToxMTtpOjExO2k6Mzc7aTozNztpOjc7aTo3O2k6MzQ7aTozNDtpOjE5O2k6MTk7aTozMztpOjMzO2k6MTI7aToxMjtpOjIxO2k6MjE7aToyOTtpOjI5O2k6ODtpOjg7aTo0MDtpOjQwO2k6Mzg7aTozODtpOjIyO2k6MjI7aToyNDtpOjI0O2k6Mzk7aTozOTtpOjIzO2k6MjM7aToyNTtpOjI1O31zOjU6ImFkbWluIjtPOjg6InN0ZENsYXNzIjoyOntzOjk6InRlbXBsYXRlcyI7Tzo4OiJzdGRDbGFzcyI6Mjp7czo0OiJsaXN0IjtPOjg6InN0ZENsYXNzIjoxOntzOjU6InN0YXJ0IjtpOjA7fXM6NDoiZWRpdCI7Tzo4OiJzdGRDbGFzcyI6MTp7czo0OiJlZGl0IjtzOjk6Im50c19rZ2VlayI7fX1zOjEwOiJjYXRlZ29yaWVzIjtPOjg6InN0ZENsYXNzIjozOntzOjY6ImZpbHRlciI7YTo5OntzOjY6InNlYXJjaCI7czowOiIiO3M6ODoiY2F0ZWdvcnkiO3M6MDoiIjtzOjY6ImxldmVscyI7czowOiIiO3M6OToicHVibGlzaGVkIjtzOjA6IiI7czo2OiJhY2Nlc3MiO3M6MDoiIjtzOjY6ImxvY2tlZCI7czowOiIiO3M6NjoicmV2aWV3IjtzOjA6IiI7czoxMDoiYWxsb3dQb2xscyI7czowOiIiO3M6OToiYW5vbnltb3VzIjtzOjA6IiI7fXM6NDoibGlzdCI7YToyOntzOjEyOiJmdWxsb3JkZXJpbmciO3M6MDoiIjtzOjU6ImxpbWl0IjtzOjI6IjIwIjt9czoxMDoibGltaXRzdGFydCI7aToyMDt9fX1zOjY6Imt1bmVuYSI7Tzo4OiJzdGRDbGFzcyI6MTp7czo0OiJlZGl0IjtPOjg6InN0ZENsYXNzIjoxOntzOjEyOiJ0ZW1wbGF0ZW5hbWUiO3M6OToibnRzX2tnZWVrIjt9fX1zOjE0OiIAKgBpbml0aWFsaXplZCI7YjowO3M6MTI6IgAqAHNlcGFyYXRvciI7czoxOiIuIjt9czo0OiJ1c2VyIjtPOjIwOiJKb29tbGFcQ01TXFVzZXJcVXNlciI6MTp7czoyOiJpZCI7aTo2ODg7fXM6OToiY29tX3VzZXJzIjtPOjg6InN0ZENsYXNzIjoyOntzOjExOiJtZmFfY2hlY2tlZCI7aToxO3M6MTc6InJlbWVtYmVyX2RlZmVycmVkIjtpOjA7fXM6MTE6ImFwcGxpY2F0aW9uIjtPOjg6InN0ZENsYXNzIjoxOntzOjU6InF1ZXVlIjthOjA6e319czo4OiJvdmVycmlkZSI7Tzo4OiJzdGRDbGFzcyI6MDp7fX1zOjE0OiIAKgBpbml0aWFsaXplZCI7YjowO3M6MTI6IgAqAHNlcGFyYXRvciI7czoxOiIuIjt9";', 688, 'admin'),
-	(_binary 0x6d67677663306e303676726a366e3276306e73386a737069386d, 0, 0, 1795249405, 'joomla|s:1740:"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjU6e3M6Nzoic2Vzc2lvbiI7Tzo4OiJzdGRDbGFzcyI6Mzp7czo1OiJ0aW1lciI7Tzo4OiJzdGRDbGFzcyI6Mzp7czo1OiJzdGFydCI7aToxNzk1MjQzNzkzO3M6NDoibGFzdCI7aToxNzk1MjQ5Mzc0O3M6Mzoibm93IjtpOjE3OTUyNDk0MDU7fXM6NToidG9rZW4iO3M6MzI6IjFmYWU5ZWYxMjEwYjA4MzhiZDkxZjYyYTA3NzI2YjkzIjtzOjc6ImNvdW50ZXIiO2k6MTU3O31zOjg6InJlZ2lzdHJ5IjtPOjI0OiJKb29tbGFcUmVnaXN0cnlcUmVnaXN0cnkiOjM6e3M6NzoiACoAZGF0YSI7Tzo4OiJzdGRDbGFzcyI6MTp7czoxMDoiY29tX2t1bmVuYSI7Tzo4OiJzdGRDbGFzcyI6NDp7czoxMDoidXNlcjBfcmVhZCI7TjtzOjU6InRvcGljIjtPOjg6InN0ZENsYXNzIjoxOntzOjc6Imxhc3RoaXQiO2k6Mjt9czoxMjoidXNlcjY4OF9yZWFkIjthOjUwOntpOjI2O2k6MjY7aToxMztpOjEzO2k6MzA7aTozMDtpOjE2O2k6MTY7aTo0MTtpOjQxO2k6NDc7aTo0NztpOjE7aToxO2k6OTtpOjk7aTozO2k6MztpOjU7aTo1O2k6MzU7aTozNTtpOjI3O2k6Mjc7aTozMTtpOjMxO2k6MTc7aToxNztpOjE0O2k6MTQ7aToxMDtpOjEwO2k6MjtpOjI7aTo1MDtpOjUwO2k6NDtpOjQ7aTo0MjtpOjQyO2k6NjtpOjY7aTozNjtpOjM2O2k6MjA7aToyMDtpOjMyO2k6MzI7aToxODtpOjE4O2k6Mjg7aToyODtpOjE1O2k6MTU7aToxMTtpOjExO2k6Mzc7aTozNztpOjQ4O2k6NDg7aTo3O2k6NztpOjM0O2k6MzQ7aTo0MztpOjQzO2k6MTk7aToxOTtpOjMzO2k6MzM7aToxMjtpOjEyO2k6MjE7aToyMTtpOjI5O2k6Mjk7aTo0NDtpOjQ0O2k6ODtpOjg7aTo0OTtpOjQ5O2k6NDA7aTo0MDtpOjM4O2k6Mzg7aToyMjtpOjIyO2k6MjQ7aToyNDtpOjQ1O2k6NDU7aTozOTtpOjM5O2k6MjM7aToyMztpOjQ2O2k6NDY7aToyNTtpOjI1O31zOjEwOiJwb3N0ZmllbGRzIjtOO319czoxNDoiACoAaW5pdGlhbGl6ZWQiO2I6MDtzOjEyOiIAKgBzZXBhcmF0b3IiO3M6MToiLiI7fXM6NDoidXNlciI7TzoyMDoiSm9vbWxhXENNU1xVc2VyXFVzZXIiOjE6e3M6MjoiaWQiO2k6Njg4O31zOjExOiJhcHBsaWNhdGlvbiI7Tzo4OiJzdGRDbGFzcyI6MTp7czo1OiJxdWV1ZSI7YTowOnt9fXM6OToiY29tX3VzZXJzIjtPOjg6InN0ZENsYXNzIjoyOntzOjExOiJtZmFfY2hlY2tlZCI7aToxO3M6MTc6InJlbWVtYmVyX2RlZmVycmVkIjtpOjA7fX1zOjE0OiIAKgBpbml0aWFsaXplZCI7YjowO3M6MTI6IgAqAHNlcGFyYXRvciI7czoxOiIuIjt9";', 688, 'admin'),
-	(_binary 0x6f6c3839677675666a66706a617631686f6d7034336c76666463, 0, 1, 1795222193, 'joomla|s:1292:"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjM6e3M6Nzoic2Vzc2lvbiI7Tzo4OiJzdGRDbGFzcyI6Mzp7czo3OiJjb3VudGVyIjtpOjI0NjtzOjU6InRpbWVyIjtPOjg6InN0ZENsYXNzIjozOntzOjU6InN0YXJ0IjtpOjE3OTUwOTg4MTE7czo0OiJsYXN0IjtpOjE3OTUyMjE5OTE7czozOiJub3ciO2k6MTc5NTIyMjE5Mzt9czo1OiJ0b2tlbiI7czozMjoiYmJiZTZlZWM1ZDRhZDczM2U4OTNmYzYzNzcyZDU1NmYiO31zOjg6InJlZ2lzdHJ5IjtPOjI0OiJKb29tbGFcUmVnaXN0cnlcUmVnaXN0cnkiOjM6e3M6NzoiACoAZGF0YSI7Tzo4OiJzdGRDbGFzcyI6MTp7czoxMDoiY29tX2t1bmVuYSI7Tzo4OiJzdGRDbGFzcyI6MTp7czoxMDoidXNlcjBfcmVhZCI7YTo0MDp7aToyNjtpOjI2O2k6MTM7aToxMztpOjMwO2k6MzA7aToxNjtpOjE2O2k6MTtpOjE7aTo5O2k6OTtpOjM7aTozO2k6NTtpOjU7aTozNTtpOjM1O2k6Mjc7aToyNztpOjMxO2k6MzE7aToxNztpOjE3O2k6MTQ7aToxNDtpOjEwO2k6MTA7aToyO2k6MjtpOjQ7aTo0O2k6NjtpOjY7aTozNjtpOjM2O2k6MjA7aToyMDtpOjMyO2k6MzI7aToxODtpOjE4O2k6Mjg7aToyODtpOjE1O2k6MTU7aToxMTtpOjExO2k6Mzc7aTozNztpOjc7aTo3O2k6MzQ7aTozNDtpOjE5O2k6MTk7aTozMztpOjMzO2k6MTI7aToxMjtpOjIxO2k6MjE7aToyOTtpOjI5O2k6ODtpOjg7aTo0MDtpOjQwO2k6Mzg7aTozODtpOjIyO2k6MjI7aToyNDtpOjI0O2k6Mzk7aTozOTtpOjIzO2k6MjM7aToyNTtpOjI1O319fXM6MTQ6IgAqAGluaXRpYWxpemVkIjtiOjA7czoxMjoiACoAc2VwYXJhdG9yIjtzOjE6Ii4iO31zOjQ6InVzZXIiO086MjA6Ikpvb21sYVxDTVNcVXNlclxVc2VyIjoxOntzOjI6ImlkIjtpOjA7fX1zOjE0OiIAKgBpbml0aWFsaXplZCI7YjowO3M6MTI6IgAqAHNlcGFyYXRvciI7czoxOiIuIjt9";', 0, ''),
-	(_binary 0x7271747138743864616e6d69726c616b726e7571333962363073, 0, 1, 1795234155, 'joomla|s:1344:"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjM6e3M6Nzoic2Vzc2lvbiI7Tzo4OiJzdGRDbGFzcyI6Mzp7czo3OiJjb3VudGVyIjtpOjI7czo1OiJ0aW1lciI7Tzo4OiJzdGRDbGFzcyI6Mzp7czo1OiJzdGFydCI7aToxNzk1MjM0MTQ1O3M6NDoibGFzdCI7aToxNzk1MjM0MTQ1O3M6Mzoibm93IjtpOjE3OTUyMzQxNTQ7fXM6NToidG9rZW4iO3M6MzI6ImZlMWZiMzIzZDk3N2UxMDgzZTRjMWVhZDUwOWMyN2FhIjt9czo4OiJyZWdpc3RyeSI7TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjE6e3M6MTA6ImNvbV9rdW5lbmEiO086ODoic3RkQ2xhc3MiOjE6e3M6MTA6InVzZXIwX3JlYWQiO2E6NDQ6e2k6MjY7aToyNjtpOjEzO2k6MTM7aTozMDtpOjMwO2k6MTY7aToxNjtpOjQxO2k6NDE7aToxO2k6MTtpOjk7aTo5O2k6MztpOjM7aTo1O2k6NTtpOjM1O2k6MzU7aToyNztpOjI3O2k6MzE7aTozMTtpOjE3O2k6MTc7aToxNDtpOjE0O2k6MTA7aToxMDtpOjI7aToyO2k6NDtpOjQ7aTo0MjtpOjQyO2k6NjtpOjY7aTozNjtpOjM2O2k6MjA7aToyMDtpOjMyO2k6MzI7aToxODtpOjE4O2k6Mjg7aToyODtpOjE1O2k6MTU7aToxMTtpOjExO2k6Mzc7aTozNztpOjc7aTo3O2k6MzQ7aTozNDtpOjQzO2k6NDM7aToxOTtpOjE5O2k6MzM7aTozMztpOjEyO2k6MTI7aToyMTtpOjIxO2k6Mjk7aToyOTtpOjQ0O2k6NDQ7aTo4O2k6ODtpOjQwO2k6NDA7aTozODtpOjM4O2k6MjI7aToyMjtpOjI0O2k6MjQ7aTozOTtpOjM5O2k6MjM7aToyMztpOjI1O2k6MjU7fX19czoxNDoiACoAaW5pdGlhbGl6ZWQiO2I6MDtzOjEyOiIAKgBzZXBhcmF0b3IiO3M6MToiLiI7fXM6NDoidXNlciI7TzoyMDoiSm9vbWxhXENNU1xVc2VyXFVzZXIiOjE6e3M6MjoiaWQiO2k6MDt9fXM6MTQ6IgAqAGluaXRpYWxpemVkIjtiOjA7czoxMjoiACoAc2VwYXJhdG9yIjtzOjE6Ii4iO30=";', 0, '');
+	(_binary 0x346f707265366e7071336a6d636e30746d6c32397268386e7374, 0, 0, 1795393753, 'joomla|s:1740:"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjU6e3M6Nzoic2Vzc2lvbiI7Tzo4OiJzdGRDbGFzcyI6Mzp7czo1OiJ0aW1lciI7Tzo4OiJzdGRDbGFzcyI6Mzp7czo1OiJzdGFydCI7aToxNzk1MzA0MzE2O3M6NDoibGFzdCI7aToxNzk1MzkzNzE4O3M6Mzoibm93IjtpOjE3OTUzOTM3NTM7fXM6NToidG9rZW4iO3M6MzI6ImNlNGYyODQwNDFlNzFlMjY4NDIzMTU3YjkwNDQ0MGE5IjtzOjc6ImNvdW50ZXIiO2k6Mjc1O31zOjg6InJlZ2lzdHJ5IjtPOjI0OiJKb29tbGFcUmVnaXN0cnlcUmVnaXN0cnkiOjM6e3M6NzoiACoAZGF0YSI7Tzo4OiJzdGRDbGFzcyI6MTp7czoxMDoiY29tX2t1bmVuYSI7Tzo4OiJzdGRDbGFzcyI6NDp7czoxMDoidXNlcjBfcmVhZCI7TjtzOjU6InRvcGljIjtPOjg6InN0ZENsYXNzIjoxOntzOjc6Imxhc3RoaXQiO2k6Mzt9czoxMjoidXNlcjY4OV9yZWFkIjthOjUwOntpOjI2O2k6MjY7aToxMztpOjEzO2k6MzA7aTozMDtpOjE2O2k6MTY7aTo0MTtpOjQxO2k6NDc7aTo0NztpOjE7aToxO2k6OTtpOjk7aTozO2k6MztpOjU7aTo1O2k6MzU7aTozNTtpOjI3O2k6Mjc7aTozMTtpOjMxO2k6MTc7aToxNztpOjE0O2k6MTQ7aToxMDtpOjEwO2k6MjtpOjI7aTo1MDtpOjUwO2k6NDtpOjQ7aTo0MjtpOjQyO2k6NjtpOjY7aTozNjtpOjM2O2k6MjA7aToyMDtpOjMyO2k6MzI7aToxODtpOjE4O2k6Mjg7aToyODtpOjE1O2k6MTU7aToxMTtpOjExO2k6Mzc7aTozNztpOjQ4O2k6NDg7aTo3O2k6NztpOjM0O2k6MzQ7aTo0MztpOjQzO2k6MTk7aToxOTtpOjMzO2k6MzM7aToxMjtpOjEyO2k6MjE7aToyMTtpOjI5O2k6Mjk7aTo0NDtpOjQ0O2k6ODtpOjg7aTo0OTtpOjQ5O2k6NDA7aTo0MDtpOjM4O2k6Mzg7aToyMjtpOjIyO2k6MjQ7aToyNDtpOjQ1O2k6NDU7aTozOTtpOjM5O2k6MjM7aToyMztpOjQ2O2k6NDY7aToyNTtpOjI1O31zOjEwOiJwb3N0ZmllbGRzIjtOO319czoxNDoiACoAaW5pdGlhbGl6ZWQiO2I6MDtzOjEyOiIAKgBzZXBhcmF0b3IiO3M6MToiLiI7fXM6NDoidXNlciI7TzoyMDoiSm9vbWxhXENNU1xVc2VyXFVzZXIiOjE6e3M6MjoiaWQiO2k6Njg5O31zOjExOiJhcHBsaWNhdGlvbiI7Tzo4OiJzdGRDbGFzcyI6MTp7czo1OiJxdWV1ZSI7YTowOnt9fXM6OToiY29tX3VzZXJzIjtPOjg6InN0ZENsYXNzIjoyOntzOjExOiJtZmFfY2hlY2tlZCI7aToxO3M6MTc6InJlbWVtYmVyX2RlZmVycmVkIjtpOjA7fX1zOjE0OiIAKgBpbml0aWFsaXplZCI7YjowO3M6MTI6IgAqAHNlcGFyYXRvciI7czoxOiIuIjt9";', 689, 'cargeek'),
+	(_binary 0x6f366d3369386731356270336364696d63316731336a6935686e, 0, 1, 1795365085, 'joomla|s:1424:"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjM6e3M6Nzoic2Vzc2lvbiI7Tzo4OiJzdGRDbGFzcyI6Mzp7czo3OiJjb3VudGVyIjtpOjI0O3M6NToidGltZXIiO086ODoic3RkQ2xhc3MiOjM6e3M6NToic3RhcnQiO2k6MTc5NTM2MjU2NjtzOjQ6Imxhc3QiO2k6MTc5NTM2NTAxNDtzOjM6Im5vdyI7aToxNzk1MzY1MDg1O31zOjU6InRva2VuIjtzOjMyOiI2ZmJmOTAwODNkOWYwYTg0MjQ1NzY0MDJiOWY2ZGQxMiI7fXM6ODoicmVnaXN0cnkiO086MjQ6Ikpvb21sYVxSZWdpc3RyeVxSZWdpc3RyeSI6Mzp7czo3OiIAKgBkYXRhIjtPOjg6InN0ZENsYXNzIjoxOntzOjEwOiJjb21fa3VuZW5hIjtPOjg6InN0ZENsYXNzIjoxOntzOjEwOiJ1c2VyMF9yZWFkIjthOjUwOntpOjI2O2k6MjY7aToxMztpOjEzO2k6MzA7aTozMDtpOjE2O2k6MTY7aTo0MTtpOjQxO2k6NDc7aTo0NztpOjE7aToxO2k6OTtpOjk7aTozO2k6MztpOjU7aTo1O2k6MzU7aTozNTtpOjI3O2k6Mjc7aTozMTtpOjMxO2k6MTc7aToxNztpOjE0O2k6MTQ7aToxMDtpOjEwO2k6MjtpOjI7aTo1MDtpOjUwO2k6NDtpOjQ7aTo0MjtpOjQyO2k6NjtpOjY7aTozNjtpOjM2O2k6MjA7aToyMDtpOjMyO2k6MzI7aToxODtpOjE4O2k6Mjg7aToyODtpOjE1O2k6MTU7aToxMTtpOjExO2k6Mzc7aTozNztpOjQ4O2k6NDg7aTo3O2k6NztpOjM0O2k6MzQ7aTo0MztpOjQzO2k6MTk7aToxOTtpOjMzO2k6MzM7aToxMjtpOjEyO2k6MjE7aToyMTtpOjI5O2k6Mjk7aTo0NDtpOjQ0O2k6ODtpOjg7aTo0OTtpOjQ5O2k6NDA7aTo0MDtpOjM4O2k6Mzg7aToyMjtpOjIyO2k6MjQ7aToyNDtpOjQ1O2k6NDU7aTozOTtpOjM5O2k6MjM7aToyMztpOjQ2O2k6NDY7aToyNTtpOjI1O319fXM6MTQ6IgAqAGluaXRpYWxpemVkIjtiOjA7czoxMjoiACoAc2VwYXJhdG9yIjtzOjE6Ii4iO31zOjQ6InVzZXIiO086MjA6Ikpvb21sYVxDTVNcVXNlclxVc2VyIjoxOntzOjI6ImlkIjtpOjA7fX1zOjE0OiIAKgBpbml0aWFsaXplZCI7YjowO3M6MTI6IgAqAHNlcGFyYXRvciI7czoxOiIuIjt9";', 0, ''),
+	(_binary 0x716b76313231736a713564683438337637376d6c326b72766c35, 1, 0, 1795359596, 'joomla|s:1976:"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjozOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjU6e3M6Nzoic2Vzc2lvbiI7Tzo4OiJzdGRDbGFzcyI6Mzp7czo1OiJ0aW1lciI7Tzo4OiJzdGRDbGFzcyI6Mzp7czo1OiJzdGFydCI7aToxNzk1MzU3MTIxO3M6NDoibGFzdCI7aToxNzk1MzU5NTk1O3M6Mzoibm93IjtpOjE3OTUzNTk1OTU7fXM6NToidG9rZW4iO3M6MzI6IjUxNGExYWVlOTg5ZmU2NzBkY2M5MjY4ZDhmNzg3ZjdkIjtzOjc6ImNvdW50ZXIiO2k6MTI7fXM6ODoicmVnaXN0cnkiO086MjQ6Ikpvb21sYVxSZWdpc3RyeVxSZWdpc3RyeSI6Mzp7czo3OiIAKgBkYXRhIjtPOjg6InN0ZENsYXNzIjoyOntzOjEwOiJjb21fa3VuZW5hIjtPOjg6InN0ZENsYXNzIjoyOntzOjEyOiJ1c2VyNjg4X3JlYWQiO2E6NTA6e2k6MjY7aToyNjtpOjEzO2k6MTM7aTozMDtpOjMwO2k6MTY7aToxNjtpOjQxO2k6NDE7aTo0NztpOjQ3O2k6MTtpOjE7aTo5O2k6OTtpOjM7aTozO2k6NTtpOjU7aTozNTtpOjM1O2k6Mjc7aToyNztpOjMxO2k6MzE7aToxNztpOjE3O2k6MTQ7aToxNDtpOjEwO2k6MTA7aToyO2k6MjtpOjUwO2k6NTA7aTo0O2k6NDtpOjQyO2k6NDI7aTo2O2k6NjtpOjM2O2k6MzY7aToyMDtpOjIwO2k6MzI7aTozMjtpOjE4O2k6MTg7aToyODtpOjI4O2k6MTU7aToxNTtpOjExO2k6MTE7aTozNztpOjM3O2k6NDg7aTo0ODtpOjc7aTo3O2k6MzQ7aTozNDtpOjQzO2k6NDM7aToxOTtpOjE5O2k6MzM7aTozMztpOjEyO2k6MTI7aToyMTtpOjIxO2k6Mjk7aToyOTtpOjQ0O2k6NDQ7aTo4O2k6ODtpOjQ5O2k6NDk7aTo0MDtpOjQwO2k6Mzg7aTozODtpOjIyO2k6MjI7aToyNDtpOjI0O2k6NDU7aTo0NTtpOjM5O2k6Mzk7aToyMztpOjIzO2k6NDY7aTo0NjtpOjI1O2k6MjU7fXM6NToiYWRtaW4iO086ODoic3RkQ2xhc3MiOjE6e3M6OToidGVtcGxhdGVzIjtPOjg6InN0ZENsYXNzIjoyOntzOjQ6Imxpc3QiO086ODoic3RkQ2xhc3MiOjE6e3M6NToic3RhcnQiO2k6MDt9czo0OiJlZGl0IjtPOjg6InN0ZENsYXNzIjoxOntzOjQ6ImVkaXQiO3M6OToibnRzX2tnZWVrIjt9fX19czo2OiJrdW5lbmEiO086ODoic3RkQ2xhc3MiOjE6e3M6NDoiZWRpdCI7Tzo4OiJzdGRDbGFzcyI6MTp7czoxMjoidGVtcGxhdGVuYW1lIjtzOjk6Im50c19rZ2VlayI7fX19czoxNDoiACoAaW5pdGlhbGl6ZWQiO2I6MDtzOjEyOiIAKgBzZXBhcmF0b3IiO3M6MToiLiI7fXM6NDoidXNlciI7TzoyMDoiSm9vbWxhXENNU1xVc2VyXFVzZXIiOjE6e3M6MjoiaWQiO2k6Njg4O31zOjExOiJhcHBsaWNhdGlvbiI7Tzo4OiJzdGRDbGFzcyI6MTp7czo1OiJxdWV1ZSI7YTowOnt9fXM6OToiY29tX3VzZXJzIjtPOjg6InN0ZENsYXNzIjoyOntzOjExOiJtZmFfY2hlY2tlZCI7aToxO3M6MTc6InJlbWVtYmVyX2RlZmVycmVkIjtpOjA7fX1zOjE0OiIAKgBpbml0aWFsaXplZCI7YjowO3M6MTI6IgAqAHNlcGFyYXRvciI7czoxOiIuIjt9";', 688, 'admin');
 
 -- Dumping structure for table nts_kgeek.kgeek_tags
 CREATE TABLE IF NOT EXISTS `kgeek_tags` (
@@ -3134,6 +3303,7 @@ CREATE TABLE IF NOT EXISTS `kgeek_tags` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table nts_kgeek.kgeek_tags: ~0 rows (approximately)
+DELETE FROM `kgeek_tags`;
 INSERT INTO `kgeek_tags` (`id`, `parent_id`, `lft`, `rgt`, `level`, `path`, `title`, `alias`, `note`, `description`, `published`, `checked_out`, `checked_out_time`, `access`, `params`, `metadesc`, `metakey`, `metadata`, `created_user_id`, `created_time`, `created_by_alias`, `modified_user_id`, `modified_time`, `images`, `urls`, `hits`, `language`, `version`, `publish_up`, `publish_down`) VALUES
 	(1, 0, 0, 1, 0, '', 'ROOT', 'root', '', '', 1, NULL, NULL, 1, '', '', '', '', 688, '2026-11-19 14:29:52', '', 688, '2026-11-19 14:29:52', '', '', 0, '*', 1, NULL, NULL);
 
@@ -3154,6 +3324,7 @@ CREATE TABLE IF NOT EXISTS `kgeek_template_overrides` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table nts_kgeek.kgeek_template_overrides: ~0 rows (approximately)
+DELETE FROM `kgeek_template_overrides`;
 
 -- Dumping structure for table nts_kgeek.kgeek_template_styles
 CREATE TABLE IF NOT EXISTS `kgeek_template_styles` (
@@ -3171,7 +3342,8 @@ CREATE TABLE IF NOT EXISTS `kgeek_template_styles` (
   KEY `idx_client_id_home` (`client_id`,`home`)
 ) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table nts_kgeek.kgeek_template_styles: ~0 rows (approximately)
+-- Dumping data for table nts_kgeek.kgeek_template_styles: ~4 rows (approximately)
+DELETE FROM `kgeek_template_styles`;
 INSERT INTO `kgeek_template_styles` (`id`, `template`, `client_id`, `home`, `title`, `inheritable`, `parent`, `params`) VALUES
 	(10, 'atum', 1, '1', 'Atum - Default', 1, '', '{"hue":"hsl(214, 63%, 20%)","bg-light":"#f0f4fb","text-dark":"#495057","text-light":"#ffffff","link-color":"#2a69b8","special-color":"#001b4c","colorScheme":"os","monochrome":"0","loginLogo":"","loginLogoAlt":"","logoBrandLarge":"","logoBrandLargeAlt":"","logoBrandSmall":"","logoBrandSmallAlt":""}'),
 	(11, 'cassiopeia', 0, '0', 'Cassiopeia - Default', 1, '', '{"brand":"1","logoFile":"","siteTitle":"","siteDescription":"","useFontScheme":"0","colorName":"colors_standard","fluidContainer":"0","stickyHeader":0,"backTop":0}'),
@@ -3191,8 +3363,9 @@ CREATE TABLE IF NOT EXISTS `kgeek_tuf_metadata` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Secure TUF Updates';
 
 -- Dumping data for table nts_kgeek.kgeek_tuf_metadata: ~0 rows (approximately)
+DELETE FROM `kgeek_tuf_metadata`;
 INSERT INTO `kgeek_tuf_metadata` (`id`, `update_site_id`, `root`, `targets`, `snapshot`, `timestamp`, `mirrors`) VALUES
-	(1, 1, '{"signed":{"_type":"root","spec_version":"1.0","version":16,"expires":"2027-09-17T18:55:11Z","keys":{"00e432b504508246e2bd536dd6c13e55e8b3256f0be9f767fae26da6c2a28663":{"keytype":"ed25519","scheme":"ed25519","keyid_hash_algorithms":["sha256","sha512"],"keyval":{"public":"250f8d293c49817a83909dead96ad82b62f7ac16844cf589f8d2f0e0b15cab21"}},"07eb082f367c034a95878687f6648aa76d93652b6ee73e58817053d89af6c44f":{"keytype":"ed25519","scheme":"ed25519","keyid_hash_algorithms":["sha256","sha512"],"keyval":{"public":"9b2af2d9b9727227735253d795bd27ea8f0e294a5f3603e822dc5052b44802b9"}},"179d107f20a2354ac5bd9a1f32a2df1763c0059617f0c132bebeb4816a1a8637":{"keytype":"ed25519","scheme":"ed25519","keyid_hash_algorithms":["sha256","sha512"],"keyval":{"public":"159a4195cbafce2bb959f09ab2b36a2127b8967f94d389f65f1e7892fccfe8b8"}},"192ad7343e7d431533d9577fd957b6f924680177db4dc6c0e146dad6810a90a4":{"keytype":"ed25519","scheme":"ed25519","keyid_hash_algorithms":["sha256","sha512"],"keyval":{"public":"042b66e1431a1f5c2c15b4a16ea60f23f466851b58e9ff057dbfc2a5e0d821d1"}},"1b1b1dd55b2c1c7258714cf1c1ae06f23e4607b28c762d016a9d81c48ffe5669":{"keytype":"ed25519","scheme":"ed25519","keyid_hash_algorithms":["sha256","sha512"],"keyval":{"public":"a18e5ebabc19d5d5984b601a292ece61ba3662ab2d071dc520da5bd4f8948799"}},"273e94e5477e306ad6de75be1524860e219e265ff9a57c81ababd0691e45706c":{"keytype":"ed25519","scheme":"ed25519","keyid_hash_algorithms":["sha256","sha512"],"keyval":{"public":"1cb6702338830ef1c9e76a022fed27172d475bbaace754d8141ebc96dad8b15f"}},"284c8164fd395e9178dc66929787f0650cda6acff0fd769ef697203d7553c481":{"keytype":"ed25519","scheme":"ed25519","keyid_hash_algorithms":["sha256","sha512"],"keyval":{"public":"546cdff30cc1ad6dd5f3d1e173672d94bd61a9507199af064142f70cde8de4e3"}},"2dcaf3d0e552f150792f7c636d45429246dcfa34ac35b46a44f5c87cd17d457e":{"keytype":"ed25519","scheme":"ed25519","keyid_hash_algorithms":["sha256","sha512"],"keyval":{"public":"cb0a7a131961a20edea051d6dc2b091fb650bd399bd8514adb67b3c60db9f8f9"}},"31dd7c7290d664c9b88c0dead2697175293ea7df81b7f24153a37370fd3901c3":{"keytype":"ed25519","scheme":"ed25519","keyid_hash_algorithms":["sha256","sha512"],"keyval":{"public":"589d029a68b470deff1ca16dbf3eea6b5b3fcba0ae7bb52c468abc7fb058b2a2"}},"9e41a9d62d94c6a1c8a304f62c5bd72d84a9f286f27e8327cedeacb09e5156cc":{"keytype":"ed25519","scheme":"ed25519","keyid_hash_algorithms":["sha256","sha512"],"keyval":{"public":"6043c8bacc76ac5c9750f45454dd865c6ca1fc57d69e14cc192cfd420f6a66a9"}},"9eabc37383b243cd236375c66693db385911914b52556e1ec05fc70ed45e1bfe":{"keytype":"ed25519","scheme":"ed25519","keyid_hash_algorithms":["sha256","sha512"],"keyval":{"public":"a4b8509488f1c29ab0b1f610e7452fbec78b4f33f1fba5a418d6ff087c567429"}},"a1a4b7fdbeedfdeff12d7776de098a2f8de8d2ab7bfe10062a281b3819b078c1":{"keytype":"ed25519","scheme":"ed25519","keyid_hash_algorithms":["sha256","sha512"],"keyval":{"public":"ea764b0b475b3c396627ac6689cbd8f54a5f93e87b6f5e3eb44a7ccafb542ff3"}},"a599a27a3ec4d520059c591338759dc401006b1c4cb1db85a286e667253d28b6":{"keytype":"ed25519","scheme":"ed25519","keyid_hash_algorithms":["sha256","sha512"],"keyval":{"public":"45e416d24d13a60ace5ab028827d5cfc8ba177bb9466bf2acd8efa6e3547911a"}},"ba3914be50eea8ecf6d5e7a8d3564dbbad99415d9cc229b9ee081ed86f69f803":{"keytype":"ed25519","scheme":"ed25519","keyid_hash_algorithms":["sha256","sha512"],"keyval":{"public":"1cbfa7dcac9659e5a8a946ec999bd28f53b451e38ce5827980bed2686098cf19"}},"bfee044dd4574a281c9b7c0b6829913ef292c66c0512d1091a298cfca8493da9":{"keytype":"ed25519","scheme":"ed25519","keyid_hash_algorithms":["sha256","sha512"],"keyval":{"public":"6eb44460e5914e8e0df726ddb90bd1f3771b8ce5af19b40fb01ac5a85b023a6f"}},"c9fe1ff72da60a30ea5e612fa2ef4ca329fb46d9e1965b811bf9f2de44ffdf18":{"keytype":"ed25519","scheme":"ed25519","keyid_hash_algorithms":["sha256","sha512"],"keyval":{"public":"390d45fce58e41fec922092b138eaf719ed2036c8722bd694a6832ab6ca18409"}},"e2229942b0fc1e6d7f82adf258e5bdadac10046d1470b7ec459c9eb4e076026b":{"keytype":"ed25519","scheme":"ed25519","keyid_hash_algorithms":["sha256","sha512"],"keyval":{"public":"ad1950e117b29ebe7a38635a2e574123e07571e4f9a011783e053b5f15d2562a"}},"ecc851a051c8d6439331ff0a37c7727321fc39896a34f950f73638b8a7cb472e":{"keytype":"ed25519","scheme":"ed25519","keyid_hash_algorithms":["sha256","sha512"],"keyval":{"public":"5d451915bc2b93a0e4e4745bc6a8b292d58996d50e0fb66c78c7827152a65879"}}},"roles":{"root":{"keyids":["1b1b1dd55b2c1c7258714cf1c1ae06f23e4607b28c762d016a9d81c48ffe5669","2dcaf3d0e552f150792f7c636d45429246dcfa34ac35b46a44f5c87cd17d457e","192ad7343e7d431533d9577fd957b6f924680177db4dc6c0e146dad6810a90a4"],"threshold":1},"snapshot":{"keyids":["07eb082f367c034a95878687f6648aa76d93652b6ee73e58817053d89af6c44f","2dcaf3d0e552f150792f7c636d45429246dcfa34ac35b46a44f5c87cd17d457e","ecc851a051c8d6439331ff0a37c7727321fc39896a34f950f73638b8a7cb472e","e2229942b0fc1e6d7f82adf258e5bdadac10046d1470b7ec459c9eb4e076026b","bfee044dd4574a281c9b7c0b6829913ef292c66c0512d1091a298cfca8493da9","9eabc37383b243cd236375c66693db385911914b52556e1ec05fc70ed45e1bfe","273e94e5477e306ad6de75be1524860e219e265ff9a57c81ababd0691e45706c","00e432b504508246e2bd536dd6c13e55e8b3256f0be9f767fae26da6c2a28663","179d107f20a2354ac5bd9a1f32a2df1763c0059617f0c132bebeb4816a1a8637","a1a4b7fdbeedfdeff12d7776de098a2f8de8d2ab7bfe10062a281b3819b078c1","192ad7343e7d431533d9577fd957b6f924680177db4dc6c0e146dad6810a90a4","a599a27a3ec4d520059c591338759dc401006b1c4cb1db85a286e667253d28b6","284c8164fd395e9178dc66929787f0650cda6acff0fd769ef697203d7553c481","ba3914be50eea8ecf6d5e7a8d3564dbbad99415d9cc229b9ee081ed86f69f803","c9fe1ff72da60a30ea5e612fa2ef4ca329fb46d9e1965b811bf9f2de44ffdf18"],"threshold":1},"targets":{"keyids":["31dd7c7290d664c9b88c0dead2697175293ea7df81b7f24153a37370fd3901c3","ecc851a051c8d6439331ff0a37c7727321fc39896a34f950f73638b8a7cb472e","e2229942b0fc1e6d7f82adf258e5bdadac10046d1470b7ec459c9eb4e076026b","bfee044dd4574a281c9b7c0b6829913ef292c66c0512d1091a298cfca8493da9","9eabc37383b243cd236375c66693db385911914b52556e1ec05fc70ed45e1bfe","273e94e5477e306ad6de75be1524860e219e265ff9a57c81ababd0691e45706c","00e432b504508246e2bd536dd6c13e55e8b3256f0be9f767fae26da6c2a28663","179d107f20a2354ac5bd9a1f32a2df1763c0059617f0c132bebeb4816a1a8637","a1a4b7fdbeedfdeff12d7776de098a2f8de8d2ab7bfe10062a281b3819b078c1","284c8164fd395e9178dc66929787f0650cda6acff0fd769ef697203d7553c481","c9fe1ff72da60a30ea5e612fa2ef4ca329fb46d9e1965b811bf9f2de44ffdf18"],"threshold":1},"timestamp":{"keyids":["9e41a9d62d94c6a1c8a304f62c5bd72d84a9f286f27e8327cedeacb09e5156cc"],"threshold":1}},"consistent_snapshot":true},"signatures":[{"keyid":"1b1b1dd55b2c1c7258714cf1c1ae06f23e4607b28c762d016a9d81c48ffe5669","sig":"45cabce9321e0091f9a88a862d250c35f6efede25c7c6eab6cbf738d176c366308bb24cedc80812244259a0d56fd796b2ebd13f98d6aba5c8220df4f136a8504"}]}', '{"signed":{"_type":"targets","spec_version":"1.0","version":120,"expires":"2027-02-17T15:35:47Z","targets":{"Joomla_5.1.2-Stable-Upgrade_Package.zip":{"length":28134889,"hashes":{"sha512":"d6b46cdedb9b31d01a607fe4c2f3a830a3265ed6ae5c0cb7b0f836b1b016ee7c639bd8948df00baf1b61a87f2fc71368a80b39e67ef9ec2b8842ee0ab09a620f"},"custom":{"client":"site","description":"Joomla! 5.1.2 Release","downloads":[{"url":"https://downloads.joomla.org/cms/joomla5/5-1-2/Joomla_5.1.2-Stable-Update_Package.zip","format":"zip","type":"full"},{"url":"https://github.com/joomla/joomla-cms/releases/download/5.1.2/Joomla_5.1.2-Stable-Update_Package.zip","format":"zip","type":"full"},{"url":"https://update.joomla.org/releases/5.1.2/Joomla_5.1.2-Stable-Update_Package.zip","format":"zip","type":"full"}],"element":"joomla","infourl":{"url":"https://www.joomla.org/announcements/release-news/5909-joomla-5-1-2-and-joomla-4-4-6-security-and-bug-fix-release.html","title":"Joomla! 5.1.2 Release"},"maintainer":"Joomla! Production Department","maintainerurl":"https://www.joomla.org","name":"Joomla! 5.1.2","php_minimum":"8.1.0","channel":"6.x","stability":"Stable","supported_databases":{"mariadb":"10.4","mysql":"8.0.13","postgresql":"11.0"},"targetplatform":{"name":"joomla","version":"(5\\\\.[0-4])|^(4\\\\.4)"},"type":"file","version":"5.1.2"}},"Joomla_5.4.10-Stable-Update_Package.zip":{"length":32022582,"hashes":{"sha512":"40ac7cc602e170c9443fe9b8aa6f798900ff8bd58bb0c0c7ef6fe915cf03f1c1088f1ca1a8c9c8c617969aeda25e6f27b5fb5cce55328e20344fdb4954aa1207"},"custom":{"client":"site","description":"Joomla! 5.4.10 Release","downloads":[{"url":"https://downloads.joomla.org/cms/joomla5/5-4-10/Joomla_5.4.10-Stable-Update_Package.zip","format":"zip","type":"full"},{"url":"https://github.com/joomla/joomla-cms/releases/download/5.4.10/Joomla_5.4.10-Stable-Update_Package.zip","format":"zip","type":"full"},{"url":"https://update.joomla.org/releases/5.4.10/Joomla_5.4.10-Stable-Update_Package.zip","format":"zip","type":"full"}],"element":"joomla","infourl":{"url":"https://www.joomla.org/announcements/release-news/joomla-5-4-10-bugfix-release.html","title":"Joomla! 5.4.10 Release"},"maintainer":"Joomla! Production Department","maintainerurl":"https://www.joomla.org","name":"Joomla! 5.4.10","php_minimum":"8.1.0","channel":"5.x","stability":"Stable","supported_databases":{"mariadb":"10.4","mysql":"8.0.13","postgresql":"11.0"},"targetplatform":{"name":"joomla","version":"(5\\\\.[0-4])|^(4\\\\.4)"},"type":"file","version":"5.4.10"}},"Joomla_6.2.0-Stable-Update_Package.zip":{"length":32555797,"hashes":{"sha512":"add35ea23140a8d095e1858a3b6744011bed193b173ff02edcf526feea3a85b6653866b3e3d8baf83bd01d1f87d5f4608de23741799e1e1925f0c3124d1125fd"},"custom":{"client":"site","description":"Joomla! 6.2.0 Release","downloads":[{"url":"https://downloads.joomla.org/cms/joomla6/6-2-0/Joomla_6.2.0-Stable-Update_Package.zip","format":"zip","type":"full"},{"url":"https://github.com/joomla/joomla-cms/releases/download/6.2.0/Joomla_6.2.0-Stable-Update_Package.zip","format":"zip","type":"full"},{"url":"https://update.joomla.org/releases/6.2.0/Joomla_6.2.0-Stable-Update_Package.zip","format":"zip","type":"full"}],"element":"joomla","infourl":{"url":"https://www.joomla.org/announcements/release-news/joomla-6-2-is-here.html","title":"Joomla! 6.2.0 Release"},"maintainer":"Joomla! Production Department","maintainerurl":"https://www.joomla.org","name":"Joomla! 6.2.0","php_minimum":"8.3.0","channel":"6.x","stability":"Stable","supported_databases":{"mariadb":"10.4","mysql":"8.0.13","postgresql":"12.0"},"targetplatform":{"name":"joomla","version":"(6\\\\.[0-4])|^(5\\\\.4)"},"type":"file","version":"6.2.0"}},"Joomla_6.2.1-rc1-Release_Candidate-Update_Package.zip":{"length":32999751,"hashes":{"sha512":"d4ae4176a8ee22df8be5dcd5702002c164cce9a6f5f46721ba895dc862d548c9c2fd238af33889a7200e080796e6d468cf1a7c0eb4edf48381d0e7d6edf62e68"},"custom":{"client":"site","description":"Joomla! 6.2.1-rc1 Release","downloads":[{"url":"https://github.com/joomla/joomla-cms/releases/download/6.2.1-rc1/Joomla_6.2.1-rc1-Release_Candidate-Update_Package.zip","format":"zip","type":"full"}],"element":"joomla","infourl":{"url":"https://github.com/joomla/joomla-cms/releases/tag/6.2.1-rc1","title":"Joomla! 6.2.1-rc1 Release"},"maintainer":"Joomla! Production Department","maintainerurl":"https://www.joomla.org","name":"Joomla! 6.2.1-rc1","php_minimum":"8.3.0","channel":"6.x","stability":"RC","supported_databases":{"mariadb":"10.4","mysql":"8.0.13","postgresql":"12.0"},"targetplatform":{"name":"joomla","version":"(6\\\\.[0-4])|^(5\\\\.4)"},"type":"file","version":"6.2.1-rc1"}}}},"signatures":[{"keyid":"c9fe1ff72da60a30ea5e612fa2ef4ca329fb46d9e1965b811bf9f2de44ffdf18","sig":"4f21230d6806ad5f8867ded884c7ed352370cd2f52f32af896b198ac9df3f77299b2a7dc46525a6951cd0c86b95378fe5ce9176b33179f76b9d5b442847cb105"},{"keyid":"284c8164fd395e9178dc66929787f0650cda6acff0fd769ef697203d7553c481","sig":"2ad7910becf352527411950969332d3c63e357f3bcb61ccd195a8b0df5a180618f81a45c835ee8cd376bb34165ddbbb5b76c3c8d8bb909e396729efd4f1dd70d"}]}', '{"signed":{"_type":"snapshot","spec_version":"1.0","version":136,"expires":"2027-06-15T15:48:15Z","meta":{"targets.json":{"length":5068,"hashes":{"sha512":"7ac6d10ea6deb6e65984e7dca85f0ff56699df7ee244cf25d1ce7a67c5d78271dc4b4885f6f636e9c022ed35711109a289338b1189e9c4d64fa0a5b9d73beb0e"},"version":120}}},"signatures":[{"keyid":"ba3914be50eea8ecf6d5e7a8d3564dbbad99415d9cc229b9ee081ed86f69f803","sig":"53a2fc43c76261f6ce1ad9ae4032d1b9b9b3738c3393dde153b0b1c82af026d01c81d047f77324986958be69220d1b70f65e8c6a3fe6e31b21bb712b4ab8870f"}]}', '{"signed":{"_type":"timestamp","spec_version":"1.0","version":1318,"expires":"2026-11-22T01:14:58Z","meta":{"snapshot.json":{"length":533,"hashes":{"sha512":"a1a6d3939efa6e6cfbdb32cf9383aaaa29fd73f6ef976f9261ef5a8a389ff11a50b9799570178f0f10c19f9fce05c9441aba861328ec17268591ff3d8a7f8f57"},"version":136}}},"signatures":[{"keyid":"9e41a9d62d94c6a1c8a304f62c5bd72d84a9f286f27e8327cedeacb09e5156cc","sig":"af283a35ef39db6a72b632c0b76990b963e2a6379f51272c72f2147ad74719fdc41966848b9509de38df895af6e2912938cd92cab56905a55b81d46a396a7802"}]}', NULL);
+	(1, 1, '{"signed":{"_type":"root","spec_version":"1.0","version":16,"expires":"2027-09-17T18:55:11Z","keys":{"00e432b504508246e2bd536dd6c13e55e8b3256f0be9f767fae26da6c2a28663":{"keytype":"ed25519","scheme":"ed25519","keyid_hash_algorithms":["sha256","sha512"],"keyval":{"public":"250f8d293c49817a83909dead96ad82b62f7ac16844cf589f8d2f0e0b15cab21"}},"07eb082f367c034a95878687f6648aa76d93652b6ee73e58817053d89af6c44f":{"keytype":"ed25519","scheme":"ed25519","keyid_hash_algorithms":["sha256","sha512"],"keyval":{"public":"9b2af2d9b9727227735253d795bd27ea8f0e294a5f3603e822dc5052b44802b9"}},"179d107f20a2354ac5bd9a1f32a2df1763c0059617f0c132bebeb4816a1a8637":{"keytype":"ed25519","scheme":"ed25519","keyid_hash_algorithms":["sha256","sha512"],"keyval":{"public":"159a4195cbafce2bb959f09ab2b36a2127b8967f94d389f65f1e7892fccfe8b8"}},"192ad7343e7d431533d9577fd957b6f924680177db4dc6c0e146dad6810a90a4":{"keytype":"ed25519","scheme":"ed25519","keyid_hash_algorithms":["sha256","sha512"],"keyval":{"public":"042b66e1431a1f5c2c15b4a16ea60f23f466851b58e9ff057dbfc2a5e0d821d1"}},"1b1b1dd55b2c1c7258714cf1c1ae06f23e4607b28c762d016a9d81c48ffe5669":{"keytype":"ed25519","scheme":"ed25519","keyid_hash_algorithms":["sha256","sha512"],"keyval":{"public":"a18e5ebabc19d5d5984b601a292ece61ba3662ab2d071dc520da5bd4f8948799"}},"273e94e5477e306ad6de75be1524860e219e265ff9a57c81ababd0691e45706c":{"keytype":"ed25519","scheme":"ed25519","keyid_hash_algorithms":["sha256","sha512"],"keyval":{"public":"1cb6702338830ef1c9e76a022fed27172d475bbaace754d8141ebc96dad8b15f"}},"284c8164fd395e9178dc66929787f0650cda6acff0fd769ef697203d7553c481":{"keytype":"ed25519","scheme":"ed25519","keyid_hash_algorithms":["sha256","sha512"],"keyval":{"public":"546cdff30cc1ad6dd5f3d1e173672d94bd61a9507199af064142f70cde8de4e3"}},"2dcaf3d0e552f150792f7c636d45429246dcfa34ac35b46a44f5c87cd17d457e":{"keytype":"ed25519","scheme":"ed25519","keyid_hash_algorithms":["sha256","sha512"],"keyval":{"public":"cb0a7a131961a20edea051d6dc2b091fb650bd399bd8514adb67b3c60db9f8f9"}},"31dd7c7290d664c9b88c0dead2697175293ea7df81b7f24153a37370fd3901c3":{"keytype":"ed25519","scheme":"ed25519","keyid_hash_algorithms":["sha256","sha512"],"keyval":{"public":"589d029a68b470deff1ca16dbf3eea6b5b3fcba0ae7bb52c468abc7fb058b2a2"}},"9e41a9d62d94c6a1c8a304f62c5bd72d84a9f286f27e8327cedeacb09e5156cc":{"keytype":"ed25519","scheme":"ed25519","keyid_hash_algorithms":["sha256","sha512"],"keyval":{"public":"6043c8bacc76ac5c9750f45454dd865c6ca1fc57d69e14cc192cfd420f6a66a9"}},"9eabc37383b243cd236375c66693db385911914b52556e1ec05fc70ed45e1bfe":{"keytype":"ed25519","scheme":"ed25519","keyid_hash_algorithms":["sha256","sha512"],"keyval":{"public":"a4b8509488f1c29ab0b1f610e7452fbec78b4f33f1fba5a418d6ff087c567429"}},"a1a4b7fdbeedfdeff12d7776de098a2f8de8d2ab7bfe10062a281b3819b078c1":{"keytype":"ed25519","scheme":"ed25519","keyid_hash_algorithms":["sha256","sha512"],"keyval":{"public":"ea764b0b475b3c396627ac6689cbd8f54a5f93e87b6f5e3eb44a7ccafb542ff3"}},"a599a27a3ec4d520059c591338759dc401006b1c4cb1db85a286e667253d28b6":{"keytype":"ed25519","scheme":"ed25519","keyid_hash_algorithms":["sha256","sha512"],"keyval":{"public":"45e416d24d13a60ace5ab028827d5cfc8ba177bb9466bf2acd8efa6e3547911a"}},"ba3914be50eea8ecf6d5e7a8d3564dbbad99415d9cc229b9ee081ed86f69f803":{"keytype":"ed25519","scheme":"ed25519","keyid_hash_algorithms":["sha256","sha512"],"keyval":{"public":"1cbfa7dcac9659e5a8a946ec999bd28f53b451e38ce5827980bed2686098cf19"}},"bfee044dd4574a281c9b7c0b6829913ef292c66c0512d1091a298cfca8493da9":{"keytype":"ed25519","scheme":"ed25519","keyid_hash_algorithms":["sha256","sha512"],"keyval":{"public":"6eb44460e5914e8e0df726ddb90bd1f3771b8ce5af19b40fb01ac5a85b023a6f"}},"c9fe1ff72da60a30ea5e612fa2ef4ca329fb46d9e1965b811bf9f2de44ffdf18":{"keytype":"ed25519","scheme":"ed25519","keyid_hash_algorithms":["sha256","sha512"],"keyval":{"public":"390d45fce58e41fec922092b138eaf719ed2036c8722bd694a6832ab6ca18409"}},"e2229942b0fc1e6d7f82adf258e5bdadac10046d1470b7ec459c9eb4e076026b":{"keytype":"ed25519","scheme":"ed25519","keyid_hash_algorithms":["sha256","sha512"],"keyval":{"public":"ad1950e117b29ebe7a38635a2e574123e07571e4f9a011783e053b5f15d2562a"}},"ecc851a051c8d6439331ff0a37c7727321fc39896a34f950f73638b8a7cb472e":{"keytype":"ed25519","scheme":"ed25519","keyid_hash_algorithms":["sha256","sha512"],"keyval":{"public":"5d451915bc2b93a0e4e4745bc6a8b292d58996d50e0fb66c78c7827152a65879"}}},"roles":{"root":{"keyids":["1b1b1dd55b2c1c7258714cf1c1ae06f23e4607b28c762d016a9d81c48ffe5669","2dcaf3d0e552f150792f7c636d45429246dcfa34ac35b46a44f5c87cd17d457e","192ad7343e7d431533d9577fd957b6f924680177db4dc6c0e146dad6810a90a4"],"threshold":1},"snapshot":{"keyids":["07eb082f367c034a95878687f6648aa76d93652b6ee73e58817053d89af6c44f","2dcaf3d0e552f150792f7c636d45429246dcfa34ac35b46a44f5c87cd17d457e","ecc851a051c8d6439331ff0a37c7727321fc39896a34f950f73638b8a7cb472e","e2229942b0fc1e6d7f82adf258e5bdadac10046d1470b7ec459c9eb4e076026b","bfee044dd4574a281c9b7c0b6829913ef292c66c0512d1091a298cfca8493da9","9eabc37383b243cd236375c66693db385911914b52556e1ec05fc70ed45e1bfe","273e94e5477e306ad6de75be1524860e219e265ff9a57c81ababd0691e45706c","00e432b504508246e2bd536dd6c13e55e8b3256f0be9f767fae26da6c2a28663","179d107f20a2354ac5bd9a1f32a2df1763c0059617f0c132bebeb4816a1a8637","a1a4b7fdbeedfdeff12d7776de098a2f8de8d2ab7bfe10062a281b3819b078c1","192ad7343e7d431533d9577fd957b6f924680177db4dc6c0e146dad6810a90a4","a599a27a3ec4d520059c591338759dc401006b1c4cb1db85a286e667253d28b6","284c8164fd395e9178dc66929787f0650cda6acff0fd769ef697203d7553c481","ba3914be50eea8ecf6d5e7a8d3564dbbad99415d9cc229b9ee081ed86f69f803","c9fe1ff72da60a30ea5e612fa2ef4ca329fb46d9e1965b811bf9f2de44ffdf18"],"threshold":1},"targets":{"keyids":["31dd7c7290d664c9b88c0dead2697175293ea7df81b7f24153a37370fd3901c3","ecc851a051c8d6439331ff0a37c7727321fc39896a34f950f73638b8a7cb472e","e2229942b0fc1e6d7f82adf258e5bdadac10046d1470b7ec459c9eb4e076026b","bfee044dd4574a281c9b7c0b6829913ef292c66c0512d1091a298cfca8493da9","9eabc37383b243cd236375c66693db385911914b52556e1ec05fc70ed45e1bfe","273e94e5477e306ad6de75be1524860e219e265ff9a57c81ababd0691e45706c","00e432b504508246e2bd536dd6c13e55e8b3256f0be9f767fae26da6c2a28663","179d107f20a2354ac5bd9a1f32a2df1763c0059617f0c132bebeb4816a1a8637","a1a4b7fdbeedfdeff12d7776de098a2f8de8d2ab7bfe10062a281b3819b078c1","284c8164fd395e9178dc66929787f0650cda6acff0fd769ef697203d7553c481","c9fe1ff72da60a30ea5e612fa2ef4ca329fb46d9e1965b811bf9f2de44ffdf18"],"threshold":1},"timestamp":{"keyids":["9e41a9d62d94c6a1c8a304f62c5bd72d84a9f286f27e8327cedeacb09e5156cc"],"threshold":1}},"consistent_snapshot":true},"signatures":[{"keyid":"1b1b1dd55b2c1c7258714cf1c1ae06f23e4607b28c762d016a9d81c48ffe5669","sig":"45cabce9321e0091f9a88a862d250c35f6efede25c7c6eab6cbf738d176c366308bb24cedc80812244259a0d56fd796b2ebd13f98d6aba5c8220df4f136a8504"}]}', '{"signed":{"_type":"targets","spec_version":"1.0","version":120,"expires":"2027-02-17T15:35:47Z","targets":{"Joomla_5.1.2-Stable-Upgrade_Package.zip":{"length":28134889,"hashes":{"sha512":"d6b46cdedb9b31d01a607fe4c2f3a830a3265ed6ae5c0cb7b0f836b1b016ee7c639bd8948df00baf1b61a87f2fc71368a80b39e67ef9ec2b8842ee0ab09a620f"},"custom":{"client":"site","description":"Joomla! 5.1.2 Release","downloads":[{"url":"https://downloads.joomla.org/cms/joomla5/5-1-2/Joomla_5.1.2-Stable-Update_Package.zip","format":"zip","type":"full"},{"url":"https://github.com/joomla/joomla-cms/releases/download/5.1.2/Joomla_5.1.2-Stable-Update_Package.zip","format":"zip","type":"full"},{"url":"https://update.joomla.org/releases/5.1.2/Joomla_5.1.2-Stable-Update_Package.zip","format":"zip","type":"full"}],"element":"joomla","infourl":{"url":"https://www.joomla.org/announcements/release-news/5909-joomla-5-1-2-and-joomla-4-4-6-security-and-bug-fix-release.html","title":"Joomla! 5.1.2 Release"},"maintainer":"Joomla! Production Department","maintainerurl":"https://www.joomla.org","name":"Joomla! 5.1.2","php_minimum":"8.1.0","channel":"6.x","stability":"Stable","supported_databases":{"mariadb":"10.4","mysql":"8.0.13","postgresql":"11.0"},"targetplatform":{"name":"joomla","version":"(5\\\\.[0-4])|^(4\\\\.4)"},"type":"file","version":"5.1.2"}},"Joomla_5.4.10-Stable-Update_Package.zip":{"length":32022582,"hashes":{"sha512":"40ac7cc602e170c9443fe9b8aa6f798900ff8bd58bb0c0c7ef6fe915cf03f1c1088f1ca1a8c9c8c617969aeda25e6f27b5fb5cce55328e20344fdb4954aa1207"},"custom":{"client":"site","description":"Joomla! 5.4.10 Release","downloads":[{"url":"https://downloads.joomla.org/cms/joomla5/5-4-10/Joomla_5.4.10-Stable-Update_Package.zip","format":"zip","type":"full"},{"url":"https://github.com/joomla/joomla-cms/releases/download/5.4.10/Joomla_5.4.10-Stable-Update_Package.zip","format":"zip","type":"full"},{"url":"https://update.joomla.org/releases/5.4.10/Joomla_5.4.10-Stable-Update_Package.zip","format":"zip","type":"full"}],"element":"joomla","infourl":{"url":"https://www.joomla.org/announcements/release-news/joomla-5-4-10-bugfix-release.html","title":"Joomla! 5.4.10 Release"},"maintainer":"Joomla! Production Department","maintainerurl":"https://www.joomla.org","name":"Joomla! 5.4.10","php_minimum":"8.1.0","channel":"5.x","stability":"Stable","supported_databases":{"mariadb":"10.4","mysql":"8.0.13","postgresql":"11.0"},"targetplatform":{"name":"joomla","version":"(5\\\\.[0-4])|^(4\\\\.4)"},"type":"file","version":"5.4.10"}},"Joomla_6.2.0-Stable-Update_Package.zip":{"length":32555797,"hashes":{"sha512":"add35ea23140a8d095e1858a3b6744011bed193b173ff02edcf526feea3a85b6653866b3e3d8baf83bd01d1f87d5f4608de23741799e1e1925f0c3124d1125fd"},"custom":{"client":"site","description":"Joomla! 6.2.0 Release","downloads":[{"url":"https://downloads.joomla.org/cms/joomla6/6-2-0/Joomla_6.2.0-Stable-Update_Package.zip","format":"zip","type":"full"},{"url":"https://github.com/joomla/joomla-cms/releases/download/6.2.0/Joomla_6.2.0-Stable-Update_Package.zip","format":"zip","type":"full"},{"url":"https://update.joomla.org/releases/6.2.0/Joomla_6.2.0-Stable-Update_Package.zip","format":"zip","type":"full"}],"element":"joomla","infourl":{"url":"https://www.joomla.org/announcements/release-news/joomla-6-2-is-here.html","title":"Joomla! 6.2.0 Release"},"maintainer":"Joomla! Production Department","maintainerurl":"https://www.joomla.org","name":"Joomla! 6.2.0","php_minimum":"8.3.0","channel":"6.x","stability":"Stable","supported_databases":{"mariadb":"10.4","mysql":"8.0.13","postgresql":"12.0"},"targetplatform":{"name":"joomla","version":"(6\\\\.[0-4])|^(5\\\\.4)"},"type":"file","version":"6.2.0"}},"Joomla_6.2.1-rc1-Release_Candidate-Update_Package.zip":{"length":32999751,"hashes":{"sha512":"d4ae4176a8ee22df8be5dcd5702002c164cce9a6f5f46721ba895dc862d548c9c2fd238af33889a7200e080796e6d468cf1a7c0eb4edf48381d0e7d6edf62e68"},"custom":{"client":"site","description":"Joomla! 6.2.1-rc1 Release","downloads":[{"url":"https://github.com/joomla/joomla-cms/releases/download/6.2.1-rc1/Joomla_6.2.1-rc1-Release_Candidate-Update_Package.zip","format":"zip","type":"full"}],"element":"joomla","infourl":{"url":"https://github.com/joomla/joomla-cms/releases/tag/6.2.1-rc1","title":"Joomla! 6.2.1-rc1 Release"},"maintainer":"Joomla! Production Department","maintainerurl":"https://www.joomla.org","name":"Joomla! 6.2.1-rc1","php_minimum":"8.3.0","channel":"6.x","stability":"RC","supported_databases":{"mariadb":"10.4","mysql":"8.0.13","postgresql":"12.0"},"targetplatform":{"name":"joomla","version":"(6\\\\.[0-4])|^(5\\\\.4)"},"type":"file","version":"6.2.1-rc1"}}}},"signatures":[{"keyid":"c9fe1ff72da60a30ea5e612fa2ef4ca329fb46d9e1965b811bf9f2de44ffdf18","sig":"4f21230d6806ad5f8867ded884c7ed352370cd2f52f32af896b198ac9df3f77299b2a7dc46525a6951cd0c86b95378fe5ce9176b33179f76b9d5b442847cb105"},{"keyid":"284c8164fd395e9178dc66929787f0650cda6acff0fd769ef697203d7553c481","sig":"2ad7910becf352527411950969332d3c63e357f3bcb61ccd195a8b0df5a180618f81a45c835ee8cd376bb34165ddbbb5b76c3c8d8bb909e396729efd4f1dd70d"}]}', '{"signed":{"_type":"snapshot","spec_version":"1.0","version":136,"expires":"2027-06-15T15:48:15Z","meta":{"targets.json":{"length":5068,"hashes":{"sha512":"7ac6d10ea6deb6e65984e7dca85f0ff56699df7ee244cf25d1ce7a67c5d78271dc4b4885f6f636e9c022ed35711109a289338b1189e9c4d64fa0a5b9d73beb0e"},"version":120}}},"signatures":[{"keyid":"ba3914be50eea8ecf6d5e7a8d3564dbbad99415d9cc229b9ee081ed86f69f803","sig":"53a2fc43c76261f6ce1ad9ae4032d1b9b9b3738c3393dde153b0b1c82af026d01c81d047f77324986958be69220d1b70f65e8c6a3fe6e31b21bb712b4ab8870f"}]}', '{"signed":{"_type":"timestamp","spec_version":"1.0","version":1320,"expires":"2026-11-24T01:26:54Z","meta":{"snapshot.json":{"length":533,"hashes":{"sha512":"a1a6d3939efa6e6cfbdb32cf9383aaaa29fd73f6ef976f9261ef5a8a389ff11a50b9799570178f0f10c19f9fce05c9441aba861328ec17268591ff3d8a7f8f57"},"version":136}}},"signatures":[{"keyid":"9e41a9d62d94c6a1c8a304f62c5bd72d84a9f286f27e8327cedeacb09e5156cc","sig":"53656e8b918134700505e4d2c0ccf76ca62e08e0c6a5e2584e74bc57c5b68fd70966a54c731607920be3ad56a7383e292df052a40a6acb3192cf00d4231ee705"}]}', NULL);
 
 -- Dumping structure for table nts_kgeek.kgeek_ucm_base
 CREATE TABLE IF NOT EXISTS `kgeek_ucm_base` (
@@ -3207,6 +3380,7 @@ CREATE TABLE IF NOT EXISTS `kgeek_ucm_base` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table nts_kgeek.kgeek_ucm_base: ~0 rows (approximately)
+DELETE FROM `kgeek_ucm_base`;
 
 -- Dumping structure for table nts_kgeek.kgeek_ucm_content
 CREATE TABLE IF NOT EXISTS `kgeek_ucm_content` (
@@ -3257,6 +3431,7 @@ CREATE TABLE IF NOT EXISTS `kgeek_ucm_content` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Contains core content data in name spaced fields';
 
 -- Dumping data for table nts_kgeek.kgeek_ucm_content: ~0 rows (approximately)
+DELETE FROM `kgeek_ucm_content`;
 
 -- Dumping structure for table nts_kgeek.kgeek_updates
 CREATE TABLE IF NOT EXISTS `kgeek_updates` (
@@ -3279,7 +3454,8 @@ CREATE TABLE IF NOT EXISTS `kgeek_updates` (
   PRIMARY KEY (`update_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=116 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Available Updates';
 
--- Dumping data for table nts_kgeek.kgeek_updates: ~0 rows (approximately)
+-- Dumping data for table nts_kgeek.kgeek_updates: ~57 rows (approximately)
+DELETE FROM `kgeek_updates`;
 INSERT INTO `kgeek_updates` (`update_id`, `update_site_id`, `extension_id`, `name`, `description`, `element`, `type`, `folder`, `client_id`, `version`, `data`, `detailsurl`, `infourl`, `changelogurl`, `extra_query`, `security`) VALUES
 	(59, 2, 0, 'Afrikaans', '', 'pkg_af-ZA', 'package', '', 0, '6.2.1.1', '', 'https://update.joomla.org/language/details6/af-ZA_details.xml', '', '', '', NULL),
 	(60, 2, 0, 'Arabic Unitag', '', 'pkg_ar-AA', 'package', '', 0, '6.2.1.1', '', 'https://update.joomla.org/language/details6/ar-AA_details.xml', '', '', '', NULL),
@@ -3319,7 +3495,7 @@ INSERT INTO `kgeek_updates` (`update_id`, `update_site_id`, `extension_id`, `nam
 	(94, 2, 0, 'Latvian', '', 'pkg_lv-LV', 'package', '', 0, '6.0.3.1', '', 'https://update.joomla.org/language/details6/lv-LV_details.xml', '', '', '', NULL),
 	(95, 2, 0, 'Lithuanian', '', 'pkg_lt-LT', 'package', '', 0, '6.1.3.2', '', 'https://update.joomla.org/language/details6/lt-LT_details.xml', '', '', '', NULL),
 	(96, 2, 0, 'Malay', '', 'pkg_ms-MY', 'package', '', 0, '6.2.0.1', '', 'https://update.joomla.org/language/details6/ms-MY_details.xml', '', '', '', NULL),
-	(97, 2, 0, 'Norwegian BokmÃ¥l', '', 'pkg_nb-NO', 'package', '', 0, '6.1.4.1', '', 'https://update.joomla.org/language/details6/nb-NO_details.xml', '', '', '', NULL),
+	(97, 2, 0, 'Norwegian BokmÃƒÂ¥l', '', 'pkg_nb-NO', 'package', '', 0, '6.1.4.1', '', 'https://update.joomla.org/language/details6/nb-NO_details.xml', '', '', '', NULL),
 	(98, 2, 0, 'Persian Farsi', '', 'pkg_fa-IR', 'package', '', 0, '6.2.0.1', '', 'https://update.joomla.org/language/details6/fa-IR_details.xml', '', '', '', NULL),
 	(99, 2, 0, 'Polish', '', 'pkg_pl-PL', 'package', '', 0, '6.0.0.1', '', 'https://update.joomla.org/language/details6/pl-PL_details.xml', '', '', '', NULL),
 	(100, 2, 0, 'Portuguese, Brazil', '', 'pkg_pt-BR', 'package', '', 0, '6.0.3.1', '', 'https://update.joomla.org/language/details6/pt-BR_details.xml', '', '', '', NULL),
@@ -3353,9 +3529,10 @@ CREATE TABLE IF NOT EXISTS `kgeek_update_sites` (
   PRIMARY KEY (`update_site_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Update Sites';
 
--- Dumping data for table nts_kgeek.kgeek_update_sites: ~0 rows (approximately)
+-- Dumping data for table nts_kgeek.kgeek_update_sites: ~5 rows (approximately)
+DELETE FROM `kgeek_update_sites`;
 INSERT INTO `kgeek_update_sites` (`update_site_id`, `name`, `type`, `location`, `enabled`, `last_check_timestamp`, `extra_query`, `checked_out`, `checked_out_time`) VALUES
-	(1, 'Joomla! Core', 'tuf', 'https://update.joomla.org/cms/', 1, 1795186480, '', NULL, NULL),
+	(1, 'Joomla! Core', 'tuf', 'https://update.joomla.org/cms/', 1, 1795359370, '', NULL, NULL),
 	(2, 'Accredited Joomla! Translations', 'collection', 'https://update.joomla.org/language/translationlist_6.xml', 1, 1795170486, '', NULL, NULL),
 	(3, 'Joomla! Update Component', 'extension', 'https://update.joomla.org/core/extensions/com_joomlaupdate.xml', 1, 1795170486, '', NULL, NULL),
 	(4, 'Kunena 7.1 Update Site', 'collection', 'https://update.kunena.org/7.1/list.xml', 1, 1795170487, '', NULL, NULL),
@@ -3368,7 +3545,8 @@ CREATE TABLE IF NOT EXISTS `kgeek_update_sites_extensions` (
   PRIMARY KEY (`update_site_id`,`extension_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Links extensions to update sites';
 
--- Dumping data for table nts_kgeek.kgeek_update_sites_extensions: ~0 rows (approximately)
+-- Dumping data for table nts_kgeek.kgeek_update_sites_extensions: ~5 rows (approximately)
+DELETE FROM `kgeek_update_sites_extensions`;
 INSERT INTO `kgeek_update_sites_extensions` (`update_site_id`, `extension_id`) VALUES
 	(1, 247),
 	(2, 248),
@@ -3390,7 +3568,8 @@ CREATE TABLE IF NOT EXISTS `kgeek_usergroups` (
   KEY `idx_usergroup_nested_set_lookup` (`lft`,`rgt`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table nts_kgeek.kgeek_usergroups: ~0 rows (approximately)
+-- Dumping data for table nts_kgeek.kgeek_usergroups: ~9 rows (approximately)
+DELETE FROM `kgeek_usergroups`;
 INSERT INTO `kgeek_usergroups` (`id`, `parent_id`, `lft`, `rgt`, `title`) VALUES
 	(1, 0, 1, 18, 'Public'),
 	(2, 1, 8, 15, 'Registered'),
@@ -3428,10 +3607,11 @@ CREATE TABLE IF NOT EXISTS `kgeek_users` (
   KEY `email` (`email`)
 ) ENGINE=InnoDB AUTO_INCREMENT=690 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table nts_kgeek.kgeek_users: ~0 rows (approximately)
+-- Dumping data for table nts_kgeek.kgeek_users: ~2 rows (approximately)
+DELETE FROM `kgeek_users`;
 INSERT INTO `kgeek_users` (`id`, `name`, `username`, `email`, `password`, `block`, `sendEmail`, `registerDate`, `lastvisitDate`, `activation`, `params`, `lastResetTime`, `resetCount`, `otpKey`, `otep`, `requireReset`, `authProvider`) VALUES
-	(688, 'Super User', 'admin', 'no-reply@gmail.com', '$2y$10$/TZivB1hxqP7HR3iOUgbYeewF/UY14WWZmWaPt4yYj4SnSylVqKt.', 0, 1, '2026-11-19 14:29:53', '2026-11-21 06:50:28', '0', '', NULL, 0, '', '', 0, ''),
-	(689, 'Car Geek', 'cargeek', 'cargeek@gmail.com', '$2y$10$3XFR5OsBshYIcD5KW5qf1e4FN/d4VhTLg65bB/lQ8jBNdT04/rAE2', 0, 0, '2026-11-21 04:07:46', '2026-11-21 06:49:53', '', '{"admin_style":"","colorScheme":"","allowTourAutoStart":"","admin_language":"","language":"","editor":"","timezone":"","a11y_mono":"0","a11y_contrast":"0","a11y_highlight":"0","a11y_font":"0"}', NULL, 0, '', '', 0, '');
+	(688, 'Super User', 'admin', 'no-reply@gmail.com', '$2y$10$/TZivB1hxqP7HR3iOUgbYeewF/UY14WWZmWaPt4yYj4SnSylVqKt.', 0, 1, '2026-11-19 14:29:53', '2026-11-22 14:27:55', '0', '', NULL, 0, '', '', 0, ''),
+	(689, 'Car Geek', 'cargeek', 'cargeek@gmail.com', '$2y$10$3XFR5OsBshYIcD5KW5qf1e4FN/d4VhTLg65bB/lQ8jBNdT04/rAE2', 0, 0, '2026-11-21 04:07:46', '2026-11-21 23:42:36', '', '{"admin_style":"","colorScheme":"","allowTourAutoStart":"","admin_language":"","language":"","editor":"","timezone":"","a11y_mono":"0","a11y_contrast":"0","a11y_highlight":"0","a11y_font":"0"}', NULL, 0, '', '', 0, '');
 
 -- Dumping structure for table nts_kgeek.kgeek_user_keys
 CREATE TABLE IF NOT EXISTS `kgeek_user_keys` (
@@ -3447,6 +3627,7 @@ CREATE TABLE IF NOT EXISTS `kgeek_user_keys` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table nts_kgeek.kgeek_user_keys: ~0 rows (approximately)
+DELETE FROM `kgeek_user_keys`;
 
 -- Dumping structure for table nts_kgeek.kgeek_user_mfa
 CREATE TABLE IF NOT EXISTS `kgeek_user_mfa` (
@@ -3465,6 +3646,7 @@ CREATE TABLE IF NOT EXISTS `kgeek_user_mfa` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Multi-factor Authentication settings';
 
 -- Dumping data for table nts_kgeek.kgeek_user_mfa: ~0 rows (approximately)
+DELETE FROM `kgeek_user_mfa`;
 
 -- Dumping structure for table nts_kgeek.kgeek_user_notes
 CREATE TABLE IF NOT EXISTS `kgeek_user_notes` (
@@ -3489,6 +3671,7 @@ CREATE TABLE IF NOT EXISTS `kgeek_user_notes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table nts_kgeek.kgeek_user_notes: ~0 rows (approximately)
+DELETE FROM `kgeek_user_notes`;
 
 -- Dumping structure for table nts_kgeek.kgeek_user_profiles
 CREATE TABLE IF NOT EXISTS `kgeek_user_profiles` (
@@ -3500,6 +3683,7 @@ CREATE TABLE IF NOT EXISTS `kgeek_user_profiles` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Simple user profile storage table';
 
 -- Dumping data for table nts_kgeek.kgeek_user_profiles: ~0 rows (approximately)
+DELETE FROM `kgeek_user_profiles`;
 INSERT INTO `kgeek_user_profiles` (`user_id`, `profile_key`, `profile_value`, `ordering`) VALUES
 	(688, 'guidedtour.id.12', '{"state":"skipped"}', 0);
 
@@ -3510,7 +3694,8 @@ CREATE TABLE IF NOT EXISTS `kgeek_user_usergroup_map` (
   PRIMARY KEY (`user_id`,`group_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table nts_kgeek.kgeek_user_usergroup_map: ~0 rows (approximately)
+-- Dumping data for table nts_kgeek.kgeek_user_usergroup_map: ~2 rows (approximately)
+DELETE FROM `kgeek_user_usergroup_map`;
 INSERT INTO `kgeek_user_usergroup_map` (`user_id`, `group_id`) VALUES
 	(688, 8),
 	(689, 2);
@@ -3525,7 +3710,8 @@ CREATE TABLE IF NOT EXISTS `kgeek_viewlevels` (
   UNIQUE KEY `idx_assetgroup_title_lookup` (`title`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table nts_kgeek.kgeek_viewlevels: ~0 rows (approximately)
+-- Dumping data for table nts_kgeek.kgeek_viewlevels: ~5 rows (approximately)
+DELETE FROM `kgeek_viewlevels`;
 INSERT INTO `kgeek_viewlevels` (`id`, `title`, `ordering`, `rules`) VALUES
 	(1, 'Public', 0, '[1]'),
 	(2, 'Registered', 2, '[6,2,8]'),
@@ -3544,6 +3730,7 @@ CREATE TABLE IF NOT EXISTS `kgeek_webauthn_credentials` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table nts_kgeek.kgeek_webauthn_credentials: ~0 rows (approximately)
+DELETE FROM `kgeek_webauthn_credentials`;
 
 -- Dumping structure for table nts_kgeek.kgeek_workflows
 CREATE TABLE IF NOT EXISTS `kgeek_workflows` (
@@ -3574,6 +3761,7 @@ CREATE TABLE IF NOT EXISTS `kgeek_workflows` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table nts_kgeek.kgeek_workflows: ~0 rows (approximately)
+DELETE FROM `kgeek_workflows`;
 INSERT INTO `kgeek_workflows` (`id`, `asset_id`, `published`, `title`, `description`, `extension`, `default`, `ordering`, `created`, `created_by`, `modified`, `modified_by`, `checked_out_time`, `checked_out`) VALUES
 	(1, 56, 1, 'COM_WORKFLOW_BASIC_WORKFLOW', '', 'com_content.article', 1, 1, '2026-11-19 14:29:52', 688, '2026-11-19 14:29:52', 688, NULL, NULL);
 
@@ -3590,6 +3778,7 @@ CREATE TABLE IF NOT EXISTS `kgeek_workflow_associations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table nts_kgeek.kgeek_workflow_associations: ~0 rows (approximately)
+DELETE FROM `kgeek_workflow_associations`;
 
 -- Dumping structure for table nts_kgeek.kgeek_workflow_stages
 CREATE TABLE IF NOT EXISTS `kgeek_workflow_stages` (
@@ -3613,6 +3802,7 @@ CREATE TABLE IF NOT EXISTS `kgeek_workflow_stages` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table nts_kgeek.kgeek_workflow_stages: ~0 rows (approximately)
+DELETE FROM `kgeek_workflow_stages`;
 INSERT INTO `kgeek_workflow_stages` (`id`, `asset_id`, `ordering`, `workflow_id`, `published`, `title`, `description`, `default`, `position`, `checked_out_time`, `checked_out`) VALUES
 	(1, 57, 1, 1, 1, 'COM_WORKFLOW_BASIC_STAGE', '', 1, NULL, NULL, NULL);
 
@@ -3640,6 +3830,7 @@ CREATE TABLE IF NOT EXISTS `kgeek_workflow_transitions` (
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table nts_kgeek.kgeek_workflow_transitions: ~7 rows (approximately)
+DELETE FROM `kgeek_workflow_transitions`;
 INSERT INTO `kgeek_workflow_transitions` (`id`, `asset_id`, `ordering`, `workflow_id`, `published`, `title`, `description`, `from_stage_id`, `to_stage_id`, `options`, `checked_out_time`, `checked_out`) VALUES
 	(1, 58, 1, 1, 1, 'UNPUBLISH', '', -1, 1, '{"publishing":"0"}', NULL, NULL),
 	(2, 59, 2, 1, 1, 'PUBLISH', '', -1, 1, '{"publishing":"1"}', NULL, NULL),
