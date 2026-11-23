@@ -115,6 +115,20 @@ h3 {
   }
 }
 
+.kbtn-success {
+  @extend .kbtn;
+  background: var(--ksuccess);
+  border: 1px solid rgba(0,0,0,.2);
+  color: #fff;
+
+  &:hover, &:focus, &:active {
+    background: rgba(var(--ksuccess-rgb), 0.9);
+    border: 1px solid rgba(0,0,0,.2);
+    cursor: pointer;
+  }
+}
+
+
 .kbtn-link {
   background: transparent;
   border-radius: 0;

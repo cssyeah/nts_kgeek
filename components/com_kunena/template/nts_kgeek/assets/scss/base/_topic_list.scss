@@ -181,9 +181,9 @@
       }
 
       .ktopic-icon {
-        background: var(--kbase-1, #fff);
+        background: var(--kbase-1);
         align-items: center;
-        border: 2px solid #fff;
+        border: 2px solid var(--kbase-1);
         border-radius: 50%;
         bottom: -4px;
         color: var(--kprimary);
@@ -195,7 +195,7 @@
         width: 22px;
 
         i, .fa, [class*="fa-"] {
-          color: #fff !important;
+          color: var(--kbase-1) !important;
           font-size: 10px;
           line-height: 1;
         }
@@ -476,7 +476,7 @@
 
   .ktopic-user-more .kuser-avatar-icon {
     background: var(--kprimary);
-    color: var(--kbase-1, #fff);
+    color: var(--kbase-1);
     font-size: calc(var(--kuser-size) * .34);
   }
 }

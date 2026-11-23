@@ -329,7 +329,7 @@
     }
 
     a {
-      background: #fff;
+      background: var(--kbase-1);
       border: 1px solid var(--kborder-color);
       border-radius: 50%;
       display: flex;

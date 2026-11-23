@@ -1,8 +1,37 @@
 #postform {
   background: var(--kbase-1);
   border: 1px solid var(--kborder-color);
+  border-radius: .5rem;
   margin-bottom: 1.5rem;
   padding: 1rem;
+
+  .knew-topic-form {
+    .form-group {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+
+      .col-form-label {
+        @media (min-width: $screen-md) {
+          min-width: 120px;
+        }
+      }
+
+      .col-form-input {
+        flex: 1;
+
+        input[type="text"] {
+          border-radius: .375rem;
+        }
+
+        select#postcatid {
+          width: auto;
+        }
+      }
+    }
+  }
 
   #iconset_topicList {
     display: flex;
@@ -71,6 +100,7 @@
   .kpost-attachments-wrap {
     background-color: var(--kbase-2);
     border-radius: .25rem;
+    margin-top: 1rem;
     margin-bottom: 1rem;
     padding: 1rem;
 
@@ -129,7 +159,7 @@
     display: flex;
 
     > div {
-      background: #fff;
+      background: var(--kbase-1);
       border: 1px solid var(--kborder-color);
       border-radius: .25rem;
       padding: .875rem;

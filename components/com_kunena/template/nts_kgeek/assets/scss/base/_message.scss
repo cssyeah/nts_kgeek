@@ -187,7 +187,7 @@
           padding: 0;
 
           li {
-            background: #fff;
+            background: var(--kbase-1);
             border: .0625rem solid var(--kborder-color);
             border-radius: 4px;
             display: flex;
@@ -652,7 +652,7 @@
 
     .user-avatar {
       a {
-        background: #fff;
+        background: var(--kbase-1);
         border-radius: 4px;
         display: flex;
         align-items: center;

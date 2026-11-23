@@ -251,15 +251,15 @@ Text::script('COM_KUNENA_POLL_TITLE');
   <?php endif; ?>
   <?php echo HTMLHelper::_('form.token'); ?>
 
-  <div class="">
+  <div class="knew-topic-form">
 
     <?php if ($this->selectcatlist !== false) : ?>
-      <div class="form-group row">
+      <div class="form-group">
         <!-- Material input -->
-        <label for="inputCatlist" class="col-sm-2 col-form-label"><?php echo Text::_('COM_KUNENA_CATEGORY') ?></label>
-        <div class="col-md-10">
-          <div class="md-form mt-0">
-            <div class="controls"> <?php echo $this->selectcatlist ?> </div>
+        <label for="inputCatlist" class="col-form-label"><?php echo Text::_('COM_KUNENA_CATEGORY') ?></label>
+        <div class="col-form-input">
+          <div class="md-form">
+            <div class="controls"> <?php echo $this->selectcatlist ?></div>
           </div>
         </div>
       </div>
@@ -267,9 +267,9 @@ Text::script('COM_KUNENA_POLL_TITLE');
 
     <?php if (!$this->category->allowAnonymous && !$this->me->userid) : ?>
       <div class="alert alert-info"><?php echo Text::_('COM_KUNENA_GEN_INFO_GUEST_CANNOT_EDIT_DELETE_MESSAGE'); ?></div>
-      <div class="form-group row" id="kanynomous-check-name">
-        <label for="kauthorname" class="col-sm-2 col-form-label"><?php echo Text::_('COM_KUNENA_GEN_NAME'); ?></label>
-        <div class="col-md-10">
+      <div class="form-group" id="kanynomous-check-name">
+        <label for="kauthorname" class="col-form-label"><?php echo Text::_('COM_KUNENA_GEN_NAME'); ?></label>
+        <div class="col-form-input">
           <input type="text" id="kauthorname" name="authorname" placeholder="<?php echo Text::_('COM_KUNENA_TOPIC_EDIT_PLACEHOLDER_AUTHORNAME') ?>" class="form-control" maxlength="35" tabindex="4" value="<?php echo $this->escape($this->message->name); ?>" />
           <!-- Encourage guest user to login or register -->
           <?php
@@ -282,10 +282,10 @@ Text::script('COM_KUNENA_POLL_TITLE');
     <?php endif; ?>
 
     <?php if ($this->config->askEmail && !$this->me->userid) : ?>
-      <div class="form-group row">
+      <div class="form-group">
         <!-- Material input -->
-        <label for="email" class="col-sm-2 col-form-label"><?php echo Text::_('COM_KUNENA_GEN_EMAIL'); ?></label>
-        <div class="col-md-10">
+        <label for="email" class="col-form-label"><?php echo Text::_('COM_KUNENA_GEN_EMAIL'); ?></label>
+        <div class="col-form-input">
           <div class="md-form mt-0">
             <input type="email" id="email" name="email" size="35" placeholder="<?php echo Text::_('COM_KUNENA_TOPIC_EDIT_PLACEHOLDER_EMAIL') ?>" class="form-control validate-email" maxlength="45" tabindex="5" value="<?php echo !empty($this->message->email) ? $this->escape($this->message->email) : '' ?>" required />
             <br />
@@ -295,9 +295,9 @@ Text::script('COM_KUNENA_POLL_TITLE');
       </div>
     <?php endif; ?>
 
-    <div class="form-group row">
-      <label for="subject" class="col-sm-2 col-form-label"><?php echo Text::_('COM_KUNENA_GEN_SUBJECT'); ?></label>
-      <div class="col-md-10">
+    <div class="form-group">
+      <label for="subject" class="col-form-label"><?php echo Text::_('COM_KUNENA_GEN_SUBJECT'); ?></label>
+      <div class="col-form-input">
         <?php if (!$this->config->allowChangeSubject && $this->topic->exists() && !KunenaUserHelper::getMyself()->isModerator($this->message->getCategory())) : ?>
           <input class="form-control" type="text" name="subject" id="subject" value="<?php echo !empty($this->message->subject) ? $this->escape($this->message->subject) : ''; ?>" disabled />
         <?php else : ?>
@@ -307,10 +307,10 @@ Text::script('COM_KUNENA_POLL_TITLE');
     </div>
 
     <?php if (!empty($this->topicIcons)) : ?>
-      <div class="form-group row" id="kpost-topicIcons">
+      <div class="form-group" id="kpost-topicIcons">
         <!-- Material input -->
-        <label for="inputIcon" class="col-sm-2 col-form-label"><?php echo Text::_('COM_KUNENA_GEN_TOPIC_ICON'); ?></label>
-        <div class="col-md-10">
+        <label for="inputIcon" class="col-form-label"><?php echo Text::_('COM_KUNENA_GEN_TOPIC_ICON'); ?></label>
+        <div class="kcol-form-input">
           <div id="iconset_inject" class="controls controls-select">
             <div id="iconset_topicList">
               <?php foreach ($this->topicIcons as $icon) : ?>

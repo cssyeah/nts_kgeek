@@ -49,7 +49,7 @@ textarea.form-control {
 }
 
 .dropzone {
-  background: #fff;
+  background: var(--kbase-1);
   border-radius: .25px;
   border: 1px dashed var(--kborder-color);
   color: var(--ktext-lighter);
