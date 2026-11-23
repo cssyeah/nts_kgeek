@@ -9,7 +9,7 @@
     <authorUrl>https://www.9themestore.com</authorUrl>	
     <copyright>Nice Theme Store Team</copyright>	
     <license>GNU/GPL</license>
-    <description>COM_KUNENA_TEMPLATE_NTS_KBEE_DESC</description>
+    <description>COM_KUNENA_TEMPLATE_NTS_KGEEK_DESC</description>
     <thumbnail>template_thumbnail.png</thumbnail>
     <targetversion version="7.1" />
 </kinstall>

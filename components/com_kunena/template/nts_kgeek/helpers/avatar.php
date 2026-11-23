@@ -18,12 +18,12 @@ use Kunena\Forum\Libraries\Factory\KunenaFactory;
 use Kunena\Forum\Libraries\User\KunenaAvatarPath;
 use Kunena\Forum\Libraries\User\KunenaUser;
 
-if (!function_exists('beeKunenaAvatarUrl')) {
+if (!function_exists('ntsKunenaAvatarUrl')) {
   /**
    * URL of the user's original (not resized) avatar, or null when it cannot be used
    * (no avatar, another avatar integration such as Gravatar, or a missing file).
    */
-  function beeKunenaAvatarUrl(KunenaUser $user): ?string
+  function ntsKunenaAvatarUrl(KunenaUser $user): ?string
   {
     $avatar = (string) $user->avatar;
 
@@ -50,7 +50,7 @@ if (!function_exists('beeKunenaAvatarUrl')) {
   }
 }
 
-if (!function_exists('beeKunenaAvatarImage')) {
+if (!function_exists('ntsKunenaAvatarImage')) {
   /**
    * Same markup as KunenaUser::getAvatarImage(), but pointing to the original avatar file.
    * Falls back to Kunena's own output (default avatar / icon) when there is no original file.
@@ -60,9 +60,9 @@ if (!function_exists('beeKunenaAvatarImage')) {
    * @param   string|int  $sizex  Size name ('thumb', 'post', 'profile', ...) or width in px
    * @param   int         $sizey  Height in px when $sizex is a number
    */
-  function beeKunenaAvatarImage(KunenaUser $user, $class = '', $sizex = 'thumb', int $sizey = 90): string
+  function ntsKunenaAvatarImage(KunenaUser $user, $class = '', $sizex = 'thumb', int $sizey = 90): string
   {
-    $url = beeKunenaAvatarUrl($user);
+    $url = ntsKunenaAvatarUrl($user);
 
     if ($url === null) {
       return $user->getAvatarImage($class, $sizex, $sizey);
@@ -88,7 +88,7 @@ if (!function_exists('beeKunenaAvatarImage')) {
   }
 }
 
-if (!function_exists('beeKunenaAvatarOrInitial')) {
+if (!function_exists('ntsKunenaAvatarOrInitial')) {
   /**
    * Avatar of a user as a <span class="kuser-avatar-icon">: the original avatar image, or the first letter
    * of the username when the user has no avatar.
@@ -96,13 +96,13 @@ if (!function_exists('beeKunenaAvatarOrInitial')) {
    * @param   KunenaUser  $user  User
    * @param   string      $name  Name to show (alt / title / initial); defaults to the username
    */
-  function beeKunenaAvatarOrInitial(KunenaUser $user, string $name = ''): string
+  function ntsKunenaAvatarOrInitial(KunenaUser $user, string $name = ''): string
   {
     $name = trim($name !== '' ? $name : ((string) $user->username ?: $user->getName('', false)));
     $attr = htmlspecialchars($name, ENT_QUOTES, 'UTF-8');
 
     if (!empty($user->avatar)) {
-      $src = htmlspecialchars(beeKunenaAvatarUrl($user) ?? $user->getAvatarURL('thumb'), ENT_QUOTES, 'UTF-8');
+      $src = htmlspecialchars(ntsKunenaAvatarUrl($user) ?? $user->getAvatarURL('thumb'), ENT_QUOTES, 'UTF-8');
 
       return '<span class="kuser-avatar-icon"><img src="' . $src . '" alt="' . $attr . '" loading="lazy" decoding="async" /></span>';
     }
@@ -114,7 +114,7 @@ if (!function_exists('beeKunenaAvatarOrInitial')) {
   }
 }
 
-if (!function_exists('beeKunenaTopicParticipants')) {
+if (!function_exists('ntsKunenaTopicParticipants')) {
   /**
    * Users who posted in a topic (author first, then the most recent repliers), without duplicates.
    *
@@ -127,7 +127,7 @@ if (!function_exists('beeKunenaTopicParticipants')) {
    *
    * @return  array{users: KunenaUser[], total: int}  Users to display, and the total number of participants
    */
-  function beeKunenaTopicParticipants($topic, int $limit = 5): array
+  function ntsKunenaTopicParticipants($topic, int $limit = 5): array
   {
     $topicId  = (int) $topic->id;
     $authorId = (int) $topic->first_post_userid;
@@ -190,7 +190,7 @@ if (!function_exists('beeKunenaTopicParticipants')) {
   }
 }
 
-if (!function_exists('beeKunenaTopicIconName')) {
+if (!function_exists('ntsKunenaTopicIconName')) {
   /**
    * Name of the topic icon Kunena shows for a topic, read from an attribute of the icon in
    * media/kunena/topic_icons/<iconset>/topicicons.xml (or systemicons.xml when topic icons are disabled).
@@ -202,7 +202,7 @@ if (!function_exists('beeKunenaTopicIconName')) {
    * @param   \Kunena\Forum\Libraries\Forum\Topic\KunenaTopic  $topic  Topic
    * @param   string                                             $attr   XML attribute to read
    */
-  function beeKunenaTopicIconName($topic, string $attr = 'fa'): string
+  function ntsKunenaTopicIconName($topic, string $attr = 'fa'): string
   {
     static $xmlCache = [];
 

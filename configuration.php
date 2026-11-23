@@ -10,7 +10,7 @@ class JConfig {
 	public $list_limit = 20;
 	public $access = 1;
 	public $frontediting = 1;
-	public $debug = false;
+	public $debug = true;
 	public $debug_lang = false;
 	public $debug_lang_const = true;
 	public $dbtype = 'mysqli';
@@ -29,7 +29,7 @@ class JConfig {
 	public $live_site = '';
 	public $secret = 'tVgpZIfD1cBKLnSG';
 	public $gzip = false;
-	public $error_reporting = 'default';
+	public $error_reporting = 'maximum';
 	public $helpurl = 'https://help.joomla.org/proxy?keyref=Help{major}{minor}:{keyref}&lang={langcode}';
 	public $offset = 'UTC';
 	public $cors = false;
@@ -61,10 +61,8 @@ class JConfig {
 	public $unicodeslugs = false;
 	public $feed_limit = 10;
 	public $feed_email = 'none';
-	// public $log_path = 'D:\\Localhost\\htdocs\\nicetheme\\nts_kgeek\\administrator/logs';
-	// public $tmp_path = 'D:\\Localhost\\htdocs\\nicetheme\\nts_kgeek/tmp';
 	public $log_path = 'D:\\Localhost\\htdocs\\nice_works\\nts_kgeek\\administrator/logs';
-	public $tmp_path = 'D:\\Localhost\\htdocs\\nice_works\\nts_kgeek/tmp';
+	public $tmp_path = 'D:\\Localhost\\htdocs\\nicetheme\\nts_kgeek/tmp';
 	public $lifetime = 1000;
 	public $session_handler = 'database';
 	public $shared_session = false;

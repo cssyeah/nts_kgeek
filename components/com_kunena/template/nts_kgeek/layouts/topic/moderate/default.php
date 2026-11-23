@@ -3,7 +3,7 @@
 /**
  * Kunena Component
  *
- * @package         Kunena.Template.KBee
+ * @package         Kunena.Template.KGeek
  * @subpackage      Layout.Topic
  *
  * @copyright       Copyright (C) 2008 - 2025 Kunena Team. All rights reserved.

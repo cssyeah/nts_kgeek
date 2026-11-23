@@ -1481,9 +1481,15 @@ blockquote.UserQuote {
 }
 
 #btn_report {
-  border: 1px solid var(--kborder-color);
-  font-size: 12px;
+  border: 1px solid var(--ktext);
+  color: var(--ktext);
+  font-size: 11px;
   padding: 2px 6px;
+
+  &:hover, &:focus, &:active {
+    background: var(--ktext);
+    color: var(--kbase-1);
+  }
   
   i {
     display: none;

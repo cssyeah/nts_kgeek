@@ -4,9 +4,24 @@
   .kpage-title-wrap {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    align-items: center;
+    justify-content: start;
+    gap: 1rem;
     margin-top: 1rem;
     margin-bottom: 1.5rem;
+
+    a {
+      background-color: var(--ktext);
+      color: var(--kbase-1);
+      border-radius: .375rem;
+      font-size: 14px;
+      padding: .25rem .75rem;
+      margin-top: .25rem;
+
+      i {
+        font-size: 12px;
+      }
+    }
   }
 
   h1,
@@ -43,6 +58,22 @@
   flex-wrap: wrap;
   justify-content: space-between;
   margin-bottom: 1.5rem;
+
+  .kunena-search {
+    .input-group {
+      border: 1px solid var(--kborder-color);
+      border-radius: .375rem;
+      padding: 1px;
+    }
+
+    #mod-search-searchword {
+      border: 0;
+    }
+
+    .kbtn {
+      border-radius: .375rem;
+    }
+  }
 }
 
 .ktopic-list-wrap {
@@ -51,6 +82,17 @@
 
   .kcol-subject {
     flex: 1;
+    flex-basis: 100%;
+
+    @media (min-width: $screen-lg) {
+      flex-basis: auto;
+    }
+
+    @media (max-width: $screen-md) {
+      padding-bottom: 0;
+      padding-left: 0;
+      padding-right: 0;
+    }
   }
 
   .ktopic-title-wrap {
@@ -219,7 +261,15 @@
       justify-content: end;
       align-items: center;
       gap: .25rem;
-      min-width: 240px;
+
+      @media (min-width: $screen-lg) {
+        min-width: 240px;
+      }
+
+      @media (max-width: $screen-md) {
+        padding-left: 0;
+        padding-right: 0;
+      }
 
       > div {
         border: 1px solid var(--kborder-color);
@@ -357,7 +407,11 @@
 .ktopic-list .kcol-users {
   --kuser-size: 2.125rem;
   align-items: center;
-  display: flex;
+  display: none;
+
+  @media (min-width: $screen-lg) {
+    display: flex;
+  }
 
   .ktopic-users {
     display: flex;

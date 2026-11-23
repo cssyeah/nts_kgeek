@@ -3,7 +3,7 @@
 /**
  * Kunena Component
  *
- * @package         Kunena.Template.KInfinite
+ * @package         Kunena.Template.KGeek
  * @subpackage      Layout.Topic
  *
  * @copyright       Copyright (C) 2008 - 2023 Kunena Team. All rights reserved.
@@ -27,7 +27,7 @@ $config          = KunenaConfig::getInstance();
 $topicPages      = $topic->getPagination(null, $config->messagesPerPage, 3);
 $author          = $topic->getLastPostAuthor();
 $this->ktemplate = KunenaFactory::getTemplate();
-$avatar          = \beeKunenaAvatarImage($author, $this->ktemplate->params->get('avatarType'), 'thumb');
+$avatar          = \ntsKunenaAvatarImage($author, $this->ktemplate->params->get('avatarType'), 'thumb');
 $category        = $this->topic->getCategory();
 $txt             = '';
 
@@ -60,14 +60,14 @@ $firstAuthor     = $topic->getFirstPostAuthor();
 $firstAuthorName = $firstAuthor->username ?: $firstAuthor->getName($topic->first_post_guest_name, false);
 // Font Awesome icon name without "fa-" (heart, check, lock, ...) as a class, e.g. "ktopic-icon heart",
 // read before getIcon() because Kunena overwrites $topic->icon_id there.
-$topicIconName   = \beeKunenaTopicIconName($topic);
+$topicIconName   = \ntsKunenaTopicIconName($topic);
 $topicIconClass  = 'ktopic-icon' . ($topicIconName !== '' ? ' ' . $topicIconName : '');
-$topicIcon       = \beeKunenaAvatarOrInitial($firstAuthor, (string) $firstAuthorName)
+$topicIcon       = \ntsKunenaAvatarOrInitial($firstAuthor, (string) $firstAuthorName)
   . '<span class="' . $topicIconClass . '">' . $topic->getIcon($category->iconset) . '</span>';
 
 // Everyone who posted in the topic (author first, then repliers).
 $participantsMax   = 5;
-$participantsData  = \beeKunenaTopicParticipants($topic, $participantsMax);
+$participantsData  = \ntsKunenaTopicParticipants($topic, $participantsMax);
 $participants      = $participantsData['users'];
 $participantsMore  = $participantsData['total'] - \count($participants);
 ?>
@@ -146,7 +146,7 @@ $participantsMore  = $participantsData['total'] - \count($participants);
           <?php $participantName = (string) ($participant->username ?: $participant->getName('', false)); ?>
           <li class="ktopic-user<?php echo (int) $participant->userid === (int) $topic->first_post_userid ? ' is-author' : ''; ?>">
             <a href="<?php echo $participant->getURL(); ?>" title="<?php echo $this->escape($participantName); ?>" data-bs-toggle="tooltip">
-              <?php echo \beeKunenaAvatarOrInitial($participant, $participantName); ?>
+              <?php echo \ntsKunenaAvatarOrInitial($participant, $participantName); ?>
             </a>
           </li>
         <?php endforeach; ?>

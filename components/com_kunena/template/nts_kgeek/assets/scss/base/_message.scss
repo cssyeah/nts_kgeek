@@ -226,10 +226,10 @@
     border-radius: 4px;
     display: flex;
     flex-wrap: wrap;
-    gap: 4px;
+    gap: .25rem;
     font-size: var(--kfont-size-xs);
-    padding: 8px 8px;
-    margin-bottom: 8px;
+    padding: .5rem;
+    margin-bottom: .5rem;
 
     & + p {
       color: var(--ktext-light);
@@ -262,8 +262,8 @@
 
     .ktopic-author-wrap {
       background: var(--kbase-2);
-      border-radius: 8px;
-      padding: 4px 4px 8px 4px;
+      border-radius: .5rem;
+      padding: .25rem .25rem .5rem .25rem;
     }
 
     ul {
@@ -287,12 +287,12 @@
       @media (min-width: $screen-md) {
         flex-direction: column;
         align-items: center;
-        gap: 4px;
+        gap: .25rem;
       }
     }
 
     .kuser-name {
-      padding-top: 4px;
+      padding-top: .25rem;
       font-size: .9375rem;
       font-weight: 600;
     }
@@ -314,6 +314,12 @@
         left: 0;
         top: 0;
         width: 100%;
+      }
+
+      &:hover {
+        .kprofile-full-info {
+          display: flex;
+        }
       }
 
       a {        
@@ -344,7 +350,7 @@
         img.img-thumbnail {
           border-radius: 0;
           border: .0625rem solid var(--kborder-color);
-          padding: 8px;
+          padding: .5rem;
         }
 
         svg {
@@ -354,18 +360,63 @@
       }
 
       .ktopic-starter {
-        background: rgba(var(--ksecondary-rgb), .5);
-        border-radius: 4px;
+        background: var(--ktext);
+        border: 0;
+        border-radius: .25rem;
+        color: var(--kbase-1);
         display: none;
-        font-size: .6875rem;
-        font-weight: 500;
-        padding: 4px 8px;
+        padding: .125rem .375rem;
         text-align: center;
-        text-transform: uppercase;
         text-shadow: none;
 
         @media (min-width: $screen-md) {
           display: block;
+        }
+      }
+
+      .kprofile-full-info {
+        background: var(--kbase-2);
+        border: 1px solid var(--kborder-color);
+        box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        border-radius: .5rem;
+        display: none;
+        flex-direction: column;
+        padding: 0;
+        position: absolute;
+        top: 2rem;
+        left: 2rem;
+        min-width: 320px;
+        z-index: 200;
+
+        .kuser-info-head {
+          background: var(--kbase-1);
+          border-radius: .5rem .5rem 0 0;
+          display: flex;
+          align-items: start;
+          justify-content: start;
+          gap: 1rem;
+          padding: 1rem;
+
+          .kuser-avatar {
+            border: 1px solid var(--kborder-color);
+            width: 56px;
+            height: 56px;
+            min-height: 1px;
+          }
+
+          .kuser-name {
+            padding-top: 0;
+
+            a {
+              font-size: 1rem;
+              justify-content: start;
+            }
+          }
+
+          .kuser-rank-image {
+            justify-content: start;
+            text-align: left;
+          }
         }
       }
     }
@@ -376,11 +427,11 @@
       bottom: 4px;
 
       .badge {
-        border: .125rem solid var(--kbase-1);
+        border: 1px solid var(--kbase-1);
         border-radius: 50%;
         display: block;
-        height: 16px;
-        width: 16px;
+        height: 1rem;
+        width: 1rem;
         padding: 0;
         overflow: hidden;
         text-indent: -15984px;
@@ -404,14 +455,56 @@
       }
     }
 
-    .kprofile-links {
+    .kuser-karma {
+      font-size: 12px;
       display: flex;
       align-items: center;
+      gap: .25rem;
+
+      > a {
+        background: var(--kbase-2);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 1rem;
+        width: 1rem;
+
+        i {
+          font-size: .625rem;
+        }
+      }
+    }
+
+    .kuser-profile-badge {
+      background: var(--kbase-1);
+      border-top: 1px solid var(--kborder-color);
+      border-radius: 0 0 .5rem .5rem;
+      display: flex;
+      gap: .25rem;
+      padding: .75rem 1rem;
+
+      li {
+        border: 1px solid var(--kborder-color);
+        border-radius: .25rem;
+        font-size: .6875rem;
+        font-weight: 500;
+        padding: 2px 6px;
+      }
+    }
+
+    .kprofile-links {
+      display: flex;
+      align-items: start;
       gap: 8px;
-      margin-top: 16px;
+      padding: .5rem 1.25rem;
 
       @media (min-width: $screen-md) {
-        justify-content: center;
+        justify-content: start;
+      }
+
+      i {
+        font-size: .875rem;
       }
 
       li:empty {
@@ -422,10 +515,10 @@
 
   .kmessage-body {
     flex: 1;
-    padding: 16px;
+    padding: 0 1rem 1rem;
 
     @media (min-width: $screen-md) {
-      padding-left: 16px;
+      padding-left: 1.5rem;
     }
 
     .kmsg-wrap + p {
