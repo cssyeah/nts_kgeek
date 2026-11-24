@@ -163,6 +163,7 @@
 
           .kcat-head {
             min-width: calc(50% - 6px);
+            max-width: 50%;
           }
 
           .kcol-title {
@@ -243,23 +244,31 @@
           display: flex;
           flex-direction: column;
           align-items: center;
-          padding-top: .5rem;
-          padding-bottom: 1rem;
           position: relative;
+          overflow: hidden;
+
+          .kcat-thumb {
+          }
 
           .kcat-stats {
-            background-color: #f5f5f5;
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
             border-radius: 8px;
             display: flex;
             gap: 1px;
-            font-size: 10px;
-            font-weight: 600;
-            padding: 4px 8px;
+            font-size: 12px;
+            font-weight: 400;
+            padding: .25rem .5rem;
+            position: absolute;
+            left: 50%;
+            bottom: 1rem;
             justify-content: center;
-            text-transform: uppercase;
+            transform: translateX(-50%);
+            z-index: 20;
 
             .kcat-topics,
             .kcat-replies {
+              background: var(--kbase-1);
               border: 1px solid #111;
               border-radius: 6px;
               padding: 2px 4px;
@@ -287,6 +296,7 @@
   padding: 0;
   height: 30px;
   width: 30px;
+  transition: all 0.25s ease-in-out;
 
   &:hover, &:focus, &:active {
     background: var(--kprimary);
@@ -409,6 +419,10 @@
     z-index: 40;
 
     h3 {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: .25rem;
       font-size: var(--kfont-size-lg);
       font-weight: 600;
       margin: 0 0 .25rem;
@@ -468,11 +482,15 @@
           }
         }
       }
+
+      i {
+        font-size: .625rem;
+      }
     }
 
     .kcat-desc {
       color: var(--ktext-light);
-      font-size: 14px;
+      font-size: .9375rem;
       margin-top: .5rem;
       opacity: .9;
     }
