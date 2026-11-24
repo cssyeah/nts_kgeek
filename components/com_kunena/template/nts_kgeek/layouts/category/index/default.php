@@ -170,24 +170,49 @@ foreach ($this->sections as $section) :
               if (!empty($this->categories[$category->id])) : ?>
                 <div class="ksub-cat-list">
                   <ul>
-                    <?php foreach ($this->categories[$category->id] as $subcategory) : ?>
-                      <li>
-                        <?php $totaltopics = KunenaCategory::getInstance()->totalCount($subcategory->getTopics()); ?>
+                    <?php
+                    // Render each subcategory item, then show at most $subcatLimit inline;
+                    // the rest go into a "..." dropdown shown on hover.
+                    $subcatLimit = 5;
+                    $subcatItems = [];
 
-                        <?php if ($this->config->showChildCatIcon) : ?>
-                        <?php echo $this->getCategoryLink($subcategory, $this->getSmallCategoryIcon($subcategory), '', null, true, false) . $this->getCategoryLink($subcategory, '', null, $this->ktemplate->tooltips(), true, false) . '<small class="d-none d-sm-block muted"> ('
-                            . $totaltopics . ')</small>';
-                        else : ?>
-                        <?php echo $this->getCategoryLink($subcategory, '', null, $this->ktemplate->tooltips(), true, false) . '<small class="d-none d-sm-block muted"> ('
-                            . $totaltopics . ')</small>';
-                        endif;
+                    foreach ($this->categories[$category->id] as $subcategory) {
+                      $totaltopics = KunenaCategory::getInstance()->totalCount($subcategory->getTopics());
+                      $item        = '';
 
-                        if (($new = $subcategory->getNewCount()) > 0) {
-                          echo '<sup class="knewchar">(' . $new . ' ' . Text::_('COM_KUNENA_A_GEN_NEWCHAR') . ')</sup>';
-                        }
-                        ?>
-                      </li>
+                      if ($this->config->showChildCatIcon) {
+                        $item .= $this->getCategoryLink($subcategory, $this->getSmallCategoryIcon($subcategory), '', null, true, false);
+                      }
+
+                      $item .= $this->getCategoryLink($subcategory, '', null, $this->ktemplate->tooltips(), true, false)
+                        . '<small class="d-none d-sm-block muted"> (' . $totaltopics . ')</small>';
+
+                      if (($new = $subcategory->getNewCount()) > 0) {
+                        $item .= '<sup class="knewchar">(' . $new . ' ' . Text::_('COM_KUNENA_A_GEN_NEWCHAR') . ')</sup>';
+                      }
+
+                      $subcatItems[] = $item;
+                    }
+
+                    $subcatVisible = array_slice($subcatItems, 0, $subcatLimit);
+                    $subcatHidden  = array_slice($subcatItems, $subcatLimit);
+                    ?>
+
+                    <?php foreach ($subcatVisible as $item) : ?>
+                      <li><?php echo $item; ?></li>
                     <?php endforeach; ?>
+
+                    <?php if ($subcatHidden) : ?>
+                      <li class="ksub-cat-more" tabindex="0" aria-haspopup="true"
+                          aria-label="<?php echo count($subcatHidden); ?> more">
+                        <span class="ksub-cat-more-toggle">...</span>
+                        <ul class="ksub-cat-more-list">
+                          <?php foreach ($subcatHidden as $item) : ?>
+                            <li><?php echo $item; ?></li>
+                          <?php endforeach; ?>
+                        </ul>
+                      </li>
+                    <?php endif; ?>
 
                     <?php if (!empty($this->more[$category->id])) : ?>
                       <li>

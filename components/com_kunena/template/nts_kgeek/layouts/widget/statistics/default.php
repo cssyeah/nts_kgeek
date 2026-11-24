@@ -41,60 +41,54 @@ use Kunena\Forum\Libraries\Icons\KunenaIcons;
   </div>
 
   <div id="kstats-body" class="ksection-body">
-    <div class="krow">
-      <div class="kcol kcol-icon">
-        <span class="kicon-wrap"><?php echo KunenaIcons::stats(); ?></span>
-      </div>
+    <div class="kstats-wrapper">
+      <ul>
+        <li>
+          <?php echo Text::_('COM_KUNENA_STAT_TOTAL_MESSAGES'); ?>:
+          <strong><?php echo (int) $this->messageCount; ?></strong>
+        </li>
+        <li>
+          <?php echo Text::_('COM_KUNENA_STAT_TOTAL_SECTIONS'); ?>:
+          <strong><?php echo (int) $this->sectionCount; ?></strong>
+        </li>
+        <li>
+          <?php echo Text::_('COM_KUNENA_STAT_TODAY_OPEN_THREAD'); ?>:
+          <strong><?php echo (int) $this->todayTopicCount; ?></strong>
+        </li>
+        <li>
+          <?php echo Text::_('COM_KUNENA_STAT_TODAY_TOTAL_ANSWER'); ?>:
+          <strong><?php echo (int) $this->todayReplyCount; ?></strong>
+        </li>
+      </ul>
+      <ul>
+        <li>
+          <?php echo Text::_('COM_KUNENA_STAT_TOTAL_SUBJECTS'); ?>:
+          <strong><?php echo (int) $this->topicCount; ?></strong>
+        </li>
+        <li>
+          <?php echo Text::_('COM_KUNENA_STAT_TOTAL_CATEGORIES'); ?>:
+          <strong><?php echo (int) $this->categoryCount; ?></strong>
+        </li>
+        <li>
+          <?php echo Text::_('COM_KUNENA_STAT_YESTERDAY_OPEN_THREAD'); ?>:
+          <strong><?php echo (int) $this->yesterdayTopicCount; ?></strong>
+        </li>
+        <li>
+          <?php echo Text::_('COM_KUNENA_STAT_YESTERDAY_TOTAL_ANSWER'); ?>:
+          <strong><?php echo (int) $this->yesterdayReplyCount; ?></strong>
+        </li>
+      </ul>
 
-      <div class="kcol kcol-auto">
-        <ul>
-          <li>
-            <?php echo Text::_('COM_KUNENA_STAT_TOTAL_MESSAGES'); ?>:
-            <strong><?php echo (int) $this->messageCount; ?></strong>
-          </li>
-          <li>
-            <?php echo Text::_('COM_KUNENA_STAT_TOTAL_SECTIONS'); ?>:
-            <strong><?php echo (int) $this->sectionCount; ?></strong>
-          </li>
-          <li>
-            <?php echo Text::_('COM_KUNENA_STAT_TODAY_OPEN_THREAD'); ?>:
-            <strong><?php echo (int) $this->todayTopicCount; ?></strong>
-          </li>
-          <li>
-            <?php echo Text::_('COM_KUNENA_STAT_TODAY_TOTAL_ANSWER'); ?>:
-            <strong><?php echo (int) $this->todayReplyCount; ?></strong>
-          </li>
-        </ul>
-        <ul>
-          <li>
-            <?php echo Text::_('COM_KUNENA_STAT_TOTAL_SUBJECTS'); ?>:
-            <strong><?php echo (int) $this->topicCount; ?></strong>
-          </li>
-          <li>
-            <?php echo Text::_('COM_KUNENA_STAT_TOTAL_CATEGORIES'); ?>:
-            <strong><?php echo (int) $this->categoryCount; ?></strong>
-          </li>
-          <li>
-            <?php echo Text::_('COM_KUNENA_STAT_YESTERDAY_OPEN_THREAD'); ?>:
-            <strong><?php echo (int) $this->yesterdayTopicCount; ?></strong>
-          </li>
-          <li>
-            <?php echo Text::_('COM_KUNENA_STAT_YESTERDAY_TOTAL_ANSWER'); ?>:
-            <strong><?php echo (int) $this->yesterdayReplyCount; ?></strong>
-          </li>
-        </ul>
-
-        <ul>
-          <li>
-            <?php echo Text::_('COM_KUNENA_STAT_TOTAL_USERS'); ?>:
-            <strong><?php echo $this->memberCount; ?></strong>
-          </li>
-          <li>
-            <?php echo Text::_('COM_KUNENA_STAT_LATEST_MEMBERS'); ?>:
-            <strong><?php echo $this->latestMemberLink; ?></strong>
-          </li>
-        </ul>
-      </div>
+      <ul>
+        <li>
+          <?php echo Text::_('COM_KUNENA_STAT_TOTAL_USERS'); ?>:
+          <strong><?php echo $this->memberCount; ?></strong>
+        </li>
+        <li>
+          <?php echo Text::_('COM_KUNENA_STAT_LATEST_MEMBERS'); ?>:
+          <strong><?php echo $this->latestMemberLink; ?></strong>
+        </li>
+      </ul>
 
     </div>
   </div>

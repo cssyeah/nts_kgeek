@@ -38,79 +38,70 @@ use Kunena\Forum\Libraries\Route\KunenaRoute;
         <i class="fa-solid fa-plus"></i>
         <i class="fa-solid fa-minus"></i>
       </button>
-      </div>
+    </div>
   </div>
 
   <div id="kwho-body" class="ksection-body">
-    <div class="krow">
+    <div class="kwho-wrapper">
+      <ul>
+        <li class="kwho-total">
+          <?php echo Text::sprintf('COM_KUNENA_VIEW_COMMON_WHO_TOTAL', $this->membersOnline); ?>
+        </li>
+        <?php
+        $template  = KunenaTemplate::getInstance();
+        $direction = $template->params->get('whoisonlineName');
 
-      <div class="kcol kcol-icon">
-        <span class="kicon-wrap">
-          <?php echo KunenaIcons::members(); ?>
-        </span>
-      </div>
+        if ($direction == 'both') :
+        ?>
+          <li class="kwho-online-list"><?php echo $this->setLayout('both'); ?></li>
+        <?php
+        elseif ($direction == 'avatar') :
+        ?>
+          <li class="kwho-online-list"><?php echo $this->setLayout('avatar'); ?></li>
+        <?php else :
+        ?>
+          <li class="kwho-online-list"><?php echo $this->setLayout('name'); ?></li>
+        <?php
+        endif;
+        ?>
 
-      <div class="kcol kcol-auto">
-        <ul>
-          <li>
-            <?php echo Text::sprintf('COM_KUNENA_VIEW_COMMON_WHO_TOTAL', $this->membersOnline); ?>
+        <?php if (!empty($this->onlineList)) :
+        ?>
+          <li class="kwho-legend">
+            <strong><?php echo Text::_('COM_KUNENA_LEGEND'); ?>:</strong>
+            <span class="kwho-admin">
+              <?php echo Text::_('COM_KUNENA_COLOR_ADMINISTRATOR'); ?>
+            </span>
+            <span class="kwho-globalmoderator">
+              <?php if ($this->linkUserlistAllowedToShow) : ?>
+                <a href="<?php echo KunenaRoute::_('index.php?option=com_kunena&view=user&layout=list&usertype=globalmod'); ?>" class="kwho-globalmoderator"><?php echo Text::_('COM_KUNENA_COLOR_GLOBAL_MODERATOR'); ?></a>
+              <?php else : ?>
+                <?php echo Text::_('COM_KUNENA_COLOR_GLOBAL_MODERATOR'); ?>
+              <?php endif; ?>
+            </span>
+            <span class="kwho-moderator">
+              <?php echo Text::_('COM_KUNENA_COLOR_MODERATOR'); ?>
+            </span>
+            <span class="kwho-banned">
+              <?php if ($this->linkUserlistAllowedToShow) : ?>
+                <a href="<?php echo KunenaRoute::_('index.php?option=com_kunena&view=user&layout=list&usertype=banned'); ?>" class="kwho-banned"><?php echo Text::_('COM_KUNENA_COLOR_BANNED'); ?></a>
+              <?php else : ?>
+                <?php echo Text::_('COM_KUNENA_COLOR_BANNED'); ?>
+              <?php endif; ?>
+            </span>
+            <span class="kwho-user">
+              <?php if ($this->linkUserlistAllowedToShow) : ?>
+                <a href="<?php echo KunenaRoute::_('index.php?option=com_kunena&view=user&layout=list&usertype=user'); ?>" class="kwho-user"><?php echo Text::_('COM_KUNENA_COLOR_USER'); ?></a>
+              <?php else : ?>
+                <?php echo Text::_('COM_KUNENA_COLOR_USER'); ?>
+              <?php endif; ?>
+            </span>
+            <span class="kwho-guest">
+              <?php echo Text::_('COM_KUNENA_COLOR_GUEST'); ?>
+            </span>
           </li>
-          <?php
-          $template  = KunenaTemplate::getInstance();
-          $direction = $template->params->get('whoisonlineName');
-
-          if ($direction == 'both') :
-          ?>
-            <li><?php echo $this->setLayout('both'); ?></li>
-          <?php
-          elseif ($direction == 'avatar') :
-          ?>
-            <li><?php echo $this->setLayout('avatar'); ?></li>
-          <?php else :
-          ?>
-            <li><?php echo $this->setLayout('name'); ?></li>
-          <?php
-          endif;
-          ?>
-
-          <?php if (!empty($this->onlineList)) :
-          ?>
-            <li>
-              <span><?php echo Text::_('COM_KUNENA_LEGEND'); ?>:</span>
-              <span class="kwho-admin">
-                <?php echo Text::_('COM_KUNENA_COLOR_ADMINISTRATOR'); ?>
-              </span>
-              <span class="kwho-globalmoderator">
-                  <?php if ($this->linkUserlistAllowedToShow) : ?>
-                      <a href="<?php echo KunenaRoute::_('index.php?option=com_kunena&view=user&layout=list&usertype=globalmod'); ?>" class="kwho-globalmoderator"><?php echo Text::_('COM_KUNENA_COLOR_GLOBAL_MODERATOR'); ?></a>
-                <?php else : ?>
-                    <?php echo Text::_('COM_KUNENA_COLOR_GLOBAL_MODERATOR'); ?>
-                <?php endif; ?>
-              </span>
-              <span class="kwho-moderator">
-                  <?php echo Text::_('COM_KUNENA_COLOR_MODERATOR'); ?>
-              </span>
-              <span class="kwho-banned">
-                  <?php if ($this->linkUserlistAllowedToShow) : ?>
-                      <a href="<?php echo KunenaRoute::_('index.php?option=com_kunena&view=user&layout=list&usertype=banned'); ?>" class="kwho-banned"><?php echo Text::_('COM_KUNENA_COLOR_BANNED'); ?></a>
-                <?php else : ?>
-                    <?php echo Text::_('COM_KUNENA_COLOR_BANNED'); ?>
-                <?php endif; ?>
-              </span>
-              <span class="kwho-user">
-                  <?php if ($this->linkUserlistAllowedToShow) : ?>
-                      <a href="<?php echo KunenaRoute::_('index.php?option=com_kunena&view=user&layout=list&usertype=user'); ?>" class="kwho-user"><?php echo Text::_('COM_KUNENA_COLOR_USER'); ?></a>
-                <?php else : ?>
-                    <?php echo Text::_('COM_KUNENA_COLOR_USER'); ?>
-                <?php endif; ?>
-              </span>
-              <span class="kwho-guest">
-                <?php echo Text::_('COM_KUNENA_COLOR_GUEST'); ?>
-              </span>
-            </li>
-          <?php endif; ?>
-        </ul>
-      </div>
+        <?php endif; ?>
+      </ul>
     </div>
 
   </div>

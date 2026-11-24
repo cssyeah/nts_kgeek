@@ -1742,12 +1742,18 @@ a .rounded,
 // --------------------
 #kstats,
 #kwho {
-  .kcol {
-    gap: 1rem;
+  #kwho-body,
+  #kstats-body {
+    background: var(--kbase-2);
+    border-radius: .5rem;
+    padding: .375rem .25rem;
+  }
 
-    @media (min-width: $screen-md) {
-      display: flex;
-    }
+  .kwho-wrapper,
+  .kstats-wrapper {
+    background: var(--kbase-1);
+    border-radius: 6px;
+    padding: 1.25rem;
   }
 
   ul {
@@ -1758,14 +1764,6 @@ a .rounded,
     margin: 0;
     padding: 0;
     flex: 1;
-
-    & + ul {
-      margin-top: 1rem;
-
-      @media (min-width: $screen-md) {
-        margin-top: 0;
-      }
-    }
 
     li {
       padding: 0;
@@ -1779,6 +1777,62 @@ a .rounded,
         display: flex;
         align-items: center;
         gap: .25rem;
+      }
+    }
+  }
+}
+
+#kwho {
+  .kwho-online-list {
+    padding-bottom: .5rem;
+  }
+
+  .kwho-legend {
+    border-top: 1px dashed var(--kborder-color);
+    font-size: .875rem;
+    padding-top: .5rem;
+
+    span {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+
+      &::after {
+        background: var(--kborder-color);
+        border-radius: 50%;
+        content: "";
+        display: flex;
+        height: 4px;
+        width: 4px;
+      }
+
+      &:last-child::after {
+        display: none;
+      }
+    }
+  }
+}
+
+#kstats {
+  .kstats-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+    ul {
+      li {
+        display: flex;
+        align-items: center;
+        gap: .5rem;
+
+        &::before {
+          background: var(--kborder-color);
+          border-radius: 3px;
+          content: "";
+          display: block;
+          height: 6px;
+          width: 6px;
+        }
       }
     }
   }
