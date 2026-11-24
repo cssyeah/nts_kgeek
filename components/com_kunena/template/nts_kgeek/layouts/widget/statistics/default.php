@@ -32,7 +32,12 @@ use Kunena\Forum\Libraries\Icons\KunenaIcons;
       <?php endif; ?>
     </h2>
 
-    <div class="ksection-toggle" data-bs-toggle="collapse" data-bs-target="#kstats-body"><?php echo KunenaIcons::collapse(); ?></div>
+    <div class="ksection-toggle">
+      <button class="kbtn-toggle-collapse" data-bs-toggle="collapse" data-bs-target="#kstats-body">
+        <i class="fa-solid fa-plus"></i>
+        <i class="fa-solid fa-minus"></i>
+      </button>
+    </div>
   </div>
 
   <div id="kstats-body" class="ksection-body">

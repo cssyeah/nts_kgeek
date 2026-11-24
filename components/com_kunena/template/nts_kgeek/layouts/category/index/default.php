@@ -61,7 +61,7 @@ foreach ($this->sections as $section) :
           <a class="kbtn kbtn-primary btn-sm" href="<?php echo Route::_('index.php?option=com_kunena&view=category&catid=' . (int) $section->id . '&layout=manage&Itemid=' . $Itemid); ?>"><?php echo KunenaIcons::pencil(); ?></a>
         <?php endif; ?>
 
-        <button class="" type="button" aria-expanded="false" aria-controls="section<?php echo $section->id; ?>" data-bs-toggle="collapse" data-bs-target="#section<?php echo $section->id; ?>">
+        <button class="kbtn-toggle-collapse" type="button" aria-expanded="false" aria-controls="section<?php echo $section->id; ?>" data-bs-toggle="collapse" data-bs-target="#section<?php echo $section->id; ?>">
           <i class="fa-solid fa-plus"></i>
           <i class="fa-solid fa-minus"></i>
         </button>
